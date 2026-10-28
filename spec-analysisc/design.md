@@ -3,7 +3,7 @@
 Status: Draf desain berdasarkan requirement revisi 4  
 Tanggal: 28 Oktober 2026  
 Spesifikasi aktif: `requirement.md`  
-Lingkup: rancangan pengalaman, visual, konten, logika, struktur aplikasi, dan verifikasi. Daftar implementasi tersedia di `Task.md`; fondasi T01 serta data dan validator struktur T02 sudah dibuat. Fitur berikutnya belum diimplementasikan.
+Lingkup: rancangan pengalaman, visual, konten, logika, struktur aplikasi, dan verifikasi. Daftar implementasi tersedia di `Task.md`; fondasi T01, data/validator T02, fungsi skor/alasan T03, dan pemeriksa lengkap T04 sudah dibuat. Fitur berikutnya belum diimplementasikan.
 
 ### Acuan steering untuk agen AI
 
@@ -227,7 +227,7 @@ Enumerasi terpisah pada tahap penyusunan dokumen, memakai pemetaan dan aturan di
 
 Ada 424 kombinasi dengan seri pada skor utama, sekitar 41,41%. Seri relatif sering pada model ringkas ini; aturan pembanding dan urutan tetap merupakan bagian wajib perhitungan. Aplikasi nantinya harus menghasilkan jumlah yang sama dalam verifikasi regresi.
 
-Pemeriksaan ini sudah dilakukan terhadap rancangan matematis, belum terhadap implementasi website. Skrip pemeriksaan sementara bukan dependensi aplikasi. Jika pemetaan atau pemecah seri berubah, hitung ulang seluruh kombinasi dan perbarui tabel ini.
+Angka acuan awal berasal dari pemeriksaan rancangan matematis. Pada T04, enumerasi menggunakan fungsi produksi di browser juga telah mengonfirmasi seluruh jumlah tersebut dan 424 seri primer; bukti tersedia di `docs/t04-scoring-check.json`. Pemeriksa tidak menjadi dependensi halaman produk. Jika pemetaan atau pemecah seri berubah, hitung ulang seluruh kombinasi dan perbarui tabel ini.
 
 ### 5.4 Alasan hasil yang mengikuti jawaban
 
@@ -247,6 +247,16 @@ Untuk karakter pemenang, ambil dua jawaban paling awal menurut urutan Q01–Q10 
 | Q10 | Kamu tertarik merapikan detail pelaksanaan. | Kamu mencari strategi agar usaha berikutnya lebih berdampak. |
 
 Pemenang selalu memiliki sedikitnya dua pilihan pemberi skor karena sepuluh jawaban dibagi ke lima karakter. Alasan tidak boleh diambil dari pilihan yang tidak dipilih pengguna.
+
+### 5.5 API logika produksi — implementasi T03
+
+`TraumaQuiz.quiz.validateAnswers(answers)` menerima array tepat sepuluh pilihan A/B dan mengembalikan `{ isValid, errors }`. Jawaban kosong, slot kosong, tipe lain, atau opsi selain A/B ditolak tanpa konversi otomatis.
+
+`TraumaQuiz.quiz.calculateResult(data, answers)` memvalidasi data dan jawaban, lalu mengembalikan `{ characterId, scores, reasons }`. `scores` berisi skor kelima ID karakter, `reasons` berisi dua teks alasan paling awal yang mendukung pemenang, dan `characterId` dipakai UI untuk mencari profil pada data. Output baru dibuat pada setiap panggilan; input tidak dimutasi.
+
+Jika input tidak valid, perhitungan melempar `TypeError` berisi penjelasan dan tidak menghasilkan karakter pengganti. Controller pada tugas integrasi dapat memakai hasil validator untuk mengarahkan pengguna ke pertanyaan yang belum dijawab sebelum meminta hasil. Fungsi produksi tidak mengakses DOM, timer, state sesi, jaringan, atau proses acak. Kontrak ini menerapkan aturan bagian 5.1–5.4 tanpa mengubah bobot atau pemetaan.
+
+Pemeriksaan terpilih T03 tersedia pada `checks/result-unit-check.html`. Pemeriksa enumerasi lengkap T04 tersedia pada `checks/scoring-check.html`, dengan petunjuk, status lulus/gagal, tabel distribusi, dan laporan JSON.
 
 ## 6. Isi kelima hasil — FR-07, FR-08
 

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pemeriksaan skor lengkap T04</title>
+  <link rel="icon" href="data:,">
+  <script src="../js/data.js" defer></script>
+  <script src="../js/quiz.js" defer></script>
+  <script src="scoring-check.js" defer></script>
+</head>
+<body>
+  <h1>Pemeriksaan skor lengkap T04</h1>
+  <p>Dari root proyek, jalankan <code>python -m http.server 8000 --bind 127.0.0.1</code>, lalu buka
+    <code>http://127.0.0.1:8000/checks/scoring-check.html</code>. Muat ulang halaman untuk mengulang pemeriksaan.</p>
+  <p>Pemeriksa menggunakan fungsi produksi tanpa dependensi. Persentase menganggap seluruh kombinasi setara,
+    bukan perkiraan distribusi jawaban pengguna atau validitas psikologis.</p>
+  <p id="check-summary" role="status">Pemeriksaan belum selesai.</p>
+  <table>
+    <caption>Distribusi hasil dari kombinasi yang selesai diperiksa</caption>
+    <thead><tr><th scope="col">Karakter</th><th scope="col">Aktual</th><th scope="col">Acuan</th><th scope="col">Persentase</th></tr></thead>
+    <tbody id="distribution-body"></tbody>
+  </table>
+  <h2>Rincian pemeriksaan</h2>
+  <pre id="check-report">Laporan belum tersedia.</pre>
+  <noscript><p>Aktifkan JavaScript untuk menjalankan pemeriksa.</p></noscript>
+</body>
+</html>

@@ -155,6 +155,81 @@
     return { isValid: errors.length === 0, errors };
   }
 
-  // Perhitungan skor, pemecah seri, dan pemilihan alasan dikerjakan pada T03.
-  app.quiz = { validateData };
+  function validateAnswers(answers) {
+    const errors = [];
+
+    if (!Array.isArray(answers) || answers.length !== QUESTION_COUNT) {
+      return { isValid: false, errors: ['Jawaban harus berupa array berisi sepuluh pilihan.'] };
+    }
+
+    for (const [index, answer] of answers.entries()) {
+      if (!OPTION_IDS.includes(answer)) {
+        errors.push(`Jawaban Q${String(index + 1).padStart(2, '0')} harus A atau B.`);
+      }
+    }
+
+    return { isValid: errors.length === 0, errors };
+  }
+
+  function calculateScores(data, selections) {
+    const scores = {};
+    for (const character of data.characters) {
+      scores[character.id] = 0;
+    }
+    for (const option of selections) {
+      scores[option.characterId] += option.points;
+    }
+    return scores;
+  }
+
+  function selectWinner(data, selections, scores) {
+    const highestScore = Math.max(...Object.values(scores));
+    const candidates = data.tieBreakOrder.filter((id) => scores[id] === highestScore);
+
+    if (candidates.length === 1) {
+      return candidates[0];
+    }
+
+    const comparisonScores = {};
+    for (const id of candidates) {
+      comparisonScores[id] = 0;
+    }
+
+    // Kelompok seri awal tetap dipakai; pembanding tidak dihitung ulang secara rekursif.
+    for (const [index, question] of data.questions.entries()) {
+      if (question.options.every((option) => candidates.includes(option.characterId))) {
+        comparisonScores[selections[index].characterId] += 1;
+      }
+    }
+
+    const highestComparisonScore = Math.max(...Object.values(comparisonScores));
+    return data.tieBreakOrder.find((id) => candidates.includes(id)
+      && comparisonScores[id] === highestComparisonScore);
+  }
+
+  function calculateResult(data, answers) {
+    const dataValidation = validateData(data);
+    if (!dataValidation.isValid) {
+      throw new TypeError(`Data kuis tidak valid: ${dataValidation.errors.join(' ')}`);
+    }
+
+    const answerValidation = validateAnswers(answers);
+    if (!answerValidation.isValid) {
+      throw new TypeError(`Jawaban kuis tidak valid: ${answerValidation.errors.join(' ')}`);
+    }
+
+    const selections = data.questions.map((question, index) => question.options.find(
+      (option) => option.id === answers[index]
+    ));
+    const scores = calculateScores(data, selections);
+    const characterId = selectWinner(data, selections, scores);
+    const reasons = selections
+      .filter((option) => option.characterId === characterId)
+      .slice(0, 2)
+      .map((option) => option.reason);
+
+    return { characterId, scores, reasons };
+  }
+
+  app.quiz = { validateData, validateAnswers, calculateResult };
 })();

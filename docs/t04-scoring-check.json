@@ -1,0 +1,104 @@
+{
+  "task": "T04",
+  "date": "2026-10-28",
+  "os": "Windows-11-10.0.26300-SP0",
+  "browser": "Chrome 156.0.8078.73 headless",
+  "url": "http://127.0.0.1:51026/",
+  "result": "PASS",
+  "resources": [
+    {
+      "path": "checks/scoring-check.html",
+      "status": 200
+    },
+    {
+      "path": "checks/scoring-check.js",
+      "status": 200
+    },
+    {
+      "path": "js/data.js",
+      "status": 200
+    },
+    {
+      "path": "js/quiz.js",
+      "status": 200
+    }
+  ],
+  "report": {
+    "passed": true,
+    "total": 14,
+    "completed": 1024,
+    "primaryTies": 424,
+    "distribution": {
+      "B": 240,
+      "Y": 204,
+      "C": 196,
+      "P": 192,
+      "H": 192
+    },
+    "tests": [
+      {
+        "name": "Validasi struktur dan enumerasi seluruh kombinasi",
+        "passed": true
+      },
+      {
+        "name": "Distribusi dan seri sesuai desain; semua karakter terjangkau",
+        "passed": true
+      },
+      {
+        "name": "Contoh B dan seri lima kandidat",
+        "passed": true
+      },
+      {
+        "name": "Contoh Y",
+        "passed": true
+      },
+      {
+        "name": "Contoh C",
+        "passed": true
+      },
+      {
+        "name": "Contoh P",
+        "passed": true
+      },
+      {
+        "name": "Contoh H",
+        "passed": true
+      },
+      {
+        "name": "Seri dua kandidat: pembanding mengalahkan prioritas C",
+        "passed": true
+      },
+      {
+        "name": "Seri siklus tiga kandidat: fallback tetap",
+        "passed": true
+      },
+      {
+        "name": "Mengubah satu jawaban menghitung ulang dan tidak menggandakan skor",
+        "passed": true
+      },
+      {
+        "name": "Tolak input kosong",
+        "passed": true
+      },
+      {
+        "name": "Tolak input tidak lengkap",
+        "passed": true
+      },
+      {
+        "name": "Tolak input slot kosong",
+        "passed": true
+      },
+      {
+        "name": "Tolak input opsi tidak dikenal",
+        "passed": true
+      }
+    ]
+  },
+  "excluded_from_product_page": true,
+  "sha256": {
+    "js/data.js": "14014f8dfc2064eac835cfa67b390faaba5bcc03053d7db1cfc0f5e285d8caa2",
+    "js/quiz.js": "8fbe1b7aeb356ce37a74ce067d98723a8217c0b27bb0c681dcb1f6fd3216171a",
+    "checks/scoring-check.html": "8b52471dee6ecf82ff128cc224bdb5037cb2e0a80626646be259bf53d78fa7a5",
+    "checks/scoring-check.js": "92fd7d5143dca93c8a79ea72fdc1b27697aaa347b0b60ff8547bf2403531b7ca"
+  }
+}

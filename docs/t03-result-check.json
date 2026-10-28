@@ -1,0 +1,283 @@
+{
+  "task": "T03",
+  "date": "2026-10-28",
+  "os": "Windows-11-10.0.26300-SP0",
+  "browser": "Chrome 156.0.8078.73 headless",
+  "url": "http://127.0.0.1:62130/",
+  "result": "PASS",
+  "targeted_checks": {
+    "passed": true,
+    "total": 28,
+    "tests": [
+      {
+        "name": "Baek sesuai desain",
+        "passed": true
+      },
+      {
+        "name": "Yang sesuai desain",
+        "passed": true
+      },
+      {
+        "name": "Cheon sesuai desain",
+        "passed": true
+      },
+      {
+        "name": "Park sesuai desain",
+        "passed": true
+      },
+      {
+        "name": "Han sesuai desain",
+        "passed": true
+      },
+      {
+        "name": "Seri dua kandidat",
+        "passed": true
+      },
+      {
+        "name": "Pembanding mengalahkan prioritas C sebelum H",
+        "passed": true
+      },
+      {
+        "name": "Seri siklus tiga kandidat",
+        "passed": true
+      },
+      {
+        "name": "Semua A: lima skor 4 dan fallback B",
+        "passed": true
+      },
+      {
+        "name": "Koreksi jawaban tanpa akumulasi skor",
+        "passed": true
+      },
+      {
+        "name": "Input dibekukan tidak dimutasi",
+        "passed": true
+      },
+      {
+        "name": "Output tidak berbagi state antar pemanggilan",
+        "passed": true
+      },
+      {
+        "name": "Fallback tidak bergantung pada urutan array karakter",
+        "passed": true
+      },
+      {
+        "name": "Tolak jawaban undefined",
+        "passed": true
+      },
+      {
+        "name": "Tolak jawaban null",
+        "passed": true
+      },
+      {
+        "name": "Tolak jawaban string",
+        "passed": true
+      },
+      {
+        "name": "Tolak jawaban objek",
+        "passed": true
+      },
+      {
+        "name": "Tolak jawaban kosong",
+        "passed": true
+      },
+      {
+        "name": "Tolak jawaban sembilan",
+        "passed": true
+      },
+      {
+        "name": "Tolak jawaban sebelas",
+        "passed": true
+      },
+      {
+        "name": "Tolak jawaban slot kosong",
+        "passed": true
+      },
+      {
+        "name": "Tolak jawaban null dalam jawaban",
+        "passed": true
+      },
+      {
+        "name": "Tolak jawaban opsi X",
+        "passed": true
+      },
+      {
+        "name": "Tolak jawaban huruf kecil",
+        "passed": true
+      },
+      {
+        "name": "Tolak jawaban angka",
+        "passed": true
+      },
+      {
+        "name": "Tolak jawaban spasi",
+        "passed": true
+      },
+      {
+        "name": "Data rusak tidak menghasilkan karakter asal",
+        "passed": true
+      },
+      {
+        "name": "Jawaban valid diterima",
+        "passed": true
+      }
+    ],
+    "fixtures": [
+      {
+        "name": "Baek sesuai desain",
+        "pattern": "AAAAAAAAAA",
+        "result": {
+          "characterId": "B",
+          "scores": {
+            "B": 4,
+            "Y": 4,
+            "C": 4,
+            "P": 4,
+            "H": 4
+          },
+          "reasons": [
+            "Kamu membantu tim menemukan langkah pertama.",
+            "Kamu berani menggerakkan tindakan saat situasi berubah."
+          ]
+        }
+      },
+      {
+        "name": "Yang sesuai desain",
+        "pattern": "AAAAABAAAA",
+        "result": {
+          "characterId": "Y",
+          "scores": {
+            "B": 4,
+            "Y": 6,
+            "C": 4,
+            "P": 2,
+            "H": 4
+          },
+          "reasons": [
+            "Kamu terbuka belajar sambil membantu teman.",
+            "Kamu memakai masukan untuk mencoba cara baru."
+          ]
+        }
+      },
+      {
+        "name": "Cheon sesuai desain",
+        "pattern": "AAAAAAAABA",
+        "result": {
+          "characterId": "C",
+          "scores": {
+            "B": 4,
+            "Y": 4,
+            "C": 6,
+            "P": 4,
+            "H": 2
+          },
+          "reasons": [
+            "Kamu memperhatikan kapasitas orang di dalam tim.",
+            "Kamu membantu orang menghadapi tekanan bersama."
+          ]
+        }
+      },
+      {
+        "name": "Park sesuai desain",
+        "pattern": "AAAAAAABAA",
+        "result": {
+          "characterId": "P",
+          "scores": {
+            "B": 4,
+            "Y": 4,
+            "C": 2,
+            "P": 6,
+            "H": 4
+          },
+          "reasons": [
+            "Kamu memperbaiki hasil dengan pemeriksaan yang teliti.",
+            "Kamu menjaga kualitas pada bagian yang berisiko salah."
+          ]
+        }
+      },
+      {
+        "name": "Han sesuai desain",
+        "pattern": "AAAAAAAAAB",
+        "result": {
+          "characterId": "H",
+          "scores": {
+            "B": 4,
+            "Y": 4,
+            "C": 4,
+            "P": 2,
+            "H": 6
+          },
+          "reasons": [
+            "Kamu menyiapkan arah dan kemungkinan alternatif.",
+            "Kamu menilai pilihan berdasarkan dampaknya pada tujuan tim."
+          ]
+        }
+      },
+      {
+        "name": "Seri dua kandidat",
+        "pattern": "AAAAABAAAB",
+        "result": {
+          "characterId": "Y",
+          "scores": {
+            "B": 4,
+            "Y": 6,
+            "C": 4,
+            "P": 0,
+            "H": 6
+          },
+          "reasons": [
+            "Kamu terbuka belajar sambil membantu teman.",
+            "Kamu memakai masukan untuk mencoba cara baru."
+          ]
+        }
+      },
+      {
+        "name": "Pembanding mengalahkan prioritas C sebelum H",
+        "pattern": "AAAABAAAAB",
+        "result": {
+          "characterId": "H",
+          "scores": {
+            "B": 4,
+            "Y": 2,
+            "C": 6,
+            "P": 2,
+            "H": 6
+          },
+          "reasons": [
+            "Kamu menyiapkan arah dan kemungkinan alternatif.",
+            "Kamu menilai pilihan berdasarkan dampaknya pada tujuan tim."
+          ]
+        }
+      },
+      {
+        "name": "Seri siklus tiga kandidat",
+        "pattern": "AAABBBBAAB",
+        "result": {
+          "characterId": "B",
+          "scores": {
+            "B": 6,
+            "Y": 2,
+            "C": 6,
+            "P": 0,
+            "H": 6
+          },
+          "reasons": [
+            "Kamu membantu tim menemukan langkah pertama.",
+            "Kamu berani menggerakkan tindakan saat situasi berubah."
+          ]
+        }
+      }
+    ]
+  },
+  "t02_regression": {
+    "passed": true,
+    "total": 45
+  },
+  "main_foundation_ready": true,
+  "sha256": {
+    "js/quiz.js": "8fbe1b7aeb356ce37a74ce067d98723a8217c0b27bb0c681dcb1f6fd3216171a",
+    "checks/result-unit-check.html": "f59551317ede61afa5ce948ff5aeca408dfe9dcf85659733d2804f2864b69149",
+    "checks/result-unit-check.js": "cede7055b1b82c0d971a08d8dc18f9f91a7f1166275b1d568ef0052941512797"
+  },
+  "scope": "Targeted T03 cases; exhaustive scoring checker and full enumeration remain T04."
+}

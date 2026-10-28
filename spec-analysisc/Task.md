@@ -1,6 +1,7 @@
 # Task — Which Trauma Code Character Are You?
 
-Status: Implementasi bertahap; T01–T02 selesai, T03–T22 belum dikerjakan  
+Status: Implementasi bertahap; T01–T04 selesai, T05–T22 belum dikerjakan
+
 Tanggal: 28 Oktober 2026  
 Acuan: `requirement.md` revisi 4 dan `design.md`, termasuk bagian 3.6 tentang interaksi mouse dan bagian 11 tentang gambar dari internet.
 
@@ -64,7 +65,7 @@ Isi `data.js` dengan Q01–Q10, masing-masing dua pilihan A/B, poin 2, ID karakt
 
 **Bukti T02:** selesai pada 28 Oktober 2026. Data dan tema cocok dengan tabel desain; 45 kasus validator lulus di Chrome headless, termasuk input rusak dan input yang dibekukan. Uji inisialisasi data tidak valid menampilkan pesan, tanpa penanda siap dan tanpa membuka kuis/hasil. Rincian: [verification.md](../docs/verification.md), [t02-data-check.json](../docs/t02-data-check.json). Pemeriksa struktur tersedia melalui `checks/data-check.html`; skor T03 dan pemeriksa skor T04 belum dibuat.
 
-- [ ] **T03 — Implementasikan skor, pemecah seri, dan alasan hasil.**
+- [x] **T03 — Implementasikan skor, pemecah seri, dan alasan hasil.**
 
 **Dependensi:** T02. **Kebutuhan:** FR-06, FR-07, NFR-02, NFR-10. **Desain:** Bagian 5 dan 7.
 
@@ -72,13 +73,17 @@ Implementasikan fungsi murni di `quiz.js`: validasi jawaban, hitung ulang skor d
 
 **Selesai jika:** jawaban lengkap menghasilkan satu karakter dan dua alasan yang sesuai; input kosong atau tidak dikenal ditolak; jumlah skor selalu 20. Contoh jawaban untuk lima karakter pada desain menghasilkan karakter yang diharapkan.
 
-- [ ] **T04 — Buat pemeriksa skor tanpa dependensi.**
+**Bukti T03:** selesai pada 28 Oktober 2026. Sebanyak 28 kasus fungsi produksi lulus di Chrome headless: kelima contoh karakter, seri dua/tiga/lima kandidat, alasan berurutan, determinisme, koreksi jawaban, input tidak dimutasi, serta penolakan input rusak. Regresi 45 kasus T02 dan inisialisasi halaman juga lulus. Rincian: [verification.md](../docs/verification.md), [t03-result-check.json](../docs/t03-result-check.json). Pemeriksaan terpilih tersedia pada `checks/result-unit-check.html`; enumerasi 1.024 kombinasi dan pemeriksa skor lengkap tetap T04.
+
+- [x] **T04 — Buat pemeriksa skor tanpa dependensi.**
 
 **Dependensi:** T03. **Kebutuhan:** FR-06, FR-07. **Desain:** Bagian 5.3 dan 9.2.
 
 Buat `checks/scoring-check.html` dan `checks/scoring-check.js` yang memanggil fungsi produksi dari `quiz.js`. Enumerasi 1.024 kombinasi, periksa determinisme, seri dua karakter, seri banyak karakter, perubahan jawaban, alasan hasil, dan input tidak lengkap. Pemeriksa tidak dimuat pada halaman produk.
 
 **Selesai jika:** jumlah hasil persis B=240, Y=204, C=196, P=192, H=192; total 1.024 dan seri skor utama 424. Setiap karakter berada pada rentang 15–25%. Semua A menghasilkan lima skor 4 dan hasil B. Ringkasan lulus/gagal serta langkah menjalankan dapat dibaca di browser. Perubahan aturan wajib memperbarui desain dan hasil pembanding terlebih dahulu.
+
+**Bukti T04:** selesai pada 28 Oktober 2026. Pemeriksa `checks/scoring-check.html` memakai fungsi produksi dan lulus 14 kelompok pemeriksaan, termasuk enumerasi 1.024 kombinasi dengan distribusi tepat serta 424 seri primer. Determinisme, dua alasan, validitas skor, koreksi jawaban, dan penolakan input rusak diperiksa. Pemeriksa tidak dimuat halaman produk. Rincian: [verification.md](../docs/verification.md) dan [t04-scoring-check.json](../docs/t04-scoring-check.json).
 
 ### Tahap B — Aset dan dasar visual
 
@@ -279,8 +284,8 @@ Saat implementasi dimulai, buat `docs/verification.md` untuk bukti lintas tugas.
 | Bukti | Tangkapan layar, keluaran pemeriksa, angka pengukuran, atau catatan uji pengguna tanpa identitas pribadi. |
 | Tindak lanjut | Masalah, perbaikan, dan pemeriksaan ulang yang diperlukan. |
 
-Status awal seluruh tugas adalah belum dikerjakan. Status terkini: **T01–T02 selesai; T03–T22 belum dikerjakan**. Pemeriksaan matematis pada tahap desain sebelumnya hanya menjadi acuan T04; itu belum membuktikan logika skor produksi atau UI lengkap telah dibuat dan lulus.
+Status awal seluruh tugas adalah belum dikerjakan. Status terkini: **T01–T04 selesai; T05–T22 belum dikerjakan**. Logika skor produksi lulus pemeriksaan terpilih T03 dan enumerasi lengkap T04; UI kuis lengkap belum dibuat.
 
 ## 6. Batas pekerjaan saat ini
 
-Fondasi T01 serta data dan validasi struktur T02 telah dibuat dan diperiksa sesuai catatan verifikasi. Pekerjaan berhenti setelah T02; logika skor, UI kuis/hasil lengkap, pengadaan gambar, uji pengguna, serta deployment belum dikerjakan.
+Fondasi T01, data/validator T02, logika skor/alasan T03, dan pemeriksa skor lengkap T04 telah dibuat serta diperiksa. Pekerjaan berhenti setelah T04; UI kuis/hasil lengkap, pengadaan gambar, uji pengguna, serta deployment belum dikerjakan.

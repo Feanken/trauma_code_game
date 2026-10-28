@@ -1,6 +1,6 @@
 # Catatan Verifikasi
 
-Status terkini: **T01–T02 selesai; T03–T22 belum dikerjakan**. Setiap bagian di bawah mencatat keadaan pada akhir tugas terkait.
+Status terkini: **T01–T04 selesai; T05–T22 belum dikerjakan**. Setiap bagian di bawah mencatat keadaan pada akhir tugas terkait.
 
 ## T01 — Fondasi website statis
 
@@ -107,3 +107,118 @@ Untuk mengulangi pemeriksa struktur: jalankan server statis dari root proyek sep
 T02 hanya mencakup data dan validator struktur berikut penanganan kegagalannya. Belum ada fungsi penghitungan skor, pemecah seri, atau pemilihan alasan hasil; data alasan sudah disiapkan tetapi belum dipilih berdasarkan jawaban. Enumerasi skor 1.024 kombinasi pada fungsi produksi menunggu T03–T04.
 
 Halaman utama tetap berupa fondasi T01 dengan informasi kuis belum tersedia. Foto, render kuis/hasil lengkap, animasi, serta efek pointer belum dibuat. Pengujian visual/pembaca layar, JavaScript mati, ponsel nyata, dan pengguna tidak dinyatakan lulus oleh pemeriksaan T02. Pekerjaan berhenti pada T02 sesuai lingkup permintaan.
+
+## T03 — Skor, pemecah seri, dan alasan hasil
+
+Tanggal: 28 Oktober 2026 (Asia/Jakarta).
+
+Kebutuhan: FR-06, FR-07, NFR-02, NFR-10.
+
+Dependensi: T02 selesai; repository bersih saat pekerjaan dimulai.
+
+Status: **kriteria selesai T03 terpenuhi**. T04–T22 belum dikerjakan.
+
+### Perubahan
+
+- `js/quiz.js`: menambahkan validator jawaban serta fungsi murni `calculateResult(data, answers)`, dengan helper internal untuk skor dan pemecah seri. Input divalidasi sebelum dihitung; hasil baru berisi `characterId`, `scores`, dan dua `reasons`. Data/jawaban tidak dimutasi. Input tidak valid ditolak dengan `TypeError`.
+- `checks/result-unit-check.html` dan `checks/result-unit-check.js`: pemeriksaan terpilih yang memakai fungsi produksi, terpisah dari halaman produk. Tidak berisi enumerasi penuh atau fungsi skor pengganti.
+- `spec-analysisc/design.md`: mendokumentasikan kontrak API pada bagian 5.5. Bobot, pemetaan, dan aturan seri tetap sama.
+- `spec-analysisc/Task.md`: mencentang T03 setelah pemeriksaan lulus.
+- `docs/t03-result-check.json`: bukti hasil aktual, fixture, regresi, lingkungan, dan hash file yang diuji.
+
+### Lingkungan dan prosedur
+
+Windows 11 build 26300, Chrome 156.0.8078.73 headless, dan server file Python sementara pada `http://127.0.0.1:62130/`. Pengujian localhost dijalankan dengan izin lingkungan; tidak memasang dependensi aplikasi. Server dihentikan setelah pemeriksaan.
+
+Pemeriksa T03 dijalankan melalui browser, kemudian pemeriksa data T02 dijalankan ulang karena `quiz.js` digunakan bersama. Halaman utama juga diperiksa untuk memastikan penanda inisialisasi fondasi masih hadir.
+
+### Hasil aktual
+
+| Pemeriksaan | Hasil |
+| --- | --- |
+| Lima contoh jawaban pada desain | Lulus: masing-masing menghasilkan B, Y, C, P, atau H yang diharapkan, dengan dua alasan benar dan total skor 20. |
+| Seri dua kandidat | Lulus: pembanding memilih pemenang, termasuk H mengalahkan C meskipun C lebih awal pada urutan fallback. |
+| Seri siklus tiga kandidat | Lulus: kelompok seri awal tetap dipakai, lalu urutan tetap menentukan B setelah pembanding masih seri. |
+| Seri lima kandidat pada semua A | Lulus: kelima skor 4 dan hasil B. |
+| Determinisme | Lulus: panggilan ulang pada fixture yang sama menghasilkan objek bernilai sama, termasuk urutan alasan. |
+| Koreksi Q10 dan koreksi balik | Lulus: skor dihitung dari jawaban terbaru; hasil lama tidak berubah dan tidak ada akumulasi skor klik. |
+| Kemurnian input/output | Lulus pada input dibekukan rekursif; mengubah objek hasil pertama tidak memengaruhi panggilan berikutnya. |
+| Input kosong/tidak dikenal | Lulus: validator menolak 13 variasi tipe, panjang, slot, serta opsi tidak valid; perhitungan tidak menghasilkan karakter. |
+| Data dengan bobot rusak | Lulus: ditolak sebelum perhitungan hasil. |
+| Total pemeriksaan T03 | **28 dari 28 kasus lulus**. |
+| Regresi validator T02 | **45 dari 45 kasus tetap lulus**. |
+| Halaman produk | Penanda `data-foundation-ready="true"` tetap hadir setelah script termuat. |
+
+Pada percobaan awal, dua fixture pengujian mengharapkan alasan Han dari Q04 dan Q10. Pemeriksaan memperlihatkan Q09 juga mendukung Han dan muncul lebih dahulu daripada Q10. Acuan uji dikoreksi menjadi Q04 dan Q09 sesuai desain bagian 5.4; kode produksi tidak diubah untuk menyesuaikan acuan yang salah. Hasil akhir di atas berasal dari pengujian ulang yang lulus.
+
+Bukti mesin: [t03-result-check.json](t03-result-check.json). Untuk mengulang kasus terpilih, jalankan server statis dari root proyek lalu buka `http://127.0.0.1:8000/checks/result-unit-check.html`; laporan seharusnya menunjukkan `passed: true` dan `total: 28`.
+
+Contoh pemakaian API pada console halaman yang sudah dimuat:
+
+```javascript
+TraumaQuiz.quiz.validateAnswers('AAAAAAAAAA'.split(''));
+TraumaQuiz.quiz.calculateResult(TraumaQuiz.data, 'AAAAAAAAAA'.split(''));
+```
+
+Hasil perhitungan contoh adalah `characterId: 'B'`, lima skor 4, dan dua alasan pendukung dari Q01 serta Q03.
+
+### Batas dan serah terima
+
+Pengujian ini memakai kasus terpilih, belum mengonfirmasi distribusi produksi pada seluruh 1.024 kombinasi. Enumerasi penuh serta `checks/scoring-check.html`/`checks/scoring-check.js` tetap merupakan T04. Angka distribusi pada desain belum dinyatakan sebagai hasil pengujian produksi oleh T03.
+
+UI utama tetap berupa fondasi dengan pesan kuis belum tersedia; fungsi skor belum terhubung ke interaksi pengguna. Tidak ada perubahan aset, efek mouse, atau hosting publik. Pekerjaan berhenti setelah T03 sesuai permintaan.
+
+## T04 — Pemeriksa skor lengkap tanpa dependensi
+
+Tanggal: 28 Oktober 2026 (Asia/Jakarta).
+
+Kebutuhan: FR-06, FR-07. Dependensi T03 sudah selesai. Perubahan lokal T03 yang belum di-commit dipertahankan.
+
+Status: **seluruh kriteria T04 terpenuhi**. T05–T22 belum dikerjakan.
+
+### File dan cara menjalankan
+
+- `checks/scoring-check.html`: petunjuk menjalankan, status LULUS/GAGAL, tabel distribusi aktual/acuan, serta laporan JSON yang terbaca di browser.
+- `checks/scoring-check.js`: memanggil validator dan `calculateResult` produksi. Tidak membawa algoritma skor pengganti atau dependensi tambahan, dan tidak dimuat oleh `index.html`.
+- `docs/t04-scoring-check.json`: hasil browser, metadata lingkungan, resource HTTP, dan hash SHA-256 data, logika produksi, serta kedua file pemeriksa.
+- `spec-analysisc/Task.md` dan `spec-analysisc/design.md`: memperbarui status serta bukti pemeriksaan lengkap. Bobot, pemetaan, dan logika produksi tidak diubah.
+
+Dari root proyek, jalankan:
+
+```powershell
+python -m http.server 8000 --bind 127.0.0.1
+```
+
+Buka `http://127.0.0.1:8000/checks/scoring-check.html`. Pemeriksaan otomatis berjalan saat halaman dimuat; refresh untuk mengulang. Target tampilannya adalah **LULUS: 1024/1024 kombinasi; seri primer 424**, dengan `passed: true` pada laporan. Hentikan server menggunakan Ctrl+C.
+
+### Lingkungan dan hasil aktual
+
+Windows 11 build 26300, Chrome 156.0.8078.73 headless, server Python statis sementara pada `http://127.0.0.1:51026/` (port aktual tersedia pada berkas bukti). Server localhost dijalankan dengan izin lingkungan dan dihentikan setelah pengujian. Alamat pengujian bukan preview yang masih aktif.
+
+| Karakter | Hasil aktual/acuan | Persentase |
+| --- | --- | --- |
+| B — Baek Kang-hyuk | 240 / 240 | 23,44% |
+| Y — Yang Jae-won | 204 / 204 | 19,92% |
+| C — Cheon Jang-mi | 196 / 196 | 19,14% |
+| P — Park Gyeong-won | 192 / 192 | 18,75% |
+| H — Han Yu-rim | 192 / 192 | 18,75% |
+| Total | **1.024 / 1.024** | **100%** |
+
+Semua karakter terjangkau dan berada pada rentang 15–25%. Seri pada skor utama berjumlah **424**, persis sesuai desain. Seluruh **14 kelompok pemeriksaan lulus**:
+
+- Validasi struktur produksi sebelum enumerasi.
+- Seluruh kombinasi menghasilkan satu ID yang valid, lima skor bilangan bulat genap 0–8 dengan total 20, serta pemenang yang termasuk kandidat skor tertinggi.
+- Pemanggilan ulang pada setiap kombinasi menghasilkan nilai hasil dan alasan yang sama.
+- Dua alasan untuk setiap kombinasi berasal dari pilihan pendukung paling awal dan mengikuti urutan pertanyaan.
+- Input enumerasi dibekukan, termasuk data secara rekursif, untuk menangkap mutasi input.
+- Lima contoh hasil, pembanding seri dua kandidat, fallback siklus tiga kandidat, dan semua A dengan lima skor 4 lalu hasil B.
+- Koreksi Q10 dan koreksi balik tanpa akumulasi skor atau perubahan hasil lama.
+- Penolakan jawaban kosong, tidak lengkap, slot kosong, dan opsi tidak dikenal.
+
+Keempat resource pemeriksa/data/logika mengembalikan HTTP 200. Pemeriksaan sumber `index.html` memastikan pemeriksa skor tidak dimuat pada halaman produk. Tidak ada kegagalan yang memerlukan perubahan kode produksi pada T04.
+
+Bukti lengkap: [t04-scoring-check.json](t04-scoring-check.json).
+
+### Batas dan serah terima
+
+Persentase memperlakukan seluruh kombinasi biner berbobot sama; ini bukan prediksi distribusi jawaban manusia atau bukti psikologi ilmiah. Pengujian dilakukan pada Chrome desktop headless, bukan bukti kompatibilitas seluruh browser atau ponsel nyata. Tidak ada UI kuis lengkap, aset, atau efek pointer yang dibuat pada tugas ini. Pekerjaan berhenti setelah T04.
