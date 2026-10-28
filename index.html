@@ -13,6 +13,8 @@
   <script src="js/script.js" defer></script>
 </head>
 <body>
+  <div id="ambient-far" class="ambient ambient-far" aria-hidden="true"></div>
+  <div id="ambient-near" class="ambient ambient-near" aria-hidden="true"></div>
   <main id="app" class="site-shell">
     <section id="landing-screen" class="panel split-layout" aria-labelledby="project-title">
       <div>
@@ -23,7 +25,7 @@
         <button id="start-quiz" type="button" class="button button--primary" hidden><span class="control-surface">Start Quiz</span></button>
         <p class="muted" style="margin-top:24px">Proyek penggemar nonkomersial untuk hiburan; tidak berafiliasi resmi.</p>
       </div>
-      <div class="id-card-wrapper" aria-hidden="true">
+      <div id="landing-card-wrapper" class="id-card-wrapper" aria-hidden="true">
         <div class="id-card">
           <div class="id-card-media">Trauma Team</div>
           <div class="id-card-body"><p class="eyebrow">TRAUMA TEAM ID CARD</p><h2>Peranmu menanti</h2><p>Sepuluh pilihan akan membentuk hasilmu.</p></div>
@@ -42,9 +44,9 @@
     </section>
     <section id="result-screen" class="panel" aria-labelledby="result-title" hidden>
       <p class="eyebrow">TRAUMA TEAM / HASIL</p>
-      <h2 id="result-title" tabindex="-1">Ini peranmu di tim trauma</h2>
+      <h2 id="result-title" tabindex="-1">Ini peranmu di tim trauma<span id="result-announced-name" class="sr-only"></span></h2>
       <div class="result-layout">
-        <div class="id-card-wrapper">
+        <div id="result-card-wrapper" class="id-card-wrapper">
           <article id="result-card" class="id-card">
             <div class="id-card-media result-media">
               <img id="result-photo" alt="" width="360" height="270" hidden>

@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "label": "mouse fine tersedia",
+      "passed": true
+    },
+    {
+      "label": "reduced motion menetralkan tilt",
+      "passed": true
+    },
+    {
+      "label": "reduced motion menetralkan latar",
+      "passed": true
+    },
+    {
+      "label": "reduced motion tetap maju tepat satu",
+      "passed": true
+    }
+  ]
+}

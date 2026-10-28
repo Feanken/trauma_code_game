@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "label": "mouse fine tersedia",
+      "passed": true
+    },
+    {
+      "label": "tilt pembuka",
+      "passed": true
+    },
+    {
+      "label": "tilt dibatasi",
+      "passed": true
+    },
+    {
+      "label": "parallax latar",
+      "passed": true
+    },
+    {
+      "label": "keyboard reset",
+      "passed": true
+    },
+    {
+      "label": "ganti layar reset",
+      "passed": true
+    },
+    {
+      "label": "tilt hasil: 1.69deg, hidden=false, rect=154.125,652.5625,360x456.765625, viewport=1280x1000, fine=true, ambient=-2.42px",
+      "passed": true
+    },
+    {
+      "label": "touch reset",
+      "passed": true
+    },
+    {
+      "label": "ulang reset",
+      "passed": true
+    }
+  ]
+}

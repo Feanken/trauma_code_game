@@ -34,10 +34,26 @@
         check(page.getElementById('result-description').textContent === character.description, `deskripsi ${id}`);
         check(page.querySelectorAll('#result-strengths li').length === 3, `kekuatan ${id}`);
         check([...page.querySelectorAll('#result-reasons li')].map((node) => node.textContent).join('|') === expected.reasons.join('|'), `alasan ${id}`);
-        check(page.getElementById('result-photo').naturalWidth === 720 && !page.getElementById('result-photo').hidden, `foto lokal ${id}`);
+        check(page.getElementById('result-photo').naturalWidth === 720 && !page.getElementById('result-photo').hidden && page.getElementById('result-photo').currentSrc.endsWith(character.image.src), `foto lokal ${id}`);
         check(page.getElementById('result-title') === page.activeElement, `fokus hasil ${id}`);
+        const card = page.getElementById('result-card');
+        const cardBounds = card.getBoundingClientRect();
+        card.dispatchEvent(new frame.contentWindow.PointerEvent('pointermove', {
+          bubbles: true, pointerType: 'mouse', clientX: cardBounds.left + cardBounds.width * 0.75,
+          clientY: cardBounds.top + 30
+        }));
+        await wait(45);
+        check(card.style.getPropertyValue('--card-rotate-y').endsWith('deg'), `tilt tema ${id}`);
+
       }
+      const failedPhoto = page.getElementById('result-photo');
+      const staleLoad = failedPhoto.onload;
+      failedPhoto.src = 'assets/images/not-found.jpg';
+      await wait(60);
+      check(failedPhoto.hidden && page.getElementById('result-initials').textContent.length === 2 && !page.getElementById('restart-quiz').hidden, 'foto gagal memakai fallback');
       page.getElementById('restart-quiz').click();
+      staleLoad();
+      check(failedPhoto.hidden && !failedPhoto.hasAttribute('src'), 'callback foto lama diabaikan');
       check(!page.getElementById('result-card').hasAttribute('data-theme'), 'tema lama bersih');
       check(page.getElementById('result-name').textContent === '' && page.getElementById('result-initials').textContent === '', 'isi lama bersih');
       check([...page.querySelectorAll('#answer-options button')].every((button) => button.getAttribute('aria-pressed') === 'false'), 'jawaban lama bersih');

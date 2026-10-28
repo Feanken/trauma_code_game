@@ -1,0 +1,92 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "label": "fokus awal normal",
+      "passed": true
+    },
+    {
+      "label": "Tab menuju Start Quiz",
+      "passed": true
+    },
+    {
+      "label": "Enter mulai dan fokus Q01 {\"focus\":\"question-title\",\"landingHidden\":true,\"quizHidden\":false}",
+      "passed": true
+    },
+    {
+      "label": "pertanyaan ada pada pohon aksesibilitas",
+      "passed": true
+    },
+    {
+      "label": "Tab menuju pilihan A",
+      "passed": true
+    },
+    {
+      "label": "Space memilih satu dan fokus Q02",
+      "passed": true
+    },
+    {
+      "label": "Tab menuju Back",
+      "passed": true
+    },
+    {
+      "label": "Enter Back dan fokus Q01",
+      "passed": true
+    },
+    {
+      "label": "pilihan lama tersedia",
+      "passed": true
+    },
+    {
+      "label": "keyboard sepuluh jawaban ke hasil",
+      "passed": true
+    },
+    {
+      "label": "nama karakter diumumkan pada heading aksesibel",
+      "passed": true
+    },
+    {
+      "label": "Tab menuju Ulangi",
+      "passed": true
+    },
+    {
+      "label": "Enter ulang dan fokus Q01",
+      "passed": true
+    },
+    {
+      "label": "zoom browser 200% pada viewport 320 px {\"zoom\":{\"innerWidth\":160,\"scrollWidth\":152,\"bodyWidth\":153,\"answerCount\":2},\"zoomBefore\":{\"dpr\":1,\"width\":764},\"zoomAfter\":{\"dpr\":2,\"width\":382}}",
+      "passed": true
+    },
+    {
+      "label": "hasil tetap terbaca pada zoom browser 200% {\"innerWidth\":160,\"scrollWidth\":152,\"name\":\"Baek Kang-hyuk\",\"restartVisible\":true,\"offenders\":[[\"result-announced-name\",109]]}",
+      "passed": true
+    }
+  ],
+  "zoom": {
+    "innerWidth": 160,
+    "scrollWidth": 152,
+    "bodyWidth": 153,
+    "answerCount": 2
+  },
+  "zoomResult": {
+    "innerWidth": 160,
+    "scrollWidth": 152,
+    "name": "Baek Kang-hyuk",
+    "restartVisible": true,
+    "offenders": [
+      [
+        "result-announced-name",
+        109
+      ]
+    ]
+  },
+  "zoomBefore": {
+    "dpr": 1,
+    "width": 764
+  },
+  "zoomAfter": {
+    "dpr": 2,
+    "width": 382
+  },
+  "method": "Chrome CDP Input.dispatchKeyEvent, Ctrl+Plus 5x to native browser zoom 200%, Emulation viewport 320 device px"
+}

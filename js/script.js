@@ -58,6 +58,7 @@
     state.result = null;
     state.isTransitioning = false;
     app.ui.clearResult();
+    document.getElementById('quiz-screen').classList.remove('is-leaving');
     state.screen = 'quiz';
     app.ui.renderQuestion(app.data, state, true);
   }
@@ -72,6 +73,7 @@
     state.answers[index] = optionId;
     state.result = null;
     app.ui.markSelection(optionId);
+    document.getElementById('quiz-screen').classList.add('is-leaving');
     const version = state.sessionVersion;
     transitionTimer = setTimeout(() => completeQuestion(version, index), 180);
   }

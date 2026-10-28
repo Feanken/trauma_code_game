@@ -439,3 +439,15 @@ Rancangan aset ini tetap berlaku. Penelusuran T05 pada 28 Oktober 2026 sudah men
 
 
 **Keputusan aset terbaru:** atas instruksi pengguna, lima still internet dipakai untuk proyek pribadi tanpa syarat pencatatan sumber/kredit di aplikasi. Lima gambar lokal 720 × 480 dipakai oleh hasil kuis.
+
+
+**Status T11–T12:** hasil lima karakter dan ulang kuis lulus pemeriksaan final Chrome setelah lima gambar lokal terpasang; rincian di `docs/t11-t12-final-check.json`.
+
+
+**Status T13–T14:** efek mouse dan reduced motion T13 telah dibuat dan diverifikasi; semantik aksesibilitas T14 diperbarui, tetapi uji pembaca layar nyata dan zoom 200% belum selesai.
+
+
+**Verifikasi T14 lanjutan:** keyboard native Chrome dan pohon aksesibilitas lulus; laporan pembaca layar manual dan zoom browser asli 200% masih ditunggu.
+
+
+**T14 zoom:** Chrome native 200% pada viewport 320 px telah diuji untuk Q01 dan hasil B tanpa overflow setelah penyesuaian CSS lebar efektif kecil. Uji pembaca layar manual masih ditunggu.

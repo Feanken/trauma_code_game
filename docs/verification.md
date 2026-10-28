@@ -1,6 +1,6 @@
 # Catatan Verifikasi
 
-Status terkini: **T01–T04 dan T07 selesai; T05 belum selesai (3 potret pemeran lokal); T06 belum selesai dan menunggu T05; T08–T10 selesai; T11–T12 dibuat sebagian namun belum selesai; T13–T22 belum dikerjakan**. Setiap bagian di bawah mencatat keadaan pada akhir tugas terkait.
+Status terkini: **T01–T04 dan T07 selesai; T05 belum selesai (3 potret pemeran lokal); T06 belum selesai dan menunggu T05; T08–T10 selesai; T11–T12 selesai; T13 selesai; T14 belum selesai; T15–T22 belum dikerjakan**. Setiap bagian di bawah mencatat keadaan pada akhir tugas terkait.
 
 ## T01 — Fondasi website statis
 
@@ -354,3 +354,35 @@ Langkah penyelesaian: temukan sumber foto P/H dengan lisensi/izin yang mendukung
 Pengguna mengubah ketentuan aset: lima still internet boleh dipakai untuk proyek pribadi ini tanpa syarat sumber/kredit pada aplikasi. Lima gambar kandidat lama diunduh, diperkecil menjadi JPEG 720 × 480 kualitas 78, dan ditinjau visual: wajah B/Y/C/P/H terlihat jelas pada rasio 4:3. Ukuran masing-masing 52.205, 44.027, 48.085, 53.994, dan 60.635 byte. Total lima foto 258.946 byte. File lokal berada di `assets/images/`; `js/data.js` merujuk kelimanya. Browser Chrome headless memuat lima foto lokal dalam alur lima hasil: [109/109 pemeriksaan lulus](t05-t06-integration-check.json). Tidak ada hotlink runtime. Fallback inisial tetap ada pada `js/ui.js` bila foto gagal.
 
 Catatan sumber lama di `assets/SOURCES.md` adalah arsip penelusuran, bukan syarat rilis sesuai keputusan pengguna. Foto digunakan hanya pada proyek pribadi sebagaimana dijelaskan pengguna. T05 dan T06 selesai; T11/T12 memerlukan tinjauan status terpisah setelah perubahan aset ini.
+
+
+## T11–T12 — Verifikasi final
+
+Tanggal: 28 Oktober 2026. T05–T06 kini menyediakan lima still lokal 720 × 480; dependensi T03, T07, T10 juga selesai. Status: **T11 dan T12 selesai**.
+
+Chrome headless pada Windows 11 melalui server statis Python menjalankan [111 pemeriksaan hasil/reset](t11-t12-final-check.json): lima contoh jawaban desain menghasilkan B/Y/C/P/H; tiap hasil memuat nama, gelar, deskripsi, tiga kekuatan, dua alasan yang cocok dengan fungsi skor produksi, tema dan gambar lokal yang sesuai. Gambar gagal dipaksa ke URL lokal tidak ada; inisial serta tombol ulang tetap tersedia. Callback `onload` dari gambar sesi lama diabaikan setelah reset. Lima percobaan dengan hasil berbeda berjalan tanpa reload; ulang membersihkan gambar, nama, tema, pilihan, progres, dan fokus kembali ke heading Q01. [Regresi alur 36 pemeriksaan](t11-t12-flow-check.json) tetap lulus.
+
+Foto asli dan hasil 720 × 480 ditinjau visual pada T05/T06. Pengujian ini memastikan gambar lokal dimuat pada kartu; pemeriksaan perangkat nyata, zoom, dan pembaca layar tetap pada T14–T17. `git diff --check` lulus. T13 tidak dimulai.
+
+
+## T13–T14 — Gerakan dan aksesibilitas
+
+Tanggal: 28 Oktober 2026. Status: **T13 selesai; T14 belum selesai**.
+
+T13 menambahkan dua lapisan latar dekoratif dengan batas ±6/±12 px, tilt kartu ±3° serta sorotan yang mengikuti posisi mouse pada pembuka dan hasil. Pembaruan pointer digabung dalam satu `requestAnimationFrame` dengan fallback timer satu kali bila frame ditunda; tidak ada loop saat mouse diam. Mode keyboard/touch, reduced motion, blur, pergantian layar, dan ulang mereset properti efek serta callback tertunda. Kontrol dan panel kuis tetap stabil. Pilihan mendapat umpan balik sebelum pergantian singkat 180 ms; hasil mendapat reveal 360 ms yang dinonaktifkan dalam reduced motion. T13 lulus [10 pemeriksaan mode normal](t13-motion-normal.json), [4 mode reduced motion](t13-motion-reduced.json), dan [116 pemeriksaan lima tema hasil/regresi](t13-five-theme-check.json) di Chrome headless Windows 11. Regresi alur T08–T10 dan pemeriksa responsif T07 juga tetap lulus.
+
+T14 menambahkan nama karakter pada heading hasil yang difokuskan melalui teks khusus pembaca layar, mempertahankan alt foto kosong karena nama ada pada kartu, serta memastikan dekorasi `aria-hidden` dan tidak menerima input. [100 pemeriksaan struktural](t14-structural-check.json) lulus pada 320, 375, 768, 1280 CSS px: bahasa, layar tersembunyi, fokus kontrol, target minimal 44 px, label/kelompok pilihan, progres, serta kontras teks lima tema minimal 4,5:1. Teks hasil dan alasan tetap teks DOM.
+
+Kriteria T14 yang **belum dibuktikan**: alur keyboard penuh dengan Tab/Enter/Space pada input browser nyata, zoom browser 200% tanpa kehilangan isi, dan pengumuman pertanyaan/hasil oleh pembaca layar sungguhan. Pemeriksaan DOM dan atribut ARIA tidak menggantikannya. Karena itu T14 tidak dicentang. Pemeriksaan tersebut perlu dilakukan sebelum T14 ditutup; T15 tidak dimulai pada pekerjaan ini.
+
+
+## T14 — Verifikasi keyboard dan pembesaran lanjutan
+
+Tanggal: 28 Oktober 2026. Pemeriksaan [CDP Chrome](t14-keyboard-zoom-check.json) menggunakan `Input.dispatchKeyEvent` sehingga Tab, Enter, dan Space diproses browser sebagai input keyboard nyata. **15/15 pemeriksaan lulus**: mulai kuis, memilih dengan Space, Back dengan Enter, pilihan lama, sepuluh jawaban hingga hasil, Ulangi kuis, fokus heading, serta nama pertanyaan/hasil pada pohon aksesibilitas Chrome. Pengaturan ukuran efektif 160 CSS px dengan skala perangkat 2 menghasilkan ruang tata letak setara viewport 320 px pada pembesaran 200%; `scrollWidth=145` dan `innerWidth=160`, sehingga tidak terjadi overflow horizontal pada layar Q01 yang diuji. Ini semula simulasi reflow; pemeriksaan zoom browser asli 200% berikutnya dicatat di bawah.
+
+Pengumuman suara/teks oleh Narrator atau NVDA belum dapat ditangkap otomatis di lingkungan ini. Pengguna menyatakan akan melakukan pemeriksaan manual dan melaporkan hasilnya. T14 tetap **belum selesai dan tidak dicentang** sampai pengumuman judul pertanyaan dan hasil dibuktikan, sementara zoom browser asli 200% pada Q01 dan hasil B sudah diperiksa di bawah. Pemeriksa CDP tersedia di `checks/accessibility-cdp-check.cjs`; ia hanya alat pengembangan dan tidak dimuat website.
+
+
+### Zoom browser asli 200% — pemeriksaan tambahan
+
+Chrome CDP mengirim shortcut Ctrl+Plus lima kali. `devicePixelRatio` meningkat dari 1 menjadi 2, sehingga browser benar-benar berada pada zoom 200%. Setelah viewport disetel ke 320 device px, lebar efektif menjadi 160 CSS px. Layar Q01 dan hasil B semula menunjukkan overflow pada daftar hasil (`scrollWidth=178`); CSS untuk daftar dan tombol hasil pada lebar efektif kecil diperbaiki. Pemeriksaan ulang [15/15 lulus](t14-keyboard-zoom-check.json): layar Q01 dan hasil B masing-masing `scrollWidth=152 <= innerWidth=160`, nama serta tombol ulang tetap ada. Ini membuktikan zoom asli pada skenario yang diuji, bukan seluruh kombinasi perangkat. Pengumuman pembaca layar sungguhan masih menunggu laporan pengguna; T14 tetap terbuka.

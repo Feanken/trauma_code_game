@@ -24,6 +24,7 @@
   const options = document.getElementById('answer-options');
 
   function showScreen(name) {
+    resetPointerEffects();
     landing.hidden = name !== 'landing';
     quiz.hidden = name !== 'quiz';
     result.hidden = name !== 'result';
@@ -64,6 +65,7 @@
     });
     document.getElementById('back-button').hidden = state.currentIndex === 0;
     showScreen('quiz');
+    quiz.classList.remove('is-leaving');
     if (focusHeading) title.focus();
   }
 
@@ -93,8 +95,10 @@
     photo.removeAttribute('src');
     photo.hidden = true;
     initials.textContent = '';
+    document.getElementById('result-announced-name').textContent = '';
     document.getElementById('result-card').removeAttribute('data-theme');
     document.getElementById('result-screen').removeAttribute('data-theme');
+    result.classList.remove('is-revealing');
     ['result-name', 'result-character-title', 'result-summary', 'result-description',
       'result-message', 'result-motif'].forEach((id) => {
       document.getElementById(id).textContent = '';
@@ -111,6 +115,7 @@
     card.dataset.theme = character.id;
     result.dataset.theme = character.id;
     document.getElementById('result-name').textContent = character.name;
+    document.getElementById('result-announced-name').textContent = `: ${character.name}`;
     document.getElementById('result-character-title').textContent = character.title;
     document.getElementById('result-summary').textContent = character.summary;
     document.getElementById('result-description').textContent = character.description;
@@ -130,8 +135,108 @@
       photo.src = character.image.src;
     }
     showScreen('result');
+    result.classList.add('is-revealing');
     document.getElementById('result-title').focus();
   }
 
-  app.ui = { showInitializationError, showScreen, renderQuestion, markSelection, renderResult, clearResult };
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const finePointer = window.matchMedia('(any-hover: hover) and (any-pointer: fine)');
+  const far = document.getElementById('ambient-far');
+  const near = document.getElementById('ambient-near');
+  let inputMode = 'mouse';
+  let pendingFrame = 0;
+  let pendingTimer = 0;
+  let pointer = null;
+  let activeCard = null;
+
+  function resetPointerEffects() {
+    if (pendingFrame) cancelAnimationFrame(pendingFrame);
+    if (pendingTimer) clearTimeout(pendingTimer);
+    pendingFrame = 0;
+    pendingTimer = 0;
+    pointer = null;
+    if (activeCard) {
+      activeCard.style.removeProperty('--card-rotate-x');
+      activeCard.style.removeProperty('--card-rotate-y');
+      activeCard.style.removeProperty('--glow-x');
+      activeCard.style.removeProperty('--glow-y');
+      activeCard.style.removeProperty('--glow-opacity');
+      activeCard = null;
+    }
+    [far, near].forEach((layer) => {
+      layer.style.removeProperty('--ambient-x');
+      layer.style.removeProperty('--ambient-y');
+    });
+  }
+
+  function drawPointer() {
+    if (pendingTimer) clearTimeout(pendingTimer);
+    pendingFrame = 0;
+    pendingTimer = 0;
+    if (!pointer || motionPreference.matches || !finePointer.matches || inputMode !== 'mouse') return;
+    const { x, y, card } = pointer;
+    const viewportX = Math.max(-1, Math.min(1, x / window.innerWidth * 2 - 1));
+    const viewportY = Math.max(-1, Math.min(1, y / window.innerHeight * 2 - 1));
+    far.style.setProperty('--ambient-x', `${(viewportX * 6).toFixed(2)}px`);
+    far.style.setProperty('--ambient-y', `${(viewportY * 6).toFixed(2)}px`);
+    near.style.setProperty('--ambient-x', `${(viewportX * 12).toFixed(2)}px`);
+    near.style.setProperty('--ambient-y', `${(viewportY * 12).toFixed(2)}px`);
+    if (activeCard && activeCard !== card) {
+      activeCard.style.removeProperty('--card-rotate-x');
+      activeCard.style.removeProperty('--card-rotate-y');
+      activeCard.style.removeProperty('--glow-opacity');
+    }
+    activeCard = card;
+    if (!card) return;
+    const bounds = card.parentElement.getBoundingClientRect();
+    const normalizedX = Math.max(-1, Math.min(1, (x - bounds.left) / bounds.width * 2 - 1));
+    const normalizedY = Math.max(-1, Math.min(1, (y - bounds.top) / bounds.height * 2 - 1));
+    card.style.setProperty('--card-rotate-x', `${(-normalizedY * 3).toFixed(2)}deg`);
+    card.style.setProperty('--card-rotate-y', `${(normalizedX * 3).toFixed(2)}deg`);
+    card.style.setProperty('--glow-x', `${((normalizedX + 1) * 50).toFixed(1)}%`);
+    card.style.setProperty('--glow-y', `${((normalizedY + 1) * 50).toFixed(1)}%`);
+    card.style.setProperty('--glow-opacity', '1');
+  }
+
+  function queuePointer(event) {
+    if (event.pointerType !== 'mouse' || motionPreference.matches || !finePointer.matches) return;
+    inputMode = 'mouse';
+    const activeScreen = !landing.hidden ? landing : !result.hidden ? result : quiz;
+    const wrapper = activeScreen.querySelector('.id-card-wrapper');
+    pointer = { x: event.clientX, y: event.clientY,
+      card: wrapper && wrapper.contains(event.target) ? wrapper.querySelector('.id-card') : null };
+    if (!pendingFrame) {
+      pendingFrame = requestAnimationFrame(drawPointer);
+      pendingTimer = setTimeout(() => {
+        if (pendingFrame) cancelAnimationFrame(pendingFrame);
+        drawPointer();
+      }, 34);
+    }
+  }
+
+  document.addEventListener('pointermove', queuePointer, { passive: true });
+  document.addEventListener('pointerdown', (event) => {
+    if (event.pointerType !== 'mouse') { inputMode = 'touch'; resetPointerEffects(); }
+  }, { passive: true });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Tab' || event.key === 'Enter' || event.key === ' ') {
+      inputMode = 'keyboard'; resetPointerEffects();
+    }
+  }, true);
+  document.addEventListener('pointerout', (event) => {
+    if (!event.relatedTarget) resetPointerEffects();
+    else if (activeCard && !activeCard.parentElement.contains(event.relatedTarget)) {
+      activeCard.style.removeProperty('--card-rotate-x');
+      activeCard.style.removeProperty('--card-rotate-y');
+      activeCard.style.removeProperty('--glow-opacity');
+      activeCard = null;
+    }
+  });
+  window.addEventListener('blur', resetPointerEffects);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) resetPointerEffects(); });
+  motionPreference.addEventListener('change', resetPointerEffects);
+  finePointer.addEventListener('change', resetPointerEffects);
+
+  app.ui = { showInitializationError, showScreen, renderQuestion, markSelection, renderResult,
+    clearResult, resetPointerEffects };
 })();

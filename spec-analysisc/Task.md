@@ -1,6 +1,6 @@
 # Task — Which Trauma Code Character Are You?
 
-Status: Implementasi bertahap; T01–T04 dan T07 selesai; T05–T06 selesai sesuai keputusan terbaru pengguna; T08–T10 selesai; T11–T12 siap diverifikasi ulang setelah T05–T06; T13–T22 belum dikerjakan
+Status: Implementasi bertahap; T01–T04 dan T07 selesai; T05–T06 selesai sesuai keputusan terbaru pengguna; T08–T10 selesai; T11–T12 selesai setelah verifikasi foto dan reset; T13 selesai; T14 diimplementasikan sebagian, belum selesai; T15–T22 belum dikerjakan
 
 Tanggal: 28 Oktober 2026  
 Acuan: `requirement.md` revisi 4 dan `design.md`, termasuk bagian 3.6 tentang interaksi mouse dan bagian 11 tentang gambar dari internet.
@@ -149,7 +149,7 @@ Kelola `screen`, `currentIndex`, `answers`, `isTransitioning`, `result`, dan `se
 
 **Bukti T10:** 36 pemeriksaan browser lulus termasuk klik ganda, Back, koreksi, hasil setelah Q10, fokus, dan refresh. Skor dihitung melalui fungsi T03; kartu hasil lengkap menunggu T11. Lihat [verification.md](../docs/verification.md#t08t10--alur-pembuka-pertanyaan-dan-navigasi).
 
-- [ ] **T11 — Bangun hasil lima karakter dan Trauma Team ID Card.**
+- [x] **T11 — Bangun hasil lima karakter dan Trauma Team ID Card.**
 
 **Dependensi:** T03, T06, T07, T10. **Kebutuhan:** FR-07, FR-08, FR-10, NFR-08. **Desain:** Bagian 2.3, 3.3, 5.4, 6, dan 11.
 
@@ -157,9 +157,9 @@ Hubungkan hasil ke nama, gelar, ringkasan kartu, foto karakter, deskripsi, tiga 
 
 **Selesai jika:** kelima hasil dapat ditinjau menggunakan contoh jawaban desain; foto/nama/tema/alasan sesuai; kegagalan gambar tidak menghilangkan hasil atau tombol. Tidak ada permintaan data pribadi, persentase kecocokan psikologis, atau tombol unduh/berbagi yang belum berfungsi.
 
-**Progres T11 — 28 Oktober 2026:** lima hasil, tema, alasan, tiga kekuatan, dan fallback inisial sudah terhubung serta lolos pemeriksa browser. Foto final, crop, dan atribusi belum tersedia karena T05/T06 belum selesai. T11 tetap belum dicentang. [Bukti](../docs/verification.md#t11t12--hasil-karakter-dan-pengulangan).
+**Bukti T11 — 28 Oktober 2026:** kelima hasil B/Y/C/P/H, foto lokal 720 × 480, nama, tema, tiga kekuatan, dua alasan, fallback inisial ketika gambar gagal, dan tombol hasil lulus 111 pemeriksaan gabungan T11–T12 di Chrome. Rincian: [verification.md](../docs/verification.md#t11t12--verifikasi-final).
 
-- [ ] **T12 — Hubungkan pengulangan dan bersihkan sesi lama.**
+- [x] **T12 — Hubungkan pengulangan dan bersihkan sesi lama.**
 
 **Dependensi:** T10, T11. **Kebutuhan:** FR-01, FR-09. **Desain:** Bagian 7.2–7.3.
 
@@ -167,17 +167,19 @@ Tombol Ulangi kuis membersihkan jawaban, progres, hasil, pilihan aktif, dan tema
 
 **Selesai jika:** beberapa percobaan berturut-turut berjalan tanpa reload; pola jawaban berbeda dapat menghasilkan karakter berbeda; callback dari sesi lama tidak mengubah percobaan baru.
 
-**Progres T12 — 28 Oktober 2026:** tombol Ulangi kuis, pembersihan hasil/tema/jawaban, dan beberapa sesi dengan hasil berbeda lolos pemeriksaan. Dependensi T11 belum selesai, maka T12 tetap belum dicentang. [Bukti](../docs/verification.md#t11t12--hasil-karakter-dan-pengulangan).
+**Bukti T12 — 28 Oktober 2026:** lima sesi berbeda tanpa reload, pembersihan jawaban/tema/isi hasil, fokus Q01 setelah ulang, dan penolakan callback foto lama diverifikasi. [Laporan](../docs/t11-t12-final-check.json).
 
 ### Tahap D — Interaksi dan aksesibilitas
 
-- [ ] **T13 — Tambahkan animasi dan respons visual lintas perangkat.**
+- [x] **T13 — Tambahkan animasi dan respons visual lintas perangkat.**
 
 **Dependensi:** T07, T10, T11, T12. **Kebutuhan:** FR-03, NFR-06, NFR-07, NFR-12. **Desain:** Bagian 3.5–3.6 dan 7.3.
 
 Terapkan efek tekan, hover hanya pada perangkat yang mendukungnya, transisi pertanyaan maksimal 320 ms, progres sekitar 180 ms, serta reveal hasil maksimal 450 ms. Tidak ada penantian analisis buatan. Reduced motion menghilangkan gerakan nonesensial tanpa merusak penguncian input. Implementasikan tilt dan sorotan yang mengikuti mouse pada pratinjau kartu pembuka dan kartu hasil, serta dua lapisan parallax latar sesuai desain 3.6: tilt ±3° per sumbu, offset ±6/±12 px, smoothing sekitar 120 ms, dan reset maksimal 180 ms. Aktifkan hanya pada event mouse yang memenuhi syarat hover/fine pointer tanpa reduced motion; gunakan tampilan netral untuk touch dan mode keyboard. Gunakan wrapper stabil, pembaruan requestAnimationFrame saat perlu, dan cleanup pada keluar viewport, pergantian layar, reset sesi, blur, serta halaman tersembunyi. Pertanyaan dan kontrol tidak ikut bergerak.
 
 **Selesai jika:** tilt, sorotan, dan kedua lapisan parallax mengikuti arah mouse sesuai batas pada kedua layar kartu dan seluruh tema hasil; semua kondisi reset/cleanup bekerja tanpa callback lama. Perubahan reduced motion dan input touch/keyboard langsung menetralkan efek. Hit area stabil, elemen penting tetap terbaca, dan pointer diam tidak menjalankan loop pembaruan efek terus-menerus. Mouse, sentuhan, dan keyboard mendapat umpan balik; transisi selesai sekali saja meski event animasi tidak terpanggil. Dengan reduced motion, fungsi tetap lengkap dan tidak terjadi lompatan pertanyaan.
+
+**Bukti T13 — 28 Oktober 2026:** tilt/sorotan kartu pembuka dan lima tema hasil, parallax dua lapisan, reset saat keyboard/touch/blur/ganti layar/ulang, reduced motion, dan regresi alur lulus di Chrome. [Rincian](../docs/verification.md#t13t14--gerakan-dan-aksesibilitas).
 
 - [ ] **T14 — Lengkapi semantik dan aksesibilitas.**
 
@@ -186,6 +188,8 @@ Terapkan efek tekan, hover hanya pada perangkat yang mendukungnya, transisi pert
 Atur heading, nama tombol, status pilihan, progres aksesibel, `hidden` pada layar nonaktif, alt foto, serta fokus setelah maju, kembali, dan hasil. Hindari pengumuman pembaca layar yang berganda. Ukur kontras pasangan warna aktual, bukan hanya warna token.
 
 **Selesai jika:** alur lengkap dapat dipakai dengan Tab/Enter/Space, fokus selalu terlihat, teks biasa berkontras minimal 4,5:1, dan zoom 200% tidak menghilangkan isi. Pembaca layar mengumumkan pertanyaan/hasil dengan jelas; dekorasi tidak mengganggu urutan baca.
+
+**Progres T14 — 28 Oktober 2026:** 100 pemeriksaan semantik/kontras lulus. Alur Tab/Enter/Space melalui Chrome DevTools lulus 15 pemeriksaan, termasuk heading pertanyaan/hasil di pohon aksesibilitas; zoom browser asli 200% pada viewport 320 px lulus tanpa overflow, termasuk layar hasil. Pengumuman pembaca layar nyata masih menunggu uji pengguna; checkbox tetap kosong. [Bukti](../docs/t14-keyboard-zoom-check.json) dan [catatan verifikasi](../docs/verification.md#t14--verifikasi-keyboard-dan-pembesaran-lanjutan).
 
 ### Tahap E — Verifikasi dan perbaikan
 
@@ -300,8 +304,8 @@ Saat implementasi dimulai, buat `docs/verification.md` untuk bukti lintas tugas.
 | Bukti | Tangkapan layar, keluaran pemeriksa, angka pengukuran, atau catatan uji pengguna tanpa identitas pribadi. |
 | Tindak lanjut | Masalah, perbaikan, dan pemeriksaan ulang yang diperlukan. |
 
-Status awal seluruh tugas adalah belum dikerjakan. Status terkini: **T01–T04 dan T07 selesai; T05–T06 selesai sesuai keputusan terbaru pengguna; T08–T10 selesai; T11–T12 siap diverifikasi ulang setelah T05–T06; T13–T22 belum dikerjakan**. Logika skor produksi lulus pemeriksaan terpilih T03 dan enumerasi lengkap T04; UI kuis lengkap belum dibuat.
+Status awal seluruh tugas adalah belum dikerjakan. Status terkini: **T01–T04 dan T07 selesai; T05–T06 selesai sesuai keputusan terbaru pengguna; T08–T10 selesai; T11–T12 selesai setelah verifikasi foto dan reset; T13 selesai; T14 diimplementasikan sebagian, belum selesai; T15–T22 belum dikerjakan**. Logika skor produksi lulus pemeriksaan terpilih T03 dan enumerasi lengkap T04; UI kuis lengkap belum dibuat.
 
 ## 6. Batas pekerjaan saat ini
 
-Fondasi T01, data/validator T02, logika skor/alasan T03, dan pemeriksa skor lengkap T04 telah dibuat serta diperiksa. Penelusuran T05 tercatat, tetapi izin dan crop aset final belum terkonfirmasi. Sistem visual dan layout dasar T07 selesai. T06 belum dapat dilaksanakan sampai T05 selesai. T08–T10 selesai. Kode hasil dan pengulangan T11–T12 sudah ditambahkan dan diuji, tetapi kedua tugas masih terbuka karena foto final T05/T06 belum tersedia. Efek pointer T13, uji pengguna, dan deployment belum dikerjakan. Pekerjaan berhenti setelah T12.
+Fondasi T01, data/validator T02, logika skor/alasan T03, dan pemeriksa skor lengkap T04 telah dibuat serta diperiksa. Penelusuran T05 tercatat, tetapi izin dan crop aset final belum terkonfirmasi. Sistem visual dan layout dasar T07 selesai. T06 belum dapat dilaksanakan sampai T05 selesai. T08–T10 selesai. Hasil dan pengulangan T11–T12 telah diverifikasi dan dicentang setelah lima foto lokal T05/T06 terpasang. Efek pointer T13, uji pengguna, dan deployment belum dikerjakan. Pekerjaan berhenti setelah T12.

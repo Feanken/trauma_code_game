@@ -1,0 +1,405 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "label": "tanpa overflow 320",
+      "passed": true
+    },
+    {
+      "label": "bahasa 320",
+      "passed": true
+    },
+    {
+      "label": "layar nonaktif 320",
+      "passed": true
+    },
+    {
+      "label": "fokus tombol 320",
+      "passed": true
+    },
+    {
+      "label": "target tombol 320",
+      "passed": true
+    },
+    {
+      "label": "progres 320",
+      "passed": true
+    },
+    {
+      "label": "fokus pertanyaan 320",
+      "passed": true
+    },
+    {
+      "label": "kelompok pilihan 320",
+      "passed": true
+    },
+    {
+      "label": "nama pilihan 320",
+      "passed": true
+    },
+    {
+      "label": "target pilihan 320",
+      "passed": true
+    },
+    {
+      "label": "kontras B 320",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel B 320",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif B 320",
+      "passed": true
+    },
+    {
+      "label": "kontras Y 320",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel Y 320",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif Y 320",
+      "passed": true
+    },
+    {
+      "label": "kontras C 320",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel C 320",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif C 320",
+      "passed": true
+    },
+    {
+      "label": "kontras P 320",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel P 320",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif P 320",
+      "passed": true
+    },
+    {
+      "label": "kontras H 320",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel H 320",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif H 320",
+      "passed": true
+    },
+    {
+      "label": "tanpa overflow 375",
+      "passed": true
+    },
+    {
+      "label": "bahasa 375",
+      "passed": true
+    },
+    {
+      "label": "layar nonaktif 375",
+      "passed": true
+    },
+    {
+      "label": "fokus tombol 375",
+      "passed": true
+    },
+    {
+      "label": "target tombol 375",
+      "passed": true
+    },
+    {
+      "label": "progres 375",
+      "passed": true
+    },
+    {
+      "label": "fokus pertanyaan 375",
+      "passed": true
+    },
+    {
+      "label": "kelompok pilihan 375",
+      "passed": true
+    },
+    {
+      "label": "nama pilihan 375",
+      "passed": true
+    },
+    {
+      "label": "target pilihan 375",
+      "passed": true
+    },
+    {
+      "label": "kontras B 375",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel B 375",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif B 375",
+      "passed": true
+    },
+    {
+      "label": "kontras Y 375",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel Y 375",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif Y 375",
+      "passed": true
+    },
+    {
+      "label": "kontras C 375",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel C 375",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif C 375",
+      "passed": true
+    },
+    {
+      "label": "kontras P 375",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel P 375",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif P 375",
+      "passed": true
+    },
+    {
+      "label": "kontras H 375",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel H 375",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif H 375",
+      "passed": true
+    },
+    {
+      "label": "tanpa overflow 768",
+      "passed": true
+    },
+    {
+      "label": "bahasa 768",
+      "passed": true
+    },
+    {
+      "label": "layar nonaktif 768",
+      "passed": true
+    },
+    {
+      "label": "fokus tombol 768",
+      "passed": true
+    },
+    {
+      "label": "target tombol 768",
+      "passed": true
+    },
+    {
+      "label": "progres 768",
+      "passed": true
+    },
+    {
+      "label": "fokus pertanyaan 768",
+      "passed": true
+    },
+    {
+      "label": "kelompok pilihan 768",
+      "passed": true
+    },
+    {
+      "label": "nama pilihan 768",
+      "passed": true
+    },
+    {
+      "label": "target pilihan 768",
+      "passed": true
+    },
+    {
+      "label": "kontras B 768",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel B 768",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif B 768",
+      "passed": true
+    },
+    {
+      "label": "kontras Y 768",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel Y 768",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif Y 768",
+      "passed": true
+    },
+    {
+      "label": "kontras C 768",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel C 768",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif C 768",
+      "passed": true
+    },
+    {
+      "label": "kontras P 768",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel P 768",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif P 768",
+      "passed": true
+    },
+    {
+      "label": "kontras H 768",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel H 768",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif H 768",
+      "passed": true
+    },
+    {
+      "label": "tanpa overflow 1280",
+      "passed": true
+    },
+    {
+      "label": "bahasa 1280",
+      "passed": true
+    },
+    {
+      "label": "layar nonaktif 1280",
+      "passed": true
+    },
+    {
+      "label": "fokus tombol 1280",
+      "passed": true
+    },
+    {
+      "label": "target tombol 1280",
+      "passed": true
+    },
+    {
+      "label": "progres 1280",
+      "passed": true
+    },
+    {
+      "label": "fokus pertanyaan 1280",
+      "passed": true
+    },
+    {
+      "label": "kelompok pilihan 1280",
+      "passed": true
+    },
+    {
+      "label": "nama pilihan 1280",
+      "passed": true
+    },
+    {
+      "label": "target pilihan 1280",
+      "passed": true
+    },
+    {
+      "label": "kontras B 1280",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel B 1280",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif B 1280",
+      "passed": true
+    },
+    {
+      "label": "kontras Y 1280",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel Y 1280",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif Y 1280",
+      "passed": true
+    },
+    {
+      "label": "kontras C 1280",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel C 1280",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif C 1280",
+      "passed": true
+    },
+    {
+      "label": "kontras P 1280",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel P 1280",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif P 1280",
+      "passed": true
+    },
+    {
+      "label": "kontras H 1280",
+      "passed": true
+    },
+    {
+      "label": "nama hasil aksesibel H 1280",
+      "passed": true
+    },
+    {
+      "label": "foto dekoratif H 1280",
+      "passed": true
+    }
+  ]
+}
