@@ -1,0 +1,599 @@
+{
+  "task": "T02",
+  "date": "2026-10-28",
+  "os": "Windows-11-10.0.26300-SP0",
+  "browser": "Chrome 156.0.8078.73 headless",
+  "url": "http://127.0.0.1:57528/",
+  "resources": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 1367
+    },
+    {
+      "path": "js/data.js",
+      "status": 200,
+      "bytes": 10355
+    },
+    {
+      "path": "js/quiz.js",
+      "status": 200,
+      "bytes": 5588
+    },
+    {
+      "path": "js/ui.js",
+      "status": 200,
+      "bytes": 639
+    },
+    {
+      "path": "js/script.js",
+      "status": 200,
+      "bytes": 626
+    },
+    {
+      "path": "checks/data-check.html",
+      "status": 200,
+      "bytes": 555
+    },
+    {
+      "path": "checks/data-check.js",
+      "status": 200,
+      "bytes": 5394
+    }
+  ],
+  "validator": {
+    "passed": true,
+    "total": 45,
+    "results": [
+      {
+        "name": "Data desain valid dan tidak dimutasi, termasuk input dibekukan",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "name": "Tolak root null",
+        "passed": true,
+        "errors": [
+          "Data kuis harus berupa objek."
+        ]
+      },
+      {
+        "name": "Tolak root array",
+        "passed": true,
+        "errors": [
+          "Data kuis harus berupa objek."
+        ]
+      },
+      {
+        "name": "Tolak root undefined",
+        "passed": true,
+        "errors": [
+          "Data kuis harus berupa objek."
+        ]
+      },
+      {
+        "name": "Tolak pertanyaan hilang",
+        "passed": true,
+        "errors": [
+          "Data harus memuat tepat sepuluh pertanyaan.",
+          "Kuis harus memuat sepuluh pasangan karakter yang unik.",
+          "Karakter B harus muncul dua kali di A dan dua kali di B.",
+          "Karakter Y harus muncul dua kali di A dan dua kali di B.",
+          "Karakter C harus muncul dua kali di A dan dua kali di B.",
+          "Karakter P harus muncul dua kali di A dan dua kali di B.",
+          "Karakter H harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak sembilan pertanyaan",
+        "passed": true,
+        "errors": [
+          "Data harus memuat tepat sepuluh pertanyaan.",
+          "Kuis harus memuat sepuluh pasangan karakter yang unik.",
+          "Karakter P harus muncul dua kali di A dan dua kali di B.",
+          "Karakter H harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak sebelas pertanyaan",
+        "passed": true,
+        "errors": [
+          "Data harus memuat tepat sepuluh pertanyaan.",
+          "questions[10].id harus unik dan mengikuti urutan Q01–Q10.",
+          "questions[10] memakai pasangan karakter yang sudah ada.",
+          "Karakter B harus muncul dua kali di A dan dua kali di B.",
+          "Karakter Y harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak slot pertanyaan kosong",
+        "passed": true,
+        "errors": [
+          "questions[0] harus berupa objek.",
+          "Kuis harus memuat sepuluh pasangan karakter yang unik.",
+          "Karakter B harus muncul dua kali di A dan dua kali di B.",
+          "Karakter Y harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak ID pertanyaan duplikat",
+        "passed": true,
+        "errors": [
+          "questions[1].id harus unik dan mengikuti urutan Q01–Q10."
+        ]
+      },
+      {
+        "name": "Tolak urutan pertanyaan berubah",
+        "passed": true,
+        "errors": [
+          "questions[0].id harus unik dan mengikuti urutan Q01–Q10.",
+          "questions[1].id harus unik dan mengikuti urutan Q01–Q10.",
+          "questions[2].id harus unik dan mengikuti urutan Q01–Q10.",
+          "questions[3].id harus unik dan mengikuti urutan Q01–Q10.",
+          "questions[4].id harus unik dan mengikuti urutan Q01–Q10.",
+          "questions[5].id harus unik dan mengikuti urutan Q01–Q10.",
+          "questions[6].id harus unik dan mengikuti urutan Q01–Q10.",
+          "questions[7].id harus unik dan mengikuti urutan Q01–Q10.",
+          "questions[8].id harus unik dan mengikuti urutan Q01–Q10.",
+          "questions[9].id harus unik dan mengikuti urutan Q01–Q10."
+        ]
+      },
+      {
+        "name": "Tolak pertanyaan nonobjek",
+        "passed": true,
+        "errors": [
+          "questions[0] harus berupa objek.",
+          "Kuis harus memuat sepuluh pasangan karakter yang unik.",
+          "Karakter B harus muncul dua kali di A dan dua kali di B.",
+          "Karakter Y harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak satu pilihan",
+        "passed": true,
+        "errors": [
+          "questions[0].options harus memuat tepat pilihan A dan B.",
+          "Kuis harus memuat sepuluh pasangan karakter yang unik.",
+          "Karakter B harus muncul dua kali di A dan dua kali di B.",
+          "Karakter Y harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak tiga pilihan",
+        "passed": true,
+        "errors": [
+          "questions[0].options harus memuat tepat pilihan A dan B.",
+          "Kuis harus memuat sepuluh pasangan karakter yang unik.",
+          "Karakter B harus muncul dua kali di A dan dua kali di B.",
+          "Karakter Y harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak pilihan hilang",
+        "passed": true,
+        "errors": [
+          "questions[0].options harus memuat tepat pilihan A dan B.",
+          "Kuis harus memuat sepuluh pasangan karakter yang unik.",
+          "Karakter B harus muncul dua kali di A dan dua kali di B.",
+          "Karakter Y harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak slot pilihan kosong",
+        "passed": true,
+        "errors": [
+          "questions[0].options[0] harus berupa objek.",
+          "questions[0] harus mempunyai dua label pilihan yang berbeda.",
+          "questions[0] harus membandingkan dua karakter berbeda yang valid.",
+          "Kuis harus memuat sepuluh pasangan karakter yang unik.",
+          "Karakter B harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak dua ID opsi A",
+        "passed": true,
+        "errors": [
+          "questions[0].options[1].id harus B."
+        ]
+      },
+      {
+        "name": "Tolak label opsi identik",
+        "passed": true,
+        "errors": [
+          "questions[0] harus mempunyai dua label pilihan yang berbeda."
+        ]
+      },
+      {
+        "name": "Tolak karakter pilihan tidak dikenal",
+        "passed": true,
+        "errors": [
+          "questions[0].options[0].characterId tidak dikenal.",
+          "questions[0] harus membandingkan dua karakter berbeda yang valid.",
+          "Kuis harus memuat sepuluh pasangan karakter yang unik.",
+          "Karakter B harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak pembandingan karakter dengan dirinya",
+        "passed": true,
+        "errors": [
+          "questions[0] harus membandingkan dua karakter berbeda yang valid.",
+          "Kuis harus memuat sepuluh pasangan karakter yang unik.",
+          "Karakter B harus muncul dua kali di A dan dua kali di B.",
+          "Karakter Y harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak pasangan karakter duplikat",
+        "passed": true,
+        "errors": [
+          "questions[1] memakai pasangan karakter yang sudah ada.",
+          "Kuis harus memuat sepuluh pasangan karakter yang unik.",
+          "Karakter Y harus muncul dua kali di A dan dua kali di B.",
+          "Karakter C harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak ketidakseimbangan sisi A/B meski pasangan tetap unik",
+        "passed": true,
+        "errors": [
+          "Karakter B harus muncul dua kali di A dan dua kali di B.",
+          "Karakter Y harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak poin berupa string",
+        "passed": true,
+        "errors": [
+          "questions[0].options[0].points harus bernilai 2."
+        ]
+      },
+      {
+        "name": "Tolak bobot selain dua",
+        "passed": true,
+        "errors": [
+          "questions[0].options[0].points harus bernilai 2."
+        ]
+      },
+      {
+        "name": "Tolak teks pertanyaan kosong: context",
+        "passed": true,
+        "errors": [
+          "questions[0].context harus berisi teks."
+        ]
+      },
+      {
+        "name": "Tolak teks pertanyaan kosong: prompt",
+        "passed": true,
+        "errors": [
+          "questions[0].prompt harus berisi teks."
+        ]
+      },
+      {
+        "name": "Tolak teks opsi kosong: label",
+        "passed": true,
+        "errors": [
+          "questions[0].options[0].label harus berisi teks.",
+          "questions[0] harus mempunyai dua label pilihan yang berbeda."
+        ]
+      },
+      {
+        "name": "Tolak teks opsi kosong: reason",
+        "passed": true,
+        "errors": [
+          "questions[0].options[0].reason harus berisi teks."
+        ]
+      },
+      {
+        "name": "Tolak teks karakter kosong: name",
+        "passed": true,
+        "errors": [
+          "characters[0].name harus berisi teks."
+        ]
+      },
+      {
+        "name": "Tolak teks karakter kosong: title",
+        "passed": true,
+        "errors": [
+          "characters[0].title harus berisi teks."
+        ]
+      },
+      {
+        "name": "Tolak teks karakter kosong: summary",
+        "passed": true,
+        "errors": [
+          "characters[0].summary harus berisi teks."
+        ]
+      },
+      {
+        "name": "Tolak teks karakter kosong: description",
+        "passed": true,
+        "errors": [
+          "characters[0].description harus berisi teks."
+        ]
+      },
+      {
+        "name": "Tolak teks karakter kosong: message",
+        "passed": true,
+        "errors": [
+          "characters[0].message harus berisi teks."
+        ]
+      },
+      {
+        "name": "Tolak karakter hilang",
+        "passed": true,
+        "errors": [
+          "Data harus memuat tepat lima karakter.",
+          "questions[0].options[0].characterId tidak dikenal.",
+          "questions[0].options[1].characterId tidak dikenal.",
+          "questions[0] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[1].options[0].characterId tidak dikenal.",
+          "questions[1].options[1].characterId tidak dikenal.",
+          "questions[1] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[2].options[0].characterId tidak dikenal.",
+          "questions[2].options[1].characterId tidak dikenal.",
+          "questions[2] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[3].options[0].characterId tidak dikenal.",
+          "questions[3].options[1].characterId tidak dikenal.",
+          "questions[3] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[4].options[0].characterId tidak dikenal.",
+          "questions[4].options[1].characterId tidak dikenal.",
+          "questions[4] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[5].options[0].characterId tidak dikenal.",
+          "questions[5].options[1].characterId tidak dikenal.",
+          "questions[5] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[6].options[0].characterId tidak dikenal.",
+          "questions[6].options[1].characterId tidak dikenal.",
+          "questions[6] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[7].options[0].characterId tidak dikenal.",
+          "questions[7].options[1].characterId tidak dikenal.",
+          "questions[7] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[8].options[0].characterId tidak dikenal.",
+          "questions[8].options[1].characterId tidak dikenal.",
+          "questions[8] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[9].options[0].characterId tidak dikenal.",
+          "questions[9].options[1].characterId tidak dikenal.",
+          "questions[9] harus membandingkan dua karakter berbeda yang valid.",
+          "Kuis harus memuat sepuluh pasangan karakter yang unik.",
+          "Karakter B harus muncul dua kali di A dan dua kali di B.",
+          "Karakter Y harus muncul dua kali di A dan dua kali di B.",
+          "Karakter C harus muncul dua kali di A dan dua kali di B.",
+          "Karakter P harus muncul dua kali di A dan dua kali di B.",
+          "Karakter H harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak empat karakter",
+        "passed": true,
+        "errors": [
+          "Data harus memuat tepat lima karakter.",
+          "questions[3].options[0].characterId tidak dikenal.",
+          "questions[3] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[6].options[1].characterId tidak dikenal.",
+          "questions[6] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[8].options[0].characterId tidak dikenal.",
+          "questions[8] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[9].options[1].characterId tidak dikenal.",
+          "questions[9] harus membandingkan dua karakter berbeda yang valid.",
+          "Kuis harus memuat sepuluh pasangan karakter yang unik.",
+          "Karakter H harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak slot karakter kosong",
+        "passed": true,
+        "errors": [
+          "characters[0] harus berupa objek.",
+          "questions[0].options[0].characterId tidak dikenal.",
+          "questions[0] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[1].options[1].characterId tidak dikenal.",
+          "questions[1] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[2].options[0].characterId tidak dikenal.",
+          "questions[2] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[3].options[1].characterId tidak dikenal.",
+          "questions[3] harus membandingkan dua karakter berbeda yang valid.",
+          "Kuis harus memuat sepuluh pasangan karakter yang unik.",
+          "Karakter B harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak ID karakter duplikat",
+        "passed": true,
+        "errors": [
+          "characters[1].id tidak dikenal atau duplikat.",
+          "questions[0].options[0].characterId tidak dikenal.",
+          "questions[0] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[1].options[1].characterId tidak dikenal.",
+          "questions[1] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[2].options[0].characterId tidak dikenal.",
+          "questions[2] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[3].options[1].characterId tidak dikenal.",
+          "questions[3] harus membandingkan dua karakter berbeda yang valid.",
+          "Kuis harus memuat sepuluh pasangan karakter yang unik.",
+          "Karakter B harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak ID karakter tidak dikenal",
+        "passed": true,
+        "errors": [
+          "characters[0].id tidak dikenal atau duplikat.",
+          "questions[0].options[0].characterId tidak dikenal.",
+          "questions[0] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[1].options[1].characterId tidak dikenal.",
+          "questions[1] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[2].options[0].characterId tidak dikenal.",
+          "questions[2] harus membandingkan dua karakter berbeda yang valid.",
+          "questions[3].options[1].characterId tidak dikenal.",
+          "questions[3] harus membandingkan dua karakter berbeda yang valid.",
+          "Kuis harus memuat sepuluh pasangan karakter yang unik.",
+          "Karakter B harus muncul dua kali di A dan dua kali di B."
+        ]
+      },
+      {
+        "name": "Tolak jumlah kekuatan salah",
+        "passed": true,
+        "errors": [
+          "characters[0].strengths harus memuat tiga teks kekuatan."
+        ]
+      },
+      {
+        "name": "Tolak kekuatan kosong",
+        "passed": true,
+        "errors": [
+          "characters[0].strengths harus memuat tiga teks kekuatan."
+        ]
+      },
+      {
+        "name": "Tolak slot kekuatan kosong",
+        "passed": true,
+        "errors": [
+          "characters[0].strengths harus memuat tiga teks kekuatan."
+        ]
+      },
+      {
+        "name": "Tolak tema hilang",
+        "passed": true,
+        "errors": [
+          "characters[0].theme harus memuat motif dan warna hex enam digit."
+        ]
+      },
+      {
+        "name": "Tolak motif tema kosong",
+        "passed": true,
+        "errors": [
+          "characters[0].theme harus memuat motif dan warna hex enam digit."
+        ]
+      },
+      {
+        "name": "Tolak warna tema tidak valid",
+        "passed": true,
+        "errors": [
+          "characters[0].theme harus memuat motif dan warna hex enam digit."
+        ]
+      },
+      {
+        "name": "Tolak urutan seri hilang",
+        "passed": true,
+        "errors": [
+          "Urutan seri harus B → Y → C → P → H."
+        ]
+      },
+      {
+        "name": "Tolak urutan seri berubah",
+        "passed": true,
+        "errors": [
+          "Urutan seri harus B → Y → C → P → H."
+        ]
+      }
+    ]
+  },
+  "design_content_match": true,
+  "startup": {
+    "valid_data_ready": true,
+    "invalid_data_message": true,
+    "invalid_data_no_ready_marker": true,
+    "invalid_data_quiz_and_result_hidden": true
+  },
+  "sha256": {
+    "js/data.js": "14014f8dfc2064eac835cfa67b390faaba5bcc03053d7db1cfc0f5e285d8caa2",
+    "js/quiz.js": "19cc0734e5c9c8b574ea03c0fe9bdd8b2fca01bee945dcae52450c6f3ff3d406",
+    "js/ui.js": "8ff974e716baee6db092229537e75b26a012674574c529c68240f2f59f60abed",
+    "js/script.js": "9db24e622baeb9125307e62fbf1987aaaac0ebc050517ff5a30d8c8b496b6032"
+  },
+  "requests": [
+    {
+      "path": "/index.html",
+      "status": 200
+    },
+    {
+      "path": "/js/data.js",
+      "status": 200
+    },
+    {
+      "path": "/js/quiz.js",
+      "status": 200
+    },
+    {
+      "path": "/js/ui.js",
+      "status": 200
+    },
+    {
+      "path": "/js/script.js",
+      "status": 200
+    },
+    {
+      "path": "/checks/data-check.html",
+      "status": 200
+    },
+    {
+      "path": "/checks/data-check.js",
+      "status": 200
+    },
+    {
+      "path": "/checks/data-check.html",
+      "status": 200
+    },
+    {
+      "path": "/js/data.js",
+      "status": 200
+    },
+    {
+      "path": "/js/quiz.js",
+      "status": 200
+    },
+    {
+      "path": "/checks/data-check.js",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/css/style.css",
+      "status": 200
+    },
+    {
+      "path": "/js/data.js",
+      "status": 200
+    },
+    {
+      "path": "/js/ui.js",
+      "status": 200
+    },
+    {
+      "path": "/js/quiz.js",
+      "status": 200
+    },
+    {
+      "path": "/js/script.js",
+      "status": 200
+    },
+    {
+      "path": "/index.html",
+      "status": 200
+    },
+    {
+      "path": "/css/style.css",
+      "status": 200
+    },
+    {
+      "path": "/js/data.js",
+      "status": 200
+    },
+    {
+      "path": "/js/quiz.js",
+      "status": 200
+    },
+    {
+      "path": "/js/ui.js",
+      "status": 200
+    },
+    {
+      "path": "/js/script.js",
+      "status": 200
+    }
+  ],
+  "result": "PASS"
+}

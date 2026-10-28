@@ -1,0 +1,119 @@
+{
+  "task": "T01",
+  "date": "2026-10-28",
+  "os": "Windows-11-10.0.26300-SP0",
+  "python": "3.13.2",
+  "url": "http://127.0.0.1:52271/",
+  "resources": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "mime": "text/html",
+      "bytes": 1367
+    },
+    {
+      "path": "css/style.css",
+      "status": 200,
+      "mime": "text/css",
+      "bytes": 294
+    },
+    {
+      "path": "js/data.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "bytes": 171
+    },
+    {
+      "path": "js/quiz.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "bytes": 152
+    },
+    {
+      "path": "js/ui.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "bytes": 156
+    },
+    {
+      "path": "js/script.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "bytes": 337
+    }
+  ],
+  "browser_runs": [
+    {
+      "browser": "Google Chrome headless",
+      "javascript_enabled": true,
+      "exit_code": 0,
+      "dom_bytes": 1447,
+      "passed": true
+    },
+    {
+      "browser": "Google Chrome headless",
+      "javascript_enabled": false,
+      "exit_code": 0,
+      "dom_bytes": 0,
+      "passed": false
+    }
+  ],
+  "result": "HTTP_PASS_BROWSER_INCONCLUSIVE",
+  "requests": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/index.html",
+      "status": 200
+    },
+    {
+      "path": "/css/style.css",
+      "status": 200
+    },
+    {
+      "path": "/js/data.js",
+      "status": 200
+    },
+    {
+      "path": "/js/quiz.js",
+      "status": 200
+    },
+    {
+      "path": "/js/ui.js",
+      "status": 200
+    },
+    {
+      "path": "/js/script.js",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/css/style.css",
+      "status": 200
+    },
+    {
+      "path": "/js/data.js",
+      "status": 200
+    },
+    {
+      "path": "/js/quiz.js",
+      "status": 200
+    },
+    {
+      "path": "/js/ui.js",
+      "status": 200
+    },
+    {
+      "path": "/js/script.js",
+      "status": 200
+    }
+  ],
+  "browser_version": "156.0.8078.73",
+  "t01_acceptance": "PASS: static HTTP resources and JavaScript initialization verified",
+  "limitation": "JavaScript-disabled browser run produced no DOM; noscript markup is present, rendered fallback not confirmed."
+}
