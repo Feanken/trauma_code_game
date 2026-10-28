@@ -3,7 +3,7 @@
 Status: Draf desain berdasarkan requirement revisi 4  
 Tanggal: 28 Oktober 2026  
 Spesifikasi aktif: `requirement.md`  
-Lingkup: rancangan pengalaman, visual, konten, logika, struktur aplikasi, dan verifikasi. Daftar implementasi tersedia di `Task.md`; fondasi T01, data/validator T02, fungsi skor/alasan T03, dan pemeriksa lengkap T04 sudah dibuat. Fitur berikutnya belum diimplementasikan.
+Lingkup: rancangan pengalaman, visual, konten, logika, struktur aplikasi, dan verifikasi. Daftar implementasi tersedia di `Task.md`; fondasi T01, data/validator T02, fungsi skor/alasan T03, dan pemeriksa lengkap T04 sudah dibuat. Sistem visual dan layout dasar T07 tersedia di CSS bersama dan galeri `checks/ui-preview.html`. T06 menunggu aset final T05; alur pembuka, pertanyaan, dan navigasi T08–T10 sudah diimplementasikan; struktur kartu hasil dan pengulangan T11–T12 sudah dibuat, tetapi foto final dan efek pointer belum.
 
 ### Acuan steering untuk agen AI
 
@@ -435,4 +435,7 @@ Simpan aset yang diizinkan dalam `assets/images/` dengan nama deskriptif. Tambah
 
 Foto pada kartu memiliki area rasio 4:3 dengan `object-fit: cover` dan titik potong yang ditinjau per gambar agar wajah tidak terpotong. Pertahankan tinggi kartu sesuai target tangkapan layar melalui ringkasan pendek. Alt text menyebut karakter bila foto menambahkan informasi; bila nama yang sama sudah menjadi label bersebelahan dan foto hanya dekoratif, gunakan alt kosong. Jika gambar gagal dimuat, tampilkan inisial karakter pada bidang tema tanpa menghilangkan hasil atau tombol ulang.
 
-Revisi ini memperbarui rancangan aset. Pencarian, pemilihan, dan pengunduhan gambar belum dilakukan.
+Rancangan aset ini tetap berlaku. Penelusuran T05 pada 28 Oktober 2026 sudah menemukan lima kandidat; sumber dan statusnya tersedia di `assets/SOURCES.md`. Pemilihan final belum selesai karena bukti izin penggunaan dan tinjauan crop belum terpenuhi. Tiga alternatif potret pemeran berlisensi untuk B/Y/C telah disimpan lokal sebagai progres T05/T06; kelima aset final dan tinjauan crop kartu belum lengkap.
+
+
+**Keputusan aset terbaru:** atas instruksi pengguna, lima still internet dipakai untuk proyek pribadi tanpa syarat pencatatan sumber/kredit di aplikasi. Lima gambar lokal 720 × 480 dipakai oleh hasil kuis.

@@ -13,20 +13,67 @@
   <script src="js/script.js" defer></script>
 </head>
 <body>
-  <main id="app">
-    <section id="landing-screen" aria-labelledby="project-title">
-      <h1 id="project-title">Which Trauma Code Character Are You?</h1>
-      <p>Website sedang dalam pengembangan. Kuis belum tersedia.</p>
-      <p>Proyek fan-made nonkomersial untuk hiburan, tanpa afiliasi resmi.</p>
+  <main id="app" class="site-shell">
+    <section id="landing-screen" class="panel split-layout" aria-labelledby="project-title">
+      <div>
+        <p class="eyebrow">FAN-MADE PERSONALITY QUIZ</p>
+        <h1 id="project-title">Which Trauma Code Character Are You?</h1>
+        <p>Di tengah situasi kacau, kamu jadi penggerak, penenang, atau penyusun rencana? Temukan peranmu di tim trauma.</p>
+        <p class="muted">10 pertanyaan · tanpa login</p>
+        <button id="start-quiz" type="button" class="button button--primary" hidden><span class="control-surface">Start Quiz</span></button>
+        <p class="muted" style="margin-top:24px">Proyek penggemar nonkomersial untuk hiburan; tidak berafiliasi resmi.</p>
+      </div>
+      <div class="id-card-wrapper" aria-hidden="true">
+        <div class="id-card">
+          <div class="id-card-media">Trauma Team</div>
+          <div class="id-card-body"><p class="eyebrow">TRAUMA TEAM ID CARD</p><h2>Peranmu menanti</h2><p>Sepuluh pilihan akan membentuk hasilmu.</p></div>
+        </div>
+      </div>
     </section>
-    <section id="quiz-screen" aria-labelledby="question-title" hidden>
-      <h2 id="question-title" tabindex="-1">Pertanyaan</h2>
+    <section id="quiz-screen" class="panel quiz-layout" aria-labelledby="question-title" hidden>
+      <p class="eyebrow">TRAUMA TEAM / KUIS</p>
+      <p id="progress-text">Pertanyaan 1/10</p>
+      <progress id="question-progress" max="10" value="1" aria-label="Progres pertanyaan"></progress>
+      <p id="question-context" class="eyebrow"></p>
+      <h2 id="question-title" tabindex="-1"></h2>
+      <p class="muted">Pilih jawaban untuk lanjut otomatis. Gunakan Back untuk mengubah jawaban.</p>
+      <div id="answer-options" class="answers-grid" role="group" aria-labelledby="question-title"></div>
+      <button id="back-button" type="button" class="button" hidden><span class="control-surface">Back</span></button>
     </section>
-    <section id="result-screen" aria-labelledby="result-title" hidden>
-      <h2 id="result-title" tabindex="-1">Hasil kuis</h2>
+    <section id="result-screen" class="panel" aria-labelledby="result-title" hidden>
+      <p class="eyebrow">TRAUMA TEAM / HASIL</p>
+      <h2 id="result-title" tabindex="-1">Ini peranmu di tim trauma</h2>
+      <div class="result-layout">
+        <div class="id-card-wrapper">
+          <article id="result-card" class="id-card">
+            <div class="id-card-media result-media">
+              <img id="result-photo" alt="" width="360" height="270" hidden>
+              <span id="result-initials" class="result-initials" aria-hidden="true"></span>
+            </div>
+            <div class="id-card-body">
+              <p class="eyebrow">TEAM / TRAUMA TEAM ID CARD</p>
+              <h3 id="result-name"></h3>
+              <p id="result-character-title" class="muted"></p>
+              <p id="result-summary"></p>
+              <p class="muted">Kartu hiburan</p>
+            </div>
+          </article>
+        </div>
+        <div>
+          <p id="result-description"></p>
+          <h3>Kekuatanmu</h3>
+          <ul id="result-strengths"></ul>
+          <h3>Kenapa kamu cocok?</h3>
+          <ul id="result-reasons"></ul>
+          <p id="result-message"></p>
+          <p id="result-motif" class="muted"></p>
+          <button id="restart-quiz" type="button" class="button button--primary"><span class="control-surface">Ulangi kuis</span></button>
+        </div>
+      </div>
+      <p class="muted result-note">Proyek fan-made nonkomersial, tidak berafiliasi resmi. Untuk hiburan, bukan penilaian psikologis ilmiah atau diagnosis.</p>
     </section>
     <noscript>
-      <p>Kuis memerlukan JavaScript. Aktifkan JavaScript di browser untuk menggunakan kuis setelah tersedia.</p>
+      <p>Kuis memerlukan JavaScript. Aktifkan JavaScript di browser untuk menggunakan kuis.</p>
     </noscript>
   </main>
 </body>

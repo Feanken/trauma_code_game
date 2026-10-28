@@ -1,0 +1,442 @@
+{
+  "passed": true,
+  "count": 109,
+  "results": [
+    {
+      "label": "fokus awal 0",
+      "passed": true
+    },
+    {
+      "label": "reset awal 0",
+      "passed": true
+    },
+    {
+      "label": "opsi 0/0",
+      "passed": true
+    },
+    {
+      "label": "opsi 0/1",
+      "passed": true
+    },
+    {
+      "label": "opsi 0/2",
+      "passed": true
+    },
+    {
+      "label": "opsi 0/3",
+      "passed": true
+    },
+    {
+      "label": "opsi 0/4",
+      "passed": true
+    },
+    {
+      "label": "opsi 0/5",
+      "passed": true
+    },
+    {
+      "label": "opsi 0/6",
+      "passed": true
+    },
+    {
+      "label": "opsi 0/7",
+      "passed": true
+    },
+    {
+      "label": "opsi 0/8",
+      "passed": true
+    },
+    {
+      "label": "opsi 0/9",
+      "passed": true
+    },
+    {
+      "label": "hasil terlihat B",
+      "passed": true
+    },
+    {
+      "label": "tema B",
+      "passed": true
+    },
+    {
+      "label": "nama B",
+      "passed": true
+    },
+    {
+      "label": "gelar B",
+      "passed": true
+    },
+    {
+      "label": "deskripsi B",
+      "passed": true
+    },
+    {
+      "label": "kekuatan B",
+      "passed": true
+    },
+    {
+      "label": "alasan B",
+      "passed": true
+    },
+    {
+      "label": "foto lokal B",
+      "passed": true
+    },
+    {
+      "label": "fokus hasil B",
+      "passed": true
+    },
+    {
+      "label": "fokus awal 1",
+      "passed": true
+    },
+    {
+      "label": "reset awal 1",
+      "passed": true
+    },
+    {
+      "label": "opsi 1/0",
+      "passed": true
+    },
+    {
+      "label": "opsi 1/1",
+      "passed": true
+    },
+    {
+      "label": "opsi 1/2",
+      "passed": true
+    },
+    {
+      "label": "opsi 1/3",
+      "passed": true
+    },
+    {
+      "label": "opsi 1/4",
+      "passed": true
+    },
+    {
+      "label": "opsi 1/5",
+      "passed": true
+    },
+    {
+      "label": "opsi 1/6",
+      "passed": true
+    },
+    {
+      "label": "opsi 1/7",
+      "passed": true
+    },
+    {
+      "label": "opsi 1/8",
+      "passed": true
+    },
+    {
+      "label": "opsi 1/9",
+      "passed": true
+    },
+    {
+      "label": "hasil terlihat Y",
+      "passed": true
+    },
+    {
+      "label": "tema Y",
+      "passed": true
+    },
+    {
+      "label": "nama Y",
+      "passed": true
+    },
+    {
+      "label": "gelar Y",
+      "passed": true
+    },
+    {
+      "label": "deskripsi Y",
+      "passed": true
+    },
+    {
+      "label": "kekuatan Y",
+      "passed": true
+    },
+    {
+      "label": "alasan Y",
+      "passed": true
+    },
+    {
+      "label": "foto lokal Y",
+      "passed": true
+    },
+    {
+      "label": "fokus hasil Y",
+      "passed": true
+    },
+    {
+      "label": "fokus awal 2",
+      "passed": true
+    },
+    {
+      "label": "reset awal 2",
+      "passed": true
+    },
+    {
+      "label": "opsi 2/0",
+      "passed": true
+    },
+    {
+      "label": "opsi 2/1",
+      "passed": true
+    },
+    {
+      "label": "opsi 2/2",
+      "passed": true
+    },
+    {
+      "label": "opsi 2/3",
+      "passed": true
+    },
+    {
+      "label": "opsi 2/4",
+      "passed": true
+    },
+    {
+      "label": "opsi 2/5",
+      "passed": true
+    },
+    {
+      "label": "opsi 2/6",
+      "passed": true
+    },
+    {
+      "label": "opsi 2/7",
+      "passed": true
+    },
+    {
+      "label": "opsi 2/8",
+      "passed": true
+    },
+    {
+      "label": "opsi 2/9",
+      "passed": true
+    },
+    {
+      "label": "hasil terlihat C",
+      "passed": true
+    },
+    {
+      "label": "tema C",
+      "passed": true
+    },
+    {
+      "label": "nama C",
+      "passed": true
+    },
+    {
+      "label": "gelar C",
+      "passed": true
+    },
+    {
+      "label": "deskripsi C",
+      "passed": true
+    },
+    {
+      "label": "kekuatan C",
+      "passed": true
+    },
+    {
+      "label": "alasan C",
+      "passed": true
+    },
+    {
+      "label": "foto lokal C",
+      "passed": true
+    },
+    {
+      "label": "fokus hasil C",
+      "passed": true
+    },
+    {
+      "label": "fokus awal 3",
+      "passed": true
+    },
+    {
+      "label": "reset awal 3",
+      "passed": true
+    },
+    {
+      "label": "opsi 3/0",
+      "passed": true
+    },
+    {
+      "label": "opsi 3/1",
+      "passed": true
+    },
+    {
+      "label": "opsi 3/2",
+      "passed": true
+    },
+    {
+      "label": "opsi 3/3",
+      "passed": true
+    },
+    {
+      "label": "opsi 3/4",
+      "passed": true
+    },
+    {
+      "label": "opsi 3/5",
+      "passed": true
+    },
+    {
+      "label": "opsi 3/6",
+      "passed": true
+    },
+    {
+      "label": "opsi 3/7",
+      "passed": true
+    },
+    {
+      "label": "opsi 3/8",
+      "passed": true
+    },
+    {
+      "label": "opsi 3/9",
+      "passed": true
+    },
+    {
+      "label": "hasil terlihat P",
+      "passed": true
+    },
+    {
+      "label": "tema P",
+      "passed": true
+    },
+    {
+      "label": "nama P",
+      "passed": true
+    },
+    {
+      "label": "gelar P",
+      "passed": true
+    },
+    {
+      "label": "deskripsi P",
+      "passed": true
+    },
+    {
+      "label": "kekuatan P",
+      "passed": true
+    },
+    {
+      "label": "alasan P",
+      "passed": true
+    },
+    {
+      "label": "foto lokal P",
+      "passed": true
+    },
+    {
+      "label": "fokus hasil P",
+      "passed": true
+    },
+    {
+      "label": "fokus awal 4",
+      "passed": true
+    },
+    {
+      "label": "reset awal 4",
+      "passed": true
+    },
+    {
+      "label": "opsi 4/0",
+      "passed": true
+    },
+    {
+      "label": "opsi 4/1",
+      "passed": true
+    },
+    {
+      "label": "opsi 4/2",
+      "passed": true
+    },
+    {
+      "label": "opsi 4/3",
+      "passed": true
+    },
+    {
+      "label": "opsi 4/4",
+      "passed": true
+    },
+    {
+      "label": "opsi 4/5",
+      "passed": true
+    },
+    {
+      "label": "opsi 4/6",
+      "passed": true
+    },
+    {
+      "label": "opsi 4/7",
+      "passed": true
+    },
+    {
+      "label": "opsi 4/8",
+      "passed": true
+    },
+    {
+      "label": "opsi 4/9",
+      "passed": true
+    },
+    {
+      "label": "hasil terlihat H",
+      "passed": true
+    },
+    {
+      "label": "tema H",
+      "passed": true
+    },
+    {
+      "label": "nama H",
+      "passed": true
+    },
+    {
+      "label": "gelar H",
+      "passed": true
+    },
+    {
+      "label": "deskripsi H",
+      "passed": true
+    },
+    {
+      "label": "kekuatan H",
+      "passed": true
+    },
+    {
+      "label": "alasan H",
+      "passed": true
+    },
+    {
+      "label": "foto lokal H",
+      "passed": true
+    },
+    {
+      "label": "fokus hasil H",
+      "passed": true
+    },
+    {
+      "label": "tema lama bersih",
+      "passed": true
+    },
+    {
+      "label": "isi lama bersih",
+      "passed": true
+    },
+    {
+      "label": "jawaban lama bersih",
+      "passed": true
+    },
+    {
+      "label": "fokus setelah ulang",
+      "passed": true
+    }
+  ]
+}

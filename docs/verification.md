@@ -1,6 +1,6 @@
 # Catatan Verifikasi
 
-Status terkini: **T01–T04 selesai; T05–T22 belum dikerjakan**. Setiap bagian di bawah mencatat keadaan pada akhir tugas terkait.
+Status terkini: **T01–T04 dan T07 selesai; T05 belum selesai (3 potret pemeran lokal); T06 belum selesai dan menunggu T05; T08–T10 selesai; T11–T12 dibuat sebagian namun belum selesai; T13–T22 belum dikerjakan**. Setiap bagian di bawah mencatat keadaan pada akhir tugas terkait.
 
 ## T01 — Fondasi website statis
 
@@ -222,3 +222,135 @@ Bukti lengkap: [t04-scoring-check.json](t04-scoring-check.json).
 ### Batas dan serah terima
 
 Persentase memperlakukan seluruh kombinasi biner berbobot sama; ini bukan prediksi distribusi jawaban manusia atau bukti psikologi ilmiah. Pengujian dilakukan pada Chrome desktop headless, bukan bukti kompatibilitas seluruh browser atau ponsel nyata. Tidak ada UI kuis lengkap, aset, atau efek pointer yang dibuat pada tugas ini. Pekerjaan berhenti setelah T04.
+
+## T05 — Penelusuran sumber gambar
+
+Tanggal: 28 Oktober 2026 (Asia/Jakarta).
+
+Kebutuhan: FR-08, NFR-08; desain bagian 11. Dependensi T01 sudah selesai. Repository bersih saat penelusuran dimulai.
+
+Status: **belum selesai; T05 tidak dicentang**. T06–T22 belum dikerjakan.
+
+### Hasil yang dibuat
+
+- `assets/SOURCES.md`: lima kandidat still, URL berkas, nama file yang direncanakan, kredit sumber, status izin/crop, sumber resmi, dan alternatif yang sudah diperiksa.
+- `docs/t05-asset-research.json`: catatan terstruktur setiap kandidat, hasil pengambilan gambar, dan kriteria yang belum terpenuhi.
+- `spec-analysisc/Task.md`: mencatat progres dan hambatan T05 tanpa mengubah checkbox menjadi selesai.
+- `spec-analysisc/design.md`: memperbarui status penelusuran aset; rancangan serta kriteria aset tetap berlaku.
+
+### Penelusuran dan bukti aktual
+
+Penelusuran memakai sumber publik melalui alat web. Tidak ada area berlogin yang diakses, pesan kepada pihak lain yang dikirim, atau foto yang dipasang pada aplikasi.
+
+| Pemeriksaan | Hasil aktual |
+| --- | --- |
+| Sumber resmi | [Media Center](https://media.netflix.com/en/only-on-netflix/81677629) dan [Tudum](https://www.netflix.com/tudum/articles/trauma-code-heroes-on-call-release-date-news) ditemukan. Akses penuh Media Center ditawarkan melalui login. |
+| Kandidat kelima karakter | Label sumber dipetakan ke lima URL gambar. Rincian tersedia di [SOURCES.md](../assets/SOURCES.md). Ini verifikasi metadata sumber, bukan pengenalan wajah atau peninjauan visual gambar. |
+| Kredit | Kredit yang tersedia dicatat; kredit tidak disamakan dengan izin penggunaan ulang. |
+| Pengambilan gambar untuk tinjauan | Dua URL ditolak alat web karena ukuran terlalu besar; tiga pengambilan lain gagal. Gambar tidak berhasil ditinjau visual melalui pengambilan tersebut. |
+| Kualitas crop 4:3 | Belum dapat dikonfirmasi. Tidak ada klaim wajah, detail, atau ukuran hasil crop sudah sesuai. |
+| Izin aset untuk kartu kuis | Belum terkonfirmasi. [Ketentuan Media Center](https://help.netflix.com/en/legal/media-terms-and-conditions) dan [ketentuan penerbit](https://futureplc.com/terms-conditions/) diperiksa; belum ditemukan bukti izin yang mendukung penggunaan/crop lima kandidat untuk proyek ini. |
+| Alternatif | Kategori Commons untuk empat pemeran ditemukan; satu halaman berkas potret Yoon memiliki metadata lisensi dan catatan peninjauan yang didokumentasikan. Belum ada lima foto final yang terverifikasi. |
+| Pemeriksaan catatan | Manifest memuat tepat lima ID unik B/Y/C/P/H, lima nama file rencana, serta URL sumber gambar. Tidak ada foto produksi yang diunduh atau hotlink ditambahkan. |
+
+### Hambatan dan syarat penuntasan
+
+Kriteria selesai T05 mensyaratkan lima aset sesuai karakter, kualitas crop memadai, serta informasi izin penggunaan yang mendukung proyek. Pada penelusuran ini, izin dan tinjauan crop belum terpenuhi. Karena itu sumber dicatat sebagai kandidat, bukan aset siap pakai.
+
+T05 dapat dituntaskan setelah memperoleh sumber foto final beserta ketentuan penggunaan yang sesuai dan menyelesaikan tinjauan visual/crop. Sumber berizin dari pengguna atau kandidat pengganti dapat menjadi masukan untuk penuntasan, dengan status serta kredit diperbarui pada SOURCES. Ini tidak memerlukan perubahan kode kuis atau pemeriksaan ulang skor.
+
+Pekerjaan berhenti pada lingkup T05 sesuai permintaan. T06 belum dimulai. Tidak ada pengujian aplikasi yang dijalankan karena perubahan tugas ini hanya catatan penelusuran dan status dokumentasi.
+
+
+## T06 — Aset lokal
+
+Tanggal: 28 Oktober 2026 (Asia/Jakarta). Kebutuhan FR-08, NFR-08, NFR-09, NFR-13.
+
+Status: **belum selesai; tidak dicentang**. Dependensi T05 belum terpenuhi. Pemeriksaan kondisi repository menemukan hanya `.gitkeep` pada `assets/images/`, sedangkan lima gambar dalam `assets/SOURCES.md` masih kandidat dengan izin dan crop belum terkonfirmasi. Bukti keadaan sumber: [t05-asset-research.json](t05-asset-research.json).
+
+Belum tersedia foto final untuk mengukur kompresi, ukuran transfer, posisi crop, atau pemuatan dari host sendiri. Tidak ada klaim optimasi, fallback foto produksi, atau integrasi atribusi telah selesai. T06 dapat dilanjutkan setelah kriteria T05 terpenuhi; kebutuhan dan dependensi tidak diubah untuk melewati hambatan. T07 hanya bergantung pada T01 sehingga tetap dapat diselesaikan memakai bidang gambar sementara.
+
+## T07 — Sistem visual dan layout dasar
+
+Tanggal: 28 Oktober 2026 (Asia/Jakarta). Kebutuhan NFR-04, NFR-05, NFR-07, NFR-12. Dependensi T01 sudah selesai; perubahan lokal catatan T05 dipertahankan.
+
+Status: **seluruh kriteria T07 terpenuhi**.
+
+### Perubahan
+
+- `css/style.css`: token warna, font sistem, jarak, sudut, highlight, gradasi, border dan bayangan. Panel/kartu berlapis, tombol biasa/fokus/ditekan/terpilih/nonaktif, lima tema, layout pembuka/hasil dua kolom mulai 768 px dan satu kolom di bawahnya, serta pilihan A/B tetap dua kolom. Hanya isi tombol bergerak ketika ditekan; reduced motion menonaktifkan gerakan tersebut.
+- `index.html`: memasang class shell/panel pada fondasi yang ada; layar kuis/hasil tetap memakai `hidden`.
+- `checks/ui-preview.html`: galeri komponen statis terpisah dari halaman produk. Tombol hanya contoh visual; bidang foto masih placeholder.
+- `checks/ui-check.html` dan `checks/ui-check.js`: pemeriksa browser tanpa dependensi untuk empat lebar iframe dalam CSS px. Pemeriksa tidak dimuat oleh produk.
+- `docs/t07-ui-check.json`: hasil aktual, lingkungan, URL sementara dan hash SHA-256 kelima file yang diuji. `spec-analysisc/Task.md` dan `design.md` diperbarui sesuai progres.
+
+### Pemeriksaan dan bukti aktual
+
+Chrome 156.0.8078.73 headless, Windows 11 build 26300, server HTTP statis sementara Python pada `http://127.0.0.1:62239/`. Server sudah dihentikan.
+
+| Pemeriksaan | Hasil |
+| --- | --- |
+| Lebar 320, 375, 768, 1280 CSS px | Seluruhnya lulus; ukuran iframe aktual cocok dengan target, tanpa overflow horizontal. |
+| Layout pembuka/hasil | Satu kolom pada 320/375; dua kolom pada 768/1280. |
+| Pilihan A/B | A kiri, B kanan, sejajar dan sama tinggi pada keempat lebar. |
+| Target kontrol | Seluruh tombol minimal 44 × 44 CSS px. |
+| Keadaan ditekan | Koordinat dan ukuran wrapper tombol tetap sama. |
+| Fokus | Fokus programatis terlihat dengan outline minimal 3 px. |
+| Terpilih/nonaktif | Label “Dipilih” terlihat; disabled dibedakan dengan garis putus-putus. |
+| Kontras teks terukur | Utama 14,26:1; muted 9,21:1; tombol utama 12,49:1; lima aksen 8,60–9,76:1 terhadap panel. |
+| Kedalaman visual | Bayangan panel terdeteksi; tangkapan layar lebar/sempit ditinjau, highlight tidak menutupi teks. |
+| Fondasi halaman | Penanda inisialisasi tetap `foundationReady=true`. |
+
+Bukti: [laporan JSON](t07-ui-check.json), [desktop 1280 px](t07-preview-1280.png), [ponsel 375 CSS px](t07-preview-375.png). Gambar ponsel diambil melalui iframe selebar 375 CSS px lalu dipotong pada batas iframe, karena batas minimum jendela Chrome headless dapat membuat tangkapan layar langsung tidak mewakili viewport yang diminta. Pemeriksa menggunakan ukuran iframe aktual, bukan ukuran jendela luar.
+
+Untuk mengulang, jalankan `python -m http.server 8000 --bind 127.0.0.1` dari root, lalu buka `http://127.0.0.1:8000/checks/ui-check.html`. Harapan: laporan `passed: true` untuk empat viewport. Galeri dapat ditinjau pada `/checks/ui-preview.html`; gunakan Tab untuk melihat fokus. Hentikan server dengan Ctrl+C.
+
+### Batas dan serah terima
+
+Ini bukti komponen dan layout, belum pengujian alur kuis, pembaca layar, zoom 200%, kompatibilitas lintas browser atau perangkat nyata. Kontras terukur mencakup pasangan teks yang dilaporkan, bukan audit aksesibilitas menyeluruh. Tangkapan layar hanya merekam bagian atas galeri; pemeriksa mengukur kontrol di seluruh dokumen. Efek mouse tilt/sorotan/parallax tetap T13. Foto produksi dan fallback-nya tetap menunggu T05/T06. Tidak ada framework, dependensi baru, perubahan logika skor, commit, push, atau deployment. Pekerjaan berhenti setelah T07; T08 tidak dimulai.
+
+
+## T08–T10 — Alur pembuka, pertanyaan, dan navigasi
+
+Tanggal: 28 Oktober 2026. Dependensi T02/T03/T07 selesai. T05/T06 tetap belum selesai; T08 memakai bidang gambar sementara sesuai Task.
+
+**T08 selesai:** pembuka menampilkan judul, pengantar sesuai desain, 10 pertanyaan/tanpa login, Start Quiz, pratinjau kartu sementara, dan keterangan fan-made. Tombol mulai hanya muncul setelah data lolos validasi. Sesi baru dimulai dengan sepuluh jawaban kosong dan fokus pada Q01.
+
+**T09 selesai:** renderer memakai data lokal sebagai `textContent`, menampilkan konteks, prompt, pilihan A/B, nomor dan bilah progres 1–10. Pilihan tersimpan diberi `aria-pressed`, tepi aktif, tanda centang, serta teks “Dipilih”. Back disembunyikan pada Q01. Teks membungkus di kartu dua kolom.
+
+**T10 selesai:** controller memegang `screen`, `currentIndex`, `answers`, `isTransitioning`, `result`, dan `sessionVersion`. Jawaban baru mengganti slot lama, dipilih segera, lalu maju satu langkah setelah 180 ms. Penguncian diterapkan sebelum mutasi; callback memeriksa versi sesi dan indeks. Back mundur satu tanpa menghapus jawaban. Q10 menghitung hasil melalui fungsi T03 hanya bila seluruh jawaban valid; bila ada slot kosong, alur kembali ke slot pertama itu. Aktivasi tombol berulang saat tombol keyboard ditahan dicegah pada keydown berulang. Refresh mengembalikan pembuka karena state hanya di memori.
+
+Perubahan: `index.html`, `css/style.css`, `js/ui.js`, `js/script.js`, `checks/flow-check.html`, `checks/flow-check.js`, `docs/t08-t10-flow-check.json`, dan status pada `spec-analysisc/Task.md` serta `design.md`.
+
+Chrome 156 headless pada Windows 11 melalui server Python statis localhost menjalankan **36 pemeriksaan, seluruhnya lulus**: pembuka siap, mulai Q01, klik ganda tidak melompati pertanyaan, maju satu, Back menampilkan pilihan lama, koreksi Q01 tidak mengubah Q02, progres dan teks Q02–Q10, hasil setelah Q10, fokus hasil, serta refresh ke pembuka. Laporan mentah: [t08-t10-flow-check.json](t08-t10-flow-check.json). Jalankan `python -m http.server 8000 --bind 127.0.0.1` lalu buka `/checks/flow-check.html` untuk mengulang. Server uji sementara telah dihentikan.
+
+Batas: layar hasil saat ini hanya menandai bahwa perhitungan telah selesai; kartu dan isi karakter adalah T11 yang bergantung pada T06. Pemeriksaan ini berbasis Chrome headless dan klik programatis; pengujian keyboard/manual, pembaca layar, perangkat nyata, dan kasus lintas browser tetap mengikuti T14–T17. T08–T10 tidak bergantung pada T06. Pekerjaan berhenti setelah T10.
+
+
+## T11–T12 — Hasil karakter dan pengulangan
+
+Tanggal: 28 Oktober 2026. Status: **T11 dan T12 belum dicentang**. T11 bergantung pada T06, sedangkan T06 menunggu lima aset final T05. T12 bergantung pada T11. Kode hasil dan pengulangan dikerjakan sampai bagian yang dapat diverifikasi tanpa foto final.
+
+`index.html` sekarang memiliki kartu Trauma Team ID Card, uraian, daftar tiga kekuatan, dua alasan jawaban, pesan karakter, penjelasan hiburan/fan-made, dan tombol Ulangi kuis. `css/style.css` menyediakan lima latar tema serta bidang gambar 4:3. `js/ui.js` merender data dari karakter hasil dan fallback inisial; gambar hanya dimuat bila `character.image.src` tersedia. Saat gagal, inisial dan seluruh konten hasil tetap tersedia. `js/script.js` menghubungkan hasil skor dengan renderer dan memulai ulang sesi dari Q01; `clearResult` membersihkan tema, isi, dan request gambar lama. Tidak ada URL gambar jarak jauh yang ditambahkan.
+
+Pemeriksaan Chrome 156 headless melalui server statis Python: [regresi T08–T10](t11-t12-flow-check.json) **36/36 lulus**, dan [pemeriksaan lima hasil](t11-t12-result-flow-check.json) **109/109 lulus**. Lima pola pada desain 5.3 menghasilkan B/Y/C/P/H yang benar, termasuk nama, gelar, deskripsi, tema, tiga kekuatan, dua alasan yang sama dengan fungsi skor produksi, fallback inisial, dan fokus hasil. Reset berulang dimulai pada Q01 tanpa pilihan/tema/isi hasil lama. Pemeriksa tersedia di `checks/result-flow-check.html` dan `checks/result-flow-check.js`; jalankan melalui `python -m http.server 8000 --bind 127.0.0.1` dari root. Server pengujian sudah dihentikan. `git diff --check` lulus.
+
+**Hambatan:** `assets/images/` masih hanya berisi `.gitkeep`. Tidak ada lima foto final, catatan crop/kompresi, atau atribusi final yang dapat diperiksa. Dengan demikian syarat foto/nama/tema/alasan T11 belum sepenuhnya terpenuhi, dan dependensi T12 tetap terbuka meski perilaku ulang sudah lulus uji. Pemeriksaan ini tidak membuktikan perilaku `img.onerror` untuk foto nyata, uji perangkat, atau pembaca layar. Setelah T05/T06 selesai, tambahkan referensi gambar lokal tervalidasi ke data, verifikasi lima crop dan kegagalan pemuatan, lalu ulangi pemeriksaan sebelum mencentang T11 dan T12. Pekerjaan berhenti setelah lingkup T12; T13 tidak dimulai.
+
+
+## T05–T06 — Penelusuran lanjutan dan aset lokal parsial
+
+Tanggal: 28 Oktober 2026. Status: **T05 dan T06 belum selesai; kedua checkbox tetap kosong**.
+
+Penelusuran lanjutan menemukan tiga potret pemeran yang lisensi CC BY 3.0-nya telah ditinjau di Wikimedia Commons: Ju Ji-hoon untuk B, Choo Young-woo untuk Y, dan Ha Young untuk C. Korespondensi pemeran dan karakter diperiksa melalui Netflix Tudum. Berkas diunduh dari Wikimedia dan ditinjau visual; wajah terlihat jelas. B/Y menggunakan versi 500 px yang disediakan Wikimedia, sedangkan C memakai original setelah permintaan thumbnail mendapat HTTP 429. Ketiganya belum dipasang pada aplikasi. Ukuran, hash, dan dimensi aktual ada di [t05-t06-asset-progress.json](t05-t06-asset-progress.json); sumber, lisensi, pembuat dan kewajiban kredit di [SOURCES.md](../assets/SOURCES.md).
+
+Potret tersebut bukan adegan karakter dalam drama. Untuk H, dua potret Commons yang ditemukan masih bertanda “license review needed”. Untuk P, belum ditemukan foto berizin yang terverifikasi. Still Netflix yang dulu dicatat tetap belum memiliki bukti izin penggunaan ulang pada kartu kuis. Tinjauan crop 4:3 pada UI, posisi wajah, lima ukuran file final, pemuatan kelima foto melalui host sendiri, dan kredit pada website belum dapat dinyatakan selesai. Foto lokal parsial tidak dipakai sebagai alasan mencentang T05/T06.
+
+Langkah penyelesaian: temukan sumber foto P/H dengan lisensi/izin yang mendukung proyek; putuskan apakah lima potret pemeran diterima sebagai pengganti still karakter; tinjau crop kelimanya; siapkan versi ringan lokal, referensi data, kredit tampilan, dan uji pemuatan/fallback. Tidak ada perubahan pada logika kuis atau status T11/T12. Pekerjaan berhenti pada T06.
+
+
+## T05–T06 — Keputusan pengguna dan aset final
+
+Pengguna mengubah ketentuan aset: lima still internet boleh dipakai untuk proyek pribadi ini tanpa syarat sumber/kredit pada aplikasi. Lima gambar kandidat lama diunduh, diperkecil menjadi JPEG 720 × 480 kualitas 78, dan ditinjau visual: wajah B/Y/C/P/H terlihat jelas pada rasio 4:3. Ukuran masing-masing 52.205, 44.027, 48.085, 53.994, dan 60.635 byte. Total lima foto 258.946 byte. File lokal berada di `assets/images/`; `js/data.js` merujuk kelimanya. Browser Chrome headless memuat lima foto lokal dalam alur lima hasil: [109/109 pemeriksaan lulus](t05-t06-integration-check.json). Tidak ada hotlink runtime. Fallback inisial tetap ada pada `js/ui.js` bila foto gagal.
+
+Catatan sumber lama di `assets/SOURCES.md` adalah arsip penelusuran, bukan syarat rilis sesuai keputusan pengguna. Foto digunakan hanya pada proyek pribadi sebagaimana dijelaskan pengguna. T05 dan T06 selesai; T11/T12 memerlukan tinjauan status terpisah setelah perubahan aset ini.

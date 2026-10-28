@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-28",
+  "status": "INCOMPLETE",
+  "reviewed_local_assets": [
+    {
+      "file": "assets/images/baek-kang-hyuk-actor.png",
+      "width": 500,
+      "height": 670,
+      "bytes": 379255,
+      "sha256": "6ef5ec44039529a5c0092611bea17cd6b70a39136ece79ec40668f28e98b626e"
+    },
+    {
+      "file": "assets/images/cheon-jang-mi-actor.png",
+      "width": 620,
+      "height": 866,
+      "bytes": 376539,
+      "sha256": "4964ecce910912adb0a85bea4cc982677d8ab87c302fed21d5d885a353d5e37a"
+    },
+    {
+      "file": "assets/images/yang-jae-won-actor.png",
+      "width": 500,
+      "height": 625,
+      "bytes": 262843,
+      "sha256": "d6f0d6bc57cba95cbe354c698b566d71bc8fec2c52b6aadff8f303f6ca616aab"
+    }
+  ],
+  "final_required": 5,
+  "missing_verified_assets": [
+    "P",
+    "H"
+  ],
+  "production_integrated": false
+}

@@ -1,0 +1,69 @@
+{
+  "task": "T05",
+  "date": "2026-10-28",
+  "result": "INCOMPLETE",
+  "dependency": "T01 complete",
+  "source_page": "https://www.marieclaire.com/culture/tv-shows/the-trauma-code-heroes-on-call-cast/",
+  "source_credit": "Han Se-jun/Netflix",
+  "candidates": [
+    {
+      "id": "B",
+      "character": "Baek Kang-hyuk",
+      "planned_file": "baek-kang-hyuk.jpg",
+      "image_url": "https://cdn.mos.cms.futurecdn.net/hzEnpq9cFRwZJhhRTbncXG.jpg",
+      "status": "candidate_only",
+      "reuse_permission_verified": false,
+      "visual_crop_verified": false,
+      "web_fetch_outcome": "Content length too large: 15390946 bytes"
+    },
+    {
+      "id": "Y",
+      "character": "Yang Jae-won",
+      "planned_file": "yang-jae-won.jpg",
+      "image_url": "https://cdn.mos.cms.futurecdn.net/7NoN3VFrbEXZXbErsj3dBm.jpg",
+      "status": "candidate_only",
+      "reuse_permission_verified": false,
+      "visual_crop_verified": false,
+      "web_fetch_outcome": "Fetch failed despite upstream OK"
+    },
+    {
+      "id": "C",
+      "character": "Cheon Jang-mi",
+      "planned_file": "cheon-jang-mi.jpg",
+      "image_url": "https://cdn.mos.cms.futurecdn.net/zFrTqrZSzMsuJXGdkcawmi.jpg",
+      "status": "candidate_only",
+      "reuse_permission_verified": false,
+      "visual_crop_verified": false,
+      "web_fetch_outcome": "Content length too large: 13189579 bytes"
+    },
+    {
+      "id": "P",
+      "character": "Park Gyeong-won",
+      "planned_file": "park-gyeong-won.jpg",
+      "image_url": "https://cdn.mos.cms.futurecdn.net/7Ua5mrifGjYhQr43NGpiyX.jpg",
+      "status": "candidate_only",
+      "reuse_permission_verified": false,
+      "visual_crop_verified": false,
+      "web_fetch_outcome": "Cache miss"
+    },
+    {
+      "id": "H",
+      "character": "Han Yu-rim",
+      "planned_file": "han-yu-rim.jpg",
+      "image_url": "https://cdn.mos.cms.futurecdn.net/BJ7kRUxASyGU9Zh9T2SHQC.jpg",
+      "status": "candidate_only",
+      "reuse_permission_verified": false,
+      "visual_crop_verified": false,
+      "web_fetch_outcome": "Cache miss"
+    }
+  ],
+  "rights_reference": "https://help.netflix.com/en/legal/media-terms-and-conditions",
+  "alternative_search": "Commons categories found for four cast members; no complete verified five-image set selected",
+  "production_images_downloaded": false,
+  "third_parties_contacted": false,
+  "next_task_started": false,
+  "completion_gap": [
+    "Reuse permission/license for the quiz has not been established",
+    "Visual inspection and crop suitability have not been confirmed"
+  ]
+}

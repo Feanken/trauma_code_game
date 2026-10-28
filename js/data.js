@@ -220,6 +220,7 @@
     characters: [
       {
         id: 'B',
+        image: { src: 'assets/images/baek-kang-hyuk.jpg' },
         name: 'Baek Kang-hyuk',
         title: 'The Fearless Leader',
         summary: 'Berani bergerak, siap memimpin.',
@@ -237,6 +238,7 @@
       },
       {
         id: 'Y',
+        image: { src: 'assets/images/yang-jae-won.jpg' },
         name: 'Yang Jae-won',
         title: 'The Thoughtful Learner',
         summary: 'Selalu tumbuh lewat pengalaman.',
@@ -254,6 +256,7 @@
       },
       {
         id: 'C',
+        image: { src: 'assets/images/cheon-jang-mi.jpg' },
         name: 'Cheon Jang-mi',
         title: 'The Heart of the Team',
         summary: 'Membuat tim merasa didengar.',
@@ -271,6 +274,7 @@
       },
       {
         id: 'P',
+        image: { src: 'assets/images/park-gyeong-won.jpg' },
         name: 'Park Gyeong-won',
         title: 'The Calm Specialist',
         summary: 'Tenang menjaga setiap detail.',
@@ -288,6 +292,7 @@
       },
       {
         id: 'H',
+        image: { src: 'assets/images/han-yu-rim.jpg' },
         name: 'Han Yu-rim',
         title: 'The Strategic Thinker',
         summary: 'Melihat arah sebelum melangkah.',

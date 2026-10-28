@@ -1,0 +1,119 @@
+{
+  "task": "T07",
+  "date": "2026-10-28",
+  "browser": "Chrome 156.0.8078.73 headless",
+  "os": "Windows-11-10.0.26300-SP0",
+  "url": "http://127.0.0.1:62239/",
+  "result": "PASS",
+  "checks": {
+    "passed": true,
+    "viewports": [
+      {
+        "width": 320,
+        "passed": true,
+        "columns": 1,
+        "resultColumns": 1,
+        "answersSideBySide": true,
+        "stableHitArea": true,
+        "visibleFocus": true,
+        "minimumTarget": 44,
+        "contrastRatios": {
+          "mainText": 14.264153250567537,
+          "mutedText": 9.21390318939462,
+          "primaryButton": 12.492938337683734,
+          "B": 9.534089837164172,
+          "Y": 8.760110991467315,
+          "C": 9.134434736638136,
+          "P": 9.762760310268051,
+          "H": 8.600340240010295
+        }
+      },
+      {
+        "width": 375,
+        "passed": true,
+        "columns": 1,
+        "resultColumns": 1,
+        "answersSideBySide": true,
+        "stableHitArea": true,
+        "visibleFocus": true,
+        "minimumTarget": 44,
+        "contrastRatios": {
+          "mainText": 14.264153250567537,
+          "mutedText": 9.21390318939462,
+          "primaryButton": 12.492938337683734,
+          "B": 9.534089837164172,
+          "Y": 8.760110991467315,
+          "C": 9.134434736638136,
+          "P": 9.762760310268051,
+          "H": 8.600340240010295
+        }
+      },
+      {
+        "width": 768,
+        "passed": true,
+        "columns": 2,
+        "resultColumns": 2,
+        "answersSideBySide": true,
+        "stableHitArea": true,
+        "visibleFocus": true,
+        "minimumTarget": 44,
+        "contrastRatios": {
+          "mainText": 14.264153250567537,
+          "mutedText": 9.21390318939462,
+          "primaryButton": 12.492938337683734,
+          "B": 9.534089837164172,
+          "Y": 8.760110991467315,
+          "C": 9.134434736638136,
+          "P": 9.762760310268051,
+          "H": 8.600340240010295
+        }
+      },
+      {
+        "width": 1280,
+        "passed": true,
+        "columns": 2,
+        "resultColumns": 2,
+        "answersSideBySide": true,
+        "stableHitArea": true,
+        "visibleFocus": true,
+        "minimumTarget": 44,
+        "contrastRatios": {
+          "mainText": 14.264153250567537,
+          "mutedText": 9.21390318939462,
+          "primaryButton": 12.492938337683734,
+          "B": 9.534089837164172,
+          "Y": 8.760110991467315,
+          "C": 9.134434736638136,
+          "P": 9.762760310268051,
+          "H": 8.600340240010295
+        }
+      }
+    ]
+  },
+  "foundation_ready": true,
+  "screenshots": [
+    {
+      "path": "docs\\t07-preview-1280.png",
+      "pixel_dimensions": [
+        1280,
+        1100
+      ]
+    },
+    {
+      "path": "docs\\t07-preview-375.png",
+      "pixel_dimensions": [
+        375,
+        1100
+      ],
+      "capture_method": "375 CSS px iframe, cropped to iframe bounds; desktop headless outer window minimum width is not used as mobile viewport."
+    }
+  ],
+  "sha256": {
+    "index.html": "9fbc8bb01f8dce209c5be2323c7e1ee5ad4b6a5d06a2023959762d86a713169d",
+    "css/style.css": "83e9408fe61c916660dbcebe1d20ac74b5a212311d30c4cbc92effcd5ee68aef",
+    "checks/ui-preview.html": "77a4db68ec42654c79e777f729d08993ea6a38adb7d7275e3063612cf42ba274",
+    "checks/ui-check.html": "05620e1a370e40f68b67c85e8fef212a3e7e303144684dfbdbd0325b6438e37c",
+    "checks/ui-check.js": "c2d19675d046ce2cb1151ac13c6b6282a2d5d9909c989c1e196331b290d7cfd9"
+  },
+  "scope": "Component and layout checks, not complete quiz UI or device compliance."
+}

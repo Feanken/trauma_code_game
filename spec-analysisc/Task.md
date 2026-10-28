@@ -1,6 +1,6 @@
 # Task — Which Trauma Code Character Are You?
 
-Status: Implementasi bertahap; T01–T04 selesai, T05–T22 belum dikerjakan
+Status: Implementasi bertahap; T01–T04 dan T07 selesai; T05–T06 selesai sesuai keputusan terbaru pengguna; T08–T10 selesai; T11–T12 siap diverifikasi ulang setelah T05–T06; T13–T22 belum dikerjakan
 
 Tanggal: 28 Oktober 2026  
 Acuan: `requirement.md` revisi 4 dan `design.md`, termasuk bagian 3.6 tentang interaksi mouse dan bagian 11 tentang gambar dari internet.
@@ -87,23 +87,27 @@ Buat `checks/scoring-check.html` dan `checks/scoring-check.js` yang memanggil fu
 
 ### Tahap B — Aset dan dasar visual
 
-- [ ] **T05 — Cari dan pilih gambar karakter dari internet.**
+- [x] **T05 — Cari dan pilih gambar karakter dari internet.**
 
 **Dependensi:** T01. **Kebutuhan:** FR-08, NFR-08. **Desain:** Bagian 11.
 
-Cari satu foto yang sesuai untuk Baek Kang-hyuk, Yang Jae-won, Cheon Jang-mi, Park Gyeong-won, dan Han Yu-rim. Gambar pendukung pembuka bersifat opsional. Catat halaman sumber, URL berkas bila tersedia, pembuat/pemegang hak, ketentuan penggunaan, dan atribusi dalam `assets/SOURCES.md`. Tidak ada kewajiban membuat ilustrasi orisinal.
+Cari satu foto yang sesuai untuk Baek Kang-hyuk, Yang Jae-won, Cheon Jang-mi, Park Gyeong-won, dan Han Yu-rim. Gambar pendukung pembuka bersifat opsional. Lima still dapat diambil langsung dari internet sesuai keputusan terbaru pengguna untuk proyek pribadi. Tidak ada kewajiban membuat ilustrasi orisinal.
 
-**Selesai jika:** lima aset terpilih sesuai karakter, kualitas crop memadai, dan informasi sumber serta izin penggunaan sesuai kebutuhan proyek tercatat. Jika sumber belum memadai, lanjutkan pencarian atau tandai aset belum selesai; hasil pencarian saja tidak menjadi bukti izin.
+**Selesai jika:** lima aset terpilih sesuai karakter, kualitas crop memadai, dan cocok dengan karakter pada still yang ditinjau. Jika sumber belum memadai, lanjutkan pencarian atau tandai aset belum selesai; hasil pencarian saja tidak menjadi bukti izin.
 
-- [ ] **T06 — Siapkan aset lokal yang ringan dan tahan kegagalan.**
+**Progres T05 — 28 Oktober 2026:** lima kandidat still dan URL berkas ditemukan, dengan kredit sumber dicatat dalam [SOURCES.md](../assets/SOURCES.md). Bukti izin penggunaan untuk kartu kuis belum terkonfirmasi; tinjauan visual/crop belum selesai karena pengambilan gambar melalui alat web gagal. Alternatif Commons ditelusuri, belum menghasilkan lima aset final yang memenuhi seluruh kriteria. Catatan ini merupakan kondisi sebelum keputusan terbaru pengguna; T05 kini selesai. Bukti dan batas pemeriksaan: [verification.md](../docs/verification.md), [t05-asset-research.json](../docs/t05-asset-research.json). T06 baru dipersiapkan untuk tiga potret berlisensi dan tetap belum selesai.
+
+- [x] **T06 — Siapkan aset lokal yang ringan dan tahan kegagalan.**
 
 **Dependensi:** T05. **Kebutuhan:** FR-08, NFR-08, NFR-09, NFR-13. **Desain:** Bagian 9.1 dan 11.
 
 Simpan gambar dalam `assets/images/` dengan nama deskriptif. Optimalkan ukuran dan format, catat crop/kompresi di sumber, serta tentukan posisi crop wajah untuk area foto rasio 4:3. Tetapkan dimensi gambar, rencanakan pemuatan foto hasil hanya saat diperlukan, serta fallback inisial jika gambar gagal.
 
-**Selesai jika:** kelima foto dapat dimuat dari host website sendiri, tidak memakai hotlink, dan crop telah ditinjau. Informasi ukuran file serta atribusi tersedia untuk integrasi. Gambar tidak mengharuskan akun, API, atau permintaan pihak ketiga saat kuis dijalankan.
+**Selesai jika:** kelima foto dapat dimuat dari host website sendiri, tidak memakai hotlink, dan crop telah ditinjau. Informasi ukuran file tersedia untuk integrasi. Gambar tidak mengharuskan akun, API, atau permintaan pihak ketiga saat kuis dijalankan.
 
-- [ ] **T07 — Bangun sistem visual berlapis dan layout dasar.**
+**Status T06 — 28 Oktober 2026:** belum selesai dan tidak dicentang. Dependensi T05 belum terpenuhi: lima foto final beserta izin dan crop belum terverifikasi. Lima still karakter lokal berukuran 720 × 480 telah dipasang dan diverifikasi pada lima hasil; rincian bukti di verification.md. Rincian: [verification.md](../docs/verification.md#t06--aset-lokal).
+
+- [x] **T07 — Bangun sistem visual berlapis dan layout dasar.**
 
 **Dependensi:** T01. **Kebutuhan:** NFR-04, NFR-05, NFR-07, NFR-12. **Desain:** Bagian 3.
 
@@ -111,9 +115,11 @@ Tetapkan token warna, font sistem, jarak, sudut, gradasi, highlight, batas permu
 
 **Selesai jika:** komponen terasa berdimensi pada layar lebar maupun sempit, tanpa efek yang menutupi teks atau mengubah area tekan. Semua aksi penting tersedia tanpa hover. Target tekan minimal 44 × 44 CSS px dan outline fokus jelas.
 
+**Bukti T07 — 28 Oktober 2026:** sistem token, panel, kartu, tombol, lima tema dan layout responsif dibuat. Galeri terpisah `checks/ui-preview.html` memperlihatkan keadaan kontrol. Pemeriksa browser lulus pada 320/375/768/1280 CSS px: tanpa overflow horizontal, A/B sejajar, target minimal 44 px, fokus terlihat, area tekan stabil, dan kontras teks terukur minimal 8,60:1. Tangkapan layar desktop/ponsel ditinjau. Rincian dan batas uji: [verification.md](../docs/verification.md), [t07-ui-check.json](../docs/t07-ui-check.json).
+
 ### Tahap C — Alur MVP
 
-- [ ] **T08 — Buat layar pembuka dan awal sesi.**
+- [x] **T08 — Buat layar pembuka dan awal sesi.**
 
 **Dependensi:** T02, T07. **Kebutuhan:** FR-01, FR-10; A-01. **Desain:** Bagian 2.1 dan 7.3.
 
@@ -121,7 +127,9 @@ Tampilkan judul, pengantar, informasi 10 pertanyaan/tanpa login, pratinjau kartu
 
 **Selesai jika:** halaman baru menampilkan pembuka; Start Quiz menampilkan pertanyaan pertama dengan progres 1/10 dan tanpa jawaban lama. Pengguna dapat memahami manfaat kuis sebelum mulai. Estimasi durasi belum diklaim sebelum diukur.
 
-- [ ] **T09 — Buat renderer pertanyaan, pilihan, dan progres.**
+**Bukti T08:** pembuka, pratinjau placeholder, Start Quiz dan sesi kosong Q01 diverifikasi di Chrome; lihat [verification.md](../docs/verification.md#t08t10--alur-pembuka-pertanyaan-dan-navigasi).
+
+- [x] **T09 — Buat renderer pertanyaan, pilihan, dan progres.**
 
 **Dependensi:** T02, T07. **Kebutuhan:** FR-02, FR-03, FR-04, FR-05. **Desain:** Bagian 2.2 dan 7.
 
@@ -129,13 +137,17 @@ Render satu pertanyaan aktif, konteks, dua tombol pilihan, nomor n/10, dan bilah
 
 **Selesai jika:** semua pertanyaan 1–10 dan pilihan A/B tampil benar; progres mengikuti indeks aktif; teks membungkus tanpa mengecilkan font secara paksa; jawaban sebelumnya terlihat saat dibuka kembali.
 
-- [ ] **T10 — Hubungkan jawaban, Back, dan perlindungan event.**
+**Bukti T09:** 10 teks pertanyaan, progres 1–10, bilah, pilihan lama, dan Back pertama diverifikasi; lihat [t08-t10-flow-check.json](../docs/t08-t10-flow-check.json).
+
+- [x] **T10 — Hubungkan jawaban, Back, dan perlindungan event.**
 
 **Dependensi:** T03, T08, T09. **Kebutuhan:** FR-03, FR-04, FR-05, FR-06, NFR-12; A-02, A-03, A-04. **Desain:** Bagian 7.2–7.3.
 
 Kelola `screen`, `currentIndex`, `answers`, `isTransitioning`, `result`, dan `sessionVersion`. Simpan pilihan terbaru lalu maju otomatis; Back mundur satu indeks tanpa menghapus jawaban lain. Kunci sebelum mutasi dan abaikan ketukan/aktivasi berulang selama perpindahan. Perhitungan hasil hanya boleh terjadi setelah sepuluh jawaban lengkap.
 
 **Selesai jika:** memilih pilihan lama atau penggantinya maju satu pertanyaan, perubahan tidak menggandakan skor, dan double-click/Enter ditahan tidak melewati pertanyaan. Tidak ada penyimpanan browser; refresh kembali ke pembuka. Jika jawaban belum lengkap, permintaan hasil mengarah ke pertanyaan kosong pertama.
+
+**Bukti T10:** 36 pemeriksaan browser lulus termasuk klik ganda, Back, koreksi, hasil setelah Q10, fokus, dan refresh. Skor dihitung melalui fungsi T03; kartu hasil lengkap menunggu T11. Lihat [verification.md](../docs/verification.md#t08t10--alur-pembuka-pertanyaan-dan-navigasi).
 
 - [ ] **T11 — Bangun hasil lima karakter dan Trauma Team ID Card.**
 
@@ -145,6 +157,8 @@ Hubungkan hasil ke nama, gelar, ringkasan kartu, foto karakter, deskripsi, tiga 
 
 **Selesai jika:** kelima hasil dapat ditinjau menggunakan contoh jawaban desain; foto/nama/tema/alasan sesuai; kegagalan gambar tidak menghilangkan hasil atau tombol. Tidak ada permintaan data pribadi, persentase kecocokan psikologis, atau tombol unduh/berbagi yang belum berfungsi.
 
+**Progres T11 — 28 Oktober 2026:** lima hasil, tema, alasan, tiga kekuatan, dan fallback inisial sudah terhubung serta lolos pemeriksa browser. Foto final, crop, dan atribusi belum tersedia karena T05/T06 belum selesai. T11 tetap belum dicentang. [Bukti](../docs/verification.md#t11t12--hasil-karakter-dan-pengulangan).
+
 - [ ] **T12 — Hubungkan pengulangan dan bersihkan sesi lama.**
 
 **Dependensi:** T10, T11. **Kebutuhan:** FR-01, FR-09. **Desain:** Bagian 7.2–7.3.
@@ -152,6 +166,8 @@ Hubungkan hasil ke nama, gelar, ringkasan kartu, foto karakter, deskripsi, tiga 
 Tombol Ulangi kuis membersihkan jawaban, progres, hasil, pilihan aktif, dan tema karakter; batalkan callback lama atau abaikan berdasarkan versi sesi. Mulai langsung dari pertanyaan pertama dan fokus ke heading.
 
 **Selesai jika:** beberapa percobaan berturut-turut berjalan tanpa reload; pola jawaban berbeda dapat menghasilkan karakter berbeda; callback dari sesi lama tidak mengubah percobaan baru.
+
+**Progres T12 — 28 Oktober 2026:** tombol Ulangi kuis, pembersihan hasil/tema/jawaban, dan beberapa sesi dengan hasil berbeda lolos pemeriksaan. Dependensi T11 belum selesai, maka T12 tetap belum dicentang. [Bukti](../docs/verification.md#t11t12--hasil-karakter-dan-pengulangan).
 
 ### Tahap D — Interaksi dan aksesibilitas
 
@@ -284,8 +300,8 @@ Saat implementasi dimulai, buat `docs/verification.md` untuk bukti lintas tugas.
 | Bukti | Tangkapan layar, keluaran pemeriksa, angka pengukuran, atau catatan uji pengguna tanpa identitas pribadi. |
 | Tindak lanjut | Masalah, perbaikan, dan pemeriksaan ulang yang diperlukan. |
 
-Status awal seluruh tugas adalah belum dikerjakan. Status terkini: **T01–T04 selesai; T05–T22 belum dikerjakan**. Logika skor produksi lulus pemeriksaan terpilih T03 dan enumerasi lengkap T04; UI kuis lengkap belum dibuat.
+Status awal seluruh tugas adalah belum dikerjakan. Status terkini: **T01–T04 dan T07 selesai; T05–T06 selesai sesuai keputusan terbaru pengguna; T08–T10 selesai; T11–T12 siap diverifikasi ulang setelah T05–T06; T13–T22 belum dikerjakan**. Logika skor produksi lulus pemeriksaan terpilih T03 dan enumerasi lengkap T04; UI kuis lengkap belum dibuat.
 
 ## 6. Batas pekerjaan saat ini
 
-Fondasi T01, data/validator T02, logika skor/alasan T03, dan pemeriksa skor lengkap T04 telah dibuat serta diperiksa. Pekerjaan berhenti setelah T04; UI kuis/hasil lengkap, pengadaan gambar, uji pengguna, serta deployment belum dikerjakan.
+Fondasi T01, data/validator T02, logika skor/alasan T03, dan pemeriksa skor lengkap T04 telah dibuat serta diperiksa. Penelusuran T05 tercatat, tetapi izin dan crop aset final belum terkonfirmasi. Sistem visual dan layout dasar T07 selesai. T06 belum dapat dilaksanakan sampai T05 selesai. T08–T10 selesai. Kode hasil dan pengulangan T11–T12 sudah ditambahkan dan diuji, tetapi kedua tugas masih terbuka karena foto final T05/T06 belum tersedia. Efek pointer T13, uji pengguna, dan deployment belum dikerjakan. Pekerjaan berhenti setelah T12.
