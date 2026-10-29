@@ -30,18 +30,18 @@
 
   function renderControls() {
     if (!controls) return;
-    controls.music.textContent = state.musicEnabled && needsResume
-      ? 'Lanjutkan musik' : `Musik: ${state.musicEnabled ? 'Aktif' : 'Mati'}`;
+    controls.music.textContent = `Musik: ${state.musicEnabled ? 'Aktif' : 'Mati'}`;
     controls.effects.textContent = `Efek: ${state.effectsEnabled ? 'Aktif' : 'Mati'}`;
     controls.music.setAttribute('aria-pressed', String(state.musicEnabled));
     controls.effects.setAttribute('aria-pressed', String(state.effectsEnabled));
     controls.musicOutput.textContent = `${Math.round(state.musicVolume * 100)}%`;
     controls.effectsOutput.textContent = `${Math.round(state.effectsVolume * 100)}%`;
     controls.track.textContent = `Lagu: ${musicScene === 'result' ? 'Here We Go! — Adam Gibbons' : 'Breathe Again — Celestial Scribbles'}`;
-    const messages = { idle: 'Nyalakan musik dari halaman pembuka atau menu Sound.', loading: 'Musik sedang dimuat.',
+    const messages = { idle: 'Musik dimulai saat kuis dimulai.', loading: 'Musik sedang dimuat.',
       playing: 'Musik sedang diputar.', paused: 'Musik dijeda.', unavailable: 'Musik belum dapat diputar. Kuis tetap bisa digunakan.' };
     controls.status.textContent = state.musicEnabled ? messages[state.playbackState] : 'Musik dimatikan.';
     controls.effectsStatus.textContent = failedEffects.size ? 'Sebagian efek belum tersedia.' : 'Efek singkat untuk aksi kuis.';
+
   }
 
   function applyGain() {
@@ -95,6 +95,7 @@
       needsResume = true;
       renderControls();
     });
+    context.addEventListener('statechange', renderControls);
     applyGain();
     return true;
   }
@@ -179,11 +180,12 @@
 
   function prepareFromGesture({ startMusic: shouldStartMusic = false } = {}) {
     if (document.hidden || (!state.musicEnabled && !state.effectsEnabled)) return;
+    const resumeMusic = shouldStartMusic || (unlocked && needsResume);
     foreground = true;
     unlocked = true;
     try {
       if (!createEngine()) return;
-      if (shouldStartMusic) startMusic();
+      if (resumeMusic) startMusic();
       const version = musicVersion;
       context.resume().catch((error) => {
         if (version !== musicVersion) return;
@@ -276,11 +278,8 @@
       status: document.getElementById('music-status'), effectsStatus: document.getElementById('effects-status'), track: document.getElementById('music-track') };
     controls.music.addEventListener('click', (event) => {
       if (event.detail > 1) return;
-      if (state.musicEnabled && needsResume) prepareFromGesture({ startMusic: true });
-      else {
-        setMusicEnabled(!state.musicEnabled);
-        if (state.musicEnabled) prepareFromGesture({ startMusic: true });
-      }
+      setMusicEnabled(!state.musicEnabled);
+      if (state.musicEnabled && unlocked) prepareFromGesture({ startMusic: true });
     });
     controls.effects.addEventListener('click', (event) => {
       if (event.detail > 1) return;
@@ -296,18 +295,7 @@
     document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
     document.getElementById('audio-controls').hidden = false;
     renderControls();
-    // Try immediately; a trusted gesture unlocks audio if browser autoplay is blocked.
-    function firstInteraction(event) {
-      if (!event.isTrusted || (event.type === 'keydown' && ['Shift', 'Control', 'Alt', 'Meta', 'Escape'].includes(event.key))) return;
-      document.removeEventListener('pointerdown', firstInteraction, true);
-      document.removeEventListener('keydown', firstInteraction, true);
-      if (event.target.closest('#music-toggle') || !state.musicEnabled) return;
-      if (context && context.state === 'running' && state.playbackState === 'playing') return;
-      prepareFromGesture({ startMusic: true });
-    }
-    document.addEventListener('pointerdown', firstInteraction, true);
-    document.addEventListener('keydown', firstInteraction, true);
-    prepareFromGesture({ startMusic: true });
+    // Music starts from the accepted quiz-start gesture, not on page load.
   }
 
   function getState() {

@@ -734,6 +734,46 @@ body { isolation: isolate; }
 
 /* Compact, touch-first layout: a cast card, one clear action, details on demand. */
 .mobile-title { display: none; }
+.motion-surface {
+  transition: box-shadow 240ms ease, border-color 220ms ease, background-color 220ms ease,
+    color 180ms ease, translate 220ms cubic-bezier(.2,.7,.2,1), scale 180ms ease;
+}
+button.motion-surface, summary.motion-surface { -webkit-tap-highlight-color: transparent; }
+button.motion-surface:active:not(:disabled), summary.motion-surface:active { scale: .97; translate: 0 1px; }
+.motion-surface:focus-visible { box-shadow: 0 0 0 5px #18796918; }
+.screen-enter { animation: surface-arrive 380ms ease-out both; }
+@keyframes surface-arrive { from { opacity: 0; } to { opacity: 1; } }
+.brand-mark, .sound-chevron, .result-more summary span, .letterhead-mark { transition: transform 240ms cubic-bezier(.2,.7,.2,1), box-shadow 240ms ease; }
+.hero-tags span, .letter-stamp { transition: translate 250ms ease, box-shadow 250ms ease; }
+.sound-menu[open] .audio-controls { animation: menu-arrive 230ms ease-out both; }
+.result-more[open] > :not(summary) { animation: surface-arrive 260ms ease-out both; }
+@keyframes menu-arrive { from { opacity: 0; translate: 0 -7px; } to { opacity: 1; translate: 0 0; } }
+.audio-channel input { transition: filter 200ms ease; }
+.audio-channel input:focus-visible { filter: drop-shadow(0 0 5px #18796925); }
+@media (hover: hover) and (pointer: fine) {
+  button.motion-surface:hover:not(:disabled), summary.motion-surface:hover {
+    translate: 0 -3px;
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 24px #21594d1c, inset 0 1px 0 #ffffffa0;
+    background-image: radial-gradient(circle at var(--hover-x, 50%) var(--hover-y, 50%), #ffffff45, transparent 75%);
+  }
+  section.panel:hover { border-color: #9fc9b6; box-shadow: 0 26px 65px #21594d1c, inset 0 1px #fff; }
+  .site-header:hover { box-shadow: 0 12px 32px #21594d16; border-color: #a8cdbb; }
+  .brand:hover .brand-mark { transform: rotate(-8deg) scale(1.06); box-shadow: 0 6px 18px #18796926; }
+  .hero-tags span:hover { translate: 0 -3px; box-shadow: 0 5px 12px #21594d12; }
+  .letter-stamp:hover { translate: 0 -3px; box-shadow: 0 6px 16px #21594d16; }
+  .letterhead:hover .letterhead-mark { transform: rotate(8deg); }
+  .envelope-button.motion-surface:hover:not(:disabled) { box-shadow: none; background-image: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-surface, .brand-mark, .sound-chevron, .result-more summary span,
+  .letterhead-mark, .hero-tags span, .letter-stamp, .audio-channel input { transition: none; }
+  .screen-enter, .sound-menu[open] .audio-controls, .result-more[open] > :not(summary) { animation: none; }
+  button.motion-surface:hover:not(:disabled), summary.motion-surface:hover,
+  button.motion-surface:active:not(:disabled), summary.motion-surface:active,
+  .hero-tags span:hover, .letter-stamp:hover { translate: none; scale: none; }
+  .brand:hover .brand-mark, .letterhead:hover .letterhead-mark { transform: none; }
+}
 .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
 .hero-tags span { padding: 5px 10px; border-radius: 20px; background: #e9f3ec; color: #476955; font-size: .75rem; }
 .hero-foot { margin: 18px 0 0; font-size: .7rem; }

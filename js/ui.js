@@ -30,6 +30,10 @@
     quiz.hidden = name !== 'quiz';
     result.hidden = name !== 'result';
     letter.hidden = name !== 'letter';
+    const screen = { landing, quiz, result, letter }[name];
+    screen.classList.remove('screen-enter');
+    void screen.offsetWidth;
+    screen.classList.add('screen-enter');
   }
 
   function renderQuestion(data, state, focusHeading) {
@@ -52,7 +56,7 @@
     question.options.forEach((option) => {
       const button = document.createElement('button');
       button.type = 'button';
-      button.className = 'answer-card';
+      button.className = 'answer-card motion-surface';
       button.dataset.option = option.id;
       button.dataset.questionIndex = String(state.currentIndex);
       const isSelected = state.answers[state.currentIndex] === option.id;
@@ -177,8 +181,14 @@
   let pendingTimer = 0;
   let pointer = null;
   let activeCard = null;
+  const litSurfaces = new Set();
 
   function resetPointerEffects() {
+    litSurfaces.forEach((surface) => {
+      surface.style.removeProperty('--hover-x');
+      surface.style.removeProperty('--hover-y');
+    });
+    litSurfaces.clear();
     if (pendingFrame) cancelAnimationFrame(pendingFrame);
     if (pendingTimer) clearTimeout(pendingTimer);
     pendingFrame = 0;
@@ -204,6 +214,20 @@
     pendingTimer = 0;
     if (!pointer || motionPreference.matches || !finePointer.matches || inputMode !== 'mouse') return;
     const { x, y, card } = pointer;
+    const surfaces = pointer.surfaces || [];
+    litSurfaces.forEach((surface) => {
+      if (!surfaces.includes(surface)) {
+        surface.style.removeProperty('--hover-x');
+        surface.style.removeProperty('--hover-y');
+        litSurfaces.delete(surface);
+      }
+    });
+    surfaces.forEach((surface) => {
+      const box = surface.getBoundingClientRect();
+      surface.style.setProperty('--hover-x', `${Math.max(0, Math.min(100, (x - box.left) / box.width * 100))}%`);
+      surface.style.setProperty('--hover-y', `${Math.max(0, Math.min(100, (y - box.top) / box.height * 100))}%`);
+      litSurfaces.add(surface);
+    });
     const viewportX = Math.max(-1, Math.min(1, x / window.innerWidth * 2 - 1));
     const viewportY = Math.max(-1, Math.min(1, y / window.innerHeight * 2 - 1));
     far.style.setProperty('--ambient-x', `${(viewportX * 6).toFixed(2)}px`);
@@ -234,6 +258,7 @@
     const activeScreen = !landing.hidden ? landing : !result.hidden ? result : quiz;
     const wrapper = activeScreen.querySelector('.id-card-wrapper');
     pointer = { x: event.clientX, y: event.clientY,
+      surfaces: [...new Set([event.target.closest('.motion-surface'), event.target.closest('section.panel')].filter(Boolean))],
       card: wrapper && wrapper.contains(event.target) ? wrapper.querySelector('.id-card') : null };
     if (!pendingFrame) {
       pendingFrame = requestAnimationFrame(drawPointer);
@@ -279,6 +304,7 @@
   finePointer.addEventListener('change', resetPointerEffects);
 
   const mobileLayout = window.matchMedia('(max-width: 767px)');
+  document.querySelectorAll('section.panel, .site-header, button, summary, .hero-tags span, .letter-stamp').forEach((element) => element.classList.add('motion-surface'));
   const resultDetails = document.querySelector('.result-more');
   resultDetails.open = !mobileLayout.matches;
   mobileLayout.addEventListener('change', () => { resultDetails.open = !mobileLayout.matches; });
@@ -318,7 +344,15 @@
       { image: { src: 'assets/images/moments/corridor-surprise.jpg' } },
       { image: { src: 'assets/images/moments/playful-team.jpg' } },
       { image: { src: 'assets/images/moments/court-duo.jpg' } },
-      { image: { src: 'assets/images/moments/scrub-room-banter.jpg' } }
+      { image: { src: 'assets/images/moments/scrub-room-banter.jpg' } },
+      { image: { src: 'assets/images/moments/helicopter-duo.jpg' } },
+      { image: { src: 'assets/images/moments/jang-mi-smile.jpg' } },
+      { image: { src: 'assets/images/moments/hospital-partners.jpg' } },
+      { image: { src: 'assets/images/moments/night-rescue.jpg' } },
+      { image: { src: 'assets/images/moments/baek-on-call.jpg' } },
+      { image: { src: 'assets/images/moments/rescue-team.jpg' } },
+      { image: { src: 'assets/images/moments/jang-mi-on-duty.jpg' } },
+      { image: { src: 'assets/images/moments/gyeong-won-focus.jpg' } }
     ];
     const fragment = document.createDocumentFragment();
     for (let column = 0; column < 8; column += 1) {
@@ -330,7 +364,7 @@
       track.style.setProperty('--wall-delay', `${-column * 11}s`);
       const group = document.createElement('div');
       group.className = 'wall-group';
-      Array.from({ length: characters.length * 2 }).forEach((_, index) => {
+      Array.from({ length: characters.length }).forEach((_, index) => {
         const character = characters[(index + column * 2) % characters.length];
         if (!character.image || !character.image.src) return;
         const tile = document.createElement('div');
