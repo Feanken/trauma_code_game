@@ -10,11 +10,12 @@ const { spawn } = require('node:child_process');
 const root = path.resolve(__dirname, '..');
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-async function openBrowser() {
+async function openBrowser({ mountPath = '' } = {}) {
   const fixtures = new Map();
   const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.jpg': 'image/jpeg', '.png': 'image/png' };
   const server = http.createServer((request, response) => {
-    const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
+    let pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
+    if (mountPath && pathname.startsWith(`${mountPath}/`)) pathname = pathname.slice(mountPath.length);
     const file = path.resolve(root, `.${pathname === '/' ? '/index.html' : pathname}`);
     if (!file.startsWith(`${root}${path.sep}`)) { response.writeHead(403).end(); return; }
     fs.readFile(file, (error, original) => {

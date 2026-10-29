@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "date": "2026-10-29",
+  "python": "3.13.2",
+  "command": "python -m http.server <ephemeral-port> --bind 127.0.0.1",
+  "url": "http://127.0.0.1:61152",
+  "scope": "HTTP resource smoke, JavaScript executed separately in t21-static-host-check.json",
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 4574,
+      "content_type": "text/html",
+      "content_encoding": null
+    },
+    {
+      "path": "/css/style.css",
+      "status": 200,
+      "bytes": 11510,
+      "content_type": "text/css",
+      "content_encoding": null
+    },
+    {
+      "path": "/js/data.js",
+      "status": 200,
+      "bytes": 10654,
+      "content_type": "application/javascript",
+      "content_encoding": null
+    },
+    {
+      "path": "/js/quiz.js",
+      "status": 200,
+      "bytes": 8097,
+      "content_type": "application/javascript",
+      "content_encoding": null
+    },
+    {
+      "path": "/js/ui.js",
+      "status": 200,
+      "bytes": 11278,
+      "content_type": "application/javascript",
+      "content_encoding": null
+    },
+    {
+      "path": "/js/script.js",
+      "status": 200,
+      "bytes": 4492,
+      "content_type": "application/javascript",
+      "content_encoding": null
+    },
+    {
+      "path": "/assets/images/baek-kang-hyuk.jpg",
+      "status": 200,
+      "bytes": 52205,
+      "content_type": "image/jpeg",
+      "content_encoding": null
+    },
+    {
+      "path": "/checks/scoring-check.html",
+      "status": 200,
+      "bytes": 1352,
+      "content_type": "text/html",
+      "content_encoding": null
+    },
+    {
+      "path": "/checks/scoring-check.js",
+      "status": 200,
+      "bytes": 6591,
+      "content_type": "application/javascript",
+      "content_encoding": null
+    }
+  ]
+}

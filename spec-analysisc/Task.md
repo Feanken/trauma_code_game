@@ -1,6 +1,6 @@
 # Task — Which Trauma Code Character Are You?
 
-Status: Implementasi bertahap; T01–T16 selesai; T17 belum selesai; T18 selesai; T19–T25 belum dikerjakan
+Status: Implementasi bertahap; T01–T16 selesai; T17 belum selesai; T18 selesai; T19–T22 dipersiapkan tetapi belum selesai; T23–T25 belum dikerjakan
 
 Tanggal: 28 Oktober 2026  
 Acuan: `requirement.md` revisi 5 dan `design.md`, termasuk bagian 3.6 tentang interaksi mouse dan bagian 11 tentang gambar dari internet.
@@ -242,6 +242,8 @@ Siapkan skenario singkat dan uji 5–8 orang dari segmen utama, termasuk penggem
 
 **Selesai jika:** minimal 80% selesai tanpa bantuan, median waktu maksimal 2 menit, median relevansi minimal 4/5, dan kebingungan berulang sudah diperbaiki serta ditinjau ulang. Catat jumlah mentah dan keterbatasan sampel. Jika peserta belum tersedia, tandai belum diuji, bukan lulus berdasarkan simulasi.
 
+**Progres T19 — 29 Oktober 2026:** paket skenario dan CSV anonim disiapkan di [usability-study.md](../docs/usability-study.md). Pengguna menyatakan hasil tersedia, tetapi angka/versi belum dikirim. T25 belum selesai; uji final belum dapat dijalankan dan T19 tetap kosong.
+
 - [ ] **T20 — Perbaiki temuan dan jalankan regresi terkait.**
 
 **Dependensi:** T17, T18, T19, T25. **Kebutuhan:** Semua FR dan NFR yang terkena perubahan. **Desain:** Bagian 9–10.
@@ -252,6 +254,8 @@ Tutup temuan dari pemeriksaan fungsi, perangkat, kinerja, dan pengguna. Perbarui
 
 ### Tahap F — Dokumentasi dan kesiapan rilis
 
+**Progres T20 — 29 Oktober 2026:** [daftar temuan](../docs/findings.md) memisahkan perbaikan yang sudah terbukti dari audio/perangkat/peserta yang masih terbuka. T17/T19/T25 belum selesai; tidak ada klaim seluruh temuan final ditutup.
+
 - [ ] **T21 — Tulis panduan menjalankan dan hosting statis.**
 
 **Dependensi:** T15, T24. **Kebutuhan:** FR-10, FR-11, FR-12, NFR-01, NFR-02, NFR-03, NFR-08, NFR-09, NFR-10. **Desain:** Bagian 7, 9, dan 11.
@@ -260,6 +264,8 @@ Buat `README.md` berbahasa Indonesia yang menjelaskan tujuan hiburan, struktur f
 
 **Selesai jika:** petunjuk dapat diikuti tanpa Node.js, npm, build, database, atau akun; halaman bekerja pada root dan subdirektori host statis. Network menunjukkan tidak ada API, font eksternal, hotlink, atau pengiriman jawaban keluar. Panduan tidak mengklaim pemeriksaan yang belum dilakukan.
 
+**Progres T21 — 29 Oktober 2026:** README draf tersedia untuk aplikasi sebelum audio. Sebanyak 17 pemeriksaan browser root/subdirektori dan 9 resource server Python lulus; [bukti host](../docs/t21-static-host-check.json), [bukti Python](../docs/t21-python-smoke.json). T24 belum selesai sehingga kontrol audio aktual belum dapat didokumentasikan; T21 tetap kosong.
+
 - [ ] **T22 — Tinjau kesiapan MVP dan lengkapi serah terima.**
 
 **Dependensi:** T20, T21. **Kebutuhan:** FR-01–FR-12, NFR-01–NFR-15. **Desain:** Bagian 10.
@@ -267,6 +273,8 @@ Buat `README.md` berbahasa Indonesia yang menjelaskan tujuan hiburan, struktur f
 Cocokkan hasil implementasi dengan seluruh kebutuhan, lengkapi matriks bukti di bawah, dan pastikan daftar status mencerminkan hasil aktual. Catat keterbatasan yang tersisa dan fitur setelah MVP secara terpisah.
 
 **Selesai jika:** semua tugas wajib dan kriteria penerimaan requirement terpenuhi, bukti dapat ditelusuri, dan tidak ada pemeriksaan wajib yang belum dilakukan. Hasil tugas ini adalah paket siap ditinjau untuk rilis; tidak otomatis memublikasikan atau men-deploy website.
+
+**Progres T22 — 29 Oktober 2026:** [readiness.md](../docs/readiness.md) memetakan seluruh FR-01–FR-12/NFR-01–NFR-15. Keputusan: belum siap menurut revisi 5. T20/T21 dan gate audio/perangkat/peserta masih terbuka; T22 tidak dicentang.
 
 ### Tahap G — Audio tambahan (revisi 5)
 
@@ -344,10 +352,12 @@ Saat implementasi dimulai, buat `docs/verification.md` untuk bukti lintas tugas.
 | Bukti | Tangkapan layar, keluaran pemeriksa, angka pengukuran, atau catatan uji pengguna tanpa identitas pribadi. |
 | Tindak lanjut | Masalah, perbaikan, dan pemeriksaan ulang yang diperlukan. |
 
-Status terkini: **T01–T16 selesai; T17 belum selesai; T18 selesai; T19–T25 belum dikerjakan**. Bukti dan batas lingkungan pengujian tersedia di `docs/verification.md`.
+Status terkini: **T01–T16 selesai; T17 belum selesai; T18 selesai; T19–T22 dipersiapkan tetapi belum selesai; T23–T25 belum dikerjakan**. Bukti dan batas lingkungan pengujian tersedia di `docs/verification.md`.
 
 ## 6. Batas pekerjaan saat ini
 
-Implementasi dan verifikasi T01–T16 serta T18 selesai. T17 tetap belum selesai karena Firefox desktop dan dua browser ponsel nyata belum diuji. Kriteria perangkat tidak diganti dengan emulasi. Audio revisi 5 direncanakan pada T23–T25 dan belum diimplementasikan. Penambahan ini tidak mengubah status bukti versi sebelum audio; regresi baru wajib melalui T25. T19–T25 belum dikerjakan.
+Implementasi dan verifikasi T01–T16 serta T18 selesai. T17 tetap belum selesai karena Firefox desktop dan dua browser ponsel nyata belum diuji. Kriteria perangkat tidak diganti dengan emulasi. Audio revisi 5 direncanakan pada T23–T25 dan belum diimplementasikan. Penambahan ini tidak mengubah status bukti versi sebelum audio; regresi baru wajib melalui T25. T19–T22 dipersiapkan tetapi belum selesai; T23–T25 belum dikerjakan.
 
 **Pembaruan 29 Oktober 2026:** revisi ini hanya merencanakan audio. Tidak ada file audio diunduh, kode audio ditulis, atau checkbox T23–T25 dicentang.
+
+**Pengerjaan T19–T22, 29 Oktober 2026:** penyusunan draf tidak melewati dependensi. Keempat checkbox tetap kosong; rincian kondisi aktual dan pemeriksaan ada di `docs/verification.md`. Tidak melanjutkan implementasi T23–T25 pada permintaan ini.

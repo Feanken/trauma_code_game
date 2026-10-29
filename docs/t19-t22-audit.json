@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-29",
+  "sdd_revision": 5,
+  "base_commit": "fcb1b3b460d02ff20e1aa74e0b3096fb948ca8e9",
+  "status": "NOT_READY",
+  "tasks": {
+    "T19": {
+      "complete": false,
+      "prepared": [
+        "docs/usability-study.md",
+        "docs/usability-results.csv"
+      ],
+      "unmet_dependencies": [
+        "T25"
+      ],
+      "verified_participant_records": 0,
+      "user_report": "Results said to exist; numerical data and tested version not yet received."
+    },
+    "T20": {
+      "complete": false,
+      "prepared": [
+        "docs/findings.md"
+      ],
+      "unmet_dependencies": [
+        "T17",
+        "T19",
+        "T25"
+      ]
+    },
+    "T21": {
+      "complete": false,
+      "prepared": [
+        "README.md"
+      ],
+      "unmet_dependencies": [
+        "T24"
+      ],
+      "current_version_host_checks_passed": true,
+      "nginx_executed": false
+    },
+    "T22": {
+      "complete": false,
+      "prepared": [
+        "docs/readiness.md"
+      ],
+      "unmet_dependencies": [
+        "T20",
+        "T21"
+      ]
+    }
+  },
+  "audio_implementation_present": false,
+  "audio_files_present": false,
+  "production_matches_previous_verified_hashes": true,
+  "production_sha256": {
+    "index.html": "2bb55874f62a2654ef2f58440b3d815e2e28648464a5c0e3db5d93a753fcd1fe",
+    "css/style.css": "33e6456a1f4c014610bf1273202d73961c1aad20ef245a4f9a9657bff140453b",
+    "js/data.js": "46ebd3351f0446862eb45285ba27404e454c7749b6eaaaaf545f85cee691096d",
+    "js/quiz.js": "8fbe1b7aeb356ce37a74ce067d98723a8217c0b27bb0c681dcb1f6fd3216171a",
+    "js/ui.js": "cb46b9bd2912846b9c6ad4f73d4e5a71037272558972417eb0ff35b816161a4a",
+    "js/script.js": "69225a3819d19c930a368cdffc2eeb6c9a7ff6defc8eba1d69fb483dec81857a"
+  },
+  "new_evidence": [
+    "docs/t21-static-host-check.json",
+    "docs/t21-python-smoke.json"
+  ],
+  "runtime_scope": "Current pre-audio version only; no new participant study, audio implementation, or deployment performed."
+}

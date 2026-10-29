@@ -1,6 +1,6 @@
 # Catatan Verifikasi
 
-Status terkini: **T01–T16 dan T18 selesai; T17 belum selesai; T19–T25 belum dikerjakan**. Bagian historis di bawah merekam keadaan pada akhir pekerjaan terkait; hasil terbaru ada pada bagian T14–T18 tanggal 29 Oktober 2026.
+Status terkini: **T01–T16 dan T18 selesai; T17 belum selesai; T19–T22 dipersiapkan tetapi belum selesai; T23–T25 belum dikerjakan**. Bagian historis di bawah merekam keadaan pada akhir pekerjaan terkait; hasil terbaru ada pada bagian T14–T18 tanggal 29 Oktober 2026.
 
 ## T01 — Fondasi website statis
 
@@ -468,3 +468,32 @@ Lingkup pekerjaan ini adalah pembaruan dokumen sesuai arahan pengguna. Requireme
 Referensi musik/efek ditelusuri pada halaman Pixabay dan Kenney yang ditautkan di desain. Kandidat belum didengarkan atau diunduh, sehingga tidak ada klaim telah memakai OST The Trauma Code atau audio telah bekerja. File aplikasi, aset, dan hasil skor tidak diubah oleh revisi dokumen ini. Bukti T14–T18 tetap bukti versi sebelum audio; T25 akan memeriksa ulang area yang terdampak setelah implementasi.
 
 Pemeriksaan dokumen: ID kebutuhan/tugas baru unik, dependensi tidak bersiklus, tautan lokal tersedia, dan `git diff --check` lulus. Tidak ada pengujian runtime audio pada langkah ini karena belum ada kode audio.
+
+
+## T19–T22 — Persiapan dan audit 29 Oktober 2026
+
+**Status: tidak ada task T19–T22 yang dicentang.** Requirement aktif revisi 5 menambah dependensi audio. Sumber aplikasi tidak diubah pada pekerjaan ini; enam hash produksi cocok dengan manifest T14–T18. Perubahan lokal dokumen dari pekerjaan sebelumnya dipertahankan.
+
+### T19 — Paket uji tersedia, hasil belum dapat dinilai
+
+[usability-study.md](usability-study.md) berisi naskah, skenario, definisi timer/denominator, target, serta cara meninjau kebingungan berulang. [usability-results.csv](usability-results.csv) hanya header, tanpa baris peserta atau hasil buatan. Pengguna menjawab bahwa hasil sudah tersedia, tetapi permintaan lanjutan untuk angka anonim dan versi belum mendapat data. Jumlah rekaman yang dapat diverifikasi tetap 0; tingkat penyelesaian, median durasi, dan median relevansi belum dapat dihitung. Uji final juga menunggu T25; data sebelum audio perlu dicatat sebagai pilot bila nanti dikirim.
+
+### T20 — Daftar temuan disiapkan
+
+[findings.md](findings.md) mencatat gap audio, perangkat nyata, hasil peserta, dan finalisasi README. Bukti perbaikan double-click, hidden, dan tinggi kartu dari T15/T16 ditautkan sebagai temuan yang sudah ditutup; itu tidak menghapus gap baru revisi 5. Tidak ada masalah produksi baru ditemukan pada pemeriksaan host yang dilakukan. T17/T19/T25 belum selesai, sehingga T20 tidak dapat menyatakan semua temuan final selesai.
+
+### T21 — README dan verifikasi versi yang tersedia
+
+README yang sebelumnya hanya judul kini menjelaskan tujuan, fitur yang benar-benar tersedia, menjalankan server Python, file, skor, pemeriksa, penempatan root/subdirektori, contoh Nginx/gzip, aset, bukti, dan batas versi audio. Panduan aplikasi tidak memerlukan Node/npm/build/backend/akun. Alat `.cjs` tetap hanya kebutuhan pengembangan, bukan runtime website.
+
+[17 pemeriksaan host](t21-static-host-check.json) lulus pada `/` dan `/trauma-quiz/`: CSS/JS, alur semua A, foto relatif, hasil B, ulang, serta pemeriksa produksi 1.024 kombinasi. Semua 22 request yang terekam memakai GET ke host sendiri tanpa query jawaban, semua response HTTP 200, tanpa exception JavaScript. Ini uji Chrome headless Windows melalui server statis alat uji dengan mount prefix, bukan klaim Nginx sudah dijalankan.
+
+[Smoke server Python](t21-python-smoke.json) menjalankan `python -m http.server` pada port localhost sementara: 9 resource mengembalikan HTTP 200. Server sederhana tersebut tidak mengirim gzip, sesuai penjelasan README. Server/browser uji dihentikan setelah pemeriksaan. Contoh Nginx ditulis dengan referensi dokumentasi resmi yang ditautkan pada README, tetapi binary/konfigurasi Nginx tidak dieksekusi. T21 tetap belum selesai karena T24 belum tersedia untuk mendokumentasikan dan memverifikasi audio aktual.
+
+### T22 — Audit menunjukkan belum siap
+
+[readiness.md](readiness.md) memetakan semua 12 FR dan 15 NFR, membedakan bukti sebelum audio dari kebutuhan revisi 5 yang belum terpenuhi. [t19-t22-audit.json](t19-t22-audit.json) mencatat hash versi yang ditinjau, dokumen yang dibuat, bukti host, dan dependensi yang belum selesai. Keputusan audit adalah **NOT_READY**; T22 tetap kosong karena T20/T21 dan gate yang mendasarinya belum selesai.
+
+Pemeriksaan akhir mencakup tautan lokal, konsistensi ID/dependensi, jumlah baris CSV yang sebenarnya, kecocokan hash produksi dengan bukti sebelumnya, sintaks dua alat `.cjs` yang terkait, serta `git diff --check`. Tidak menjalankan ulang semua tes logika/visual karena perubahan hanya dokumentasi dan fasilitas mount pada alat uji host; pemeriksa skor tetap dieksekusi untuk verifikasi jalur root/subdirektori.
+
+Pekerjaan berhenti setelah lingkup T22. Tidak melanjutkan T23–T25, merekrut/menghubungi peserta, memublikasikan, atau men-deploy aplikasi. Urutan berikut yang memungkinkan tugas ini ditutup mengikuti Task: T23 → T24 → T17 → T25, kemudian T19/T20/T21/T22 sesuai dependensinya.

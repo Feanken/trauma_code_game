@@ -33,7 +33,7 @@ Pertanyaan, penjelasan hasil, dokumentasi, dan komunikasi memakai bahasa Indones
 | --- | --- | --- |
 | [requirement.md](../spec-analysisc/requirement.md) | Kebutuhan produk, batasan, asumsi, dan kriteria penerimaan. | Tentukan apa yang harus dipenuhi melalui ID FR/NFR. Versi aktif adalah revisi 5, termasuk FR-11/FR-12 untuk audio. |
 | [design.md](../spec-analysisc/design.md) | Alur, visual, isi kuis, aturan skor, arsitektur, serta metode verifikasi. | Tentukan bagaimana kebutuhan diwujudkan. Bagian 11 memuat keputusan terbaru tentang gambar dari internet. |
-| [Task.md](../spec-analysisc/Task.md) | Urutan 22 tugas, dependensi, dan kriteria selesai. | Pilih pekerjaan yang sesuai permintaan dan periksa dependensinya. Gunakan kapitalisasi nama file ini. |
+| [Task.md](../spec-analysisc/Task.md) | Urutan 25 tugas, dependensi, dan kriteria selesai. | Pilih pekerjaan yang sesuai permintaan dan periksa dependensinya. Gunakan kapitalisasi nama file ini. |
 | [requirement-analysis.md](../spec-analysisc/requirement-analysis.md) | Catatan analisis Gen Z sebelum revisi berikutnya. | Gunakan sebagai konteks historis; jangan menganggap rekomendasi atau kekurangan lama masih menjadi keputusan aktif. |
 | `steeering/project-overview.md` | Ringkasan konteks dan cara kerja agen. | Gunakan sebagai pengantar, lalu baca bagian spesifikasi yang relevan. |
 

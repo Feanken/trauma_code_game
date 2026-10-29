@@ -419,10 +419,12 @@ Target awal: minimal 80% selesai tanpa bantuan, median maksimal 2 menit, serta m
 | FR-06 | 4–5, 7.1, 9.2 |
 | FR-07–FR-09 | 2.3, 3.3, 5.4, 6, 7.3 |
 | FR-10 | 2.1, 2.3, 6 |
+| FR-11–FR-12 | 12 |
 | NFR-01–NFR-03 | 1, 7 |
 | NFR-04–NFR-08 | 3, 6, 8, 9.3 |
 | NFR-09–NFR-10 | 7–8 |
 | NFR-11–NFR-14 | 3.5, 8–9 |
+| NFR-15 | 12.5–12.6 |
 
 `requirement-analysis.md` dipertahankan sebagai catatan sebelum revisi, sehingga penilaian kekurangan di dalamnya tidak semuanya berlaku lagi. Dokumen aktif untuk implementasi adalah requirement revisi 5 dan desain ini.
 
