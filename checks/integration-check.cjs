@@ -83,10 +83,10 @@ async function main() {
     const scoring = await value("JSON.parse(document.getElementById('check-report').textContent)");
     check(scoring.passed && scoring.completed === 1024 && scoring.primaryTies === 424, 'regresi produksi 1024 kombinasi');
     check(exceptions.length === 0, 'tanpa exception JavaScript');
-    fs.writeFileSync(path.join(b.root, 'docs/t15-integration-check.json'), JSON.stringify({ passed: true, environment: b.environment, cases, scoring, exceptions }, null, 2) + '\n');
+    fs.writeFileSync(path.join(b.root, process.env.TRAUMA_AUDIO_REGRESSION ? 'docs/t25-integration-check.json' : 'docs/t15-integration-check.json'), JSON.stringify({ passed: true, environment: b.environment, cases, scoring, exceptions }, null, 2) + '\n');
     console.log(JSON.stringify({ passed: true, cases: cases.length, combinations: scoring.completed }));
   } catch (error) {
-    fs.writeFileSync(path.join(b.root, 'docs/t15-integration-check.json'), JSON.stringify({ passed: false, environment: b.environment, cases, error: error.message, exceptions }, null, 2) + '\n');
+    fs.writeFileSync(path.join(b.root, process.env.TRAUMA_AUDIO_REGRESSION ? 'docs/t25-integration-check.json' : 'docs/t15-integration-check.json'), JSON.stringify({ passed: false, environment: b.environment, cases, error: error.message, exceptions }, null, 2) + '\n');
     throw error;
   } finally { await b.close(); }
 }

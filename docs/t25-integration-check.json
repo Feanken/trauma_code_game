@@ -1,0 +1,406 @@
+{
+  "passed": true,
+  "environment": {
+    "date": "2026-10-29",
+    "os": "Windows_NT 10.0.26300",
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13650HX",
+    "logicalCpus": 20,
+    "totalMemoryBytes": 33960431616,
+    "browser": "Chrome/156.0.8078.73",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  },
+  "cases": [
+    {
+      "name": "double-click setelah pergantian tidak melewati Q02",
+      "passed": true
+    },
+    {
+      "name": "Back dari Q02 ke Q01",
+      "passed": true
+    },
+    {
+      "name": "pilihan sebelumnya terlihat",
+      "passed": true
+    },
+    {
+      "name": "dua Back dari Q07 ke Q05",
+      "passed": true
+    },
+    {
+      "name": "koreksi Q05 mempertahankan Q06",
+      "passed": true
+    },
+    {
+      "name": "hasil mengikuti koreksi jawaban terbaru",
+      "passed": true
+    },
+    {
+      "name": "Enter ditahan tidak melewati pertanyaan",
+      "passed": true
+    },
+    {
+      "name": "Back selama transisi diabaikan",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 1 pola B",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 2 pola B",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 3 pola B",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 4 pola B",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 5 pola B",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 6 pola B",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 7 pola B",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 8 pola B",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 9 pola B",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 10 pola B",
+      "passed": true
+    },
+    {
+      "name": "hasil dan tema B",
+      "passed": true
+    },
+    {
+      "name": "alasan pola B",
+      "passed": true
+    },
+    {
+      "name": "ulang membersihkan sesi B",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 1 pola Y",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 2 pola Y",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 3 pola Y",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 4 pola Y",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 5 pola Y",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 6 pola Y",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 7 pola Y",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 8 pola Y",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 9 pola Y",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 10 pola Y",
+      "passed": true
+    },
+    {
+      "name": "hasil dan tema Y",
+      "passed": true
+    },
+    {
+      "name": "alasan pola Y",
+      "passed": true
+    },
+    {
+      "name": "ulang membersihkan sesi Y",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 1 pola C",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 2 pola C",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 3 pola C",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 4 pola C",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 5 pola C",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 6 pola C",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 7 pola C",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 8 pola C",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 9 pola C",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 10 pola C",
+      "passed": true
+    },
+    {
+      "name": "hasil dan tema C",
+      "passed": true
+    },
+    {
+      "name": "alasan pola C",
+      "passed": true
+    },
+    {
+      "name": "ulang membersihkan sesi C",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 1 pola P",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 2 pola P",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 3 pola P",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 4 pola P",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 5 pola P",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 6 pola P",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 7 pola P",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 8 pola P",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 9 pola P",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 10 pola P",
+      "passed": true
+    },
+    {
+      "name": "hasil dan tema P",
+      "passed": true
+    },
+    {
+      "name": "alasan pola P",
+      "passed": true
+    },
+    {
+      "name": "ulang membersihkan sesi P",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 1 pola H",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 2 pola H",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 3 pola H",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 4 pola H",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 5 pola H",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 6 pola H",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 7 pola H",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 8 pola H",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 9 pola H",
+      "passed": true
+    },
+    {
+      "name": "hasil belum muncul sebelum jawaban 10 pola H",
+      "passed": true
+    },
+    {
+      "name": "hasil dan tema H",
+      "passed": true
+    },
+    {
+      "name": "alasan pola H",
+      "passed": true
+    },
+    {
+      "name": "ulang membersihkan sesi H",
+      "passed": true
+    },
+    {
+      "name": "alur lengkap reduced motion",
+      "passed": true
+    },
+    {
+      "name": "foto gagal tidak menghalangi hasil/ulang",
+      "passed": true
+    },
+    {
+      "name": "callback foto sesi lama diabaikan",
+      "passed": true
+    },
+    {
+      "name": "refresh kembali ke pembuka",
+      "passed": true
+    },
+    {
+      "name": "data invalid menghentikan kuis",
+      "passed": true
+    },
+    {
+      "name": "regresi produksi 1024 kombinasi",
+      "passed": true
+    },
+    {
+      "name": "tanpa exception JavaScript",
+      "passed": true
+    }
+  ],
+  "scoring": {
+    "passed": true,
+    "total": 14,
+    "completed": 1024,
+    "primaryTies": 424,
+    "distribution": {
+      "B": 240,
+      "Y": 204,
+      "C": 196,
+      "P": 192,
+      "H": 192
+    },
+    "tests": [
+      {
+        "name": "Validasi struktur dan enumerasi seluruh kombinasi",
+        "passed": true
+      },
+      {
+        "name": "Distribusi dan seri sesuai desain; semua karakter terjangkau",
+        "passed": true
+      },
+      {
+        "name": "Contoh B dan seri lima kandidat",
+        "passed": true
+      },
+      {
+        "name": "Contoh Y",
+        "passed": true
+      },
+      {
+        "name": "Contoh C",
+        "passed": true
+      },
+      {
+        "name": "Contoh P",
+        "passed": true
+      },
+      {
+        "name": "Contoh H",
+        "passed": true
+      },
+      {
+        "name": "Seri dua kandidat: pembanding mengalahkan prioritas C",
+        "passed": true
+      },
+      {
+        "name": "Seri siklus tiga kandidat: fallback tetap",
+        "passed": true
+      },
+      {
+        "name": "Mengubah satu jawaban menghitung ulang dan tidak menggandakan skor",
+        "passed": true
+      },
+      {
+        "name": "Tolak input kosong",
+        "passed": true
+      },
+      {
+        "name": "Tolak input tidak lengkap",
+        "passed": true
+      },
+      {
+        "name": "Tolak input slot kosong",
+        "passed": true
+      },
+      {
+        "name": "Tolak input opsi tidak dikenal",
+        "passed": true
+      }
+    ]
+  },
+  "exceptions": []
+}

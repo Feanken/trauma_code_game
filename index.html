@@ -10,19 +10,36 @@
   <script src="js/data.js" defer></script>
   <script src="js/quiz.js" defer></script>
   <script src="js/ui.js" defer></script>
+  <script src="js/audio.js" defer></script>
   <script src="js/script.js" defer></script>
 </head>
 <body>
   <div id="ambient-far" class="ambient ambient-far" aria-hidden="true"></div>
   <div id="ambient-near" class="ambient ambient-near" aria-hidden="true"></div>
   <main id="app" class="site-shell">
+    <div id="audio-controls" class="audio-controls panel" role="group" aria-labelledby="audio-title" hidden>
+      <h2 id="audio-title">Suasana audio</h2>
+      <div class="audio-channel">
+        <button id="music-toggle" type="button" class="button" aria-pressed="true" aria-describedby="music-status">Musik: Aktif</button>
+        <label for="music-volume">Volume musik <output id="music-volume-value" for="music-volume">12%</output></label>
+        <input id="music-volume" type="range" min="0" max="100" step="1" value="12">
+        <p id="music-status" class="muted">Musik mulai setelah Start Quiz.</p>
+      </div>
+      <div class="audio-channel">
+        <button id="effects-toggle" type="button" class="button" aria-pressed="true" aria-describedby="effects-status">Efek: Aktif</button>
+        <label for="effects-volume">Volume efek <output id="effects-volume-value" for="effects-volume">25%</output></label>
+        <input id="effects-volume" type="range" min="0" max="100" step="1" value="25">
+        <p id="effects-status" class="muted">Efek singkat untuk aksi kuis.</p>
+      </div>
+    </div>
     <section id="landing-screen" class="panel split-layout" aria-labelledby="project-title">
       <div>
         <p class="eyebrow">FAN-MADE PERSONALITY QUIZ</p>
         <h1 id="project-title">Which Trauma Code Character Are You?</h1>
         <p>Di tengah situasi kacau, kamu jadi penggerak, penenang, atau penyusun rencana? Temukan peranmu di tim trauma.</p>
         <p class="muted">10 pertanyaan · tanpa login</p>
-        <button id="start-quiz" type="button" class="button button--primary" hidden><span class="control-surface">Start Quiz</span></button>
+        <p id="audio-start-hint" class="muted">Musik dan efek dimulai setelah Start Quiz. Kamu bisa mematikannya di kontrol audio.</p>
+        <button id="start-quiz" type="button" class="button button--primary" aria-describedby="audio-start-hint" hidden><span class="control-surface">Start Quiz</span></button>
         <p class="muted" style="margin-top:24px">Proyek penggemar nonkomersial untuk hiburan; tidak berafiliasi resmi.</p>
       </div>
       <div id="landing-card-wrapper" class="id-card-wrapper" aria-hidden="true">

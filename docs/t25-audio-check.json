@@ -1,0 +1,196 @@
+{
+  "automatedPassed": true,
+  "environment": {
+    "date": "2026-10-29",
+    "os": "Windows_NT 10.0.26300",
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13650HX",
+    "logicalCpus": 20,
+    "totalMemoryBytes": 33960431616,
+    "browser": "Chrome/156.0.8078.73",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  },
+  "cases": [
+    {
+      "name": "zero audio requests before gesture",
+      "passed": true
+    },
+    {
+      "name": "no AudioContext on initial load",
+      "passed": true
+    },
+    {
+      "name": "no media player on initial load",
+      "passed": true
+    },
+    {
+      "name": "native keyboard order includes four audio controls",
+      "passed": true
+    },
+    {
+      "name": "Start renders question without waiting for audio",
+      "passed": true
+    },
+    {
+      "name": "real BGM playback advances",
+      "passed": true
+    },
+    {
+      "name": "single graph and music player",
+      "passed": true
+    },
+    {
+      "name": "independent gain defaults 12% / 25%",
+      "passed": true
+    },
+    {
+      "name": "accepted answer produces one effect; locked and double-click actions silent",
+      "passed": true
+    },
+    {
+      "name": "accepted Back produces one effect",
+      "passed": true
+    },
+    {
+      "name": "effects mute leaves music playing",
+      "passed": true
+    },
+    {
+      "name": "effect gain zero immediately: [{\"value\":0.11999999731779099,\"time\":0.4106666666666667,\"state\":\"running\"},{\"value\":0,\"time\":0.4106666666666667,\"state\":\"running\"}]",
+      "passed": true
+    },
+    {
+      "name": "muted answer has no effect",
+      "passed": true
+    },
+    {
+      "name": "music mute leaves effects enabled",
+      "passed": true
+    },
+    {
+      "name": "effects work while music muted",
+      "passed": true
+    },
+    {
+      "name": "effects volume zero is silent",
+      "passed": true
+    },
+    {
+      "name": "music zero respected after enabling",
+      "passed": true
+    },
+    {
+      "name": "native arrow key changes labeled slider",
+      "passed": true
+    },
+    {
+      "name": "one reveal source after complete result",
+      "passed": true
+    },
+    {
+      "name": "restart preserves preferences and BGM position",
+      "passed": true
+    },
+    {
+      "name": "restart uses cached start effect and existing player",
+      "passed": true
+    },
+    {
+      "name": "blur stops music and voice",
+      "passed": true
+    },
+    {
+      "name": "focus does not auto resume",
+      "passed": true
+    },
+    {
+      "name": "answer gesture does not auto resume music after blur",
+      "passed": true
+    },
+    {
+      "name": "explicit music control resumes",
+      "passed": true
+    },
+    {
+      "name": "hidden stops both channels",
+      "passed": true
+    },
+    {
+      "name": "visible does not auto resume",
+      "passed": true
+    },
+    {
+      "name": "audio controls fit and targets >=44px at 320px",
+      "passed": true
+    },
+    {
+      "name": "audio controls fit and targets >=44px at 375px",
+      "passed": true
+    },
+    {
+      "name": "audio controls fit and targets >=44px at 768px",
+      "passed": true
+    },
+    {
+      "name": "audio controls fit and targets >=44px at 1280px",
+      "passed": true
+    },
+    {
+      "name": "audio controls fit and targets >=44px at 160px",
+      "passed": true
+    },
+    {
+      "name": "two named sliders in Chrome accessibility tree",
+      "passed": true
+    },
+    {
+      "name": "late decode cannot play skipped start or override mute",
+      "passed": true
+    },
+    {
+      "name": "rejected playback is handled without blocking quiz",
+      "passed": true
+    },
+    {
+      "name": "stale play callback cannot undo mute",
+      "passed": true
+    },
+    {
+      "name": "reset invalidates pending music callback without restarting old playback",
+      "passed": true
+    },
+    {
+      "name": "corrupt files do not block navigation or trigger delayed sound",
+      "passed": true
+    },
+    {
+      "name": "offline audio requests do not block already loaded quiz",
+      "passed": true
+    },
+    {
+      "name": "resume rejection stops playback and is handled",
+      "passed": true
+    },
+    {
+      "name": "missing Web Audio still permits quiz",
+      "passed": true
+    },
+    {
+      "name": "both channels disabled before Start avoid all audio loading",
+      "passed": true
+    },
+    {
+      "name": "no uncaught exceptions or unhandled rejection",
+      "passed": true
+    },
+    {
+      "name": "accessibility and actual text contrast including new audio controls",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "CDP gesture/visibility fixtures and real Chrome playback; no speaker capture by agent.",
+    "Asset listening approved by user; in-app audible timing still needs human check.",
+    "Physical Android/iPhone, Firefox and new screen reader check pending."
+  ]
+}

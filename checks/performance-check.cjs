@@ -45,11 +45,11 @@ async function main() {
     const values = runs.map((run) => run.readyMs).sort((a, c) => a - c);
     const medianReadyMs = values[2];
     const passed = medianReadyMs <= 3000 && runs.every((run) => run.visible && run.textCompressed && !run.cacheUsed
-      && run.transferBytes <= 300 * 1024 && run.initialPhotoCount <= 1 && run.resources.every((resource) => resource.encodedDataLength !== null));
+      && run.transferBytes <= 300 * 1024 && run.initialPhotoCount <= 1 && run.resources.every((resource) => resource.encodedDataLength !== null && !resource.url.includes('/assets/audio/')));
     const report = { passed, environment: b.environment, profile, server: 'Server statis lokal alat uji, gzip untuk HTML/CSS/JS, Cache-Control: no-store; JPEG tidak dikompresi ulang',
       medianReadyMs, maximumTransferBytes: Math.max(...runs.map((run) => run.transferBytes)), runs,
       scope: 'Pengukuran konfigurasi localhost terkompresi; deployment lain perlu diukur ulang jika konfigurasi berubah.' };
-    fs.writeFileSync(path.join(b.root, 'docs/t18-performance-check.json'), JSON.stringify(report, null, 2) + '\n');
+    fs.writeFileSync(path.join(b.root, process.env.TRAUMA_AUDIO_REGRESSION ? 'docs/t25-performance-check.json' : 'docs/t18-performance-check.json'), JSON.stringify(report, null, 2) + '\n');
     console.log(JSON.stringify({ passed, medianReadyMs, maximumTransferBytes: report.maximumTransferBytes, runs: runs.map((run) => run.readyMs) }));
   } finally { await b.close(); }
 }

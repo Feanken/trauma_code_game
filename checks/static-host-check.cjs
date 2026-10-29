@@ -25,7 +25,9 @@ async function main() {
       await browser.navigate(`${prefix}/`);
       check(await browser.evaluate("!document.getElementById('landing-screen').hidden && getComputedStyle(document.getElementById('quiz-screen')).display === 'none'"), `pembuka dan layar tersembunyi ${stage}`);
       check(await browser.evaluate('document.styleSheets[0].cssRules.length > 0 && Boolean(TraumaQuiz.quiz.calculateResult)'), `CSS/JS dimuat ${stage}`);
-      await browser.evaluate("document.getElementById('start-quiz').click()");
+      await browser.send('Runtime.evaluate', {expression:"document.getElementById('start-quiz').click()",userGesture:true});
+      await browser.waitFor("TraumaQuiz.audio.getState().effectsReady === 4 && TraumaQuiz.audio.getState().playbackState === 'playing'");
+      check(await browser.evaluate("TraumaQuiz.audio.getState().contextState === 'running'"), `audio lokal berjalan ${stage}`);
       for (let index = 1; index <= 10; index += 1) {
         await browser.evaluate("document.querySelector('#answer-options button[data-option=A]').click()");
         await browser.waitFor(index === 10 ? "!document.getElementById('result-screen').hidden" : `document.getElementById('question-progress').value === ${index + 1}`);
@@ -44,11 +46,11 @@ async function main() {
     check(requests.every((request) => !new URL(request.url).search), 'tanpa jawaban pada query URL');
     check(responses.every((response) => response.status === 200), 'semua resource pengujian HTTP 200');
     check(exceptions.length === 0, 'tanpa exception JavaScript');
-    const report = { passed: true, environment: browser.environment, scope: 'Versi sebelum audio pada server statis alat uji; Nginx dan hosting publik tidak dijalankan.', cases, requests, responses, exceptions };
-    fs.writeFileSync(path.join(browser.root, 'docs/t21-static-host-check.json'), JSON.stringify(report, null, 2) + '\n');
+    const report = { passed: true, environment: browser.environment, scope: 'Versi dengan audio pada server statis alat uji; Nginx dan hosting publik tidak dijalankan.', cases, requests, responses, exceptions };
+    fs.writeFileSync(path.join(browser.root, process.env.TRAUMA_AUDIO_REGRESSION ? 'docs/t25-static-host-check.json' : 'docs/t21-static-host-check.json'), JSON.stringify(report, null, 2) + '\n');
     console.log(JSON.stringify({ passed: true, cases: cases.length, requests: requests.length }));
   } catch (error) {
-    fs.writeFileSync(path.join(browser.root, 'docs/t21-static-host-check.json'), JSON.stringify({ passed: false, environment: browser.environment, cases, error: error.message }, null, 2) + '\n');
+    fs.writeFileSync(path.join(browser.root, process.env.TRAUMA_AUDIO_REGRESSION ? 'docs/t25-static-host-check.json' : 'docs/t21-static-host-check.json'), JSON.stringify({ passed: false, environment: browser.environment, cases, error: error.message }, null, 2) + '\n');
     throw error;
   } finally { await browser.close(); }
 }

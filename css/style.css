@@ -126,6 +126,46 @@ a {
   margin-inline: auto;
 }
 
+.audio-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4) var(--space-6);
+  margin-bottom: var(--space-5);
+  padding: var(--space-5);
+}
+
+.audio-controls h2 {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.audio-channel {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.audio-channel label, .audio-channel p {
+  margin: 0;
+}
+
+.audio-channel output {
+  white-space: nowrap;
+}
+
+.audio-channel input {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  margin: 0;
+  accent-color: var(--accent-color);
+}
+
+@media (max-width: 767px) {
+  .audio-controls { grid-template-columns: minmax(0, 1fr); padding: var(--space-4); }
+}
+
 .eyebrow {
   color: var(--accent-color);
   font-size: 0.8rem;

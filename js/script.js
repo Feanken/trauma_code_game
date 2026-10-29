@@ -3,7 +3,7 @@
 
   const app = window.TraumaQuiz;
 
-  if (!app || !app.data || !app.quiz || !app.ui) {
+  if (!app || !app.data || !app.quiz || !app.ui || !app.audio) {
     throw new Error('Berkas fondasi kuis tidak dimuat secara lengkap.');
   }
 
@@ -44,6 +44,7 @@
         state.result = app.quiz.calculateResult(app.data, state.answers);
         state.screen = 'result';
         app.ui.renderResult(app.data, state.result);
+        app.audio.playEffect('reveal');
       }
     }
     state.isTransitioning = false;
@@ -51,6 +52,9 @@
 
   function startQuiz() {
     if (state.screen !== 'landing' && state.screen !== 'result') return;
+    const initialStart = state.screen === 'landing';
+    app.audio.resetEffects({ invalidatePendingMusic: true });
+    app.audio.prepareFromGesture({ startMusic: initialStart });
     if (transitionTimer !== null) clearTimeout(transitionTimer);
     transitionTimer = null;
     state.sessionVersion += 1;
@@ -62,6 +66,7 @@
     document.getElementById('quiz-screen').classList.remove('is-leaving');
     state.screen = 'quiz';
     app.ui.renderQuestion(app.data, state, true);
+    app.audio.playEffect('start');
   }
 
   function chooseAnswer(button) {
@@ -71,6 +76,8 @@
     if (button.dataset.questionIndex !== String(index)
       || !app.data.questions[index].options.some((option) => option.id === optionId)) return;
     state.isTransitioning = true;
+    app.audio.prepareFromGesture();
+    app.audio.playEffect('select');
     state.answers[index] = optionId;
     state.result = null;
     app.ui.markSelection(optionId);
@@ -81,6 +88,8 @@
 
   function goBack() {
     if (state.screen !== 'quiz' || state.isTransitioning || state.currentIndex === 0) return;
+    app.audio.prepareFromGesture();
+    app.audio.playEffect('back');
     state.currentIndex -= 1;
     app.ui.renderQuestion(app.data, state, true);
   }
@@ -105,6 +114,7 @@
     if (event.key === 'Enter' || event.key === ' ') heldActivation = false;
   }, true);
   window.addEventListener('blur', () => { heldActivation = false; });
+  app.audio.initialize();
   startButton.hidden = false;
   document.documentElement.dataset.quizReady = 'true';
   performance.mark('quiz-ready');

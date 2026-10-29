@@ -12,7 +12,7 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function openBrowser({ mountPath = '' } = {}) {
   const fixtures = new Map();
-  const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.jpg': 'image/jpeg', '.png': 'image/png' };
+  const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.jpg': 'image/jpeg', '.png': 'image/png', '.mp3': 'audio/mpeg' };
   const server = http.createServer((request, response) => {
     let pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
     if (mountPath && pathname.startsWith(`${mountPath}/`)) pathname = pathname.slice(mountPath.length);
@@ -96,6 +96,7 @@ async function openBrowser({ mountPath = '' } = {}) {
     await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false });
   }
   async function screenshot(name) {
+    if (process.env.TRAUMA_AUDIO_REGRESSION && name.startsWith('t16-')) name = name.replace('t16-', 't25-');
     const result = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false });
     const filename = path.join(root, 'docs', name);
     fs.writeFileSync(filename, Buffer.from(result.data, 'base64'));

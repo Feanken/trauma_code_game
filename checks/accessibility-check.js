@@ -17,6 +17,17 @@
     check(doc.documentElement.scrollWidth <= width, `tanpa overflow ${width}`, results);
     check(doc.documentElement.lang === 'id', `bahasa ${width}`, results);
     check(doc.getElementById('quiz-screen').hidden && doc.getElementById('result-screen').hidden, `layar nonaktif ${width}`, results);
+    const toolbar = doc.getElementById('audio-controls');
+    check(toolbar.getAttribute('role') === 'group' && toolbar.getAttribute('aria-labelledby') === 'audio-title', `kelompok audio ${width}`, results);
+    for (const channel of ['music', 'effects']) {
+      const toggle = doc.getElementById(`${channel}-toggle`);
+      const slider = doc.getElementById(`${channel}-volume`);
+      const label = doc.querySelector(`label[for="${channel}-volume"]`);
+      const text = win.getComputedStyle(toggle);
+      check(toggle.tagName === 'BUTTON' && toggle.getAttribute('aria-pressed') === 'true' && toggle.getAttribute('aria-describedby'), `status tombol ${channel} ${width}`, results);
+      check(slider.type === 'range' && slider.min === '0' && slider.max === '100' && label.textContent.includes('Volume'), `nama/rentang ${channel} ${width}`, results);
+      check(contrast(text.color, text.backgroundColor) >= 4.5, `kontras audio ${channel} ${width}`, results);
+    }
     const start = doc.getElementById('start-quiz');
     start.focus();
     check(doc.activeElement === start, `fokus programatis tombol ${width}`, results);

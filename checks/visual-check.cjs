@@ -14,7 +14,7 @@ async function main() {
   async function measure(label) {
     const result = await b.evaluate(`(() => {
       const visible = [...document.querySelectorAll('section')].find(n=>!n.hidden);
-      const controls = [...visible.querySelectorAll('button')].filter(n=>!n.hidden);
+      const controls = [...visible.querySelectorAll('button'), ...document.querySelectorAll('#audio-controls button,#audio-controls input')].filter(n=>!n.hidden);
       const choices = [...visible.querySelectorAll('.answer-card')].map(n=>n.getBoundingClientRect());
       return { width: innerWidth, scrollWidth: document.documentElement.scrollWidth,
         targets: controls.map(n=>({width:n.getBoundingClientRect().width,height:n.getBoundingClientRect().height})),
@@ -100,7 +100,7 @@ async function main() {
     }
     const report = { passed: cases.every((item) => item.passed), environment: b.environment, cases, measurements, screenshots,
       method: 'Chrome CDP, ukuran CSS aktual, rendering hasil memakai fungsi produksi; alur controller diperiksa terpisah pada T15' };
-    fs.writeFileSync(path.join(b.root, 'docs/t16-visual-check.json'), JSON.stringify(report, null, 2) + '\n');
+    fs.writeFileSync(path.join(b.root, process.env.TRAUMA_AUDIO_REGRESSION ? 'docs/t25-visual-check.json' : 'docs/t16-visual-check.json'), JSON.stringify(report, null, 2) + '\n');
     console.log(JSON.stringify({ passed: report.passed, cases: cases.length, failures: cases.filter((item) => !item.passed) }));
   } finally { await b.close(); }
 }

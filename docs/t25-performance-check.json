@@ -1,0 +1,619 @@
+{
+  "passed": true,
+  "environment": {
+    "date": "2026-10-29",
+    "os": "Windows_NT 10.0.26300",
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13650HX",
+    "logicalCpus": 20,
+    "totalMemoryBytes": 33960431616,
+    "browser": "Chrome/156.0.8078.73",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  },
+  "profile": {
+    "downloadBitsPerSecond": 1600000,
+    "uploadBitsPerSecond": 750000,
+    "latencyMs": 150,
+    "cpuSlowdown": 4
+  },
+  "server": "Server statis lokal alat uji, gzip untuk HTML/CSS/JS, Cache-Control: no-store; JPEG tidak dikompresi ulang",
+  "medianReadyMs": 593.9000000003725,
+  "maximumTransferBytes": 70598,
+  "runs": [
+    {
+      "attempt": 1,
+      "readyMs": 562,
+      "transferBytes": 70598,
+      "visible": true,
+      "textCompressed": true,
+      "cacheUsed": false,
+      "initialPhotoCount": 1,
+      "resources": [
+        {
+          "url": "/index.html?performance=1",
+          "type": "Document",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2098
+        },
+        {
+          "url": "/css/style.css",
+          "type": "Stylesheet",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 3248
+        },
+        {
+          "url": "/assets/images/baek-kang-hyuk.jpg",
+          "type": "Image",
+          "status": 200,
+          "encoding": null,
+          "fromDiskCache": false,
+          "encodedDataLength": 52382
+        },
+        {
+          "url": "/js/data.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2863
+        },
+        {
+          "url": "/js/ui.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2938
+        },
+        {
+          "url": "/js/quiz.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2512
+        },
+        {
+          "url": "/js/audio.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2812
+        },
+        {
+          "url": "/js/script.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 1745
+        }
+      ],
+      "resourceTiming": [
+        {
+          "name": "/css/style.css",
+          "transferSize": 3327,
+          "encodedBodySize": 3027,
+          "decodedBodySize": 12244
+        },
+        {
+          "name": "/js/data.js",
+          "transferSize": 2935,
+          "encodedBodySize": 2635,
+          "decodedBodySize": 10654
+        },
+        {
+          "name": "/js/quiz.js",
+          "transferSize": 2584,
+          "encodedBodySize": 2284,
+          "decodedBodySize": 8097
+        },
+        {
+          "name": "/js/ui.js",
+          "transferSize": 3010,
+          "encodedBodySize": 2710,
+          "decodedBodySize": 11278
+        },
+        {
+          "name": "/js/audio.js",
+          "transferSize": 2884,
+          "encodedBodySize": 2584,
+          "decodedBodySize": 9453
+        },
+        {
+          "name": "/js/script.js",
+          "transferSize": 1817,
+          "encodedBodySize": 1517,
+          "decodedBodySize": 4938
+        },
+        {
+          "name": "/assets/images/baek-kang-hyuk.jpg",
+          "transferSize": 52505,
+          "encodedBodySize": 52205,
+          "decodedBodySize": 52205
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "readyMs": 577.2999999998137,
+      "transferBytes": 70598,
+      "visible": true,
+      "textCompressed": true,
+      "cacheUsed": false,
+      "initialPhotoCount": 1,
+      "resources": [
+        {
+          "url": "/index.html?performance=2",
+          "type": "Document",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2098
+        },
+        {
+          "url": "/css/style.css",
+          "type": "Stylesheet",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 3248
+        },
+        {
+          "url": "/assets/images/baek-kang-hyuk.jpg",
+          "type": "Image",
+          "status": 200,
+          "encoding": null,
+          "fromDiskCache": false,
+          "encodedDataLength": 52382
+        },
+        {
+          "url": "/js/data.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2863
+        },
+        {
+          "url": "/js/quiz.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2512
+        },
+        {
+          "url": "/js/audio.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2812
+        },
+        {
+          "url": "/js/ui.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2938
+        },
+        {
+          "url": "/js/script.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 1745
+        }
+      ],
+      "resourceTiming": [
+        {
+          "name": "/css/style.css",
+          "transferSize": 3327,
+          "encodedBodySize": 3027,
+          "decodedBodySize": 12244
+        },
+        {
+          "name": "/js/data.js",
+          "transferSize": 2935,
+          "encodedBodySize": 2635,
+          "decodedBodySize": 10654
+        },
+        {
+          "name": "/js/quiz.js",
+          "transferSize": 2584,
+          "encodedBodySize": 2284,
+          "decodedBodySize": 8097
+        },
+        {
+          "name": "/js/ui.js",
+          "transferSize": 3010,
+          "encodedBodySize": 2710,
+          "decodedBodySize": 11278
+        },
+        {
+          "name": "/js/audio.js",
+          "transferSize": 2884,
+          "encodedBodySize": 2584,
+          "decodedBodySize": 9453
+        },
+        {
+          "name": "/js/script.js",
+          "transferSize": 1817,
+          "encodedBodySize": 1517,
+          "decodedBodySize": 4938
+        },
+        {
+          "name": "/assets/images/baek-kang-hyuk.jpg",
+          "transferSize": 52505,
+          "encodedBodySize": 52205,
+          "decodedBodySize": 52205
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "readyMs": 603.5999999996275,
+      "transferBytes": 70598,
+      "visible": true,
+      "textCompressed": true,
+      "cacheUsed": false,
+      "initialPhotoCount": 1,
+      "resources": [
+        {
+          "url": "/index.html?performance=3",
+          "type": "Document",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2098
+        },
+        {
+          "url": "/css/style.css",
+          "type": "Stylesheet",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 3248
+        },
+        {
+          "url": "/assets/images/baek-kang-hyuk.jpg",
+          "type": "Image",
+          "status": 200,
+          "encoding": null,
+          "fromDiskCache": false,
+          "encodedDataLength": 52382
+        },
+        {
+          "url": "/js/data.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2863
+        },
+        {
+          "url": "/js/quiz.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2512
+        },
+        {
+          "url": "/js/audio.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2812
+        },
+        {
+          "url": "/js/ui.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2938
+        },
+        {
+          "url": "/js/script.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 1745
+        }
+      ],
+      "resourceTiming": [
+        {
+          "name": "/css/style.css",
+          "transferSize": 3327,
+          "encodedBodySize": 3027,
+          "decodedBodySize": 12244
+        },
+        {
+          "name": "/js/data.js",
+          "transferSize": 2935,
+          "encodedBodySize": 2635,
+          "decodedBodySize": 10654
+        },
+        {
+          "name": "/js/quiz.js",
+          "transferSize": 2584,
+          "encodedBodySize": 2284,
+          "decodedBodySize": 8097
+        },
+        {
+          "name": "/js/ui.js",
+          "transferSize": 3010,
+          "encodedBodySize": 2710,
+          "decodedBodySize": 11278
+        },
+        {
+          "name": "/js/audio.js",
+          "transferSize": 2884,
+          "encodedBodySize": 2584,
+          "decodedBodySize": 9453
+        },
+        {
+          "name": "/js/script.js",
+          "transferSize": 1817,
+          "encodedBodySize": 1517,
+          "decodedBodySize": 4938
+        },
+        {
+          "name": "/assets/images/baek-kang-hyuk.jpg",
+          "transferSize": 52505,
+          "encodedBodySize": 52205,
+          "decodedBodySize": 52205
+        }
+      ]
+    },
+    {
+      "attempt": 4,
+      "readyMs": 593.9000000003725,
+      "transferBytes": 70598,
+      "visible": true,
+      "textCompressed": true,
+      "cacheUsed": false,
+      "initialPhotoCount": 1,
+      "resources": [
+        {
+          "url": "/index.html?performance=4",
+          "type": "Document",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2098
+        },
+        {
+          "url": "/css/style.css",
+          "type": "Stylesheet",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 3248
+        },
+        {
+          "url": "/assets/images/baek-kang-hyuk.jpg",
+          "type": "Image",
+          "status": 200,
+          "encoding": null,
+          "fromDiskCache": false,
+          "encodedDataLength": 52382
+        },
+        {
+          "url": "/js/data.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2863
+        },
+        {
+          "url": "/js/quiz.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2512
+        },
+        {
+          "url": "/js/audio.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2812
+        },
+        {
+          "url": "/js/ui.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2938
+        },
+        {
+          "url": "/js/script.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 1745
+        }
+      ],
+      "resourceTiming": [
+        {
+          "name": "/css/style.css",
+          "transferSize": 3327,
+          "encodedBodySize": 3027,
+          "decodedBodySize": 12244
+        },
+        {
+          "name": "/js/data.js",
+          "transferSize": 2935,
+          "encodedBodySize": 2635,
+          "decodedBodySize": 10654
+        },
+        {
+          "name": "/js/quiz.js",
+          "transferSize": 2584,
+          "encodedBodySize": 2284,
+          "decodedBodySize": 8097
+        },
+        {
+          "name": "/js/ui.js",
+          "transferSize": 3010,
+          "encodedBodySize": 2710,
+          "decodedBodySize": 11278
+        },
+        {
+          "name": "/js/audio.js",
+          "transferSize": 2884,
+          "encodedBodySize": 2584,
+          "decodedBodySize": 9453
+        },
+        {
+          "name": "/js/script.js",
+          "transferSize": 1817,
+          "encodedBodySize": 1517,
+          "decodedBodySize": 4938
+        },
+        {
+          "name": "/assets/images/baek-kang-hyuk.jpg",
+          "transferSize": 52505,
+          "encodedBodySize": 52205,
+          "decodedBodySize": 52205
+        }
+      ]
+    },
+    {
+      "attempt": 5,
+      "readyMs": 598.6000000005588,
+      "transferBytes": 70598,
+      "visible": true,
+      "textCompressed": true,
+      "cacheUsed": false,
+      "initialPhotoCount": 1,
+      "resources": [
+        {
+          "url": "/index.html?performance=5",
+          "type": "Document",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2098
+        },
+        {
+          "url": "/css/style.css",
+          "type": "Stylesheet",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 3248
+        },
+        {
+          "url": "/assets/images/baek-kang-hyuk.jpg",
+          "type": "Image",
+          "status": 200,
+          "encoding": null,
+          "fromDiskCache": false,
+          "encodedDataLength": 52382
+        },
+        {
+          "url": "/js/data.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2863
+        },
+        {
+          "url": "/js/quiz.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2512
+        },
+        {
+          "url": "/js/ui.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2938
+        },
+        {
+          "url": "/js/audio.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 2812
+        },
+        {
+          "url": "/js/script.js",
+          "type": "Script",
+          "status": 200,
+          "encoding": "gzip",
+          "fromDiskCache": false,
+          "encodedDataLength": 1745
+        }
+      ],
+      "resourceTiming": [
+        {
+          "name": "/css/style.css",
+          "transferSize": 3327,
+          "encodedBodySize": 3027,
+          "decodedBodySize": 12244
+        },
+        {
+          "name": "/js/data.js",
+          "transferSize": 2935,
+          "encodedBodySize": 2635,
+          "decodedBodySize": 10654
+        },
+        {
+          "name": "/js/quiz.js",
+          "transferSize": 2584,
+          "encodedBodySize": 2284,
+          "decodedBodySize": 8097
+        },
+        {
+          "name": "/js/ui.js",
+          "transferSize": 3010,
+          "encodedBodySize": 2710,
+          "decodedBodySize": 11278
+        },
+        {
+          "name": "/js/audio.js",
+          "transferSize": 2884,
+          "encodedBodySize": 2584,
+          "decodedBodySize": 9453
+        },
+        {
+          "name": "/js/script.js",
+          "transferSize": 1817,
+          "encodedBodySize": 1517,
+          "decodedBodySize": 4938
+        },
+        {
+          "name": "/assets/images/baek-kang-hyuk.jpg",
+          "transferSize": 52505,
+          "encodedBodySize": 52205,
+          "decodedBodySize": 52205
+        }
+      ]
+    }
+  ],
+  "scope": "Pengukuran konfigurasi localhost terkompresi; deployment lain perlu diukur ulang jika konfigurasi berubah."
+}

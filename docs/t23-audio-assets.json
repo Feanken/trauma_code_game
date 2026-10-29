@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-29",
+  "technical_passed": true,
+  "auditory_review": "pending",
+  "files": [
+    {
+      "file": "assets/audio/bgm.mp3",
+      "bytes": 770969,
+      "duration_seconds": 55.0,
+      "decoded_peak": 0.8974586725234985,
+      "sha256": "4e23ec7f96a0449926a9f7168a1406bb97280dffd22c1fd8afc7297d98126776"
+    },
+    {
+      "file": "assets/audio/start.mp3",
+      "bytes": 3805,
+      "duration_seconds": 0.25,
+      "decoded_peak": 0.5360472202301025,
+      "sha256": "2073db11fc3126062437451c05af41312b1369c8898b32e8b62f2c48f7f845ae"
+    },
+    {
+      "file": "assets/audio/select.mp3",
+      "bytes": 1924,
+      "duration_seconds": 0.09712018140589569,
+      "decoded_peak": 0.44977933168411255,
+      "sha256": "5c60445e865b8352ebb274814bbaede0c1c9d77595ee7acbf53f5945e37df89a"
+    },
+    {
+      "file": "assets/audio/back.mp3",
+      "bytes": 1611,
+      "duration_seconds": 0.0609750566893424,
+      "decoded_peak": 0.568768322467804,
+      "sha256": "4d36ec3a6eb03dff7bc362da4aa5ea44de757e98c87157a13ad61bdadcecfa0e"
+    },
+    {
+      "file": "assets/audio/reveal.mp3",
+      "bytes": 18010,
+      "duration_seconds": 1.4,
+      "decoded_peak": 0.5444453358650208,
+      "sha256": "d57d102ea25d35e07be72ae45ddeeb6a8b7d936bc5b6c549244651c00e41fab8"
+    }
+  ],
+  "bgm": "The Complex - Kevin MacLeod, 15-71s excerpt with 1s crossfade; not an OST recording",
+  "reveal": "Heroic Age - Kevin MacLeod, excerpt",
+  "sfx": "Kenney Interface Sounds"
+}

@@ -1,0 +1,436 @@
+{
+  "passed": true,
+  "environment": {
+    "date": "2026-10-29",
+    "os": "Windows_NT 10.0.26300",
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13650HX",
+    "logicalCpus": 20,
+    "totalMemoryBytes": 33960431616,
+    "browser": "Chrome/156.0.8078.73",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  },
+  "scope": "Versi dengan audio pada server statis alat uji; Nginx dan hosting publik tidak dijalankan.",
+  "cases": [
+    {
+      "name": "pembuka dan layar tersembunyi /",
+      "passed": true
+    },
+    {
+      "name": "CSS/JS dimuat /",
+      "passed": true
+    },
+    {
+      "name": "audio lokal berjalan /",
+      "passed": true
+    },
+    {
+      "name": "hasil semua A /",
+      "passed": true
+    },
+    {
+      "name": "foto relatif /",
+      "passed": true
+    },
+    {
+      "name": "ulang /",
+      "passed": true
+    },
+    {
+      "name": "pemeriksa skor relatif /",
+      "passed": true
+    },
+    {
+      "name": "pembuka dan layar tersembunyi /trauma-quiz",
+      "passed": true
+    },
+    {
+      "name": "CSS/JS dimuat /trauma-quiz",
+      "passed": true
+    },
+    {
+      "name": "audio lokal berjalan /trauma-quiz",
+      "passed": true
+    },
+    {
+      "name": "hasil semua A /trauma-quiz",
+      "passed": true
+    },
+    {
+      "name": "foto relatif /trauma-quiz",
+      "passed": true
+    },
+    {
+      "name": "ulang /trauma-quiz",
+      "passed": true
+    },
+    {
+      "name": "pemeriksa skor relatif /trauma-quiz",
+      "passed": true
+    },
+    {
+      "name": "tanpa request runtime ke pihak ketiga",
+      "passed": true
+    },
+    {
+      "name": "tanpa pengiriman jawaban melalui POST/PUT",
+      "passed": true
+    },
+    {
+      "name": "tanpa jawaban pada query URL",
+      "passed": true
+    },
+    {
+      "name": "semua resource pengujian HTTP 200",
+      "passed": true
+    },
+    {
+      "name": "tanpa exception JavaScript",
+      "passed": true
+    }
+  ],
+  "requests": [
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/",
+      "method": "GET"
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/css/style.css",
+      "method": "GET"
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/js/data.js",
+      "method": "GET"
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/js/quiz.js",
+      "method": "GET"
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/js/ui.js",
+      "method": "GET"
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/js/audio.js",
+      "method": "GET"
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/js/script.js",
+      "method": "GET"
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/assets/images/baek-kang-hyuk.jpg",
+      "method": "GET"
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/assets/audio/start.mp3",
+      "method": "GET"
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/assets/audio/select.mp3",
+      "method": "GET"
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/assets/audio/back.mp3",
+      "method": "GET"
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/assets/audio/reveal.mp3",
+      "method": "GET"
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/assets/audio/bgm.mp3",
+      "method": "GET"
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/checks/scoring-check.html",
+      "method": "GET"
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/js/data.js",
+      "method": "GET"
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/js/quiz.js",
+      "method": "GET"
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/checks/scoring-check.js",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/css/style.css",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/js/data.js",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/js/quiz.js",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/js/ui.js",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/js/audio.js",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/js/script.js",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/assets/images/baek-kang-hyuk.jpg",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/assets/audio/start.mp3",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/assets/audio/select.mp3",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/assets/audio/back.mp3",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/assets/audio/reveal.mp3",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/assets/audio/bgm.mp3",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/checks/scoring-check.html",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/js/data.js",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/js/quiz.js",
+      "method": "GET"
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/checks/scoring-check.js",
+      "method": "GET"
+    }
+  ],
+  "responses": [
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/",
+      "status": 200
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/css/style.css",
+      "status": 200
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/assets/images/baek-kang-hyuk.jpg",
+      "status": 200
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/js/data.js",
+      "status": 200
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/js/quiz.js",
+      "status": 200
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/js/ui.js",
+      "status": 200
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/js/audio.js",
+      "status": 200
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/js/script.js",
+      "status": 200
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/assets/audio/start.mp3",
+      "status": 200
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/assets/audio/select.mp3",
+      "status": 200
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/assets/audio/reveal.mp3",
+      "status": 200
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/assets/audio/back.mp3",
+      "status": 200
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/assets/audio/bgm.mp3",
+      "status": 200
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/checks/scoring-check.html",
+      "status": 200
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/js/data.js",
+      "status": 200
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/js/quiz.js",
+      "status": 200
+    },
+    {
+      "stage": "/",
+      "url": "http://127.0.0.1:63440/checks/scoring-check.js",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/css/style.css",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/assets/images/baek-kang-hyuk.jpg",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/js/data.js",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/js/quiz.js",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/js/ui.js",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/js/script.js",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/js/audio.js",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/assets/audio/start.mp3",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/assets/audio/select.mp3",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/assets/audio/back.mp3",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/assets/audio/reveal.mp3",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/assets/audio/bgm.mp3",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/checks/scoring-check.html",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/js/quiz.js",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/js/data.js",
+      "status": 200
+    },
+    {
+      "stage": "/trauma-quiz",
+      "url": "http://127.0.0.1:63440/trauma-quiz/checks/scoring-check.js",
+      "status": 200
+    }
+  ],
+  "exceptions": []
+}
