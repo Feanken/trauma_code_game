@@ -45,7 +45,7 @@ Semua jalur berikut mengacu pada root proyek.
 | `js/script.js` | Inisialisasi, state sesi, event aksi, transisi, reset, serta koordinasi logika dan UI. | Tidak menggandakan data kuis atau formula skor. |
 | `checks/scoring-check.*` | Pemeriksa browser yang memanggil fungsi logika produksi. | Tidak dimuat halaman produk dan tidak membawa implementasi skor tersendiri. |
 
-Muat script klasik menggunakan `defer` dalam urutan data → quiz → ui → audio → script setelah T24 (saat ini `audio.js` masih direncanakan). Gunakan satu namespace global `TraumaQuiz`. Bungkus detail internal setiap file dengan fungsi tertutup/IIFE dan strict mode agar nama lokal tidak bocor ke global. Jangan membuat banyak objek global atau menambahkan sistem modul/build baru.
+Muat script klasik menggunakan `defer` dalam urutan data → quiz → ui → audio → script sesuai implementasi T24 (`audio.js` sudah tersedia). Gunakan satu namespace global `TraumaQuiz`. Bungkus detail internal setiap file dengan fungsi tertutup/IIFE dan strict mode agar nama lokal tidak bocor ke global. Jangan membuat banyak objek global atau menambahkan sistem modul/build baru.
 
 Ekspos hanya data/fungsi yang benar-benar diperlukan antarfile. Simpan pengelolaan efek pointer di bagian UI dengan fungsi setup/reset/cleanup yang jelas; struktur saat ini tidak memerlukan file atau library animasi baru.
 

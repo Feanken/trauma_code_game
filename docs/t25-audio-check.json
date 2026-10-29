@@ -190,7 +190,7 @@
   "errors": [],
   "limitations": [
     "CDP gesture/visibility fixtures and real Chrome playback; no speaker capture by agent.",
-    "Asset listening approved by user; in-app audible timing still needs human check.",
-    "Physical Android/iPhone, Firefox and new screen reader check pending."
+    "Automated run does not judge audible timing; user reports are recorded separately in t25-manual-check.md.",
+    "Physical Android/iPhone and Firefox pending; screen reader user report is recorded separately."
   ]
 }

@@ -2,7 +2,7 @@
 
 Kuis kepribadian fan-made untuk hiburan dan belajar pengembangan web. Jawab sepuluh pertanyaan A/B untuk memperoleh satu dari lima karakter *The Trauma Code* dan Trauma Team ID Card. Hasil bukan diagnosis atau penilaian psikologis ilmiah; proyek ini nonkomersial dan tidak berafiliasi resmi.
 
-**Status 29 Oktober 2026: aplikasi sebelum audio sudah berjalan; MVP revisi 5 belum siap dinyatakan selesai.** Musik/efek T23–T25 belum diimplementasikan. Firefox desktop, dua ponsel nyata, dan uji calon pengguna juga belum lengkap. README ini adalah draf T21 untuk versi yang benar-benar tersedia; T21 belum dicentang karena T24 belum selesai.
+**Status 29 Oktober 2026: kuis, musik dan efek T23–T24 tersedia; MVP revisi 5 belum siap dinyatakan selesai.** T25 masih menunggu Firefox desktop dan dua ponsel nyata. Pengguna melaporkan pendengaran dan Narrator + Chrome kontrol baru lulus. Data numerik uji calon pengguna juga belum diterima. Panduan T21 diselaraskan dengan versi audio; penutupan tugas di luar lingkup T22–T25 tidak dilakukan pada pekerjaan ini.
 
 ## Menjalankan lokal
 
@@ -20,7 +20,7 @@ Tidak ada langkah npm, Node.js, build, database, akun, atau API untuk menjalanka
 
 Tekan **Start Quiz**, lalu pilih A atau B. Pilihan langsung membuka pertanyaan berikutnya. **Back** tersedia mulai pertanyaan kedua dan mempertahankan jawaban lain ketika satu jawaban diganti. Setelah Q10, hasil menampilkan karakter, tiga kekuatan, serta dua alasan dari jawaban yang dipilih. **Ulangi kuis** kembali ke Q01 dengan sesi kosong. Refresh kembali ke pembuka; jawaban tidak disimpan di browser storage atau dikirim ke server.
 
-Versi saat ini diam dan belum memiliki kontrol audio. Revisi 5 merencanakan musik instrumental, empat efek, mute serta volume terpisah, dan pemuatan setelah tindakan pengguna. Perilaku itu belum boleh dianggap tersedia hanya karena tercantum dalam spesifikasi.
+Halaman awal diam dan belum mengunduh audio. **Start Quiz** memulai musik instrumental dengan volume awal 12% dan efek 25%. Tombol **Musik** dan **Efek** serta kedua slider volume tersedia pada semua layar; kanal dapat dimatikan sebelum mulai. Volume nol tetap senyap. Efek yang belum siap dilewatkan tanpa menunda pertanyaan. Ulang mempertahankan preferensi dan posisi musik yang sudah berjalan. Berpindah tab atau meninggalkan jendela menjeda audio; tekan **Lanjutkan musik** ketika kembali. Kegagalan audio tidak menghalangi kuis. Preferensi kembali ke awal ketika refresh.
 
 ## Struktur berkas
 
@@ -31,6 +31,8 @@ Versi saat ini diam dan belum memiliki kontrol audio. Revisi 5 merencanakan musi
 | `js/data.js` | Pertanyaan, karakter, pemetaan poin, alasan, dan gambar lokal. |
 | `js/quiz.js` | Validasi, skor murni, seri, serta alasan hasil. |
 | `js/ui.js` | Render, fokus, gambar/fallback, efek pointer dan cleanup. |
+| `js/audio.js` | Satu pemutar musik, cache empat efek, gain, kontrol dan cleanup. |
+| `assets/audio/` | Lima MP3 lokal; catatan teknis pada `assets/AUDIO.md`. |
 | `js/script.js` | State sesi dan event, penguncian, maju/Back, serta ulang. |
 | `assets/images/` | Lima JPEG karakter yang dipakai serta alternatif riset yang belum dipakai. |
 | `checks/` | Pemeriksa browser dan alat pengembangan; tidak dimuat oleh aplikasi. |
@@ -38,7 +40,7 @@ Versi saat ini diam dan belum memiliki kontrol audio. Revisi 5 merencanakan musi
 | `steeering/` | Panduan agen untuk perilaku, UI/aksesibilitas, dan konvensi kode. |
 | `docs/` | Bukti aktual, screenshot, uji pengguna, daftar temuan, dan kesiapan. |
 
-`js/audio.js` serta `assets/audio/` masih rencana T23–T24 dan belum tersedia. Script aplikasi yang ada dimuat dengan `defer` dalam urutan data → quiz → ui → script.
+Script aplikasi dimuat dengan `defer` dalam urutan data → quiz → ui → audio → script. Audio baru dibuat dan dimuat setelah tindakan pengguna.
 
 ## Aturan skor
 
@@ -56,7 +58,7 @@ Bukti sebelumnya: [verification](docs/verification.md), [manifest T14–T18](doc
 
 ## Menempatkan pada host statis
 
-Untuk versi saat ini, salin `index.html`, `css/`, `js/`, dan lima JPEG yang dirujuk `js/data.js` ke direktori web sambil mempertahankan struktur. Tidak ada proses build. `checks/` dapat ikut ditempatkan jika ingin membuka pemeriksa skor dari host; file `.cjs` tidak dijalankan oleh host statis. `docs/` dan spesifikasi tidak diperlukan aplikasi saat dimainkan.
+Untuk versi saat ini, salin `index.html`, `css/`, `js/`, lima JPEG yang dirujuk `js/data.js`, serta folder `assets/audio/` dengan lima MP3 ke direktori web sambil mempertahankan struktur. Tidak ada proses build. `checks/` dapat ikut ditempatkan jika ingin membuka pemeriksa skor dari host; file `.cjs` tidak dijalankan oleh host statis. `docs/` dan spesifikasi tidak diperlukan aplikasi saat dimainkan.
 
 Semua jalur aplikasi relatif. Untuk hosting pada `/trauma-quiz/`, tempatkan struktur yang sama di folder tersebut dan buka `/trauma-quiz/` dengan slash terakhir atau `/trauma-quiz/index.html`. Tidak ada routing SPA atau kebutuhan mengembalikan `index.html` ketika gambar/JS tidak ditemukan. Berkas yang benar-benar hilang seharusnya menghasilkan 404 agar fallback gambar bekerja.
 
@@ -93,10 +95,10 @@ location /trauma-quiz/ {
 
 Sesuaikan port dan lokasi folder dengan host. Periksa konfigurasi dengan `nginx -t` sebelum menerapkannya. Contoh ini merujuk [panduan konten statis Nginx](https://nginx.org/en/docs/beginners_guide.html#serving_static_content) dan [modul gzip](https://nginx.org/en/docs/http/ngx_http_gzip_module.html); Nginx dan konfigurasi hosting publik belum dijalankan pada pekerjaan ini.
 
-Di Network browser, pastikan HTML/CSS/JS dan foto berhasil dimuat dari host sendiri. Untuk server terkompresi, periksa `Content-Encoding: gzip` pada teks; JPEG tidak perlu dikompresi ulang. T18 mencatat median 457,8 ms dan transfer awal maksimum 65,7 KiB pada profil uji serta server gzip lokal tertentu. Perintah Python sederhana tidak mengaktifkan gzip, sehingga hasilnya tidak boleh disamakan dengan angka tersebut. Setelah audio dipasang, T25 harus mengulang kinerja dan verifikasi host.
+Di Network browser, pastikan HTML/CSS/JS, foto, dan lima MP3 setelah Start berhasil dimuat dari host sendiri. MP3 dilayani sebagai `audio/mpeg`; `mime.types` Nginx menyediakannya. Untuk server terkompresi, periksa `Content-Encoding: gzip` pada teks; JPEG tidak perlu dikompresi ulang. Pengukuran final T25 mencatat median 593,9 ms dan transfer awal maksimum 70.598 byte (68,9 KiB), tanpa request audio sebelum gesture, pada profil desain dan server gzip lokal. Perintah Python sederhana tidak mengaktifkan gzip, sehingga hasilnya tidak boleh disamakan dengan angka tersebut. Pengukuran dan uji root/subdirektori versi audio tersimpan pada `docs/t25-performance-check.json` dan `docs/t25-static-host-check.json`.
 
 ## Aset dan status rilis
 
 Lima foto berasal dari internet dan disimpan lokal sesuai keputusan penggunaan pribadi pengguna. [SOURCES.md](assets/SOURCES.md) memuat riwayat penelusuran; beberapa status lama di sana mendahului keputusan aset final. Browser aplikasi memakai file lokal, bukan hotlink dari daftar riset.
 
-Kandidat musik baru tercantum pada design 12; belum ada audio yang diunduh atau diputar. Kesiapan rilis masih menunggu T23–T25, pemeriksaan T17, hasil peserta T19, serta penutupan temuan dan serah terima T20–T22. Tidak ada deployment yang dilakukan oleh penulisan README ini.
+Musik The Complex dan aksen Heroic Age (Kevin MacLeod), serta tiga efek Kenney telah disimpan lokal, dipotong dan diatur levelnya. [Catatan audio](assets/AUDIO.md) memuat identitas dan pengolahan. Pengguna menyatakan pendengaran sesuai. [Pemeriksaan manusia T25](docs/t25-manual-check.md) membedakan laporan dengar dari pengujian yang masih terbuka. Kesiapan rilis masih menunggu T17/T25, hasil peserta T19, dan penutupan T20–T22. Tidak ada deployment.

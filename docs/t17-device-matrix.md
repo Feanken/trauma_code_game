@@ -13,3 +13,6 @@ Tanggal: 29 Oktober 2026. Status: **belum selesai; T17 tidak dicentang**.
 | Perangkat hibrida nyata | Belum tersedia hasil uji touch/mouse pada perangkat nyata | Belum diuji. Simulasi perubahan input pada desktop tersedia pada bukti T16. |
 
 Untuk menutup T17, catat model perangkat, OS/browser dan versinya, lalu jalankan mulai → beberapa jawaban → Back dua langkah → ubah jawaban → hasil → ulang. Pastikan foto, fokus, pilihan tersimpan, dan tombol tetap bekerja; tidak ada pertanyaan terlewati pada ketukan cepat. Pada mouse, periksa kartu/latar dan reset saat keluar/blur. Pada sentuhan, kartu/latar harus netral. Laporkan setiap masalah dan ulangi setelah perbaikannya. Emulasi viewport serta sentuhan CDP tidak menggantikan dua ponsel nyata tersebut.
+
+
+**Versi audio T24, 29 Oktober 2026:** Chrome desktop telah menjalani regresi otomatis T25 (audio, keyboard/zoom, visual, integrasi, kinerja, root/subdirektori). Laporan pendengaran aplikasi pengguna tidak menyertakan browser/versi. Pengguna kemudian melaporkan Narrator + Chrome untuk kontrol baru lulus; versi tidak diberikan. Ketiga target browser/perangkat yang belum tersedia di atas tetap belum diuji. Lihat [pemeriksaan T25](t25-manual-check.md).

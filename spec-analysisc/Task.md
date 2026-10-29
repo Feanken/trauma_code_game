@@ -1,6 +1,6 @@
 # Task — Which Trauma Code Character Are You?
 
-Status: Implementasi bertahap; T01–T16 selesai; T17 belum selesai; T18 selesai; T19–T22 dipersiapkan tetapi belum selesai; T23–T25 belum dikerjakan
+Status: Implementasi bertahap; T01–T16 selesai; T17 belum selesai; T18 selesai; T19–T22 dipersiapkan tetapi belum selesai; T23–T24 selesai; T25 terverifikasi sebagian dan belum selesai
 
 Tanggal: 28 Oktober 2026  
 Acuan: `requirement.md` revisi 5 dan `design.md`, termasuk bagian 3.6 tentang interaksi mouse dan bagian 11 tentang gambar dari internet.
@@ -264,7 +264,7 @@ Buat `README.md` berbahasa Indonesia yang menjelaskan tujuan hiburan, struktur f
 
 **Selesai jika:** petunjuk dapat diikuti tanpa Node.js, npm, build, database, atau akun; halaman bekerja pada root dan subdirektori host statis. Network menunjukkan tidak ada API, font eksternal, hotlink, atau pengiriman jawaban keluar. Panduan tidak mengklaim pemeriksaan yang belum dilakukan.
 
-**Progres T21 — 29 Oktober 2026:** README draf tersedia untuk aplikasi sebelum audio. Sebanyak 17 pemeriksaan browser root/subdirektori dan 9 resource server Python lulus; [bukti host](../docs/t21-static-host-check.json), [bukti Python](../docs/t21-python-smoke.json). T24 belum selesai sehingga kontrol audio aktual belum dapat didokumentasikan; T21 tetap kosong.
+**Progres T21 — 29 Oktober 2026:** README draf tersedia untuk aplikasi sebelum audio. Sebanyak 17 pemeriksaan browser root/subdirektori dan 9 resource server Python lulus; [bukti host](../docs/t21-static-host-check.json), [bukti Python](../docs/t21-python-smoke.json). README sudah diselaraskan dengan kontrol audio aktual dan 19 pemeriksaan host versi audio lulus pada pekerjaan T22–T25. Penutupan checkbox T21 tidak ditinjau ulang dalam lingkup permintaan ini; T21 tetap kosong.
 
 - [ ] **T22 — Tinjau kesiapan MVP dan lengkapi serah terima.**
 
@@ -274,13 +274,13 @@ Cocokkan hasil implementasi dengan seluruh kebutuhan, lengkapi matriks bukti di 
 
 **Selesai jika:** semua tugas wajib dan kriteria penerimaan requirement terpenuhi, bukti dapat ditelusuri, dan tidak ada pemeriksaan wajib yang belum dilakukan. Hasil tugas ini adalah paket siap ditinjau untuk rilis; tidak otomatis memublikasikan atau men-deploy website.
 
-**Progres T22 — 29 Oktober 2026:** [readiness.md](../docs/readiness.md) memetakan seluruh FR-01–FR-12/NFR-01–NFR-15. Keputusan: belum siap menurut revisi 5. T20/T21 dan gate audio/perangkat/peserta masih terbuka; T22 tidak dicentang.
+**Progres T22 — 29 Oktober 2026:** [readiness.md](../docs/readiness.md) dan [manifest versi audio](../docs/t22-t25-verification.json) diperbarui dengan bukti T23–T24 serta regresi otomatis T25. Keputusan tetap NOT_READY: T17/T19/T20/T25 dan serah terima final belum lengkap. T22 tidak dicentang.
 
 ### Tahap G — Audio tambahan (revisi 5)
 
 Penomoran tugas lama dipertahankan. Urutan efektif: **T23 → T24 → T17 → T25 → T19 → T20 → T22**; T21 dapat dikerjakan setelah T24 dan T15. T17 masih terbuka. Bukti T14–T18 yang sudah dicentang adalah bukti versi sebelum audio; T25 mewajibkan regresi yang terdampak pada versi audio sebelum kesiapan MVP dinilai. Musik/efek wajib tersedia, tetapi pengguna boleh mematikannya.
 
-- [ ] **T23 — Pilih dan siapkan satu musik serta empat efek lokal.**
+- [x] **T23 — Pilih dan siapkan satu musik serta empat efek lokal.**
 
 **Dependensi:** T01. **Kebutuhan:** FR-11, NFR-15. **Desain:** Bagian 12.1, 12.5, 12.7.
 
@@ -288,13 +288,17 @@ Dengarkan kandidat musik dengan arah medis sinematis tegang namun heroik, lalu p
 
 **Selesai jika:** lima berkas benar-benar dapat didecode, didengarkan, dan sesuai arah suasana; sambungan loop tidak mengagetkan; musik maksimal 1 MiB dan empat efek total maksimal 200 KiB. Tidak ada unduhan runtime dari host pihak ketiga. Pemilihan final serta hasil dengar dicatat secara teknis; tidak ada kewajiban menambah halaman kredit pada UI.
 
-- [ ] **T24 — Implementasikan pengendali, kontrol, dan siklus hidup audio.**
+**Bukti T23 — 29 Oktober 2026:** lima MP3 lokal didecode FFmpeg/Chrome; BGM 55 detik, 770.969 byte; empat efek total 25.350 byte, seluruh peak decode di bawah 1,0. Pengguna menyetujui musik/empat efek dan sambungan loop setelah mendengarkan. [Identitas/pengolahan](../assets/AUDIO.md), [ukuran/durasi/hash dan laporan dengar](../docs/t23-audio-assets.json).
+
+- [x] **T24 — Implementasikan pengendali, kontrol, dan siklus hidup audio.**
 
 **Dependensi:** T23, T08, T10, T12, T14. **Kebutuhan:** FR-11, FR-12, NFR-05, NFR-09, NFR-12, NFR-15. **Desain:** Bagian 12.2–12.4.
 
 Tambahkan `js/audio.js`, kontrol kanal serta volume terpisah, keterangan audio sebelum mulai, unlock dari gesture, pemuatan lazy, cache, dan penanganan error. Hubungkan efek hanya pada aksi controller yang diterima. Implementasikan pause saat hidden/blur, resume eksplisit, mute seketika, serta perlindungan callback lama. Pertahankan preferensi selama ulang tanpa mengubah skor atau membuat pemutar baru.
 
 **Selesai jika:** halaman baru diam dan belum meminta audio; Start Quiz/kontrol musik memulai audio yang sesuai preferensi; musik/efek dapat dimatikan sendiri-sendiri dan volume nol dihormati. Pergantian pertanyaan tidak menunggu audio. Reset, hidden/blur, file gagal, dan playback ditolak tidak menimbulkan suara terlambat atau error tak tertangani. Kontrol native punya nama/status yang benar dan tersedia di tiga layar.
+
+**Bukti T24 — 29 Oktober 2026:** pengendali, dua kanal dan slider native, pemuatan lazy, mute/volume nol, pause/resume, cache, efek aksi, dan cleanup terpasang. [44 skenario audio](../docs/t25-audio-check.json) lulus termasuk offline/file rusak, playback/resume ditolak, callback lama, serta reset saat loading. [20 pemeriksaan keyboard/zoom](../docs/t25-keyboard-zoom-check.json) dan [19 root/subdirektori](../docs/t25-static-host-check.json) lulus.
 
 - [ ] **T25 — Verifikasi pendengaran dan regresi versi dengan audio.**
 
@@ -303,6 +307,8 @@ Tambahkan `js/audio.js`, kontrol kanal serta volume terpisah, keterangan audio s
 Uji setiap efek melalui pendengaran, loop BGM, volume/mute terpisah, volume nol, klik ganda/Enter ditahan, ulang cepat, callback lama, hidden/blur, resume, offline/file rusak, dan playback yang ditolak. Ulangi keyboard/pembaca layar untuk kontrol baru, empat viewport/zoom 200%, dan browser/perangkat T17. Ukur ulang lima cold load dengan profil T18 serta pastikan tidak ada request audio sebelum gesture.
 
 **Selesai jika:** bunyi terdengar pada aksi yang benar sekali saja; tidak ada kebocoran suara ketika mute/jeda atau sesi berubah; pengumuman tetap jelas; alur serta skor tidak berubah. Target median siap pakai ≤3 detik dan transfer awal ≤300 KiB tetap lulus. Bukti perangkat, pendengaran, dan regresi dicatat aktual; bagian yang belum diuji tidak dianggap selesai. Baru setelah T25 lulus, versi dengan audio boleh dinilai lengkap pada T20/T22.
+
+**Progres T25 — 29 Oktober 2026:** 44 audio, 80 integrasi/1.024 kombinasi skor, 344 visual, 20 keyboard/zoom, 128 aksesibilitas/kontras dan 19 host lulus otomatis. Lima cold load: median 593,9 ms, transfer awal maksimum 70.598 byte (68,9 KiB), nol request audio sebelum gesture. Pengguna melaporkan pendengaran aksi/mute/resume lulus; browser/versi tidak disertakan. Pengguna melaporkan Narrator + Chrome untuk kontrol baru lulus (versi tidak diberikan). Firefox, Chrome Android nyata dan Safari iPhone nyata belum diuji; T17/T25 tetap kosong. [Bukti dan langkah manusia](../docs/t25-manual-check.md), [rincian](../docs/verification.md#t22t25--audio-dan-regresi-29-oktober-2026).
 
 ## 4. Pemetaan kebutuhan ke tugas
 
@@ -352,12 +358,15 @@ Saat implementasi dimulai, buat `docs/verification.md` untuk bukti lintas tugas.
 | Bukti | Tangkapan layar, keluaran pemeriksa, angka pengukuran, atau catatan uji pengguna tanpa identitas pribadi. |
 | Tindak lanjut | Masalah, perbaikan, dan pemeriksaan ulang yang diperlukan. |
 
-Status terkini: **T01–T16 selesai; T17 belum selesai; T18 selesai; T19–T22 dipersiapkan tetapi belum selesai; T23–T25 belum dikerjakan**. Bukti dan batas lingkungan pengujian tersedia di `docs/verification.md`.
+Status terkini: **T01–T16 selesai; T17 belum selesai; T18 selesai; T19–T22 dipersiapkan tetapi belum selesai; T23–T24 selesai; T25 terverifikasi sebagian dan belum selesai**. Bukti dan batas lingkungan pengujian tersedia di `docs/verification.md`.
 
 ## 6. Batas pekerjaan saat ini
 
-Implementasi dan verifikasi T01–T16 serta T18 selesai. T17 tetap belum selesai karena Firefox desktop dan dua browser ponsel nyata belum diuji. Kriteria perangkat tidak diganti dengan emulasi. Audio revisi 5 direncanakan pada T23–T25 dan belum diimplementasikan. Penambahan ini tidak mengubah status bukti versi sebelum audio; regresi baru wajib melalui T25. T19–T22 dipersiapkan tetapi belum selesai; T23–T25 belum dikerjakan.
+Implementasi dan verifikasi T01–T16 serta T18 selesai. T17 tetap belum selesai karena Firefox desktop dan dua browser ponsel nyata belum diuji. Kriteria perangkat tidak diganti dengan emulasi. Audio revisi 5 sudah diimplementasikan dan T23–T24 selesai; T25 belum lengkap karena pemeriksaan manusia/perangkat belum terpenuhi. Penambahan ini tidak mengubah status bukti versi sebelum audio; regresi baru wajib melalui T25. T19–T22 dipersiapkan tetapi belum selesai; T23–T24 selesai; T25 terverifikasi sebagian dan belum selesai.
 
-**Pembaruan 29 Oktober 2026:** revisi ini hanya merencanakan audio. Tidak ada file audio diunduh, kode audio ditulis, atau checkbox T23–T25 dicentang.
+**Riwayat revisi dokumen, sebelum implementasi:** revisi ini hanya merencanakan audio. Tidak ada file audio diunduh, kode audio ditulis, atau checkbox T23–T25 dicentang.
 
 **Pengerjaan T19–T22, 29 Oktober 2026:** penyusunan draf tidak melewati dependensi. Keempat checkbox tetap kosong; rincian kondisi aktual dan pemeriksaan ada di `docs/verification.md`. Tidak melanjutkan implementasi T23–T25 pada permintaan ini.
+
+
+**Pengerjaan T22–T25, 29 Oktober 2026:** T23–T24 dicentang berdasarkan aset, laporan pendengaran, dan verifikasi teknis. T25 dan T22 tetap kosong sesuai gate yang belum terpenuhi. Seluruh pekerjaan yang dapat dilakukan dalam lingkungan tersedia telah dicatat; berhenti setelah lingkup T25, tanpa deployment. Catatan “belum ada audio” di riwayat sebelumnya adalah snapshot sebelum implementasi ini.

@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-29",
+  "source": "user reports, not agent speaker capture",
+  "assetListening": {
+    "passed": true,
+    "response": "Sudah didengarkan dan sesuai"
+  },
+  "inAppAudio": {
+    "passed": true,
+    "scope": "Once per accepted answer/Back/reveal/restart; immediate mute; explicit music resume after returning from tab",
+    "response": "Sudah lulus; saya sertakan rincian",
+    "browserVersion": "not supplied"
+  },
+  "screenReader": {
+    "passed": true,
+    "pair": "Narrator + Chrome",
+    "scope": "Music/effects button names, pressed states, both volume labels and values",
+    "response": "Sudah lulus; saya sertakan rincian",
+    "versions": "not supplied"
+  },
+  "firefoxDesktop": "not tested",
+  "androidPhysical": "not tested",
+  "iphonePhysical": "not tested"
+}

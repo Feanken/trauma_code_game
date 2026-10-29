@@ -497,3 +497,57 @@ README yang sebelumnya hanya judul kini menjelaskan tujuan, fitur yang benar-ben
 Pemeriksaan akhir mencakup tautan lokal, konsistensi ID/dependensi, jumlah baris CSV yang sebenarnya, kecocokan hash produksi dengan bukti sebelumnya, sintaks dua alat `.cjs` yang terkait, serta `git diff --check`. Tidak menjalankan ulang semua tes logika/visual karena perubahan hanya dokumentasi dan fasilitas mount pada alat uji host; pemeriksa skor tetap dieksekusi untuk verifikasi jalur root/subdirektori.
 
 Pekerjaan berhenti setelah lingkup T22. Tidak melanjutkan T23–T25, merekrut/menghubungi peserta, memublikasikan, atau men-deploy aplikasi. Urutan berikut yang memungkinkan tugas ini ditutup mengikuti Task: T23 → T24 → T17 → T25, kemudian T19/T20/T21/T22 sesuai dependensinya.
+
+## T22–T25 — Audio dan regresi 29 Oktober 2026
+
+Lingkup: FR-11/FR-12/NFR-15 dan regresi area terdampak. Requirement revisi 5 dan seluruh steering dibaca; T23 bergantung T01 yang sudah selesai, T24 bergantung T23/T08/T10/T12/T14. **T23–T24 selesai. T25 belum selesai karena browser/perangkat T17 belum lengkap. T22 tetap NOT_READY.** Bukti versi sebelum audio dipertahankan terpisah. [Manifest dan hash versi audio](t22-t25-verification.json) mengikat laporan terbaru pada file yang diuji.
+
+### Aset dan pendengaran T23
+
+Lima MP3 lokal tersedia: BGM The Complex (Kevin MacLeod) menjadi loop 55 detik dengan crossfade, start/select/back dari Kenney, dan reveal dari Heroic Age (Kevin MacLeod). FFmpeg dipakai sementara untuk konversi/decode, tanpa instalasi dependency runtime. BGM 770.969 byte <1 MiB; efek total 25.350 byte <200 KiB. Peak decode setiap file di bawah 1,0. [Identitas, trim, format dan sumber](../assets/AUDIO.md), [durasi/ukuran/hash](t23-audio-assets.json), [pratinjau](t23-audio-preview.mp3).
+
+Pengguna telah mendengarkan pratinjau empat efek dan musik lengkap, lalu menjawab **“Sudah didengarkan dan sesuai”** atas suasana medis sinematis, tidak mengagetkan dan sambungan loop nyaman. Penilaian dengar berasal dari pengguna; agen memeriksa file dan decoder, tanpa mengklaim mendengar output speaker. Tidak memakai rekaman OST drama.
+
+### Implementasi T24
+
+`js/audio.js` memiliki satu AudioContext, satu elemen musik loop `preload=none`, dua gain terpisah dan cache empat buffer, dengan satu voice efek aktif. Kontrol native stabil berada sebelum ketiga layar. Preferensi awal 12%/25% terlihat, halaman baru diam tanpa request audio. Start/enable musik melakukan unlock dari gesture; efek yang belum siap dilewatkan tanpa antrean. Controller meminta efek hanya setelah aksi sah diterima, tanpa mengubah fungsi skor atau menunggu audio.
+
+Mute/volume nol menghentikan kanal terkait, hidden/blur menjeda dan memerlukan resume eksplisit. Ulang mempertahankan preferensi dan posisi musik yang sudah berjalan; request playback yang masih loading diinvalidasi agar callback lama tidak membunyikan sesi baru. Penolakan playback/resume, offline dan decode gagal ditangani tanpa modal atau unhandled rejection. Tidak ada browser storage atau request pihak ketiga.
+
+### Hasil otomatis versi audio
+
+Lingkungan: Windows 11 build 26300, Intel i7-13650HX, Node 24.22.1, Chrome 156.0.8078.73 headless/CDP. Audio normal memakai file, decoder, media element dan node Web Audio Chrome yang sebenarnya; fixture khusus dipakai untuk kegagalan/delay dan hidden/blur. Tidak ada capture suara speaker pada alat otomatis.
+
+| Pemeriksaan | Hasil aktual | Bukti |
+| --- | --- | --- |
+| Audio | 44 lulus: tanpa request awal, playback berjalan, gain, efek aksi, double-click/lock, mute/0, ulang, blur/hidden/resume, callback lama, delay decode, reset loading, file rusak, offline, playback/context ditolak, tanpa Web Audio | [t25-audio-check.json](t25-audio-check.json) |
+| Integrasi | 80 lulus; lima hasil, koreksi, klik cepat/Enter ditahan, reset, reduced motion, foto/data gagal; produksi 1.024 kombinasi dan 424 seri | [t25-integration-check.json](t25-integration-check.json) |
+| Responsif/pointer | 344 lulus; tiga layar/lima tema, lebar 320/375/768/1280, zoom browser asli 200%, target baru 44 px, kartu, pointer/cleanup | [t25-visual-check.json](t25-visual-check.json) |
+| Keyboard dan zoom | 20 lulus; Tab melalui empat kontrol baru, alur Enter/Space, fokus, heading AX, zoom browser asli 200% | [t25-keyboard-zoom-check.json](t25-keyboard-zoom-check.json) |
+| Semantik/kontras | 128 lulus di empat viewport; nama slider/tombol, status kanal, rasio teks aktual ≥4,5:1, lima tema hasil | [t25-accessibility-check.json](t25-accessibility-check.json) |
+| Host/privasi | 19 lulus; root/subdirektori, musik/empat buffer lokal bekerja, seluruh 34 request GET ke host sendiri tanpa query jawaban, HTTP 200 | [t25-static-host-check.json](t25-static-host-check.json) |
+
+Pratinjau awal [ponsel](t25-landing-375.png) dan [desktop](t25-landing-1280.png) ditinjau secara visual; kontrol dapat digulir, tanpa menutup isi. Laporan visual menyertakan screenshot kartu dan zoom. Pemeriksa keyboard semula memakai jeda tetap yang tidak cukup ketika beberapa browser uji berjalan; alat diperbaiki agar menunggu progres aktual dan pemeriksaan terkait diulang lulus. Pemeriksaan mute juga memicu perbaikan penggunaan gain agar perubahan berlaku langsung. Tidak mengubah batas penerimaan untuk meluluskan tes.
+
+### Lima cold load final
+
+Profil tetap unduh 1,6 Mbps, unggah 750 Kbps, latensi 150 ms, CPU 4×, cache dimatikan/dihapus. Server alat uji mengirim gzip HTML/CSS/JS. Dijalankan setelah perubahan produksi final dan tanpa pengujian browser lain.
+
+| Percobaan | Siap pakai |
+| --- | --- |
+| 1 | 562,0 ms |
+| 2 | 577,3 ms |
+| 3 | 603,6 ms |
+| 4 | 593,9 ms |
+| 5 | 598,6 ms |
+| Median | **593,9 ms** |
+
+Transfer awal maksimum **70.598 byte / 68,9 KiB**; hanya satu foto pembuka dan **nol request audio sebelum gesture**. Target median ≤3 detik dan transfer ≤300 KiB lulus. [Header, resource dan angka mentah](t25-performance-check.json). Pengukuran ini bukan klaim kinerja hosting publik/Nginx.
+
+### Pendengaran aplikasi, hambatan dan T22
+
+Pengguna kemudian menjawab **“Sudah lulus; saya sertakan rincian”** atas skenario efek jawab/Back/hasil/ulang sekali pada aksi tepat, mute langsung senyap, dan musik hanya lanjut setelah tombol musik saat kembali dari tab lain. Browser/versi tidak disertakan; laporan dicatat dengan keterbatasan itu. [Matriks manusia T25](t25-manual-check.md) membedakan laporan ini dari pemeriksaan yang belum tersedia.
+
+Pengguna juga melaporkan uji Narrator + Chrome untuk kontrol baru lulus: tombol Musik/Efek, status aktif/mati serta nama/nilai kedua slider terbaca jelas. Versi tidak diberikan. Firefox desktop, Chrome Android nyata dan Safari iPhone nyata belum diuji; laporan pembaca layar dan viewport CDP tidak menggantikan perangkat tersebut. T17/T25 tetap kosong. Data numerik peserta T19 belum diterima; T20 dan serah terima final masih terbuka, sehingga T22 tetap kosong. README, daftar temuan dan readiness diperbarui agar sesuai fitur/bukti saat ini; penutupan checkbox T21 di luar lingkup permintaan ini.
+
+Menjalankan ulang audio: `node checks/audio-check.cjs`. Untuk menyimpan regresi ke laporan T25 tanpa menimpa laporan lama, set `$env:TRAUMA_AUDIO_REGRESSION='1'`, lalu jalankan alat integrasi/visual/keyboard/host/kinerja terkait. Jalankan kinerja sendiri. Aplikasi tetap berjalan tanpa Node/npm/build melalui HTTP statis. Pekerjaan berhenti setelah lingkup T25; tidak ada commit, push atau deployment.

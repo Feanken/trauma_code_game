@@ -14,7 +14,7 @@ Urutan dokumen yang digunakan:
 2. `design.md`: rancangan antarmuka, alur aplikasi, struktur file, data, dan perhitungan skor berdasarkan kebutuhan yang disepakati.
 3. `Task.md`: pekerjaan implementasi dan verifikasi yang merujuk pada ID kebutuhan.
 
-Pada revisi ini, `requirement.md` diperbarui dan `design.md` dibuat sesuai arahan pengguna. `Task.md` telah disusun sebagai rencana implementasi. Implementasi dasar telah tersedia; penambahan audio revisi 5 masih berupa spesifikasi dan belum diimplementasikan. Permintaan `docs/PLAN.md` dalam brief awal disesuaikan dengan arahan terbaru pengguna untuk memakai tiga dokumen SDD tersebut. `requirement-analysis.md` merupakan catatan analisis versi sebelumnya, bukan spesifikasi aktif.
+Pada revisi ini, `requirement.md` diperbarui dan `design.md` dibuat sesuai arahan pengguna. `Task.md` telah disusun sebagai rencana implementasi. Implementasi dasar telah tersedia; audio revisi 5 telah diimplementasikan pada T23–T24; verifikasi perangkat dan pembaca layar baru pada T25 belum lengkap. Permintaan `docs/PLAN.md` dalam brief awal disesuaikan dengan arahan terbaru pengguna untuk memakai tiga dokumen SDD tersebut. `requirement-analysis.md` merupakan catatan analisis versi sebelumnya, bukan spesifikasi aktif.
 
 ## 2. Gambaran produk
 

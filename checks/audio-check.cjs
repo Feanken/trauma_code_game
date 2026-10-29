@@ -169,7 +169,7 @@ async function main() {
     fs.writeFileSync(path.join(b.root,'docs/t25-accessibility-check.json'),JSON.stringify(accessibility,null,2)+'\n');
     check(accessibility.passed, 'accessibility and actual text contrast including new audio controls');
     report={ automatedPassed:true, environment:b.environment, cases, errors,
-      limitations:['CDP gesture/visibility fixtures and real Chrome playback; no speaker capture by agent.', 'Asset listening approved by user; in-app audible timing still needs human check.', 'Physical Android/iPhone, Firefox and new screen reader check pending.'] };
+      limitations:['CDP gesture/visibility fixtures and real Chrome playback; no speaker capture by agent.', 'Automated run does not judge audible timing; user reports are recorded separately in t25-manual-check.md.', 'Physical Android/iPhone and Firefox pending; screen reader user report is recorded separately.'] };
   } catch(error) { report={automatedPassed:false,environment:b.environment,cases,errors,error:error.message}; process.exitCode=1; }
   finally {
     fs.writeFileSync(path.join(b.root,'docs/t25-audio-check.json'),JSON.stringify(report,null,2)+'\n');

@@ -1,0 +1,168 @@
+{
+  "date": "2026-10-29",
+  "gitHeadAtAudit": "dcac7476458ed61c3b94fee273c80a39acea9953",
+  "note": "Workspace content is identified by hashes; no commit made by agent. HEAD may include user commits during work.",
+  "status": {
+    "T22": "NOT_READY",
+    "T23": "complete",
+    "T24": "complete",
+    "T25": "partial, not complete"
+  },
+  "remaining": [
+    "T17: Firefox desktop, physical Chrome Android, physical Safari iPhone",
+    "T19: numerical user-study data not supplied",
+    "T20 and final handover remain open"
+  ],
+  "checks": {
+    "docs/t25-audio-check.json": {
+      "passed": true,
+      "cases": 44
+    },
+    "docs/t25-integration-check.json": {
+      "passed": true,
+      "cases": 80
+    },
+    "docs/t25-visual-check.json": {
+      "passed": true,
+      "cases": 344
+    },
+    "docs/t25-keyboard-zoom-check.json": {
+      "passed": true,
+      "cases": 20
+    },
+    "docs/t25-accessibility-check.json": {
+      "passed": true,
+      "cases": 128
+    },
+    "docs/t25-static-host-check.json": {
+      "passed": true,
+      "cases": 19
+    },
+    "docs/t25-performance-check.json": {
+      "passed": true,
+      "cases": 0
+    }
+  },
+  "syntax": [
+    {
+      "file": "js/audio.js",
+      "passed": true
+    },
+    {
+      "file": "js/data.js",
+      "passed": true
+    },
+    {
+      "file": "js/quiz.js",
+      "passed": true
+    },
+    {
+      "file": "js/script.js",
+      "passed": true
+    },
+    {
+      "file": "js/ui.js",
+      "passed": true
+    },
+    {
+      "file": "checks/accessibility-cdp-check.cjs",
+      "passed": true
+    },
+    {
+      "file": "checks/audio-check.cjs",
+      "passed": true
+    },
+    {
+      "file": "checks/browser-driver.cjs",
+      "passed": true
+    },
+    {
+      "file": "checks/integration-check.cjs",
+      "passed": true
+    },
+    {
+      "file": "checks/performance-check.cjs",
+      "passed": true
+    },
+    {
+      "file": "checks/pointer-lifecycle-check.cjs",
+      "passed": true
+    },
+    {
+      "file": "checks/static-host-check.cjs",
+      "passed": true
+    },
+    {
+      "file": "checks/visual-check.cjs",
+      "passed": true
+    },
+    {
+      "file": "checks/accessibility-check.js",
+      "passed": true
+    },
+    {
+      "file": "checks/data-check.js",
+      "passed": true
+    },
+    {
+      "file": "checks/flow-check.js",
+      "passed": true
+    },
+    {
+      "file": "checks/motion-check.js",
+      "passed": true
+    },
+    {
+      "file": "checks/result-flow-check.js",
+      "passed": true
+    },
+    {
+      "file": "checks/result-unit-check.js",
+      "passed": true
+    },
+    {
+      "file": "checks/scoring-check.js",
+      "passed": true
+    },
+    {
+      "file": "checks/ui-check.js",
+      "passed": true
+    }
+  ],
+  "localLinksPassed": true,
+  "assetHashesPassed": true,
+  "manualReports": "docs/t25-user-reports.json",
+  "hashes": {
+    "index.html": "ff10441852508c07b6c9b58b8e5c6f955a135f83fea4de5b1d6fbc751ca0794b",
+    "css/style.css": "28c9bfaaccb0eb677ff53fa997f7d62ca3810c7b40b5e487d0ea0958a6ecd3a4",
+    "js/audio.js": "859322e8bda20ba5e8fd69d3cb2038fd0cb96554bce3eadd994a62f9eda96d3c",
+    "js/data.js": "46ebd3351f0446862eb45285ba27404e454c7749b6eaaaaf545f85cee691096d",
+    "js/quiz.js": "8fbe1b7aeb356ce37a74ce067d98723a8217c0b27bb0c681dcb1f6fd3216171a",
+    "js/script.js": "e4760709817ead2583a7de35a7fa6125180c8c2b5d0e0f3f6403bff0c1d4eab6",
+    "js/ui.js": "cb46b9bd2912846b9c6ad4f73d4e5a71037272558972417eb0ff35b816161a4a",
+    "assets/audio/back.mp3": "4d36ec3a6eb03dff7bc362da4aa5ea44de757e98c87157a13ad61bdadcecfa0e",
+    "assets/audio/bgm.mp3": "4e23ec7f96a0449926a9f7168a1406bb97280dffd22c1fd8afc7297d98126776",
+    "assets/audio/reveal.mp3": "d57d102ea25d35e07be72ae45ddeeb6a8b7d936bc5b6c549244651c00e41fab8",
+    "assets/audio/select.mp3": "5c60445e865b8352ebb274814bbaede0c1c9d77595ee7acbf53f5945e37df89a",
+    "assets/audio/start.mp3": "2073db11fc3126062437451c05af41312b1369c8898b32e8b62f2c48f7f845ae",
+    "docs/t25-audio-check.json": "96eebc926b26ab137811ba811c61ca48b7a7512b13249247d80cf8119ce39ba1",
+    "docs/t25-integration-check.json": "ac898377662bd05429f72e7215b1af160314f7d1e1aed05c065d08da01e8b365",
+    "docs/t25-visual-check.json": "f0edbc831ede7bde508a6e55bd21c41cd242bfeb1932ccda6cec8f70f4cf4d33",
+    "docs/t25-keyboard-zoom-check.json": "106cce650678e8526ad29f17741638f8aed953f86ac11e00ad334987419f4e91",
+    "docs/t25-accessibility-check.json": "8ba5f3786ec37a3574bba465965a2c96bcd7732c769c03b599db7dd8ca3a4303",
+    "docs/t25-static-host-check.json": "1a542b1ef201beae8ad2cd002eb3a0e01704d348462342528d3856500463b065",
+    "docs/t25-performance-check.json": "be35249a6c04db23fe51d6938d779ce8de38095079d98f90846d3d256c82544e",
+    "docs/t23-audio-assets.json": "b0e625321fe32b27817d17e7e29da9e714bb6faebea8f19cce53621cee6ccaa4",
+    "docs/t25-user-reports.json": "c98771fba6691f86828fd55c82d7883a906b19d97b26ccdea07e79f8126c8aab",
+    "README.md": "03a28ca4cd5ba346e20f23c7d1e57573e9f6a790ae7a234d011176dc89d71211",
+    "spec-analysisc/Task.md": "005741b21f8ed128441f37ef7e9186da11f0c3ae677aeb4363950edcff9df270",
+    "docs/verification.md": "d77d19865cbeb1d24e2162b4db6c09a1c0dfaa07752b8942800f672268adb526",
+    "docs/readiness.md": "9e6165c8914e9d3b8d37b4a1abc714696ba51b062d13d0800d1811e86cd1f829",
+    "docs/findings.md": "0e9711e39993f0b7fa7615fb8b6795a520a6c66e300e91b7301a6126a4733567",
+    "docs/t25-manual-check.md": "027c5928bfddc22bd8714aef0d72d95e8907a321911fba1e36aaf6ac568340f9",
+    "assets/AUDIO.md": "c617827e05f8d8167bf392d3496c391cd616c3edda943eb2bc7ff3a74d5a781b",
+    "spec-analysisc/requirement.md": "d7e9cfeaa98ad5d69fe7c303f2741d6f10c54575efa07251d4150aa9ee8d062f",
+    "spec-analysisc/design.md": "fbd3b56574ea27a18b06b3b84fdd6f3df66414ab0d62bdba37f39ece7e960bd9",
+    "steeering/coding-conventions.md": "be1791ebd4554815957918103faa8823f53d71233447e51f6d84aa2bcd407ed3"
+  }
+}

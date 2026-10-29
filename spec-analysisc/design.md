@@ -461,7 +461,7 @@ Rancangan aset ini tetap berlaku. Penelusuran T05 pada 28 Oktober 2026 sudah men
 
 ## 12. Musik dan efek suara — revisi 5, 29 Oktober 2026
 
-Status: rancangan yang belum diimplementasikan. Rujukan: FR-11, FR-12, NFR-05, NFR-09, NFR-12, NFR-13, NFR-15. Arah bunyi adalah interpretasi suasana medis sinematis yang diminta pengguna, bukan klaim meniru rekaman soundtrack tertentu.
+Status 29 Oktober 2026: T23–T24 diimplementasikan; regresi otomatis versi audio lulus, T25 belum lengkap karena uji perangkat dan pembaca layar baru masih terbuka. Rujukan: FR-11, FR-12, NFR-05, NFR-09, NFR-12, NFR-13, NFR-15. Arah bunyi adalah interpretasi suasana medis sinematis yang diminta pengguna, bukan klaim meniru rekaman soundtrack tertentu.
 
 ### 12.1 Arah musik dan efek
 
@@ -507,7 +507,7 @@ Reduced motion tidak mengganti preferensi audio; mematikan gerakan tetap mempert
 
 ### 12.5 Aset dan anggaran
 
-Simpan `assets/audio/bgm.mp3`, `start.mp3`, `select.mp3`, `back.mp3`, `reveal.mp3`; format lain hanya jika pengujian membutuhkan fallback. Nama tersebut rencana, bukan berkas yang sudah tersedia. Satu BGM maksimal 1 MiB; seluruh efek maksimal 200 KiB. Trim/normalisasi/kompresi harus diperiksa lewat pendengaran, tanpa clipping atau sambungan loop mendadak. Jangan mengunduh kelima audio pada pembuka sebelum gesture; cache hanya di memori selama halaman berjalan. Tidak memakai embed YouTube/Spotify, request pihak ketiga runtime, atau backend.
+Simpan `assets/audio/bgm.mp3`, `start.mp3`, `select.mp3`, `back.mp3`, `reveal.mp3`; format lain hanya jika pengujian membutuhkan fallback. Kelima berkas tersebut tersedia sejak T23 pada 29 Oktober 2026. Satu BGM maksimal 1 MiB; seluruh efek maksimal 200 KiB. Trim/normalisasi/kompresi harus diperiksa lewat pendengaran, tanpa clipping atau sambungan loop mendadak. Jangan mengunduh kelima audio pada pembuka sebelum gesture; cache hanya di memori selama halaman berjalan. Tidak memakai embed YouTube/Spotify, request pihak ketiga runtime, atau backend.
 
 Tidak ada kewajiban membuat musik orisinal atau menambahkan kredit pada antarmuka untuk proyek pribadi yang diminta pengguna. Pilih sumber yang menyediakan berkas praktis untuk proyek; bila kandidat tidak dapat dipakai, pilih alternatif tanpa menahan implementasi demi satu lagu. Identitas berkas/durasi/ukuran berguna untuk verifikasi teknis.
 
@@ -526,3 +526,6 @@ Pengguna menyerahkan pemilihan lagu kepada agen. Belum ada berkas audio yang diu
 - [Interface Sounds — Kenney](https://kenney.nl/assets/interface-sounds): paket 100 efek antarmuka berlabel CC0 pada halaman resmi; kandidat efek klik mulai/pilih/Back. Efek reveal final masih perlu dipilih/didengarkan pada T23.
 
 Daftar ini adalah kandidat penelusuran, bukan bukti telah lolos uji pendengaran atau audio telah terpasang.
+
+
+**Implementasi audio T23–T24, 29 Oktober 2026:** satu loop The Complex 55 detik dan empat efek lokal dipilih; pengguna melaporkan pendengaran sesuai. Pengendali Web Audio, kontrol native, gain terpisah, pemuatan setelah gesture, error dan cleanup terpasang. Reset membatalkan request playback yang masih loading sambil mempertahankan posisi musik yang sudah berjalan. Bukti teknis dan batas T25 berada di `docs/verification.md` dan `docs/t25-manual-check.md`; kandidat 12.7 tetap catatan historis. Tidak ada deployment.
