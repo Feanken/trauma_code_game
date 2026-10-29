@@ -34,7 +34,8 @@
         <button id="music-toggle" type="button" class="button" aria-pressed="true" aria-describedby="music-status">Musik: Aktif</button>
         <label for="music-volume">Volume musik <output id="music-volume-value" for="music-volume">12%</output></label>
         <input id="music-volume" type="range" min="0" max="100" step="1" value="12">
-        <p id="music-status" class="muted">Musik mulai setelah Start Quiz.</p>
+        <p id="music-status" class="muted">Musik bisa dinyalakan sejak halaman pembuka.</p>
+        <p id="music-track" class="muted">Lagu: Breathe Again — Celestial Scribbles</p>
       </div>
       <div class="audio-channel">
         <button id="effects-toggle" type="button" class="button" aria-pressed="true" aria-describedby="effects-status">Efek: Aktif</button>
@@ -46,20 +47,22 @@
       </details>
     </header>
     <section id="landing-screen" class="panel split-layout" aria-labelledby="project-title">
-      <div>
-        <p class="eyebrow">FAN-MADE PERSONALITY QUIZ</p>
-        <h1 id="project-title">Which Trauma Code Character Are You?</h1>
-        <p>Di tengah situasi kacau, kamu jadi penggerak, penenang, atau penyusun rencana? Temukan peranmu di tim trauma.</p>
-        <p class="muted">10 pertanyaan · tanpa login</p>
-        <p id="audio-start-hint" class="muted">Musik dan efek dimulai setelah Start Quiz. Kamu bisa mematikannya di kontrol audio.</p>
-        <button id="start-quiz" type="button" class="button button--primary" aria-describedby="audio-start-hint" hidden><span class="control-surface">Start Quiz</span></button>
-        <p class="muted" style="margin-top:24px">Proyek penggemar nonkomersial untuk hiburan; tidak berafiliasi resmi.</p>
+      <div class="hero-copy">
+        <p class="eyebrow hero-eyebrow">FIND YOUR TRAUMA TWIN ✧</p>
+        <h1 id="project-title"><span class="desktop-title">Which Trauma Code Character Are You?</span><span class="mobile-title">Kamu siapa<br>di tim <em>trauma?</em></span></h1>
+        <p class="hero-lead">Temukan karakter yang paling kamu banget.</p>
+        <div class="hero-tags"><span>✦ 10 pilihan</span><span>♡ 5 karakter</span><span>Tanpa login</span></div>
+        <p id="audio-start-hint" class="muted">Musik menemanimu sejak pembuka hingga hasil. Atur musik dan efek lewat menu Sound.</p>
+        <button id="start-quiz" type="button" class="button button--primary" aria-describedby="audio-start-hint" hidden><span class="control-surface">Temukan peranku <span aria-hidden="true">↗</span></span></button>
+        <p class="muted hero-foot">Fan-made · Untuk seru-seruan · Nonafiliasi</p>
       </div>
-      <div id="landing-card-wrapper" class="id-card-wrapper" aria-hidden="true">
+      <div id="landing-card-wrapper" class="id-card-wrapper hero-cast">
         <div class="id-card">
           <div class="id-card-media"><img class="landing-photo" src="assets/images/baek-kang-hyuk.jpg" alt="" width="720" height="480"></div>
-          <div class="id-card-body"><p class="eyebrow">TRAUMA TEAM ID CARD</p><h2>Peranmu menanti</h2><p>Sepuluh pilihan akan membentuk hasilmu.</p></div>
+          <div class="id-card-body"><p class="eyebrow">MEET THE TEAM</p><h2 id="landing-character-name">Baek Kang-hyuk</h2></div>
         </div>
+        <div class="cast-navigation"><span id="landing-carousel-position" class="cast-position" aria-live="polite">1 / 5</span><button id="cast-previous" type="button" aria-label="Lihat karakter sebelumnya">←</button><button id="cast-next" type="button" aria-label="Lihat karakter berikutnya">→</button></div>
+        <span class="cast-sticker" aria-hidden="true">WHO'S YOUR TWIN? ✦</span>
       </div>
     </section>
     <section id="quiz-screen" class="panel quiz-layout" aria-labelledby="question-title" hidden>
@@ -69,7 +72,7 @@
       <progress id="question-progress" max="10" value="1" aria-valuemin="1" aria-label="Progres pertanyaan"></progress>
       <p id="question-context" class="eyebrow"></p>
       <h2 id="question-title" tabindex="-1"></h2>
-      <p class="muted">Pilih jawaban untuk lanjut otomatis. Gunakan Back untuk mengubah jawaban.</p>
+      <p class="muted quiz-hint">Pilih yang paling kamu. Tap untuk lanjut ↗</p>
       <div id="answer-options" class="answers-grid" role="group" aria-labelledby="question-title"></div>
       <button id="back-button" type="button" class="button" hidden><span class="control-surface">Back</span></button>
     </section>
@@ -110,13 +113,16 @@
             </div>
           </article>
         </div>
-        <div>
+        <div class="result-copy">
+          <details class="result-more">
+            <summary>Kenali peranmu <span aria-hidden="true">＋</span></summary>
           <p id="result-description"></p>
           <h3>Bekal istimewamu</h3>
           <ul id="result-strengths"></ul>
           <h3>Kenapa kamu cocok?</h3>
           <ul id="result-reasons"></ul>
           <p id="result-message"></p>
+          </details>
           <p id="result-motif" hidden aria-hidden="true"></p>
           <button id="restart-quiz" type="button" class="button button--primary"><span class="control-surface">Ulangi kuis</span></button>
         </div>

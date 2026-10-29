@@ -46,7 +46,8 @@
     progress.value = number;
     progress.setAttribute('aria-valuetext', `Pertanyaan ${number} dari 10`);
     document.getElementById('question-context').textContent = question.context;
-    title.textContent = `Pertanyaan ${number}/10. ${question.prompt}`;
+    title.textContent = question.prompt;
+    title.setAttribute('aria-label', `Pertanyaan ${number} dari 10. ${question.prompt}`);
     options.replaceChildren();
     question.options.forEach((option) => {
       const button = document.createElement('button');
@@ -99,6 +100,7 @@
   }
 
   function clearResult() {
+    document.querySelector('.result-more').open = !window.matchMedia('(max-width: 767px)').matches;
     photoRequestVersion += 1;
     photo.removeAttribute('src');
     photo.hidden = true;
@@ -275,6 +277,39 @@
   document.addEventListener('visibilitychange', () => { if (document.hidden) resetPointerEffects(); });
   motionPreference.addEventListener('change', resetPointerEffects);
   finePointer.addEventListener('change', resetPointerEffects);
+
+  const mobileLayout = window.matchMedia('(max-width: 767px)');
+  const resultDetails = document.querySelector('.result-more');
+  resultDetails.open = !mobileLayout.matches;
+  mobileLayout.addEventListener('change', () => { resultDetails.open = !mobileLayout.matches; });
+
+  let castIndex = 0;
+  const cast = document.getElementById('landing-card-wrapper');
+  const castImage = cast.querySelector('.landing-photo');
+  function showCast(offset) {
+    castIndex = (castIndex + offset + app.data.characters.length) % app.data.characters.length;
+    const character = app.data.characters[castIndex];
+    castImage.src = character.image.src;
+    castImage.alt = character.name;
+    document.getElementById('landing-character-name').textContent = character.name;
+    document.getElementById('landing-carousel-position').textContent = `${castIndex + 1} / ${app.data.characters.length}`;
+  }
+  showCast(0);
+  document.getElementById('cast-previous').addEventListener('click', () => showCast(-1));
+  document.getElementById('cast-next').addEventListener('click', () => showCast(1));
+  let swipeStart = null;
+  cast.addEventListener('pointerdown', (event) => {
+    if (event.pointerType !== 'touch' || event.target.closest('button')) return;
+    swipeStart = { x: event.clientX, y: event.clientY };
+  });
+  cast.addEventListener('pointerup', (event) => {
+    if (!swipeStart) return;
+    const dx = event.clientX - swipeStart.x;
+    const dy = event.clientY - swipeStart.y;
+    swipeStart = null;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) showCast(dx < 0 ? 1 : -1);
+  });
+  cast.addEventListener('pointercancel', () => { swipeStart = null; });
 
   // Repeat identical photo groups so the diagonal wallpaper loops without a jump.
   const wall = document.getElementById('character-wall-grid');

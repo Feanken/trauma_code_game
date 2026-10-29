@@ -2,7 +2,7 @@
   'use strict';
 
   const app = window.TraumaQuiz;
-  const CONFIG = { music: 'assets/audio/bgm.mp3', resultMusic: 'assets/audio/result-happy.mp3', effects: {
+  const CONFIG = { introMusic: 'assets/audio/intro-trauma.mp3', resultMusic: 'assets/audio/here-we-go.mp3', effects: {
     start: 'assets/audio/start.mp3', select: 'assets/audio/select.mp3',
     back: 'assets/audio/back.mp3', reveal: 'assets/audio/reveal.mp3'
   } };
@@ -22,7 +22,11 @@
   let unlocked = false;
   let initialized = false;
   let controls = null;
-  let musicScene = 'quiz';
+  let musicScene = 'landing';
+
+  function musicUrl() {
+    return musicScene === 'result' ? CONFIG.resultMusic : CONFIG.introMusic;
+  }
 
   function renderControls() {
     if (!controls) return;
@@ -33,7 +37,8 @@
     controls.effects.setAttribute('aria-pressed', String(state.effectsEnabled));
     controls.musicOutput.textContent = `${Math.round(state.musicVolume * 100)}%`;
     controls.effectsOutput.textContent = `${Math.round(state.effectsVolume * 100)}%`;
-    const messages = { idle: 'Musik mulai setelah Start Quiz.', loading: 'Musik sedang dimuat.',
+    controls.track.textContent = `Lagu: ${musicScene === 'result' ? 'Here We Go! — Adam Gibbons' : 'Breathe Again — Celestial Scribbles'}`;
+    const messages = { idle: 'Nyalakan musik dari halaman pembuka atau menu Sound.', loading: 'Musik sedang dimuat.',
       playing: 'Musik sedang diputar.', paused: 'Musik dijeda.', unavailable: 'Musik belum dapat diputar. Kuis tetap bisa digunakan.' };
     controls.status.textContent = state.musicEnabled ? messages[state.playbackState] : 'Musik dimatikan.';
     controls.effectsStatus.textContent = failedEffects.size ? 'Sebagian efek belum tersedia.' : 'Efek singkat untuk aksi kuis.';
@@ -96,9 +101,28 @@
 
   function loadEffects() {
     if (loadPromise || !context || !state.effectsEnabled) return;
+    // Same two-note chime as option 04 in the listening preview.
+    const click = context.createBuffer(1, Math.ceil(0.25 * context.sampleRate), context.sampleRate);
+    const clickSamples = click.getChannelData(0);
+    let peak = 0;
+    for (let i = 0; i < clickSamples.length; i += 1) {
+      const t = i / context.sampleRate;
+      let value = 0;
+      for (const [frequency, offset] of [[660, 0], [990, 0.045]]) {
+        const elapsed = t - offset;
+        if (elapsed < 0) continue;
+        value += (Math.sin(2 * Math.PI * frequency * elapsed)
+          + 0.12 * Math.sin(4 * Math.PI * frequency * elapsed))
+          * Math.min(1, elapsed / 0.003) * Math.exp(-elapsed / 0.045) * 0.65;
+      }
+      clickSamples[i] = value * Math.min(1, (0.25 - t) / 0.008);
+      peak = Math.max(peak, Math.abs(clickSamples[i]));
+    }
+    for (let i = 0; i < clickSamples.length; i += 1) clickSamples[i] *= 0.65 / peak;
     // Build short, distinct chimes synchronously so the very first click is audible.
     const sounds = { start: [523.25, 783.99], select: [880, 1174.66], back: [659.25, 440], reveal: [523.25, 659.25, 783.99, 1046.5] };
     for (const [name, notes] of Object.entries(sounds)) {
+      if (name !== 'reveal') { buffers.set(name, click); continue; }
       const spacing = name === 'reveal' ? 0.11 : 0.045;
       const tail = name === 'reveal' ? 0.5 : 0.16;
       const buffer = context.createBuffer(1, Math.ceil((notes.length * spacing + tail) * context.sampleRate), context.sampleRate);
@@ -121,11 +145,11 @@
     if (!state.musicEnabled || !foreground || document.hidden) return;
     const version = ++musicVersion;
     needsResume = false;
-    if (!music.src) music.src = musicScene === 'result' ? CONFIG.resultMusic : CONFIG.music;
+    if (!music.src) music.src = musicUrl();
     if (music.error) music.load();
     state.playbackState = 'loading';
     renderControls();
-    // Dipanggil dalam gesture asal; navigasi kuis tidak menunggu Promise ini.
+    // Playback stays nonblocking, including a browser-controlled autoplay attempt.
     music.play().then(() => {
       if (version !== musicVersion) return;
       state.playbackState = 'playing';
@@ -142,12 +166,14 @@
 
   function setScene(scene) {
     if (scene === musicScene) return;
+    const previousUrl = musicUrl();
     musicScene = scene;
+    if (previousUrl === musicUrl()) { renderControls(); return; }
     if (!music) return;
     const shouldPlay = state.musicEnabled && foreground && !document.hidden && !needsResume;
     musicVersion += 1;
     music.pause();
-    music.src = scene === 'result' ? CONFIG.resultMusic : CONFIG.music;
+    music.src = musicUrl();
     if (shouldPlay) startMusic();
   }
 
@@ -247,7 +273,7 @@
     });
     controls = { music: document.getElementById('music-toggle'), effects: document.getElementById('effects-toggle'),
       musicOutput: document.getElementById('music-volume-value'), effectsOutput: document.getElementById('effects-volume-value'),
-      status: document.getElementById('music-status'), effectsStatus: document.getElementById('effects-status') };
+      status: document.getElementById('music-status'), effectsStatus: document.getElementById('effects-status'), track: document.getElementById('music-track') };
     controls.music.addEventListener('click', (event) => {
       if (event.detail > 1) return;
       if (state.musicEnabled && needsResume) prepareFromGesture({ startMusic: true });
@@ -270,6 +296,18 @@
     document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
     document.getElementById('audio-controls').hidden = false;
     renderControls();
+    // Try immediately; a trusted gesture unlocks audio if browser autoplay is blocked.
+    function firstInteraction(event) {
+      if (!event.isTrusted || (event.type === 'keydown' && ['Shift', 'Control', 'Alt', 'Meta', 'Escape'].includes(event.key))) return;
+      document.removeEventListener('pointerdown', firstInteraction, true);
+      document.removeEventListener('keydown', firstInteraction, true);
+      if (event.target.closest('#music-toggle') || !state.musicEnabled) return;
+      if (context && context.state === 'running' && state.playbackState === 'playing') return;
+      prepareFromGesture({ startMusic: true });
+    }
+    document.addEventListener('pointerdown', firstInteraction, true);
+    document.addEventListener('keydown', firstInteraction, true);
+    prepareFromGesture({ startMusic: true });
   }
 
   function getState() {

@@ -47,6 +47,7 @@
         state.screen = 'letter';
         letterStep = 0;
         app.ui.renderLetter();
+        app.audio.setScene('result');
         app.audio.playEffect('start');
       }
     }
