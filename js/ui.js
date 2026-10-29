@@ -249,6 +249,44 @@
   motionPreference.addEventListener('change', resetPointerEffects);
   finePointer.addEventListener('change', resetPointerEffects);
 
+  // Repeat identical photo groups so the diagonal wallpaper loops without a jump.
+  const wall = document.getElementById('character-wall-grid');
+  if (wall) {
+    const characters = app.data.characters;
+    const fragment = document.createDocumentFragment();
+    for (let column = 0; column < 8; column += 1) {
+      const lane = document.createElement('div');
+      lane.className = 'wall-lane';
+      const track = document.createElement('div');
+      track.className = 'wall-track';
+      track.style.setProperty('--wall-duration', `${95 + (column % 3) * 13}s`);
+      track.style.setProperty('--wall-delay', `${-column * 11}s`);
+      const group = document.createElement('div');
+      group.className = 'wall-group';
+      Array.from({ length: characters.length * 2 }).forEach((_, index) => {
+        const character = characters[(index + column * 2) % characters.length];
+        if (!character.image || !character.image.src) return;
+        const tile = document.createElement('div');
+        tile.className = 'wall-tile';
+        const image = document.createElement('img');
+        image.src = character.image.src;
+        image.alt = '';
+        image.decoding = 'async';
+        image.width = 240;
+        image.height = 270;
+        tile.append(image);
+        group.append(tile);
+      });
+      track.append(group, group.cloneNode(true));
+      lane.append(track);
+      fragment.append(lane);
+    }
+    wall.append(fragment);
+    document.addEventListener('visibilitychange', () => {
+      wall.classList.toggle('is-paused', document.hidden);
+    });
+  }
+
   app.ui = { showInitializationError, showScreen, renderQuestion, markSelection, renderResult,
     clearResult, resetPointerEffects };
 })();

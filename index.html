@@ -14,9 +14,20 @@
   <script src="js/script.js" defer></script>
 </head>
 <body>
+  <div class="character-wall" aria-hidden="true"><div id="character-wall-grid" class="character-wall-grid"></div></div>
+  <div class="medical-stickers" aria-hidden="true">
+    <span class="medical-sticker sticker-cross">✚</span>
+    <span class="medical-sticker sticker-bandage">✚<i></i>✚</span>
+    <svg class="sticker-pulse" viewBox="0 0 200 70" fill="none"><path d="M2 38h48l13-20 18 42 23-56 19 48 13-14h62" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="medical-sticker sticker-heart">♡</span>
+  </div>
   <div id="ambient-far" class="ambient ambient-far" aria-hidden="true"></div>
   <div id="ambient-near" class="ambient ambient-near" aria-hidden="true"></div>
   <main id="app" class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Trauma Team, halaman awal"><span class="brand-mark" aria-hidden="true">✚</span><span>TRAUMA TEAM<small>FIND YOUR ROLE</small></span></a>
+      <details id="sound-menu" class="sound-menu">
+        <summary><span aria-hidden="true">♫</span> Sound <span class="sound-chevron" aria-hidden="true">⌄</span></summary>
     <div id="audio-controls" class="audio-controls panel" role="group" aria-labelledby="audio-title" hidden>
       <h2 id="audio-title">Suasana audio</h2>
       <div class="audio-channel">
@@ -27,11 +38,13 @@
       </div>
       <div class="audio-channel">
         <button id="effects-toggle" type="button" class="button" aria-pressed="true" aria-describedby="effects-status">Efek: Aktif</button>
-        <label for="effects-volume">Volume efek <output id="effects-volume-value" for="effects-volume">25%</output></label>
-        <input id="effects-volume" type="range" min="0" max="100" step="1" value="25">
+        <label for="effects-volume">Volume efek <output id="effects-volume-value" for="effects-volume">45%</output></label>
+        <input id="effects-volume" type="range" min="0" max="100" step="1" value="45">
         <p id="effects-status" class="muted">Efek singkat untuk aksi kuis.</p>
       </div>
     </div>
+      </details>
+    </header>
     <section id="landing-screen" class="panel split-layout" aria-labelledby="project-title">
       <div>
         <p class="eyebrow">FAN-MADE PERSONALITY QUIZ</p>

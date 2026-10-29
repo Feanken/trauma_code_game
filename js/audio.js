@@ -2,12 +2,12 @@
   'use strict';
 
   const app = window.TraumaQuiz;
-  const CONFIG = { music: 'assets/audio/bgm.mp3', effects: {
+  const CONFIG = { music: 'assets/audio/bgm.mp3', resultMusic: 'assets/audio/result-happy.mp3', effects: {
     start: 'assets/audio/start.mp3', select: 'assets/audio/select.mp3',
     back: 'assets/audio/back.mp3', reveal: 'assets/audio/reveal.mp3'
   } };
   const state = { musicEnabled: true, effectsEnabled: true, musicVolume: 0.12,
-    effectsVolume: 0.25, playbackState: 'idle' };
+    effectsVolume: 0.45, playbackState: 'idle' };
   const buffers = new Map();
   const failedEffects = new Set();
   let context = null;
@@ -22,6 +22,7 @@
   let unlocked = false;
   let initialized = false;
   let controls = null;
+  let musicScene = 'quiz';
 
   function renderControls() {
     if (!controls) return;
@@ -95,24 +96,32 @@
 
   function loadEffects() {
     if (loadPromise || !context || !state.effectsEnabled) return;
-    loadPromise = Promise.all(Object.entries(CONFIG.effects).map(async ([name, url]) => {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`Audio HTTP ${response.status}`);
-        const buffer = await context.decodeAudioData(await response.arrayBuffer());
-        buffers.set(name, buffer);
-      } catch (error) {
-        failedEffects.add(name);
-        console.warn(`Efek ${name} tidak tersedia.`, error);
+    // Build short, distinct chimes synchronously so the very first click is audible.
+    const sounds = { start: [523.25, 783.99], select: [880, 1174.66], back: [659.25, 440], reveal: [523.25, 659.25, 783.99, 1046.5] };
+    for (const [name, notes] of Object.entries(sounds)) {
+      const spacing = name === 'reveal' ? 0.11 : 0.045;
+      const tail = name === 'reveal' ? 0.5 : 0.16;
+      const buffer = context.createBuffer(1, Math.ceil((notes.length * spacing + tail) * context.sampleRate), context.sampleRate);
+      const samples = buffer.getChannelData(0);
+      for (let n = 0; n < notes.length; n += 1) {
+        const offset = Math.round(n * spacing * context.sampleRate);
+        for (let i = offset; i < samples.length; i += 1) {
+          const t = (i - offset) / context.sampleRate;
+          const envelope = Math.min(1, t / 0.004) * Math.exp(-t / (tail / 4));
+          samples[i] += (Math.sin(2 * Math.PI * notes[n] * t) + 0.18 * Math.sin(4 * Math.PI * notes[n] * t)) * envelope * 0.44;
+        }
       }
-    })).then(renderControls);
+      buffers.set(name, buffer);
+    }
+    loadPromise = Promise.resolve();
+    renderControls();
   }
 
   function startMusic() {
     if (!state.musicEnabled || !foreground || document.hidden) return;
     const version = ++musicVersion;
     needsResume = false;
-    if (!music.src) music.src = CONFIG.music;
+    if (!music.src) music.src = musicScene === 'result' ? CONFIG.resultMusic : CONFIG.music;
     if (music.error) music.load();
     state.playbackState = 'loading';
     renderControls();
@@ -129,6 +138,17 @@
       renderControls();
       console.warn('Musik belum dapat diputar.', error);
     });
+  }
+
+  function setScene(scene) {
+    if (scene === musicScene) return;
+    musicScene = scene;
+    if (!music) return;
+    const shouldPlay = state.musicEnabled && foreground && !document.hidden && !needsResume;
+    musicVersion += 1;
+    music.pause();
+    music.src = scene === 'result' ? CONFIG.resultMusic : CONFIG.music;
+    if (shouldPlay) startMusic();
   }
 
   function prepareFromGesture({ startMusic: shouldStartMusic = false } = {}) {
@@ -220,6 +240,11 @@
   function initialize() {
     if (initialized) return;
     initialized = true;
+    const menu = document.getElementById('sound-menu');
+    document.addEventListener('click', (event) => { if (!menu.contains(event.target)) menu.open = false; });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); }
+    });
     controls = { music: document.getElementById('music-toggle'), effects: document.getElementById('effects-toggle'),
       musicOutput: document.getElementById('music-volume-value'), effectsOutput: document.getElementById('effects-volume-value'),
       status: document.getElementById('music-status'), effectsStatus: document.getElementById('effects-status') };
@@ -254,5 +279,5 @@
   }
 
   app.audio = { initialize, prepareFromGesture, playEffect, setMusicEnabled, setEffectsEnabled,
-    setVolume, pause, resetEffects, getState };
+    setVolume, pause, resetEffects, getState, setScene };
 })();

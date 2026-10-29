@@ -44,6 +44,7 @@
         state.result = app.quiz.calculateResult(app.data, state.answers);
         state.screen = 'result';
         app.ui.renderResult(app.data, state.result);
+        app.audio.setScene('result');
         app.audio.playEffect('reveal');
       }
     }
@@ -54,6 +55,7 @@
     if (state.screen !== 'landing' && state.screen !== 'result') return;
     const initialStart = state.screen === 'landing';
     app.audio.resetEffects({ invalidatePendingMusic: true });
+    app.audio.setScene('quiz');
     app.audio.prepareFromGesture({ startMusic: initialStart });
     if (transitionTimer !== null) clearTimeout(transitionTimer);
     transitionTimer = null;
