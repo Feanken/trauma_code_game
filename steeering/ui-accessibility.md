@@ -129,7 +129,7 @@ Keterangan fan-made, hiburan, dan kredit yang diwajibkan tetap dapat ditemukan. 
 
 Ikuti batas desain bagian 3.5: hover sekitar 160 ms, respons tekan 80–100 ms, total perpindahan pertanyaan maksimal 320 ms, progres sekitar 180 ms, dan reveal hasil maksimal 450 ms. Jangan menambah jeda buatan untuk memberi kesan sedang menghitung kepribadian.
 
-Animasi memakai perpindahan kecil dan tetap mempertahankan keterbacaan. Tidak ada suara otomatis, kedipan, confetti terus-menerus, atau video latar. Tilt dan sorotan kartu ID pembuka/hasil serta parallax dua lapisan latar wajib untuk mouse yang memenuhi kondisi desain 3.6. Batasnya ±3° per sumbu pada kartu serta ±6/±12 px pada dekorasi. Sorotan mengikuti posisi pointer lokal. Pertanyaan, pilihan jawaban, dan tombol tetap stabil. Gunakan wrapper kartu yang tidak bergerak, smoothing sekitar 120 ms, dan reset maksimal 180 ms saat keluar. Reset juga pada pergantian layar, ulang, blur, dan dokumen tersembunyi; callback lama dibatalkan. Pada touch, mode keyboard, atau reduced motion, efek langsung netral dan pencahayaan statis tetap ada. Jangan meminta sensor atau mengganti efek ini dengan gerakan ponsel.
+Animasi memakai perpindahan kecil dan tetap mempertahankan keterbacaan. Halaman baru tidak bersuara; audio setelah gesture mengikuti FR-11/FR-12 dan design 12. Tidak ada kedipan, confetti terus-menerus, atau video latar. Tilt dan sorotan kartu ID pembuka/hasil serta parallax dua lapisan latar wajib untuk mouse yang memenuhi kondisi desain 3.6. Batasnya ±3° per sumbu pada kartu serta ±6/±12 px pada dekorasi. Sorotan mengikuti posisi pointer lokal. Pertanyaan, pilihan jawaban, dan tombol tetap stabil. Gunakan wrapper kartu yang tidak bergerak, smoothing sekitar 120 ms, dan reset maksimal 180 ms saat keluar. Reset juga pada pergantian layar, ulang, blur, dan dokumen tersembunyi; callback lama dibatalkan. Pada touch, mode keyboard, atau reduced motion, efek langsung netral dan pencahayaan statis tetap ada. Jangan meminta sensor atau mengganti efek ini dengan gerakan ponsel.
 
 Dengan `prefers-reduced-motion`, nonaktifkan tilt, pergeseran, serta animasi dekoratif yang tidak esensial. Pergantian konten dapat langsung dilakukan; tanda terpilih, fokus, progres teks, dan kedalaman statis tetap tersedia. Mengurangi gerakan tidak boleh menghapus feedback atau perlindungan klik/keyboard berulang.
 
@@ -171,3 +171,12 @@ Jika alat, perangkat, atau pemeriksaan wajib belum tersedia, nyatakan belum diuj
 Dokumen ini tidak membuat komponen UI, mengunduh foto, menjalankan uji aksesibilitas, atau menandai Task selesai. Saat dibuat, pekerjaan hanya menambahkan `steeering/ui-accessibility.md`.
 
 Pertahankan konsistensi dengan requirement, desain, dan feature behavior saat ada perubahan. Panduan konvensi kode belum dibuat pada tahap ini; jangan menganggap placeholder dokumen tersebut sebagai aturan yang sudah tersedia.
+
+
+## Audio yang dapat dikendalikan — revisi 5
+
+Kelompok kontrol audio hanya satu, stabil, di luar layar yang diganti dan permukaan bergerak. Sediakan tombol native musik/efek, label status terlihat, `aria-pressed`, serta range volume dengan label dan nilai jelas. Urutan Tab mengikuti DOM; tombol Enter/Space dan panah slider bekerja tanpa listener keyboard ganda. Target 44 px, fokus dan kontras tetap mengikuti standar internal yang sama, termasuk pada ponsel dan zoom 200%.
+
+Jelaskan sebelum mulai bahwa Start Quiz dapat memulai audio. Kanal boleh dimatikan sebelum mulai, saat kuis, dan pada hasil. Bedakan preferensi Aktif dari status musik dijeda/belum dapat dimainkan; status bukan hanya ikon speaker. Jangan mengisi live region dengan setiap efek, mengulang pengumuman pertanyaan, atau mencuri fokus untuk status audio.
+
+Volume awal rendah (musik 12%, efek 25%), tanpa vokal dominan/alarm keras. Semua informasi termasuk pilihan, progres, dan hasil tetap berupa teks. Pengguna yang mematikan audio tetap mendapat feedback visual/teks; reduced motion tidak mengubah preferensi audio. Uji ulang dengan Narrator/NVDA serta perangkat nyata pada T25; laporan sebelum kontrol audio ditambahkan tidak menggantikan pengujian baru.

@@ -31,7 +31,7 @@ Pertanyaan, penjelasan hasil, dokumentasi, dan komunikasi memakai bahasa Indones
 
 | Dokumen | Fungsi | Cara memakai |
 | --- | --- | --- |
-| [requirement.md](../spec-analysisc/requirement.md) | Kebutuhan produk, batasan, asumsi, dan kriteria penerimaan. | Tentukan apa yang harus dipenuhi melalui ID FR/NFR. Versi aktif saat panduan dibuat adalah revisi 4. |
+| [requirement.md](../spec-analysisc/requirement.md) | Kebutuhan produk, batasan, asumsi, dan kriteria penerimaan. | Tentukan apa yang harus dipenuhi melalui ID FR/NFR. Versi aktif adalah revisi 5, termasuk FR-11/FR-12 untuk audio. |
 | [design.md](../spec-analysisc/design.md) | Alur, visual, isi kuis, aturan skor, arsitektur, serta metode verifikasi. | Tentukan bagaimana kebutuhan diwujudkan. Bagian 11 memuat keputusan terbaru tentang gambar dari internet. |
 | [Task.md](../spec-analysisc/Task.md) | Urutan 22 tugas, dependensi, dan kriteria selesai. | Pilih pekerjaan yang sesuai permintaan dan periksa dependensinya. Gunakan kapitalisasi nama file ini. |
 | [requirement-analysis.md](../spec-analysisc/requirement-analysis.md) | Catatan analisis Gen Z sebelum revisi berikutnya. | Gunakan sebagai konteks historis; jangan menganggap rekomendasi atau kekurangan lama masih menjadi keputusan aktif. |
@@ -122,3 +122,10 @@ Jika perangkat, peserta uji, atau sumber aset belum tersedia, catat pemeriksaan 
 Dokumen requirement, analisis, design, dan Task sudah tersedia. Task memuat 22 pekerjaan yang seluruhnya masih belum dikerjakan saat panduan ini dibuat. Belum ada kode website, foto yang diunduh, uji pengguna, pengukuran kinerja, atau deployment.
 
 Permintaan saat ini hanya membuat `steeering/project-overview.md`. Dokumen steering lain dan implementasi aplikasi belum dimulai. Pada pekerjaan berikutnya, periksa ulang filesystem dan Task untuk memperoleh status terbaru; bagian ini adalah snapshot historis, bukan pengganti pelacakan progres.
+
+
+## Audio — pembaruan revisi 5
+
+Musik latar dan efek menjadi bagian MVP yang wajib tersedia tetapi boleh dimatikan pengguna. Arah suasana: medis sinematis, tegang dan heroik seperti referensi The Trauma Code. Agen memilih sumber; tidak wajib membuat musik orisinal atau memakai satu OST tertentu. Acuan keputusan ada pada requirement FR-11/FR-12/NFR-15 dan design bagian 12; implementasi pada T23–T25.
+
+Halaman baru diam. Preferensi awal musik 12% dan efek 25% baru dibunyikan setelah Start Quiz atau aktivasi musik eksplisit, dengan keterangan yang terlihat sebelum mulai. Tidak ada audio yang mengendalikan skor/progres. Kuis harus tetap lengkap ketika audio mati atau gagal. Hasil pengujian sebelum audio tidak otomatis menjadi bukti versi dengan audio.

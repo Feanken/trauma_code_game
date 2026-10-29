@@ -1,9 +1,9 @@
 # Task — Which Trauma Code Character Are You?
 
-Status: Implementasi bertahap; T01–T16 selesai; T17 belum selesai; T18 selesai; T19–T22 belum dikerjakan
+Status: Implementasi bertahap; T01–T16 selesai; T17 belum selesai; T18 selesai; T19–T25 belum dikerjakan
 
 Tanggal: 28 Oktober 2026  
-Acuan: `requirement.md` revisi 4 dan `design.md`, termasuk bagian 3.6 tentang interaksi mouse dan bagian 11 tentang gambar dari internet.
+Acuan: `requirement.md` revisi 5 dan `design.md`, termasuk bagian 3.6 tentang interaksi mouse dan bagian 11 tentang gambar dari internet.
 
 ### Acuan steering untuk agen AI
 
@@ -37,6 +37,7 @@ Unduh kartu, integrasi berbagi, dan tautan hasil bukan syarat MVP. Tilt/sorotan 
 | C. Alur MVP | T08–T12 | Pembuka, kuis, hasil, koreksi jawaban, dan ulang yang terhubung. |
 | D. Interaksi dan aksesibilitas | T13–T14 | Animasi, respons lintas perangkat, fokus, dan reduced motion. |
 | E. Verifikasi dan perbaikan | T15–T20 | Bukti fungsi, visual, perangkat, kinerja, dan pengalaman pengguna. |
+| G. Audio tambahan | T23–T25 | Aset audio, pengendali dan kontrol, serta regresi versi dengan audio. Dikerjakan sebelum verifikasi final T17/T19/T20/T22. |
 | F. Dokumentasi dan kesiapan rilis | T21–T22 | Petunjuk menjalankan serta laporan kesiapan MVP. |
 
 T05 dapat dimulai setelah T01 tanpa menunggu pemeriksa skor. Sementara pencarian gambar berlangsung, layout dapat dikembangkan dengan bidang placeholder sementara; tugas integrasi gambar belum boleh dinyatakan selesai sampai aset final terpasang.
@@ -215,7 +216,7 @@ Tinjau tiga layar pada lebar 320, 375, 768, dan 1280 px serta kelima kartu karak
 
 - [ ] **T17 — Verifikasi browser dan perangkat nyata.**
 
-**Dependensi:** T15, T16. **Kebutuhan:** NFR-11, NFR-12. **Desain:** Bagian 9.3.
+**Dependensi:** T15, T16, T24. **Kebutuhan:** NFR-11, NFR-12, FR-11, FR-12. **Desain:** Bagian 9.3.
 
 Periksa Chromium dan Firefox desktop, Chrome pada Android nyata, serta Safari pada iPhone nyata. Periksa browser dalam aplikasi sosial jika digunakan peserta. Catat versi, perangkat, OS, input yang diuji, dan masalah khusus browser. Periksa mouse pada perangkat yang mendukung, sentuhan pada ponsel, mode keyboard, serta pergantian touch/mouse bila tersedia perangkat hibrida; efek tidak boleh tetap aktif setelah kondisi dukungannya berubah.
 
@@ -235,7 +236,7 @@ Tambahkan penanda siap pakai setelah heading/tombol terlihat dan handler mulai t
 
 - [ ] **T19 — Lakukan uji formatif kepada calon pengguna.**
 
-**Dependensi:** T15, T16. **Kebutuhan:** FR-02, FR-07, FR-08, NFR-14. **Desain:** Bagian 9.4.
+**Dependensi:** T15, T16, T25. **Kebutuhan:** FR-02, FR-07, FR-08, FR-11, FR-12, NFR-14. **Desain:** Bagian 9.4.
 
 Siapkan skenario singkat dan uji 5–8 orang dari segmen utama, termasuk penggemar dan orang yang belum mengenal drama. Catat penyelesaian tanpa bantuan, durasi, relevansi hasil 1–5 beserta alasannya, pertanyaan yang membingungkan, serta minat membagikan tangkapan layar. Rekrutmen atau menghubungi orang tidak termasuk tindakan otomatis dari tugas ini; gunakan peserta yang tersedia melalui pengguna tanpa pelacakan aplikasi.
 
@@ -243,7 +244,7 @@ Siapkan skenario singkat dan uji 5–8 orang dari segmen utama, termasuk penggem
 
 - [ ] **T20 — Perbaiki temuan dan jalankan regresi terkait.**
 
-**Dependensi:** T17, T18, T19. **Kebutuhan:** Semua FR dan NFR yang terkena perubahan. **Desain:** Bagian 9–10.
+**Dependensi:** T17, T18, T19, T25. **Kebutuhan:** Semua FR dan NFR yang terkena perubahan. **Desain:** Bagian 9–10.
 
 Tutup temuan dari pemeriksaan fungsi, perangkat, kinerja, dan pengguna. Perbarui requirement/desain bila keputusan produk berubah. Perubahan pemetaan skor wajib mengulang enumerasi dan memperbarui angka acuan; perubahan bahasa saja diperiksa terhadap makna opsi dan pembungkusan teks.
 
@@ -253,7 +254,7 @@ Tutup temuan dari pemeriksaan fungsi, perangkat, kinerja, dan pengguna. Perbarui
 
 - [ ] **T21 — Tulis panduan menjalankan dan hosting statis.**
 
-**Dependensi:** T15. **Kebutuhan:** FR-10, NFR-01, NFR-02, NFR-03, NFR-08, NFR-09, NFR-10. **Desain:** Bagian 7, 9, dan 11.
+**Dependensi:** T15, T24. **Kebutuhan:** FR-10, FR-11, FR-12, NFR-01, NFR-02, NFR-03, NFR-08, NFR-09, NFR-10. **Desain:** Bagian 7, 9, dan 11.
 
 Buat `README.md` berbahasa Indonesia yang menjelaskan tujuan hiburan, struktur file, menjalankan melalui server HTTP statis, membuka pemeriksa skor, sumber gambar, aturan skor, dan lokasi bukti verifikasi. Jelaskan penempatan file pada Nginx/hosting statis, jalur relatif, dan kompresi aset sesuai lingkungan yang dipakai.
 
@@ -261,11 +262,39 @@ Buat `README.md` berbahasa Indonesia yang menjelaskan tujuan hiburan, struktur f
 
 - [ ] **T22 — Tinjau kesiapan MVP dan lengkapi serah terima.**
 
-**Dependensi:** T20, T21. **Kebutuhan:** FR-01–FR-10, NFR-01–NFR-14. **Desain:** Bagian 10.
+**Dependensi:** T20, T21. **Kebutuhan:** FR-01–FR-12, NFR-01–NFR-15. **Desain:** Bagian 10.
 
 Cocokkan hasil implementasi dengan seluruh kebutuhan, lengkapi matriks bukti di bawah, dan pastikan daftar status mencerminkan hasil aktual. Catat keterbatasan yang tersisa dan fitur setelah MVP secara terpisah.
 
 **Selesai jika:** semua tugas wajib dan kriteria penerimaan requirement terpenuhi, bukti dapat ditelusuri, dan tidak ada pemeriksaan wajib yang belum dilakukan. Hasil tugas ini adalah paket siap ditinjau untuk rilis; tidak otomatis memublikasikan atau men-deploy website.
+
+### Tahap G — Audio tambahan (revisi 5)
+
+Penomoran tugas lama dipertahankan. Urutan efektif: **T23 → T24 → T17 → T25 → T19 → T20 → T22**; T21 dapat dikerjakan setelah T24 dan T15. T17 masih terbuka. Bukti T14–T18 yang sudah dicentang adalah bukti versi sebelum audio; T25 mewajibkan regresi yang terdampak pada versi audio sebelum kesiapan MVP dinilai. Musik/efek wajib tersedia, tetapi pengguna boleh mematikannya.
+
+- [ ] **T23 — Pilih dan siapkan satu musik serta empat efek lokal.**
+
+**Dependensi:** T01. **Kebutuhan:** FR-11, NFR-15. **Desain:** Bagian 12.1, 12.5, 12.7.
+
+Dengarkan kandidat musik dengan arah medis sinematis tegang namun heroik, lalu pilih satu BGM tanpa vokal dan efek `start`, `select`, `back`, `reveal`. Sumber diserahkan kepada agen; OST drama Korea boleh menjadi kandidat, tanpa mewajibkan satu rekaman tertentu. Simpan lima file MP3 lokal, rapikan level dan loop, ukur durasi/ukuran, dan hindari alarm keras atau letupan yang mengagetkan. Kandidat pada desain belum dianggap terpilih sampai didengar.
+
+**Selesai jika:** lima berkas benar-benar dapat didecode, didengarkan, dan sesuai arah suasana; sambungan loop tidak mengagetkan; musik maksimal 1 MiB dan empat efek total maksimal 200 KiB. Tidak ada unduhan runtime dari host pihak ketiga. Pemilihan final serta hasil dengar dicatat secara teknis; tidak ada kewajiban menambah halaman kredit pada UI.
+
+- [ ] **T24 — Implementasikan pengendali, kontrol, dan siklus hidup audio.**
+
+**Dependensi:** T23, T08, T10, T12, T14. **Kebutuhan:** FR-11, FR-12, NFR-05, NFR-09, NFR-12, NFR-15. **Desain:** Bagian 12.2–12.4.
+
+Tambahkan `js/audio.js`, kontrol kanal serta volume terpisah, keterangan audio sebelum mulai, unlock dari gesture, pemuatan lazy, cache, dan penanganan error. Hubungkan efek hanya pada aksi controller yang diterima. Implementasikan pause saat hidden/blur, resume eksplisit, mute seketika, serta perlindungan callback lama. Pertahankan preferensi selama ulang tanpa mengubah skor atau membuat pemutar baru.
+
+**Selesai jika:** halaman baru diam dan belum meminta audio; Start Quiz/kontrol musik memulai audio yang sesuai preferensi; musik/efek dapat dimatikan sendiri-sendiri dan volume nol dihormati. Pergantian pertanyaan tidak menunggu audio. Reset, hidden/blur, file gagal, dan playback ditolak tidak menimbulkan suara terlambat atau error tak tertangani. Kontrol native punya nama/status yang benar dan tersedia di tiga layar.
+
+- [ ] **T25 — Verifikasi pendengaran dan regresi versi dengan audio.**
+
+**Dependensi:** T24, T17. **Kebutuhan:** FR-11, FR-12, NFR-04, NFR-05, NFR-06, NFR-11, NFR-12, NFR-13, NFR-15. **Desain:** Bagian 12.6 dan 9.
+
+Uji setiap efek melalui pendengaran, loop BGM, volume/mute terpisah, volume nol, klik ganda/Enter ditahan, ulang cepat, callback lama, hidden/blur, resume, offline/file rusak, dan playback yang ditolak. Ulangi keyboard/pembaca layar untuk kontrol baru, empat viewport/zoom 200%, dan browser/perangkat T17. Ukur ulang lima cold load dengan profil T18 serta pastikan tidak ada request audio sebelum gesture.
+
+**Selesai jika:** bunyi terdengar pada aksi yang benar sekali saja; tidak ada kebocoran suara ketika mute/jeda atau sesi berubah; pengumuman tetap jelas; alur serta skor tidak berubah. Target median siap pakai ≤3 detik dan transfer awal ≤300 KiB tetap lulus. Bukti perangkat, pendengaran, dan regresi dicatat aktual; bagian yang belum diuji tidak dianggap selesai. Baru setelah T25 lulus, versi dengan audio boleh dinilai lengkap pada T20/T22.
 
 ## 4. Pemetaan kebutuhan ke tugas
 
@@ -281,6 +310,8 @@ Cocokkan hasil implementasi dengan seluruh kebutuhan, lengkapi matriks bukti di 
 | FR-08 | T05, T06, T11, T16, T19 |
 | FR-09 | T12, T15 |
 | FR-10 | T08, T11, T21 |
+| FR-11 | T23, T24, T25 |
+| FR-12 | T24, T25 |
 | NFR-01 | T01, T21 |
 | NFR-02 | T01, T03, T21 |
 | NFR-03 | T01, T21 |
@@ -295,6 +326,7 @@ Cocokkan hasil implementasi dengan seluruh kebutuhan, lengkapi matriks bukti di 
 | NFR-12 | T07, T10, T13, T14, T16, T17 |
 | NFR-13 | T06, T18 |
 | NFR-14 | T19 |
+| NFR-15 | T23, T24, T25 |
 
 T20 menangani perbaikan lintas kebutuhan; T22 memeriksa kelengkapan seluruh pemetaan. Asumsi A-01–A-05 ditangani pada data, state, serta pengelolaan sesi di T02, T08, dan T10.
 
@@ -312,8 +344,10 @@ Saat implementasi dimulai, buat `docs/verification.md` untuk bukti lintas tugas.
 | Bukti | Tangkapan layar, keluaran pemeriksa, angka pengukuran, atau catatan uji pengguna tanpa identitas pribadi. |
 | Tindak lanjut | Masalah, perbaikan, dan pemeriksaan ulang yang diperlukan. |
 
-Status terkini: **T01–T16 selesai; T17 belum selesai; T18 selesai; T19–T22 belum dikerjakan**. Bukti dan batas lingkungan pengujian tersedia di `docs/verification.md`.
+Status terkini: **T01–T16 selesai; T17 belum selesai; T18 selesai; T19–T25 belum dikerjakan**. Bukti dan batas lingkungan pengujian tersedia di `docs/verification.md`.
 
 ## 6. Batas pekerjaan saat ini
 
-Implementasi dan verifikasi T01–T16 serta T18 selesai. T17 tetap belum selesai karena Firefox desktop dan dua browser ponsel nyata belum diuji. Kriteria perangkat tidak diganti dengan emulasi. Pekerjaan berhenti setelah lingkup T18; T19–T22 belum dikerjakan.
+Implementasi dan verifikasi T01–T16 serta T18 selesai. T17 tetap belum selesai karena Firefox desktop dan dua browser ponsel nyata belum diuji. Kriteria perangkat tidak diganti dengan emulasi. Audio revisi 5 direncanakan pada T23–T25 dan belum diimplementasikan. Penambahan ini tidak mengubah status bukti versi sebelum audio; regresi baru wajib melalui T25. T19–T25 belum dikerjakan.
+
+**Pembaruan 29 Oktober 2026:** revisi ini hanya merencanakan audio. Tidak ada file audio diunduh, kode audio ditulis, atau checkbox T23–T25 dicentang.

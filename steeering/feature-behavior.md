@@ -175,3 +175,14 @@ Untuk perubahan skor, pakai pemeriksa browser yang menggunakan fungsi produksi s
 Jika permintaan baru mengubah perilaku, perbarui spesifikasi yang menjadi acuannya beserta bagian steering ini. Jangan menjadikan steering sebagai tempat menyembunyikan keputusan produk yang belum tercermin pada requirement atau desain.
 
 Saat dokumen ini dibuat, kode aplikasi dan pemeriksaan perilaku di atas belum dijalankan. Lingkup pekerjaan ini hanya pembuatan `steeering/feature-behavior.md`; panduan UI/aksesibilitas dan konvensi kode belum dibuat. Pada pekerjaan berikutnya, baca status Task dan filesystem terbaru sebelum melaporkan progres.
+
+
+## Audio — FR-11, FR-12, NFR-15 (revisi 5)
+
+Pemuatan halaman tidak memicu request atau playback audio. Teks sebelum Start Quiz menjelaskan bahwa musik/efek dimulai setelah tindakan tersebut dan dapat dimatikan. Aktifkan/unlock audio dari gesture yang diterima; panggilan asinkron tidak boleh menunda penguncian jawaban, perpindahan, atau hasil. Untuk Start Quiz, pastikan unlock terjadi dalam gesture asal sebelum menunggu timer atau fetch apa pun.
+
+Efek `start` hanya untuk mulai/ulang yang diterima, `select` untuk jawaban yang disimpan, `back` untuk Back yang sah, `reveal` sekali setelah hasil valid dirender. Event yang diabaikan tidak bersuara. Jika efek belum siap saat peristiwa terjadi, lewatkan, jangan antrekan untuk pertanyaan berikutnya. Tidak ada hover/fokus audio atau penanda benar/salah.
+
+Ulang mempertahankan preferensi dua kanal dan musik yang sedang berjalan, sambil menghentikan efek lama dan membatalkan callback tertunda. Mute segera menghentikan kanal terkait; volume nol tetap nol sampai diubah pengguna. Hidden/blur menjeda musik dan menghentikan efek, lalu memerlukan tombol musik untuk melanjutkan saat kembali. Kegagalan fetch/decode/play tidak mengubah jawaban atau membuka modal. Tidak menyimpan preferensi maupun jawaban di browser storage.
+
+Periksa pendengaran, musik/efek terpisah, volume nol, mute saat loading, reset, callback lama, dan penolakan playback pada T25; keberhasilan Promise saja bukan bukti suara terdengar.

@@ -1,7 +1,7 @@
 # Requirement — Which Trauma Code Character Are You?
 
-Status: Draf revisi 4 — interaksi mengikuti mouse wajib pada perangkat yang mendukung  
-Tanggal: 28 Oktober 2026  
+Status: Revisi 5 — musik latar dan efek suara sebagai fitur MVP yang dapat dimatikan
+Tanggal: 29 Oktober 2026
 Sumber: Brief proyek “Which Trauma Code Character Are You?” yang dilampirkan pengguna.
 
 ## 1. Tujuan dokumen
@@ -14,7 +14,7 @@ Urutan dokumen yang digunakan:
 2. `design.md`: rancangan antarmuka, alur aplikasi, struktur file, data, dan perhitungan skor berdasarkan kebutuhan yang disepakati.
 3. `Task.md`: pekerjaan implementasi dan verifikasi yang merujuk pada ID kebutuhan.
 
-Pada revisi ini, `requirement.md` diperbarui dan `design.md` dibuat sesuai arahan pengguna. `Task.md` telah disusun sebagai rencana implementasi. Implementasi website belum dimulai. Permintaan `docs/PLAN.md` dalam brief awal disesuaikan dengan arahan terbaru pengguna untuk memakai tiga dokumen SDD tersebut. `requirement-analysis.md` merupakan catatan analisis versi sebelumnya, bukan spesifikasi aktif.
+Pada revisi ini, `requirement.md` diperbarui dan `design.md` dibuat sesuai arahan pengguna. `Task.md` telah disusun sebagai rencana implementasi. Implementasi dasar telah tersedia; penambahan audio revisi 5 masih berupa spesifikasi dan belum diimplementasikan. Permintaan `docs/PLAN.md` dalam brief awal disesuaikan dengan arahan terbaru pengguna untuk memakai tiga dokumen SDD tersebut. `requirement-analysis.md` merupakan catatan analisis versi sebelumnya, bukan spesifikasi aktif.
 
 ## 2. Gambaran produk
 
@@ -44,6 +44,8 @@ Keberhasilan MVP (*Minimum Viable Product*, versi awal dengan fitur utama) berar
 - Tampilan berdimensi melalui lapisan visual, pencahayaan, serta umpan balik sentuhan atau klik; detailnya ditetapkan di `design.md`.
 - Kartu hasil yang mudah ditangkap layar pada ponsel, tanpa mewajibkan fitur unduh.
 - Tilt dan sorotan kartu ID serta parallax dekorasi latar mengikuti mouse sesuai NFR-07; efek ini termasuk MVP pada kondisi input yang mendukung.
+
+- Musik latar instrumental dan empat efek suara kontekstual, dengan kontrol musik/efek serta volume terpisah (FR-11–FR-12). Fitur wajib tersedia; pengguna bebas mematikannya.
 
 ### 3.2 Fitur setelah MVP
 
@@ -205,6 +207,29 @@ Website harus menjelaskan bahwa proyek dibuat penggemar, bersifat nonkomersial, 
 - Layar hasil menyatakan bahwa kuis bukan penilaian psikologis ilmiah atau diagnosis.
 - Teks antarmuka dan kartu tidak menyatakan hasil sebagai identitas staf medis resmi.
 
+### FR-11 — Musik latar dan efek suara
+
+Audio menambah suasana drama medis Korea yang tegang, bersemangat, dan heroik seperti referensi *The Trauma Code*. Pilihan lagu diserahkan kepada agen; tidak wajib memakai satu judul atau OST tertentu. Musik/efek boleh diambil dari internet dan disimpan lokal. OST The Trauma Code atau drama Korea lain dapat menjadi kandidat bila ada berkas yang dapat dipakai pada proyek; pemilihan final harus didengarkan, bukan disimpulkan dari judul saja. Tidak perlu menambahkan halaman kredit pada alur kuis.
+
+**Kriteria penerimaan:**
+
+- Satu musik instrumental tanpa vokal mengalun selama kuis dan hasil; empat efek singkat untuk mulai/ulang, jawaban diterima, Back diterima, dan hasil muncul. Musik tidak menutupi keterbacaan atau pengumuman pembaca layar; tidak memakai alarm keras atau detak monitor terus-menerus.
+- Halaman baru diam. Musik/efek baru dapat mulai setelah tindakan pengguna yang dijelaskan di FR-12. Tidak ada `autoplay` saat membuka atau me-refresh halaman.
+- Efek hanya dipicu oleh aksi yang diterima controller. Klik ganda yang diabaikan, hover, fokus, dan tombol nonaktif tidak menghasilkan efek tambahan. Hasil hanya berbunyi sekali untuk hasil yang benar-benar dirender.
+- Musik mengulang dengan sambungan yang tidak mengagetkan, satu pemutar saja; ulang kuis mempertahankan preferensi dan musik yang sedang berjalan tanpa menumpuk pemutar baru.
+- Semua audio berasal dari host sendiri. Kegagalan unduhan, decode, atau izin playback browser tidak menunda navigasi, skor, hasil, dan pengulangan.
+
+### FR-12 — Kontrol dan siklus hidup audio
+
+**Kriteria penerimaan:**
+
+- Kontrol musik dan efek terpisah tersedia pada pembuka, kuis, dan hasil, masing-masing dengan tombol Aktif/Mati dan volume 0–100%. Nilai awal yang dirancang rendah; rincian di desain 12.
+- Sebelum Start Quiz, ada keterangan singkat bahwa audio dimulai setelah menekan Start Quiz dan bisa dimatikan. Pengguna dapat mematikan kedua kanal sebelum mulai. Mengaktifkan musik secara eksplisit juga merupakan tindakan yang boleh memulai audio pada pembuka.
+- Menonaktifkan kanal segera menghentikan suaranya. Mematikan musik tidak mematikan efek, dan sebaliknya. Volume nol tidak dibatalkan oleh jawaban, hasil, atau ulang.
+- Pengaturan berlaku selama halaman terbuka dan bertahan ketika kuis diulang. Refresh kembali ke pengaturan awal dan tetap diam sampai tindakan berikutnya; tidak menggunakan browser storage.
+- Saat tab tersembunyi atau jendela kehilangan fokus, hentikan efek tertunda dan jeda musik. Saat kembali, musik tetap dijeda sampai pengguna mengaktifkannya melalui kontrol musik. Reset/callback lama tidak boleh menghidupkan suara kembali.
+- Kontrol native dapat digunakan dengan Tab/Enter/Space dan tombol panah untuk volume, dengan nama serta status yang jelas. Semua informasi tetap tersedia saat audio dimatikan. Reduced motion mengatur gerakan, bukan menyalakan atau mematikan audio secara diam-diam.
+
 ## 6. Kebutuhan nonfungsional
 
 | ID | Kebutuhan | Kriteria penerimaan |
@@ -223,6 +248,7 @@ Website harus menjelaskan bahwa proyek dibuat penggemar, bersifat nonkomersial, 
 | NFR-12 | Interaksi lintas perangkat | Respons visual tersedia untuk klik, sentuhan, dan keyboard. Informasi atau tombol penting tidak hanya muncul saat hover. Efek kedalaman tidak menggeser tata letak atau memperkecil area tekan saat dipakai. |
 | NFR-13 | Kecepatan | Target internal: median layar pembuka siap dipakai maksimal 3 detik dari lima pemuatan tanpa cache, pada profil uji yang ditetapkan dalam desain. Total transfer awal terkompresi maksimal 300 KiB. Perangkat, jaringan, hasil ukur, dan keterbatasan dicatat. |
 | NFR-14 | Validasi pengalaman | Sebelum peluncuran, lakukan uji formatif dengan 5–8 calon pengguna: sedikitnya 80% menyelesaikan tanpa bantuan, median waktu maksimal 2 menit, dan median relevansi hasil minimal 4/5. Pertanyaan yang berulang kali membingungkan diperbaiki. Catat pembilang/penyebut dan alasan penilaian. Minat berbagi dicatat tanpa mengklaim keterwakilan pasar atau validitas psikologis. |
+| NFR-15 | Audio ringan dan tangguh | Tidak mengunduh audio sebelum tindakan pengguna. Batas awal transfer 300 KiB dan median siap pakai 3 detik tetap berlaku. Aset audio tambahan maksimal 1,2 MiB (BGM maksimal 1 MiB, seluruh efek maksimal 200 KiB). Alur kuis tidak menunggu kesiapan audio; playback yang ditolak ditangani tanpa unhandled rejection, tumpukan suara, atau loop retry. |
 
 ## 7. Asumsi untuk ditinjau
 
@@ -255,7 +281,7 @@ Poin berikut belum dinyatakan secara tegas dalam brief. Poin ini menjadi dasar s
 MVP dinyatakan memenuhi spesifikasi apabila:
 
 1. Alur pembuka → 10 pertanyaan → hasil dan kartu ID → ulang berjalan lengkap.
-2. Semua kebutuhan FR-01 sampai FR-10 dan NFR-01 sampai NFR-14 terpenuhi.
+2. Semua kebutuhan FR-01 sampai FR-12 dan NFR-01 sampai NFR-15 terpenuhi.
 3. Lima karakter dapat diperoleh melalui kombinasi jawaban yang valid, dengan bukti peninjauan distribusi hasil dan aturan seri.
 4. Mengubah jawaban, ketukan cepat, hasil seri, dan mengulang kuis tidak merusak progres atau perhitungan.
 5. Kuis dapat diselesaikan dengan keyboard dan nyaman pada ukuran layar verifikasi.
@@ -288,3 +314,8 @@ Sesuai arahan terbaru pengguna, kewajiban membuat semua aset orisinal dan larang
 ## 13. Catatan revisi 4
 
 Efek mengikuti mouse menjadi kebutuhan MVP bersyarat perangkat, menggantikan status tilt opsional. Cakupan: pratinjau kartu ID pembuka, kartu ID hasil, sorotan pada kedua kartu, dan dua lapisan dekorasi latar. Pertanyaan serta kontrol tetap stabil. Tampilan statis wajib untuk sentuhan, mode keyboard, dan reduced motion. Perubahan ini menyelaraskan desain, T13/T16/T17, dan steering; implementasi belum dimulai.
+
+
+## 14. Catatan revisi 5 — 29 Oktober 2026
+
+Pengguna meminta musik dan efek dengan suasana The Trauma Code serta memberi kebebasan memilih sumber, termasuk mempertimbangkan OST drama Korea. FR-11, FR-12, dan NFR-15 menambahkan audio sebagai fitur MVP yang dapat dimatikan tanpa mengubah isi pertanyaan, hasil, atau skor. Kebijakan halaman baru tetap diam dipertahankan; Start Quiz atau kontrol musik merupakan tindakan pemicu yang dijelaskan kepada pengguna. Rincian implementasi berada di desain 12 dan tugas baru T23–T25. Revisi ini menyiapkan dokumen, belum memasang atau mengklaim audio sudah terdengar.

@@ -25,5 +25,37 @@
     "js/quiz.js": "8fbe1b7aeb356ce37a74ce067d98723a8217c0b27bb0c681dcb1f6fd3216171a",
     "js/ui.js": "cb46b9bd2912846b9c6ad4f73d4e5a71037272558972417eb0ff35b816161a4a",
     "js/script.js": "69225a3819d19c930a368cdffc2eeb6c9a7ff6defc8eba1d69fb483dec81857a"
-  }
+  },
+  "screenshots_reviewed": [
+    "docs/t16-landing-320.png",
+    "docs/t16-quiz-320.png",
+    "docs/t16-result-B-320.png",
+    "docs/t16-result-Y-320.png",
+    "docs/t16-result-C-320.png",
+    "docs/t16-result-P-320.png",
+    "docs/t16-result-H-320.png",
+    "docs/t16-landing-375.png",
+    "docs/t16-quiz-375.png",
+    "docs/t16-result-B-375.png",
+    "docs/t16-result-Y-375.png",
+    "docs/t16-result-C-375.png",
+    "docs/t16-result-P-375.png",
+    "docs/t16-result-H-375.png",
+    "docs/t16-landing-768.png",
+    "docs/t16-quiz-768.png",
+    "docs/t16-result-B-768.png",
+    "docs/t16-result-Y-768.png",
+    "docs/t16-result-C-768.png",
+    "docs/t16-result-P-768.png",
+    "docs/t16-result-H-768.png",
+    "docs/t16-landing-1280.png",
+    "docs/t16-quiz-1280.png",
+    "docs/t16-result-B-1280.png",
+    "docs/t16-result-Y-1280.png",
+    "docs/t16-result-C-1280.png",
+    "docs/t16-result-P-1280.png",
+    "docs/t16-result-H-1280.png",
+    "docs/t16-result-H-320-zoom200.png"
+  ],
+  "review_scope": "Visual inspection by assistant; desktop viewport emulation, not physical phone tests."
 }

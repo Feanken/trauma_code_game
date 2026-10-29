@@ -41,10 +41,11 @@ Semua jalur berikut mengacu pada root proyek.
 | `js/data.js` | Pertanyaan, opsi, poin, alasan, karakter, tema, dan referensi aset yang dipakai UI. | Tidak mengubah DOM atau menyimpan state percobaan pengguna. |
 | `js/quiz.js` | Validasi data/jawaban, penghitungan skor, pemecah seri, dan pemilihan alasan. | Fungsi murni; tidak mengakses DOM, timer, gambar, atau state global sesi. |
 | `js/ui.js` | Render konten, progres, status kontrol, fokus, gambar/fallback, dan efek visual pointer. | Tidak menentukan karakter pemenang atau mengubah jawaban. |
+| `js/audio.js` (T24) | Pemutar, gain, cache buffer, dan cleanup audio. | Tidak menentukan skor atau menunda navigasi kuis. |
 | `js/script.js` | Inisialisasi, state sesi, event aksi, transisi, reset, serta koordinasi logika dan UI. | Tidak menggandakan data kuis atau formula skor. |
 | `checks/scoring-check.*` | Pemeriksa browser yang memanggil fungsi logika produksi. | Tidak dimuat halaman produk dan tidak membawa implementasi skor tersendiri. |
 
-Muat script klasik menggunakan `defer` dalam urutan data → quiz → ui → script. Gunakan satu namespace global `TraumaQuiz`. Bungkus detail internal setiap file dengan fungsi tertutup/IIFE dan strict mode agar nama lokal tidak bocor ke global. Jangan membuat banyak objek global atau menambahkan sistem modul/build baru.
+Muat script klasik menggunakan `defer` dalam urutan data → quiz → ui → audio → script setelah T24 (saat ini `audio.js` masih direncanakan). Gunakan satu namespace global `TraumaQuiz`. Bungkus detail internal setiap file dengan fungsi tertutup/IIFE dan strict mode agar nama lokal tidak bocor ke global. Jangan membuat banyak objek global atau menambahkan sistem modul/build baru.
 
 Ekspos hanya data/fungsi yang benar-benar diperlukan antarfile. Simpan pengelolaan efek pointer di bagian UI dengan fungsi setup/reset/cleanup yang jelas; struktur saat ini tidak memerlukan file atau library animasi baru.
 
@@ -133,3 +134,14 @@ Centang tugas setelah kriteria selesai dan bukti yang diperlukan terpenuhi. Peng
 Pekerjaan ini hanya menambahkan `steeering/coding-conventions.md`. Contoh nama file, fungsi, dan atribut dalam panduan merupakan arahan implementasi; kode aplikasi, pemeriksa skor, serta pengujian UI belum dibuat atau dijalankan pada langkah ini.
 
 Empat steering yang tersedia adalah project overview, feature behavior, UI/accessibility, dan coding conventions. Pada pekerjaan berikutnya, baca file dan status Task terbaru sebelum menyatakan progres implementasi.
+
+
+## Konvensi audio — revisi 5
+
+`js/audio.js` menjadi pemilik tunggal AudioContext, elemen musik, node gain, buffer efek, dan cleanup; namespace `TraumaQuiz.audio` memakai IIFE/strict mode. Urutan script klasik kini data → quiz → ui → audio → script. Controller tetap pemilik jawaban dan hanya meminta efek untuk aksi yang sudah diterima; jangan menambah listener klik/sentuh konfirmasi kedua.
+
+Kelompokkan konfigurasi aset/volume pada satu tempat, gunakan jalur relatif `assets/audio/`, satu pemutar BGM, cache buffer, dan satu voice efek. Buat/resume AudioContext dalam gesture asal dan tangani Promise playback/decoding dengan kegagalan yang dapat dipahami. Tidak ada hotlink, embed layanan musik, dependency audio npm, telemetry, atau browser storage.
+
+Nomor versi request/efek mencegah callback lama menghidupkan musik setelah mute, hidden/blur, atau reset. Stop source yang aktif dan batalkan pekerjaan tertunda saat perlu; jangan membangun loop retry. `quiz-ready` tidak menunggu audio dan tidak boleh berpindah setelah audio selesai. Error audio tidak boleh dibawa ke jalur error validasi kuis.
+
+Regresi T25 wajib memeriksa suara lewat pendengaran selain state/API, keyboard dan pembaca layar kontrol baru, serta batas jaringan NFR-13/NFR-15. Detail perilaku mengikuti design 12; jangan mencentang tugas audio hanya karena tombol terlihat atau fungsi `play()` dipanggil.

@@ -1,6 +1,6 @@
 # Catatan Verifikasi
 
-Status terkini: **T01–T04 dan T07 selesai; T05 belum selesai (3 potret pemeran lokal); T06 belum selesai dan menunggu T05; T08–T10 selesai; T11–T12 selesai; T13 selesai; T14 belum selesai; T15–T22 belum dikerjakan**. Setiap bagian di bawah mencatat keadaan pada akhir tugas terkait.
+Status terkini: **T01–T16 dan T18 selesai; T17 belum selesai; T19–T25 belum dikerjakan**. Bagian historis di bawah merekam keadaan pada akhir pekerjaan terkait; hasil terbaru ada pada bagian T14–T18 tanggal 29 Oktober 2026.
 
 ## T01 — Fondasi website statis
 
@@ -386,3 +386,85 @@ Pengumuman suara/teks oleh Narrator atau NVDA belum dapat ditangkap otomatis di 
 ### Zoom browser asli 200% — pemeriksaan tambahan
 
 Chrome CDP mengirim shortcut Ctrl+Plus lima kali. `devicePixelRatio` meningkat dari 1 menjadi 2, sehingga browser benar-benar berada pada zoom 200%. Setelah viewport disetel ke 320 device px, lebar efektif menjadi 160 CSS px. Layar Q01 dan hasil B semula menunjukkan overflow pada daftar hasil (`scrollWidth=178`); CSS untuk daftar dan tombol hasil pada lebar efektif kecil diperbaiki. Pemeriksaan ulang [15/15 lulus](t14-keyboard-zoom-check.json): layar Q01 dan hasil B masing-masing `scrollWidth=152 <= innerWidth=160`, nama serta tombol ulang tetap ada. Ini membuktikan zoom asli pada skenario yang diuji, bukan seluruh kombinasi perangkat. Pengumuman pembaca layar sungguhan masih menunggu laporan pengguna; T14 tetap terbuka.
+
+
+## T14–T18 — Verifikasi 29 Oktober 2026
+
+Status: **T14, T15, T16, dan T18 selesai. T17 belum selesai.** Dependensi T14 diselesaikan berdasarkan laporan pengguna tentang uji Narrator + Chrome yang lulus dan regresi otomatis pada versi file saat ini. T15 kemudian lulus; hasilnya bersama T13/T14 memungkinkan T16 dan T18 ditutup. T17 tidak menjadi dependensi T18.
+
+Lingkungan otomatis: Windows 11 build 26300, Intel Core i7-13650HX (20 logical CPU), RAM sekitar 32 GiB, Chrome 156.0.8078.73 headless. Metadata dan hash SHA-256 keenam file produksi ada pada [manifest verifikasi](t14-t18-verification.json). Tidak ada framework, npm, atau dependensi aplikasi baru. Script `.cjs` hanya alat pengembangan yang memakai Node.js bawaan lingkungan; website tetap berupa file statis dan tidak memuat script pemeriksa.
+
+### Temuan dan perubahan
+
+- `css/style.css`: aturan layout sebelumnya menimpa `[hidden]`, sehingga pembuka masih terlihat ketika kuis aktif. `#app [hidden]` kini menjaga layar dan kontrol nonaktif tetap tersembunyi. Pemeriksaan mencakup nilai `getComputedStyle(...).display`, bukan hanya atribut.
+- `js/script.js`: menolak klik `detail > 1`, karena klik kedua dari double-click dapat tiba setelah DOM berpindah ke pertanyaan berikutnya. Kasus tersebut gagal sebelum perbaikan dan lulus sesudahnya. Timer yang dibatalkan juga dibersihkan referensinya.
+- `css/style.css`: padding/jarak isi kartu ponsel dipadatkan tanpa mengecilkan font. Tinggi kartu pada viewport 320 px turun dari sekitar 409 px menjadi **369–393 px**; seluruh kartu muat dalam screenshot target.
+- `js/ui.js` dan CSS: pergantian ke keyboard/touch menetralkan efek tanpa animasi reset; resize serta kartu yang keluar viewport ketika scroll membersihkan efek. Teks penjelasan motif tidak lagi muncul sebagai detail teknis pada halaman hasil.
+- `index.html`: pratinjau pembuka memakai satu foto lokal yang sudah tersedia; progres memiliki batas minimum aksesibel 1. Foto hasil lain tetap dimuat hanya saat diperlukan.
+- `js/script.js`: menambahkan User Timing `quiz-ready` setelah tombol mulai ditampilkan dan handler terpasang, sebagai batas pengukuran T18.
+
+### T14 — Aksesibilitas
+
+Pengguna melaporkan uji pengumuman pertanyaan/hasil **lulus**, lalu menyebut pasangan **Narrator + Chrome**. Versi tidak diberikan; ini bukti laporan pengguna, bukan klaim bahwa agen mendengar atau merekam suara. [Catatan laporan manual](t14-manual-screen-reader.json).
+
+[100 pemeriksaan struktural](t14-structural-check.json) lulus pada lebar 320, 375, 768, 1280 CSS px. [16 pemeriksaan keyboard/zoom](t14-keyboard-zoom-check.json) memakai input CDP asli: Tab → Enter mulai, Space menjawab, Back, sepuluh jawaban, hasil, lalu Ulangi. Outline keyboard minimal 3 px terlihat; heading pertanyaan/hasil tersedia pada pohon aksesibilitas. Uji fokus programatis pada iframe dipisah dari uji outline keyboard karena heuristik `:focus-visible` browser tidak menjamin outline pada fokus melalui script. Kontras teks nama/gelar terhadap permukaan kartu pekat pada lima tema tetap minimal 4,5:1. Tidak ada teks penting di atas foto yang berubah-ubah latarnya.
+
+Shortcut Ctrl+Plus lima kali mengaktifkan zoom Chrome asli 200%. Pada viewport 320 device px (160 CSS px efektif), Q01 dan hasil B memiliki `scrollWidth=152 <= innerWidth=160`. Pemeriksaan T16 juga mengulang pembuka, kuis, dan kelima hasil pada zoom 200% di keempat viewport. Ini bukti cakupan internal proyek, bukan audit kepatuhan aksesibilitas menyeluruh.
+
+### T15 — Integrasi dan kasus tepi
+
+[80 pemeriksaan integrasi](t15-integration-check.json) lulus: klik ganda yang tiba setelah pergantian, Enter ditahan, Back saat transisi, dua langkah Back Q07 → Q05, penggantian jawaban, pilihan Q06 tetap ada, kelima contoh hasil dan alasan, reset, refresh, reduced motion, gambar gagal, callback foto lama, data tidak valid, serta tidak ada exception JavaScript. Data invalid disediakan sebagai fixture server uji tanpa mengubah file produksi. Setiap jawaban 1–10 diperiksa agar hasil belum muncul sebelum seluruh jawaban lengkap.
+
+Regresi skor memakai fungsi produksi pada `checks/scoring-check.html`: **1.024 kombinasi**, distribusi B=240/Y=204/C=196/P=192/H=192, **424 seri primer**, dan **14 kelompok pemeriksaan lulus**. Logika serta pemetaan skor produksi tidak diubah.
+
+### T16 — Visual, responsif, dan cleanup
+
+[344 pemeriksaan visual](t16-visual-check.json) lulus: pembuka, Q01–Q10 dan lima hasil pada empat lebar; pilihan A/B berdampingan pada zoom normal; target kontrol minimal 44 px; layar nonaktif benar-benar tersembunyi; kartu utuh; serta zoom Chrome asli 200%. Posisi pusat dan empat sudut pada kedua kartu memetakan tilt maksimal ±3°, posisi sorotan sesuai arah pointer, dan parallax maksimal ±6/±12 px. Tombol tidak bergeser ketika kartu bergerak. Perubahan reduced motion saat efek aktif membersihkan properti efek.
+
+[8 pemeriksaan lifecycle](t16-pointer-lifecycle-check.json) lulus: tidak ada loop RAF saat pointer diam, keyboard langsung netral, keluar viewport (event sintetis), resize, tab tersembunyi (tab Chrome kedua), touch melalui CDP, dan scroll sampai kartu keluar viewport. Blur dan pergantian layar/reset juga tercakup pada pemeriksa T13/T15.
+
+**29 screenshot ditinjau visual**: pembuka, Q05, dan kelima kartu pada empat viewport, ditambah contoh zoom 200%. Semua wajah utama tetap utuh dan teks tidak terpotong; gulir vertikal digunakan untuk isi panjang. Screenshot ini emulasi viewport pada desktop.
+
+| Karakter | 320 × 568, netral | 375 × 667, netral |
+| --- | --- | --- |
+| Baek Kang-hyuk | [kartu B 320](t16-result-B-320.png) | [kartu B 375](t16-result-B-375.png) |
+| Yang Jae-won | [kartu Y 320](t16-result-Y-320.png) | [kartu Y 375](t16-result-Y-375.png) |
+| Cheon Jang-mi | [kartu C 320](t16-result-C-320.png) | [kartu C 375](t16-result-C-375.png) |
+| Park Gyeong-won | [kartu P 320](t16-result-P-320.png) | [kartu P 375](t16-result-P-375.png) |
+| Han Yu-rim | [kartu H 320](t16-result-H-320.png) | [kartu H 375](t16-result-H-375.png) |
+
+Contoh layar: [pembuka desktop](t16-landing-1280.png), [kuis 375](t16-quiz-375.png), [hasil desktop](t16-result-B-1280.png), [zoom 200%](t16-result-H-320-zoom200.png). Daftar semua screenshot ada pada laporan JSON.
+
+### T17 — Browser dan perangkat nyata
+
+**Belum selesai, tidak dicentang.** Chrome desktop lulus pemeriksaan yang tersedia. Firefox tidak ditemukan di lokasi executable/registry yang diperiksa. Pengguna menyatakan belum memiliki hasil uji Android dan iPhone nyata. Tidak ada klaim bahwa viewport atau touch CDP menggantikan perangkat nyata. [Matriks dan langkah uji yang tersisa](t17-device-matrix.md). T17 memerlukan Firefox desktop, Chrome Android nyata, serta Safari iPhone nyata sebelum ditutup.
+
+### T18 — Kinerja
+
+[Lima cold load](t18-performance-check.json) dijalankan tanpa cache pada unduh **1,6 Mbps**, unggah **750 Kbps**, latensi **150 ms**, CPU **4×**. HTML/CSS/JS dikirim gzip oleh server statis alat uji; JPEG tidak dikompresi ulang. Tidak ada cache disk yang digunakan. Browser, perangkat/CPU, nilai tiap percobaan, header encoding, transfer jaringan aktual, dan Resource Timing tersimpan pada laporan.
+
+| Percobaan | Siap pakai sejak navigation start |
+| --- | --- |
+| 1 | 502,7 ms |
+| 2 | 457,8 ms |
+| 3 | 455,1 ms |
+| 4 | 456,2 ms |
+| 5 | 502,5 ms |
+| Median | **457,8 ms** |
+
+Transfer awal maksimum **67.229 byte / 65,7 KiB**, di bawah 300 KiB. Pembuka memuat satu foto pratinjau B; kelima foto hasil tidak dipreload. Median di bawah 3 detik. T18 lulus untuk konfigurasi localhost terkompresi yang diuji; konfigurasi hosting lain yang mengubah kompresi/latensi perlu pengukuran ulang. Tidak ada deployment pada tugas ini.
+
+### Menjalankan ulang dan batas pekerjaan
+
+Dari root, gunakan `node checks/integration-check.cjs`, `node checks/visual-check.cjs`, `node checks/pointer-lifecycle-check.cjs`, `node checks/accessibility-cdp-check.cjs`, atau `node checks/performance-check.cjs`. Chrome dan server localhost sementara dimulai/dihentikan oleh alat; Node 24 dan Chrome telah tersedia di lingkungan ini, tanpa paket npm. Jalankan performance check sendiri agar tidak bersaing dengan pengujian lain. Untuk pemeriksa HTML, jalankan server statis biasa lalu buka berkas terkait di `checks/`.
+
+`git diff --check` lulus. Pekerjaan berhenti setelah lingkup T18; T19–T22 tidak dimulai. Batas tersisa untuk permintaan ini adalah T17, dengan rincian perangkat yang belum diuji di atas.
+
+
+## Revisi SDD audio — 29 Oktober 2026
+
+Lingkup pekerjaan ini adalah pembaruan dokumen sesuai arahan pengguna. Requirement revisi 5 menambahkan FR-11 (musik/efek), FR-12 (kontrol dan lifecycle), NFR-15 (pemuatan dan batas audio). Design bagian 12 menjelaskan arah suasana, volume awal, lima identitas aset, gesture, error, pause/resume, dan arsitektur yang direncanakan. Empat steering diselaraskan; Task menambah T23–T25 serta dependensi verifikasi final versi dengan audio.
+
+Referensi musik/efek ditelusuri pada halaman Pixabay dan Kenney yang ditautkan di desain. Kandidat belum didengarkan atau diunduh, sehingga tidak ada klaim telah memakai OST The Trauma Code atau audio telah bekerja. File aplikasi, aset, dan hasil skor tidak diubah oleh revisi dokumen ini. Bukti T14–T18 tetap bukti versi sebelum audio; T25 akan memeriksa ulang area yang terdampak setelah implementasi.
+
+Pemeriksaan dokumen: ID kebutuhan/tugas baru unik, dependensi tidak bersiklus, tautan lokal tersedia, dan `git diff --check` lulus. Tidak ada pengujian runtime audio pada langkah ini karena belum ada kode audio.

@@ -1,8 +1,8 @@
 # Design — Which Trauma Code Character Are You?
 
-Status: Draf desain berdasarkan requirement revisi 4  
-Tanggal: 28 Oktober 2026  
-Spesifikasi aktif: `requirement.md`  
+Status: Draf desain berdasarkan requirement revisi 5
+Tanggal: 28 Oktober 2026
+Spesifikasi aktif: `requirement.md`
 Lingkup: rancangan pengalaman, visual, konten, logika, struktur aplikasi, dan verifikasi. Implementasi serta verifikasi T01–T16 dan T18 selesai; T17 menunggu uji Firefox desktop serta Android/iPhone nyata. Bukti aktual tersedia di `docs/verification.md`.
 
 ### Acuan steering untuk agen AI
@@ -308,9 +308,10 @@ Trauma_Code_Quiz_Game/
 | `quiz.js` | Validasi data, penghitungan skor, pemecah seri, dan pemilihan alasan. Tidak mengakses DOM. |
 | `ui.js` | Merender layar, progres, pilihan aktif, hasil, dan mengelola fokus. Tidak menentukan pemenang. |
 | `script.js` | Inisialisasi, state sesi, event, penguncian transisi, dan reset. |
+| `audio.js` (T24) | Pemutar, kontrol gain, cache, dan cleanup audio; terpisah dari skor. |
 | `checks/` | Pemeriksaan matematis yang memakai fungsi skor produksi; tidak dimuat oleh halaman utama. |
 
-JavaScript dimuat sebagai script klasik dengan `defer`, berurutan: data → quiz → ui → script. Satu namespace `TraumaQuiz` mengelompokkan data dan fungsi agar tidak memenuhi global dengan banyak nama. Pemisahan ini cukup untuk belajar tanpa menambahkan bundler atau kerumitan impor modul.
+JavaScript dimuat sebagai script klasik dengan `defer`, berurutan: data → quiz → ui → audio → script setelah T24; `audio.js` belum ada pada versi saat ini. Satu namespace `TraumaQuiz` mengelompokkan data dan fungsi agar tidak memenuhi global dengan banyak nama. Pemisahan ini cukup untuk belajar tanpa menambahkan bundler atau kerumitan impor modul.
 
 Gunakan jalur aset relatif agar dapat dipasang pada subdirektori server statis. Pengoperasian yang didukung adalah melalui HTTP/HTTPS hosting statis; akses `file://` tidak menjadi kriteria penerimaan. Tidak ada fetch data jarak jauh, font eksternal, telemetry, cookie, atau browser storage.
 
@@ -365,7 +366,7 @@ Skor tidak disimpan sebagai akumulasi yang berubah setiap klik. Data pertanyaan 
 - Bila JavaScript tidak tersedia, tampilkan pesan `noscript` yang menjelaskan kuis memerlukan JavaScript, tanpa tombol mulai yang menyesatkan.
 - Bila data tidak valid saat inisialisasi, tampilkan pesan ringkas bahwa kuis belum dapat dimulai; jangan menampilkan hasil asal. Detail teknis hanya di console pengembang.
 - Render teks data melalui `textContent` dan elemen DOM. Jangan menyisipkan jawaban sebagai HTML.
-- Tidak ada audio otomatis atau efek yang membutuhkan izin perangkat.
+- Halaman baru tetap diam. Audio hanya dimulai setelah tindakan pengguna sesuai bagian 12; tidak ada izin sensor perangkat yang diperlukan.
 
 ## 9. Kinerja dan verifikasi
 
@@ -423,7 +424,7 @@ Target awal: minimal 80% selesai tanpa bantuan, median maksimal 2 menit, serta m
 | NFR-09–NFR-10 | 7–8 |
 | NFR-11–NFR-14 | 3.5, 8–9 |
 
-`requirement-analysis.md` dipertahankan sebagai catatan sebelum revisi, sehingga penilaian kekurangan di dalamnya tidak semuanya berlaku lagi. Dokumen aktif untuk implementasi adalah requirement revisi 4 dan desain ini.
+`requirement-analysis.md` dipertahankan sebagai catatan sebelum revisi, sehingga penilaian kekurangan di dalamnya tidak semuanya berlaku lagi. Dokumen aktif untuk implementasi adalah requirement revisi 5 dan desain ini.
 
 `Task.md` memecah desain menjadi pekerjaan kecil dengan rujukan kebutuhan dan pemeriksaannya. Tahap berikutnya adalah implementasi sesuai daftar tersebut ketika diminta pengguna. Implementasi, peluncuran, riset pengguna, pengujian perangkat, dan pengukuran kinerja belum dilakukan. Perubahan skor, bahasa, atau interaksi dari hasil peninjauan harus diperbarui pada dokumen yang terkait sebelum implementasi dilanjutkan.
 
@@ -454,3 +455,72 @@ Rancangan aset ini tetap berlaku. Penelusuran T05 pada 28 Oktober 2026 sudah men
 
 
 **Implementasi terverifikasi 29 Oktober 2026:** aturan `hidden` memiliki prioritas di dalam `#app`; double-click lanjutan diabaikan walau pertanyaan sudah berganti; pergantian keyboard/touch menetralkan efek tanpa animasi reset; kartu yang keluar viewport saat scroll direset. Pada ponsel, padding/jarak badan kartu dipadatkan tanpa mengecilkan teks agar tinggi kartu 320 px tetap di bawah 400 px. Deskripsi motif tidak ditampilkan sebagai petunjuk teknis kepada pengguna. Pratinjau pembuka memakai satu foto lokal; gambar hasil lain hanya dimuat saat diperlukan. `performance.mark('quiz-ready')` dicatat setelah handler terpasang dan tombol mulai ditampilkan. T18 diukur dengan gzip pada server statis alat uji, bukan klaim konfigurasi hosting publik yang belum dipilih.
+
+
+## 12. Musik dan efek suara — revisi 5, 29 Oktober 2026
+
+Status: rancangan yang belum diimplementasikan. Rujukan: FR-11, FR-12, NFR-05, NFR-09, NFR-12, NFR-13, NFR-15. Arah bunyi adalah interpretasi suasana medis sinematis yang diminta pengguna, bukan klaim meniru rekaman soundtrack tertentu.
+
+### 12.1 Arah musik dan efek
+
+Gunakan satu loop instrumental sekitar 45–60 detik: pulse/perkusi yang tertahan, lapisan synth atau string yang memberi ketegangan, dan nuansa optimistis/heroik. Hindari vokal dominan, ledakan trailer mendadak, nada horor yang terus menekan, serta alarm medis berulang. Musik tetap mengalun pada hasil agar tidak terjadi pergantian lagu yang mengejutkan. Reveal memberi aksen heroik singkat melalui efek terpisah.
+
+| Peristiwa diterima | Identitas audio | Arah bunyi | Durasi sasaran |
+| --- | --- | --- | --- |
+| Start Quiz / Ulangi kuis | `start` | Tekanan tombol dengan aksen pembukaan pendek | 100–300 ms |
+| Jawaban diterima | `select` | Klik/beep lembut, tanpa nada benar/salah | 50–150 ms |
+| Back diterima | `back` | Klik yang sedikit lebih rendah | 50–150 ms |
+| Hasil baru dirender | `reveal` | Aksen penyelesaian heroik yang singkat | 0,8–2 detik |
+
+Jangan memutar efek generik klik sekaligus efek aksi pada aktivasi yang sama. Tidak ada bunyi hover/fokus atau skor audio per karakter. Satu voice efek aktif; efek baru boleh menggantikan yang lama agar tidak menumpuk. Suara tidak memicu jawaban atau menentukan kapan transisi selesai.
+
+### 12.2 Kontrol antarmuka
+
+Sediakan kelompok kontrol audio stabil di dalam `main`, sebelum section layar, sehingga hanya ada satu kelompok dan tetap ditemukan pada semua layar. Tombol native “Musik: Aktif/Mati” dan “Efek: Aktif/Mati” memakai `aria-pressed` untuk preferensi, disertai label volume terlihat dan `input type="range"` masing-masing 0–100, step 1. Hindari tooltip sebagai satu-satunya nama. Target minimal 44 px; pada ponsel kontrol boleh membungkus ke dua baris tanpa menutup tombol kuis.
+
+Preferensi awal musik aktif dengan volume **12%**, efek aktif **25%**; keduanya **belum berbunyi pada pemuatan**. Teks sebelum Start Quiz: “Musik dan efek dimulai setelah Start Quiz. Kamu bisa mematikannya di kontrol audio.” Bila pengguna sudah mematikan kanal sebelum mulai, Start Quiz mempertahankan pilihan tersebut. Tombol mengaktifkan musik sebelum mulai merupakan instruksi eksplisit untuk mulai memainkan musik. Preferensi aktif dan status playback dibedakan: tampilkan “Musik dijeda” ketika tab kembali atau playback belum diizinkan, tanpa mengubah preferensi menjadi seolah-olah suara sudah berbunyi.
+
+Kontrol tidak ikut tilt/parallax/reveal. Urutan Tab menjadi kontrol musik/volume/efek/volume → Start Quiz pada pembuka. Setelah maju/Back/hasil/ulang, fokus tetap ke heading tujuan; pemutaran bunyi tidak memindahkan fokus. Status audio pendek tidak memakai live region yang mengulang isi pertanyaan. Tidak ada dialog persetujuan tambahan.
+
+### 12.3 Arsitektur dan state
+
+Tambahkan `js/audio.js` sebagai pemilik tunggal pemutar, cache buffer, gain, dan cleanup. Muat script klasik `defer` data → quiz → ui → audio → script. Namespace tetap `TraumaQuiz`; API audio minimal `prepareFromGesture`, `playEffect`, `setMusicEnabled`, `setEffectsEnabled`, `setVolume`, `pause`, `resetEffects`. Controller memanggilnya hanya setelah aksi lolos validasi/penguncian, bukan dari listener klik global kedua.
+
+State audio terpisah dari state skor: `musicEnabled`, `effectsEnabled`, `musicVolume`, `effectsVolume`, `playbackState` (`idle`, `loading`, `playing`, `paused`, `unavailable`), dan nomor versi request. State sesi kuis tetap enam field pada desain 7.2. Tidak menyimpan preferensi ke storage atau server.
+
+Musik dapat memakai satu `HTMLAudioElement` loop dengan `preload="none"`, dihubungkan sekali ke graph Web Audio untuk gain. Efek memakai AudioBuffer yang di-cache, dengan satu BufferSource aktif per kejadian. AudioContext dibuat/resume dari tindakan pengguna; tidak dari callback timer transisi. Pola ini harus diverifikasi pada Safari iPhone, termasuk perubahan volume. Konfigurasi jalur aset, jenis efek, dan volume awal dikelompokkan; tidak menyisipkan URL/audio base64 pada HTML.
+
+### 12.4 Urutan event dan cleanup
+
+- Pemuatan: tampilkan kontrol dan preferensi; jangan membuat request audio atau mencoba playback.
+- Start/enable musik: unlock AudioContext dari gesture saat itu, mulai pemuatan lazy bila dibutuhkan, lalu lanjutkan kuis langsung. Jika efek Start belum siap, lewatkan bunyinya; jangan memutarnya terlambat pada Q02.
+- Pilih/Back: setelah validasi dan lock diterima, minta efek yang tersedia sekali, simpan/ubah state seperti sebelumnya. Event yang ditolak tidak bersuara.
+- Hasil: setelah hasil valid dirender, minta `reveal` sekali. Jika buffer belum siap, lewatkan; jangan menunda atau mengulang reveal.
+- Ulang: hentikan efek/buffer callback tertunda dari sesi lama; pertahankan preferensi kanal dan posisi musik yang masih berjalan. Jangan membuat pemutar atau listener baru.
+- Mute: gain langsung nol, stop efek kanal terkait, pause musik bila kanal musik dimatikan. Callback fetch/decode lama tidak boleh mengabaikan mute.
+- `visibilitychange` menjadi hidden / blur: pause musik dan stop efek tertunda, invalidasi callback. Saat visible kembali, butuh aktivasi tombol musik untuk melanjutkan; tidak otomatis membunyikan musik di latar.
+- Error atau playback ditolak: tangani Promise; kuis tetap berfungsi. Satu status singkat pada kontrol musik bila perlu, tanpa alert/modal atau retry otomatis terus-menerus.
+
+Reduced motion tidak mengganti preferensi audio; mematikan gerakan tetap mempertahankan lock dan kontrol audio yang sama. Audio juga tidak bergantung pada `animationend`, `ended`, atau durasi musik untuk memajukan kuis.
+
+### 12.5 Aset dan anggaran
+
+Simpan `assets/audio/bgm.mp3`, `start.mp3`, `select.mp3`, `back.mp3`, `reveal.mp3`; format lain hanya jika pengujian membutuhkan fallback. Nama tersebut rencana, bukan berkas yang sudah tersedia. Satu BGM maksimal 1 MiB; seluruh efek maksimal 200 KiB. Trim/normalisasi/kompresi harus diperiksa lewat pendengaran, tanpa clipping atau sambungan loop mendadak. Jangan mengunduh kelima audio pada pembuka sebelum gesture; cache hanya di memori selama halaman berjalan. Tidak memakai embed YouTube/Spotify, request pihak ketiga runtime, atau backend.
+
+Tidak ada kewajiban membuat musik orisinal atau menambahkan kredit pada antarmuka untuk proyek pribadi yang diminta pengguna. Pilih sumber yang menyediakan berkas praktis untuk proyek; bila kandidat tidak dapat dipakai, pilih alternatif tanpa menahan implementasi demi satu lagu. Identitas berkas/durasi/ukuran berguna untuk verifikasi teknis.
+
+### 12.6 Verifikasi baru dan dampak pada bukti lama
+
+Uji musik dan efek terpisah, dua volume termasuk nol, mute ketika request belum selesai, klik ganda/Enter ditahan, Back/hasil/ulang, tab tersembunyi/blur, playback ditolak, decode gagal, tidak ada unhandled rejection, serta tidak ada suara terlambat dari sesi lama. Verifikasi output suara dengan mendengarkan, bukan hanya `paused=false` atau keberhasilan Promise.
+
+Ulangi keyboard dan pembaca layar untuk kontrol baru, zoom 200%, empat lebar, perangkat/browser T17, serta lima cold load NFR-13. Jaringan sebelum gesture harus menunjukkan nol request audio. Bukti T14–T18 sebelumnya tetap catatan implementasi sebelum audio; bukti tersebut tidak otomatis menyatakan audio lulus. T25 adalah gerbang regresi versi dengan audio.
+
+### 12.7 Kandidat referensi yang ditelusuri
+
+Pengguna menyerahkan pemilihan lagu kepada agen. Belum ada berkas audio yang diunduh atau didengarkan pada revisi dokumen ini, dan belum ditemukan berkas OST The Trauma Code yang dipilih sebagai aset proyek. Referensi drama tetap dipakai sebagai arah suasana, bukan syarat memakai OST asli.
+
+- [Dramatic Tension — leberch, Pixabay](https://pixabay.com/music/main-title-dramatic-tension-375423/): halaman menyebut durasi 2:06, MP3, dan suasana suspense/hopeful. Kandidat untuk mencari bagian BGM yang lebih tenang; perlu didengarkan sebelum dipilih.
+- [Epic Cinematic Drama_54sec — Grand_Project, Pixabay](https://pixabay.com/music/main-title-epic-cinematic-drama-54sec-187364/): durasi halaman 0:54, instrumental sinematis. Kandidat pembanding sisi heroik; jangan otomatis memakai bagian bombastis sebagai loop membaca.
+- [Interface Sounds — Kenney](https://kenney.nl/assets/interface-sounds): paket 100 efek antarmuka berlabel CC0 pada halaman resmi; kandidat efek klik mulai/pilih/Back. Efek reveal final masih perlu dipilih/didengarkan pada T23.
+
+Daftar ini adalah kandidat penelusuran, bukan bukti telah lolos uji pendengaran atau audio telah terpasang.
