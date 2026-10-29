@@ -21,6 +21,8 @@
   };
   let transitionTimer = null;
   let heldActivation = false;
+  let letterStep = 0;
+  const letterButton = document.getElementById('open-letter');
   const startButton = document.getElementById('start-quiz');
   const backButton = document.getElementById('back-button');
   const options = document.getElementById('answer-options');
@@ -42,10 +44,10 @@
         app.ui.renderQuestion(app.data, state, true);
       } else {
         state.result = app.quiz.calculateResult(app.data, state.answers);
-        state.screen = 'result';
-        app.ui.renderResult(app.data, state.result);
-        app.audio.setScene('result');
-        app.audio.playEffect('reveal');
+        state.screen = 'letter';
+        letterStep = 0;
+        app.ui.renderLetter();
+        app.audio.playEffect('start');
       }
     }
     state.isTransitioning = false;
@@ -60,6 +62,7 @@
     if (transitionTimer !== null) clearTimeout(transitionTimer);
     transitionTimer = null;
     state.sessionVersion += 1;
+    letterStep = 0;
     state.answers = Array(app.data.questions.length).fill(null);
     state.currentIndex = 0;
     state.result = null;
@@ -104,6 +107,33 @@
     chooseAnswer(event.target.closest('button[data-option]'));
   });
   backButton.addEventListener('click', goBack);
+  letterButton.addEventListener('click', (event) => {
+    if (event.detail > 1 || state.screen !== 'letter' || state.isTransitioning || letterStep >= 3) return;
+    state.isTransitioning = true;
+    letterButton.disabled = true;
+    letterStep += 1;
+    app.audio.prepareFromGesture();
+    app.audio.playEffect(letterStep === 1 ? 'back' : 'select');
+    app.ui.advanceLetter(letterStep);
+    const version = state.sessionVersion;
+    const duration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 80 : letterStep === 3 ? 1100 : 650;
+    transitionTimer = setTimeout(() => {
+      if (state.sessionVersion !== version || state.screen !== 'letter') return;
+      transitionTimer = null;
+      state.isTransitioning = false;
+      if (letterStep === 3) {
+        state.screen = 'result';
+        app.ui.renderResult(app.data, state.result);
+        app.audio.setScene('result');
+        app.audio.playEffect('reveal');
+      } else {
+        letterButton.disabled = false;
+        if (document.activeElement === document.body || document.activeElement === letterButton) {
+          letterButton.focus({ preventScroll: true });
+        }
+      }
+    }, duration);
+  });
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Enter' && event.key !== ' ') return;
     if (event.repeat || heldActivation) {

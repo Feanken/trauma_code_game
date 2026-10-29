@@ -63,6 +63,7 @@
       </div>
     </section>
     <section id="quiz-screen" class="panel quiz-layout" aria-labelledby="question-title" hidden>
+      <div class="question-atmosphere" aria-hidden="true"><span class="question-orb orb-one"></span><span class="question-orb orb-two"></span><span id="question-emblem" class="question-emblem">✚</span><span class="question-orbit"></span></div>
       <p class="eyebrow">TRAUMA TEAM / KUIS</p>
       <p id="progress-text">Pertanyaan 1/10</p>
       <progress id="question-progress" max="10" value="1" aria-valuemin="1" aria-label="Progres pertanyaan"></progress>
@@ -72,9 +73,27 @@
       <div id="answer-options" class="answers-grid" role="group" aria-labelledby="question-title"></div>
       <button id="back-button" type="button" class="button" hidden><span class="control-surface">Back</span></button>
     </section>
-    <section id="result-screen" class="panel" aria-labelledby="result-title" hidden>
+    <section id="letter-screen" class="panel letter-stage" aria-labelledby="letter-title" hidden>
+      <p class="eyebrow">TRAUMA TEAM POST OFFICE</p>
+      <h2 id="letter-title" tabindex="-1">Ada surat untukmu.</h2>
+      <p class="muted">Tim trauma sudah menemukan peranmu. Buka perlahan, ya.</p>
+      <button id="open-letter" class="envelope-button" type="button" aria-describedby="letter-instruction">
+        <span class="envelope-scene" aria-hidden="true">
+          <span class="envelope-back"></span>
+          <span class="envelope-paper"><span class="paper-cross">✚</span><span>TRAUMA TEAM</span><span class="paper-lines"></span><span class="paper-signature">A little note for you</span></span>
+          <span class="envelope-flap"></span><span class="envelope-front"></span>
+          <span class="envelope-address">UNTUK: KAMU<br><small>DARI: TIM TRAUMA</small></span>
+          <span class="envelope-seal">✚</span>
+        </span>
+        <span id="letter-action" class="letter-action">01 / Lepaskan segelnya</span>
+      </button>
+      <p id="letter-instruction" class="muted" role="status">Klik amplop untuk melepas segel. Langkah 1 dari 3.</p>
+      <div class="letter-steps" aria-hidden="true"><span>01 · Segel</span><span>02 · Buka</span><span>03 · Ambil</span></div>
+    </section>
+    <section id="result-screen" class="panel doctor-letter" aria-labelledby="result-title" hidden>
+      <div class="letterhead"><span class="letterhead-mark" aria-hidden="true">✚</span><div><strong>TRAUMA TEAM</strong><small>DEPARTEMEN HAL BAIK DALAM DIRIMU</small></div><span class="letterhead-rx" aria-hidden="true">℞</span></div>
       <p class="eyebrow">TRAUMA TEAM / HASIL</p>
-      <h2 id="result-title" tabindex="-1">Ini peranmu di tim trauma<span id="result-announced-name" class="sr-only"></span></h2>
+      <h2 id="result-title" tabindex="-1">Surat penugasan untukmu<span id="result-announced-name" class="sr-only"></span></h2>
       <div class="result-layout">
         <div id="result-card-wrapper" class="id-card-wrapper">
           <article id="result-card" class="id-card">
@@ -93,7 +112,7 @@
         </div>
         <div>
           <p id="result-description"></p>
-          <h3>Kekuatanmu</h3>
+          <h3>Bekal istimewamu</h3>
           <ul id="result-strengths"></ul>
           <h3>Kenapa kamu cocok?</h3>
           <ul id="result-reasons"></ul>
@@ -102,6 +121,7 @@
           <button id="restart-quiz" type="button" class="button button--primary"><span class="control-surface">Ulangi kuis</span></button>
         </div>
       </div>
+      <div class="letter-signoff"><span>Dengan hangat,<strong>Tim Trauma</strong></span><span class="letter-stamp">TEAM APPROVED<br><small>100% GOOD ENERGY</small></span></div>
       <p class="muted result-note">Proyek fan-made nonkomersial, tidak berafiliasi resmi. Untuk hiburan, bukan penilaian psikologis ilmiah atau diagnosis.</p>
     </section>
     <noscript>

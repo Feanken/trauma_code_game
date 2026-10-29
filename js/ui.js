@@ -20,6 +20,7 @@
   const landing = document.getElementById('landing-screen');
   const quiz = document.getElementById('quiz-screen');
   const result = document.getElementById('result-screen');
+  const letter = document.getElementById('letter-screen');
   const title = document.getElementById('question-title');
   const options = document.getElementById('answer-options');
 
@@ -28,11 +29,18 @@
     landing.hidden = name !== 'landing';
     quiz.hidden = name !== 'quiz';
     result.hidden = name !== 'result';
+    letter.hidden = name !== 'letter';
   }
 
   function renderQuestion(data, state, focusHeading) {
     const question = data.questions[state.currentIndex];
     const number = state.currentIndex + 1;
+    quiz.dataset.question = String(number);
+    quiz.classList.remove('question-enter');
+    // Restart the entry animation even when Back renders inside the same screen.
+    void quiz.offsetWidth;
+    quiz.classList.add('question-enter');
+    document.getElementById('question-emblem').textContent = ['✚', '♡', '✧', '◎', '⚕', '↗', '✿', '☀', '⚡', '✉'][state.currentIndex];
     document.getElementById('progress-text').textContent = `Pertanyaan ${number}/10`;
     const progress = document.getElementById('question-progress');
     progress.value = number;
@@ -105,6 +113,25 @@
     });
     fillList('result-strengths', []);
     fillList('result-reasons', []);
+  }
+
+  function renderLetter() {
+    letter.dataset.step = '0';
+    document.getElementById('open-letter').disabled = false;
+    document.getElementById('letter-action').textContent = '01 / Lepaskan segelnya';
+    document.getElementById('letter-instruction').textContent = 'Klik amplop untuk melepas segel. Langkah 1 dari 3.';
+    showScreen('letter');
+    document.getElementById('letter-title').focus();
+  }
+
+  function advanceLetter(step) {
+    letter.dataset.step = String(step);
+    document.getElementById('letter-action').textContent = ['','02 / Buka tutup amplop','03 / Ambil suratmu','Ini dia suratmu…'][step];
+    document.getElementById('letter-instruction').textContent = [
+      '', 'Segelnya lepas! Klik lagi untuk membuka tutup. Langkah 2 dari 3.',
+      'Amplop terbuka. Klik sekali lagi untuk mengambil surat. Langkah 3 dari 3.',
+      'Suratmu sedang dikeluarkan.'
+    ][step];
   }
 
   function renderResult(data, outcome) {
@@ -252,7 +279,12 @@
   // Repeat identical photo groups so the diagonal wallpaper loops without a jump.
   const wall = document.getElementById('character-wall-grid');
   if (wall) {
-    const characters = app.data.characters;
+    const characters = [...app.data.characters,
+      { image: { src: 'assets/images/moments/corridor-surprise.jpg' } },
+      { image: { src: 'assets/images/moments/playful-team.jpg' } },
+      { image: { src: 'assets/images/moments/court-duo.jpg' } },
+      { image: { src: 'assets/images/moments/scrub-room-banter.jpg' } }
+    ];
     const fragment = document.createDocumentFragment();
     for (let column = 0; column < 8; column += 1) {
       const lane = document.createElement('div');
@@ -272,6 +304,7 @@
         image.src = character.image.src;
         image.alt = '';
         image.decoding = 'async';
+        image.addEventListener('error', () => { if (image.dataset.fallback) return; image.dataset.fallback = 'true'; image.src = app.data.characters[index % app.data.characters.length].image.src; }, { once: true });
         image.width = 240;
         image.height = 270;
         tile.append(image);
@@ -287,6 +320,6 @@
     });
   }
 
-  app.ui = { showInitializationError, showScreen, renderQuestion, markSelection, renderResult,
+  app.ui = { showInitializationError, showScreen, renderQuestion, markSelection, renderResult, renderLetter, advanceLetter,
     clearResult, resetPointerEffects };
 })();
