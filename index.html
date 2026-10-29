@@ -27,7 +27,7 @@
       </div>
       <div id="landing-card-wrapper" class="id-card-wrapper" aria-hidden="true">
         <div class="id-card">
-          <div class="id-card-media">Trauma Team</div>
+          <div class="id-card-media"><img class="landing-photo" src="assets/images/baek-kang-hyuk.jpg" alt="" width="720" height="480"></div>
           <div class="id-card-body"><p class="eyebrow">TRAUMA TEAM ID CARD</p><h2>Peranmu menanti</h2><p>Sepuluh pilihan akan membentuk hasilmu.</p></div>
         </div>
       </div>
@@ -35,7 +35,7 @@
     <section id="quiz-screen" class="panel quiz-layout" aria-labelledby="question-title" hidden>
       <p class="eyebrow">TRAUMA TEAM / KUIS</p>
       <p id="progress-text">Pertanyaan 1/10</p>
-      <progress id="question-progress" max="10" value="1" aria-label="Progres pertanyaan"></progress>
+      <progress id="question-progress" max="10" value="1" aria-valuemin="1" aria-label="Progres pertanyaan"></progress>
       <p id="question-context" class="eyebrow"></p>
       <h2 id="question-title" tabindex="-1"></h2>
       <p class="muted">Pilih jawaban untuk lanjut otomatis. Gunakan Back untuk mengubah jawaban.</p>
@@ -68,7 +68,7 @@
           <h3>Kenapa kamu cocok?</h3>
           <ul id="result-reasons"></ul>
           <p id="result-message"></p>
-          <p id="result-motif" class="muted"></p>
+          <p id="result-motif" hidden aria-hidden="true"></p>
           <button id="restart-quiz" type="button" class="button button--primary"><span class="control-surface">Ulangi kuis</span></button>
         </div>
       </div>

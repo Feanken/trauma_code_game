@@ -201,6 +201,7 @@
   function queuePointer(event) {
     if (event.pointerType !== 'mouse' || motionPreference.matches || !finePointer.matches) return;
     inputMode = 'mouse';
+    document.documentElement.dataset.inputMode = 'mouse';
     const activeScreen = !landing.hidden ? landing : !result.hidden ? result : quiz;
     const wrapper = activeScreen.querySelector('.id-card-wrapper');
     pointer = { x: event.clientX, y: event.clientY,
@@ -216,11 +217,16 @@
 
   document.addEventListener('pointermove', queuePointer, { passive: true });
   document.addEventListener('pointerdown', (event) => {
-    if (event.pointerType !== 'mouse') { inputMode = 'touch'; resetPointerEffects(); }
+    if (event.pointerType !== 'mouse') {
+      inputMode = 'touch';
+      document.documentElement.dataset.inputMode = 'touch';
+      resetPointerEffects();
+    }
   }, { passive: true });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Tab' || event.key === 'Enter' || event.key === ' ') {
       inputMode = 'keyboard'; resetPointerEffects();
+      document.documentElement.dataset.inputMode = 'keyboard';
     }
   }, true);
   document.addEventListener('pointerout', (event) => {
@@ -233,6 +239,12 @@
     }
   });
   window.addEventListener('blur', resetPointerEffects);
+  window.addEventListener('resize', resetPointerEffects);
+  window.addEventListener('scroll', () => {
+    if (!activeCard) return;
+    const bounds = activeCard.parentElement.getBoundingClientRect();
+    if (bounds.bottom <= 0 || bounds.top >= window.innerHeight) resetPointerEffects();
+  }, { passive: true });
   document.addEventListener('visibilitychange', () => { if (document.hidden) resetPointerEffects(); });
   motionPreference.addEventListener('change', resetPointerEffects);
   finePointer.addEventListener('change', resetPointerEffects);

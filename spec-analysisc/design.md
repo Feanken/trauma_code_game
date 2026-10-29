@@ -3,7 +3,7 @@
 Status: Draf desain berdasarkan requirement revisi 4  
 Tanggal: 28 Oktober 2026  
 Spesifikasi aktif: `requirement.md`  
-Lingkup: rancangan pengalaman, visual, konten, logika, struktur aplikasi, dan verifikasi. Daftar implementasi tersedia di `Task.md`; fondasi T01, data/validator T02, fungsi skor/alasan T03, dan pemeriksa lengkap T04 sudah dibuat. Sistem visual dan layout dasar T07 tersedia di CSS bersama dan galeri `checks/ui-preview.html`. T06 menunggu aset final T05; alur pembuka, pertanyaan, dan navigasi T08–T10 sudah diimplementasikan; struktur kartu hasil dan pengulangan T11–T12 sudah dibuat, tetapi foto final dan efek pointer belum.
+Lingkup: rancangan pengalaman, visual, konten, logika, struktur aplikasi, dan verifikasi. Implementasi serta verifikasi T01–T16 dan T18 selesai; T17 menunggu uji Firefox desktop serta Android/iPhone nyata. Bukti aktual tersedia di `docs/verification.md`.
 
 ### Acuan steering untuk agen AI
 
@@ -451,3 +451,6 @@ Rancangan aset ini tetap berlaku. Penelusuran T05 pada 28 Oktober 2026 sudah men
 
 
 **T14 zoom:** Chrome native 200% pada viewport 320 px telah diuji untuk Q01 dan hasil B tanpa overflow setelah penyesuaian CSS lebar efektif kecil. Uji pembaca layar manual masih ditunggu.
+
+
+**Implementasi terverifikasi 29 Oktober 2026:** aturan `hidden` memiliki prioritas di dalam `#app`; double-click lanjutan diabaikan walau pertanyaan sudah berganti; pergantian keyboard/touch menetralkan efek tanpa animasi reset; kartu yang keluar viewport saat scroll direset. Pada ponsel, padding/jarak badan kartu dipadatkan tanpa mengecilkan teks agar tinggi kartu 320 px tetap di bawah 400 px. Deskripsi motif tidak ditampilkan sebagai petunjuk teknis kepada pengguna. Pratinjau pembuka memakai satu foto lokal; gambar hasil lain hanya dimuat saat diperlukan. `performance.mark('quiz-ready')` dicatat setelah handler terpasang dan tombol mulai ditampilkan. T18 diukur dengan gzip pada server statis alat uji, bukan klaim konfigurasi hosting publik yang belum dipilih.

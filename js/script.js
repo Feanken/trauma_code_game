@@ -52,6 +52,7 @@
   function startQuiz() {
     if (state.screen !== 'landing' && state.screen !== 'result') return;
     if (transitionTimer !== null) clearTimeout(transitionTimer);
+    transitionTimer = null;
     state.sessionVersion += 1;
     state.answers = Array(app.data.questions.length).fill(null);
     state.currentIndex = 0;
@@ -86,7 +87,11 @@
 
   startButton.addEventListener('click', startQuiz);
   document.getElementById('restart-quiz').addEventListener('click', startQuiz);
-  options.addEventListener('click', (event) => chooseAnswer(event.target.closest('button[data-option]')));
+  options.addEventListener('click', (event) => {
+    // Klik kedua dari double-click dapat tiba setelah DOM pertanyaan berganti.
+    if (event.detail > 1) return;
+    chooseAnswer(event.target.closest('button[data-option]'));
+  });
   backButton.addEventListener('click', goBack);
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Enter' && event.key !== ' ') return;
@@ -102,6 +107,7 @@
   window.addEventListener('blur', () => { heldActivation = false; });
   startButton.hidden = false;
   document.documentElement.dataset.quizReady = 'true';
+  performance.mark('quiz-ready');
 
   // Penanda internal pemuatan fondasi, bukan penanda kuis siap dimainkan.
   document.documentElement.dataset.foundationReady = 'true';

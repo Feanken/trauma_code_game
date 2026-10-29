@@ -434,3 +434,23 @@ a {
   #result-screen li { overflow-wrap: anywhere; }
   #result-screen .button { width: 100%; padding-inline: var(--space-2); }
 }
+
+.landing-photo { width: 100%; height: 100%; object-fit: cover; }
+#question-progress::-webkit-progress-value { transition: width 180ms ease-out; }
+#question-progress::-moz-progress-bar { transition: width 180ms ease-out; }
+[data-input-mode='keyboard'] .ambient,
+[data-input-mode='touch'] .ambient,
+[data-input-mode='keyboard'] .id-card-wrapper > .id-card,
+[data-input-mode='touch'] .id-card-wrapper > .id-card { transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  #question-progress::-webkit-progress-value { transition: none; }
+  #question-progress::-moz-progress-bar { transition: none; }
+}
+
+/* Layar dan kontrol nonaktif harus tetap tersembunyi setelah aturan layout. */
+#app [hidden] { display: none; }
+@media (max-width: 767px) {
+  .id-card-body { padding: var(--space-3); }
+  .id-card-body > * { margin-bottom: 6px; }
+  .id-card-body > :last-child { margin-bottom: 0; }
+}

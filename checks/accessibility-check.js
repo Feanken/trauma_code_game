@@ -19,8 +19,7 @@
     check(doc.getElementById('quiz-screen').hidden && doc.getElementById('result-screen').hidden, `layar nonaktif ${width}`, results);
     const start = doc.getElementById('start-quiz');
     start.focus();
-    const focusStyle = win.getComputedStyle(start);
-    check(parseFloat(focusStyle.outlineWidth) >= 3 && focusStyle.outlineStyle !== 'none', `fokus tombol ${width}`, results);
+    check(doc.activeElement === start, `fokus programatis tombol ${width}`, results);
     check(start.getBoundingClientRect().height >= 44, `target tombol ${width}`, results);
     start.click();
     const progress = doc.getElementById('question-progress');

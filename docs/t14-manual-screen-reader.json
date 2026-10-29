@@ -1,0 +1,14 @@
+{
+  "date_reported": "2026-10-29",
+  "task": "T14",
+  "source": "user report in conversation",
+  "reported_result": "PASS",
+  "screen_reader": "Windows Narrator",
+  "browser": "Chrome",
+  "screen_reader_version": null,
+  "browser_version": null,
+  "scope": "User reported that the requested question/result announcement check passed; then specified Narrator + Chrome.",
+  "limitations": [
+    "Versions and transcript not supplied; no claim that the agent recorded or listened to speech output."
+  ]
+}

@@ -1,0 +1,2932 @@
+{
+  "passed": true,
+  "environment": {
+    "date": "2026-10-29",
+    "os": "Windows_NT 10.0.26300",
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13650HX",
+    "logicalCpus": 20,
+    "totalMemoryBytes": 33960431616,
+    "browser": "Chrome/156.0.8078.73",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  },
+  "cases": [
+    {
+      "name": "layar nonaktif tersembunyi landing-320",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow landing-320",
+      "passed": true
+    },
+    {
+      "name": "target 44 px landing-320",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan landing-320",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q1-320",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q1-320",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q1-320",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q1-320",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q2-320",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q2-320",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q2-320",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q2-320",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q3-320",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q3-320",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q3-320",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q3-320",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q4-320",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q4-320",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q4-320",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q4-320",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q5-320",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q5-320",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q5-320",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q5-320",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q6-320",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q6-320",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q6-320",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q6-320",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q7-320",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q7-320",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q7-320",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q7-320",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q8-320",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q8-320",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q8-320",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q8-320",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q9-320",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q9-320",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q9-320",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q9-320",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q10-320",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q10-320",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q10-320",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q10-320",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-B-320",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-B-320",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-B-320",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-B-320",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh B-320",
+      "passed": true
+    },
+    {
+      "name": "tinggi kartu 320 B",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-Y-320",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-Y-320",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-Y-320",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-Y-320",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh Y-320",
+      "passed": true
+    },
+    {
+      "name": "tinggi kartu 320 Y",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-C-320",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-C-320",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-C-320",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-C-320",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh C-320",
+      "passed": true
+    },
+    {
+      "name": "tinggi kartu 320 C",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-P-320",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-P-320",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-P-320",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-P-320",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh P-320",
+      "passed": true
+    },
+    {
+      "name": "tinggi kartu 320 P",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-H-320",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-H-320",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-H-320",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-H-320",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh H-320",
+      "passed": true
+    },
+    {
+      "name": "tinggi kartu 320 H",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi landing-375",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow landing-375",
+      "passed": true
+    },
+    {
+      "name": "target 44 px landing-375",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan landing-375",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q1-375",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q1-375",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q1-375",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q1-375",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q2-375",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q2-375",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q2-375",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q2-375",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q3-375",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q3-375",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q3-375",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q3-375",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q4-375",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q4-375",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q4-375",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q4-375",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q5-375",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q5-375",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q5-375",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q5-375",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q6-375",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q6-375",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q6-375",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q6-375",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q7-375",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q7-375",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q7-375",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q7-375",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q8-375",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q8-375",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q8-375",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q8-375",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q9-375",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q9-375",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q9-375",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q9-375",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q10-375",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q10-375",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q10-375",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q10-375",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-B-375",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-B-375",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-B-375",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-B-375",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh B-375",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-Y-375",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-Y-375",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-Y-375",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-Y-375",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh Y-375",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-C-375",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-C-375",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-C-375",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-C-375",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh C-375",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-P-375",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-P-375",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-P-375",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-P-375",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh P-375",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-H-375",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-H-375",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-H-375",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-H-375",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh H-375",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi landing-768",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow landing-768",
+      "passed": true
+    },
+    {
+      "name": "target 44 px landing-768",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan landing-768",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q1-768",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q1-768",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q1-768",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q1-768",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q2-768",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q2-768",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q2-768",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q2-768",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q3-768",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q3-768",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q3-768",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q3-768",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q4-768",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q4-768",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q4-768",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q4-768",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q5-768",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q5-768",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q5-768",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q5-768",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q6-768",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q6-768",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q6-768",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q6-768",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q7-768",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q7-768",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q7-768",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q7-768",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q8-768",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q8-768",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q8-768",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q8-768",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q9-768",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q9-768",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q9-768",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q9-768",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q10-768",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q10-768",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q10-768",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q10-768",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-B-768",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-B-768",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-B-768",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-B-768",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh B-768",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-Y-768",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-Y-768",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-Y-768",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-Y-768",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh Y-768",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-C-768",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-C-768",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-C-768",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-C-768",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh C-768",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-P-768",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-P-768",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-P-768",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-P-768",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh P-768",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-H-768",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-H-768",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-H-768",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-H-768",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh H-768",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi landing-1280",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow landing-1280",
+      "passed": true
+    },
+    {
+      "name": "target 44 px landing-1280",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan landing-1280",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q1-1280",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q1-1280",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q1-1280",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q1-1280",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q2-1280",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q2-1280",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q2-1280",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q2-1280",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q3-1280",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q3-1280",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q3-1280",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q3-1280",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q4-1280",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q4-1280",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q4-1280",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q4-1280",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q5-1280",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q5-1280",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q5-1280",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q5-1280",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q6-1280",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q6-1280",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q6-1280",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q6-1280",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q7-1280",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q7-1280",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q7-1280",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q7-1280",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q8-1280",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q8-1280",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q8-1280",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q8-1280",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q9-1280",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q9-1280",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q9-1280",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q9-1280",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi Q10-1280",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow Q10-1280",
+      "passed": true
+    },
+    {
+      "name": "target 44 px Q10-1280",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan Q10-1280",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-B-1280",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-B-1280",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-B-1280",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-B-1280",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh B-1280",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-Y-1280",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-Y-1280",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-Y-1280",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-Y-1280",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh Y-1280",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-C-1280",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-C-1280",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-C-1280",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-C-1280",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh C-1280",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-P-1280",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-P-1280",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-P-1280",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-P-1280",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh P-1280",
+      "passed": true
+    },
+    {
+      "name": "layar nonaktif tersembunyi result-H-1280",
+      "passed": true
+    },
+    {
+      "name": "tanpa overflow result-H-1280",
+      "passed": true
+    },
+    {
+      "name": "target 44 px result-H-1280",
+      "passed": true
+    },
+    {
+      "name": "dua pilihan/lapisan result-H-1280",
+      "passed": true
+    },
+    {
+      "name": "kartu utuh H-1280",
+      "passed": true
+    },
+    {
+      "name": "tilt pusat/sudut landing-card-wrapper 0.5,0.5",
+      "passed": true
+    },
+    {
+      "name": "sorotan landing-card-wrapper 0.5,0.5",
+      "passed": true
+    },
+    {
+      "name": "parallax landing-card-wrapper 0.5,0.5",
+      "passed": true
+    },
+    {
+      "name": "tilt pusat/sudut landing-card-wrapper 0.01,0.01",
+      "passed": true
+    },
+    {
+      "name": "sorotan landing-card-wrapper 0.01,0.01",
+      "passed": true
+    },
+    {
+      "name": "parallax landing-card-wrapper 0.01,0.01",
+      "passed": true
+    },
+    {
+      "name": "tilt pusat/sudut landing-card-wrapper 0.99,0.01",
+      "passed": true
+    },
+    {
+      "name": "sorotan landing-card-wrapper 0.99,0.01",
+      "passed": true
+    },
+    {
+      "name": "parallax landing-card-wrapper 0.99,0.01",
+      "passed": true
+    },
+    {
+      "name": "tilt pusat/sudut landing-card-wrapper 0.01,0.99",
+      "passed": true
+    },
+    {
+      "name": "sorotan landing-card-wrapper 0.01,0.99",
+      "passed": true
+    },
+    {
+      "name": "parallax landing-card-wrapper 0.01,0.99",
+      "passed": true
+    },
+    {
+      "name": "tilt pusat/sudut landing-card-wrapper 0.99,0.99",
+      "passed": true
+    },
+    {
+      "name": "sorotan landing-card-wrapper 0.99,0.99",
+      "passed": true
+    },
+    {
+      "name": "parallax landing-card-wrapper 0.99,0.99",
+      "passed": true
+    },
+    {
+      "name": "hit area stabil landing-card-wrapper",
+      "passed": true
+    },
+    {
+      "name": "perubahan reduced motion menetralkan landing-card-wrapper",
+      "passed": true
+    },
+    {
+      "name": "tilt pusat/sudut result-card-wrapper 0.5,0.5",
+      "passed": true
+    },
+    {
+      "name": "sorotan result-card-wrapper 0.5,0.5",
+      "passed": true
+    },
+    {
+      "name": "parallax result-card-wrapper 0.5,0.5",
+      "passed": true
+    },
+    {
+      "name": "tilt pusat/sudut result-card-wrapper 0.01,0.01",
+      "passed": true
+    },
+    {
+      "name": "sorotan result-card-wrapper 0.01,0.01",
+      "passed": true
+    },
+    {
+      "name": "parallax result-card-wrapper 0.01,0.01",
+      "passed": true
+    },
+    {
+      "name": "tilt pusat/sudut result-card-wrapper 0.99,0.01",
+      "passed": true
+    },
+    {
+      "name": "sorotan result-card-wrapper 0.99,0.01",
+      "passed": true
+    },
+    {
+      "name": "parallax result-card-wrapper 0.99,0.01",
+      "passed": true
+    },
+    {
+      "name": "tilt pusat/sudut result-card-wrapper 0.01,0.99",
+      "passed": true
+    },
+    {
+      "name": "sorotan result-card-wrapper 0.01,0.99",
+      "passed": true
+    },
+    {
+      "name": "parallax result-card-wrapper 0.01,0.99",
+      "passed": true
+    },
+    {
+      "name": "tilt pusat/sudut result-card-wrapper 0.99,0.99",
+      "passed": true
+    },
+    {
+      "name": "sorotan result-card-wrapper 0.99,0.99",
+      "passed": true
+    },
+    {
+      "name": "parallax result-card-wrapper 0.99,0.99",
+      "passed": true
+    },
+    {
+      "name": "hit area stabil result-card-wrapper",
+      "passed": true
+    },
+    {
+      "name": "perubahan reduced motion menetralkan result-card-wrapper",
+      "passed": true
+    },
+    {
+      "name": "zoom browser asli 200%",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow landing-320",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow quiz-320",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow B-320",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow Y-320",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow C-320",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow P-320",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow H-320",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow landing-375",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow quiz-375",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow B-375",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow Y-375",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow C-375",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow P-375",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow H-375",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow landing-768",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow quiz-768",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow B-768",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow Y-768",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow C-768",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow P-768",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow H-768",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow landing-1280",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow quiz-1280",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow B-1280",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow Y-1280",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow C-1280",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow P-1280",
+      "passed": true
+    },
+    {
+      "name": "zoom 200 tanpa overflow H-1280",
+      "passed": true
+    }
+  ],
+  "measurements": [
+    {
+      "label": "landing-320",
+      "width": 320,
+      "scrollWidth": 305,
+      "targets": [
+        {
+          "width": 119.140625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q1-320",
+      "width": 320,
+      "scrollWidth": 305,
+      "targets": [
+        {
+          "width": 113.5,
+          "height": 208
+        },
+        {
+          "width": 113.5,
+          "height": 208
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q2-320",
+      "width": 320,
+      "scrollWidth": 305,
+      "targets": [
+        {
+          "width": 113.5,
+          "height": 208
+        },
+        {
+          "width": 113.5,
+          "height": 208
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q3-320",
+      "width": 320,
+      "scrollWidth": 305,
+      "targets": [
+        {
+          "width": 113.5,
+          "height": 184
+        },
+        {
+          "width": 113.5,
+          "height": 184
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q4-320",
+      "width": 320,
+      "scrollWidth": 305,
+      "targets": [
+        {
+          "width": 113.5,
+          "height": 184
+        },
+        {
+          "width": 113.5,
+          "height": 184
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q5-320",
+      "width": 320,
+      "scrollWidth": 305,
+      "targets": [
+        {
+          "width": 113.5,
+          "height": 208
+        },
+        {
+          "width": 113.5,
+          "height": 208
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q6-320",
+      "width": 320,
+      "scrollWidth": 305,
+      "targets": [
+        {
+          "width": 113.5,
+          "height": 184
+        },
+        {
+          "width": 113.5,
+          "height": 184
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q7-320",
+      "width": 320,
+      "scrollWidth": 305,
+      "targets": [
+        {
+          "width": 113.5,
+          "height": 208
+        },
+        {
+          "width": 113.5,
+          "height": 208
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q8-320",
+      "width": 320,
+      "scrollWidth": 305,
+      "targets": [
+        {
+          "width": 113.5,
+          "height": 184
+        },
+        {
+          "width": 113.5,
+          "height": 184
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q9-320",
+      "width": 320,
+      "scrollWidth": 305,
+      "targets": [
+        {
+          "width": 113.5,
+          "height": 208
+        },
+        {
+          "width": 113.5,
+          "height": 208
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q10-320",
+      "width": 320,
+      "scrollWidth": 305,
+      "targets": [
+        {
+          "width": 113.5,
+          "height": 184
+        },
+        {
+          "width": 113.5,
+          "height": 184
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "result-B-320",
+      "width": 320,
+      "scrollWidth": 305,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-B-320",
+      "width": 239,
+      "height": 393.203125,
+      "top": 0.1875,
+      "bottom": 393.390625
+    },
+    {
+      "label": "result-Y-320",
+      "width": 320,
+      "scrollWidth": 305,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-Y-320",
+      "width": 239,
+      "height": 393.203125,
+      "top": 0.1875,
+      "bottom": 393.390625
+    },
+    {
+      "label": "result-C-320",
+      "width": 320,
+      "scrollWidth": 305,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-C-320",
+      "width": 239,
+      "height": 393.203125,
+      "top": 0.1875,
+      "bottom": 393.390625
+    },
+    {
+      "label": "result-P-320",
+      "width": 320,
+      "scrollWidth": 305,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-P-320",
+      "width": 239,
+      "height": 369.203125,
+      "top": 0.1875,
+      "bottom": 369.390625
+    },
+    {
+      "label": "result-H-320",
+      "width": 320,
+      "scrollWidth": 305,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-H-320",
+      "width": 239,
+      "height": 393.203125,
+      "top": 0.1875,
+      "bottom": 393.390625
+    },
+    {
+      "label": "landing-375",
+      "width": 375,
+      "scrollWidth": 360,
+      "targets": [
+        {
+          "width": 119.140625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q1-375",
+      "width": 375,
+      "scrollWidth": 375,
+      "targets": [
+        {
+          "width": 148.5,
+          "height": 160
+        },
+        {
+          "width": 148.5,
+          "height": 160
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q2-375",
+      "width": 375,
+      "scrollWidth": 375,
+      "targets": [
+        {
+          "width": 148.5,
+          "height": 160
+        },
+        {
+          "width": 148.5,
+          "height": 160
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q3-375",
+      "width": 375,
+      "scrollWidth": 360,
+      "targets": [
+        {
+          "width": 141,
+          "height": 184
+        },
+        {
+          "width": 141,
+          "height": 184
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q4-375",
+      "width": 375,
+      "scrollWidth": 375,
+      "targets": [
+        {
+          "width": 148.5,
+          "height": 160
+        },
+        {
+          "width": 148.5,
+          "height": 160
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q5-375",
+      "width": 375,
+      "scrollWidth": 360,
+      "targets": [
+        {
+          "width": 141,
+          "height": 160
+        },
+        {
+          "width": 141,
+          "height": 160
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q6-375",
+      "width": 375,
+      "scrollWidth": 375,
+      "targets": [
+        {
+          "width": 148.5,
+          "height": 160
+        },
+        {
+          "width": 148.5,
+          "height": 160
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q7-375",
+      "width": 375,
+      "scrollWidth": 360,
+      "targets": [
+        {
+          "width": 141,
+          "height": 184
+        },
+        {
+          "width": 141,
+          "height": 184
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q8-375",
+      "width": 375,
+      "scrollWidth": 360,
+      "targets": [
+        {
+          "width": 141,
+          "height": 184
+        },
+        {
+          "width": 141,
+          "height": 184
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q9-375",
+      "width": 375,
+      "scrollWidth": 360,
+      "targets": [
+        {
+          "width": 141,
+          "height": 184
+        },
+        {
+          "width": 141,
+          "height": 184
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q10-375",
+      "width": 375,
+      "scrollWidth": 360,
+      "targets": [
+        {
+          "width": 141,
+          "height": 184
+        },
+        {
+          "width": 141,
+          "height": 184
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "result-B-375",
+      "width": 375,
+      "scrollWidth": 360,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-B-375",
+      "width": 294,
+      "height": 391.265625,
+      "top": 0.1875,
+      "bottom": 391.453125
+    },
+    {
+      "label": "result-Y-375",
+      "width": 375,
+      "scrollWidth": 360,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-Y-375",
+      "width": 294,
+      "height": 391.265625,
+      "top": 0.1875,
+      "bottom": 391.453125
+    },
+    {
+      "label": "result-C-375",
+      "width": 375,
+      "scrollWidth": 360,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-C-375",
+      "width": 294,
+      "height": 391.265625,
+      "top": 0.1875,
+      "bottom": 391.453125
+    },
+    {
+      "label": "result-P-375",
+      "width": 375,
+      "scrollWidth": 360,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-P-375",
+      "width": 294,
+      "height": 391.265625,
+      "top": 0.1875,
+      "bottom": 391.453125
+    },
+    {
+      "label": "result-H-375",
+      "width": 375,
+      "scrollWidth": 360,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-H-375",
+      "width": 294,
+      "height": 391.265625,
+      "top": 0.1875,
+      "bottom": 391.453125
+    },
+    {
+      "label": "landing-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "targets": [
+        {
+          "width": 119.140625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q1-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "targets": [
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 313,
+          "height": 144
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q2-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "targets": [
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q3-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "targets": [
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q4-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "targets": [
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q5-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "targets": [
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q6-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "targets": [
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q7-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "targets": [
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q8-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "targets": [
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q9-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "targets": [
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q10-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "targets": [
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 313,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "result-B-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-B-768",
+      "width": 268.171875,
+      "height": 407.078125,
+      "top": 223.515625,
+      "bottom": 630.59375
+    },
+    {
+      "label": "result-Y-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-Y-768",
+      "width": 268.171875,
+      "height": 431.078125,
+      "top": 199.515625,
+      "bottom": 630.59375
+    },
+    {
+      "label": "result-C-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-C-768",
+      "width": 268.171875,
+      "height": 407.078125,
+      "top": 211.515625,
+      "bottom": 618.59375
+    },
+    {
+      "label": "result-P-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-P-768",
+      "width": 268.171875,
+      "height": 407.078125,
+      "top": 223.515625,
+      "bottom": 630.59375
+    },
+    {
+      "label": "result-H-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-H-768",
+      "width": 268.171875,
+      "height": 431.078125,
+      "top": 211.515625,
+      "bottom": 642.59375
+    },
+    {
+      "label": "landing-1280",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "targets": [
+        {
+          "width": 119.140625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q1-1280",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "targets": [
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 341,
+          "height": 144
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q2-1280",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "targets": [
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q3-1280",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "targets": [
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q4-1280",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "targets": [
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q5-1280",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "targets": [
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q6-1280",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "targets": [
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q7-1280",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "targets": [
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q8-1280",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "targets": [
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q9-1280",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "targets": [
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "Q10-1280",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "targets": [
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 341,
+          "height": 144
+        },
+        {
+          "width": 82.65625,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "result-B-1280",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-B-1280",
+      "width": 360,
+      "height": 456.765625,
+      "top": 156.1875,
+      "bottom": 612.953125
+    },
+    {
+      "label": "result-Y-1280",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-Y-1280",
+      "width": 360,
+      "height": 456.765625,
+      "top": 156.1875,
+      "bottom": 612.953125
+    },
+    {
+      "label": "result-C-1280",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-C-1280",
+      "width": 360,
+      "height": 456.765625,
+      "top": 156.1875,
+      "bottom": 612.953125
+    },
+    {
+      "label": "result-P-1280",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-P-1280",
+      "width": 360,
+      "height": 456.765625,
+      "top": 156.1875,
+      "bottom": 612.953125
+    },
+    {
+      "label": "result-H-1280",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "targets": [
+        {
+          "width": 127.421875,
+          "height": 52
+        }
+      ],
+      "hiddenScreens": true,
+      "sideBySide": true,
+      "shadow": true
+    },
+    {
+      "label": "card-H-1280",
+      "width": 360,
+      "height": 456.765625,
+      "top": 156.1875,
+      "bottom": 612.953125
+    },
+    {
+      "label": "zoom-200-landing-320",
+      "width": 160,
+      "scrollWidth": 152,
+      "bodyWidth": 153
+    },
+    {
+      "label": "zoom-200-quiz-320",
+      "width": 160,
+      "scrollWidth": 152,
+      "bodyWidth": 153
+    },
+    {
+      "label": "zoom-200-B-320",
+      "width": 160,
+      "scrollWidth": 152,
+      "bodyWidth": 153
+    },
+    {
+      "label": "zoom-200-Y-320",
+      "width": 160,
+      "scrollWidth": 152,
+      "bodyWidth": 153
+    },
+    {
+      "label": "zoom-200-C-320",
+      "width": 160,
+      "scrollWidth": 152,
+      "bodyWidth": 153
+    },
+    {
+      "label": "zoom-200-P-320",
+      "width": 160,
+      "scrollWidth": 152,
+      "bodyWidth": 153
+    },
+    {
+      "label": "zoom-200-H-320",
+      "width": 160,
+      "scrollWidth": 152,
+      "bodyWidth": 153
+    },
+    {
+      "label": "zoom-200-landing-375",
+      "width": 187,
+      "scrollWidth": 180,
+      "bodyWidth": 180
+    },
+    {
+      "label": "zoom-200-quiz-375",
+      "width": 187,
+      "scrollWidth": 180,
+      "bodyWidth": 180
+    },
+    {
+      "label": "zoom-200-B-375",
+      "width": 187,
+      "scrollWidth": 180,
+      "bodyWidth": 180
+    },
+    {
+      "label": "zoom-200-Y-375",
+      "width": 187,
+      "scrollWidth": 180,
+      "bodyWidth": 180
+    },
+    {
+      "label": "zoom-200-C-375",
+      "width": 187,
+      "scrollWidth": 180,
+      "bodyWidth": 180
+    },
+    {
+      "label": "zoom-200-P-375",
+      "width": 187,
+      "scrollWidth": 180,
+      "bodyWidth": 180
+    },
+    {
+      "label": "zoom-200-H-375",
+      "width": 187,
+      "scrollWidth": 180,
+      "bodyWidth": 180
+    },
+    {
+      "label": "zoom-200-landing-768",
+      "width": 384,
+      "scrollWidth": 376,
+      "bodyWidth": 377
+    },
+    {
+      "label": "zoom-200-quiz-768",
+      "width": 384,
+      "scrollWidth": 376,
+      "bodyWidth": 377
+    },
+    {
+      "label": "zoom-200-B-768",
+      "width": 384,
+      "scrollWidth": 376,
+      "bodyWidth": 377
+    },
+    {
+      "label": "zoom-200-Y-768",
+      "width": 384,
+      "scrollWidth": 376,
+      "bodyWidth": 377
+    },
+    {
+      "label": "zoom-200-C-768",
+      "width": 384,
+      "scrollWidth": 376,
+      "bodyWidth": 377
+    },
+    {
+      "label": "zoom-200-P-768",
+      "width": 384,
+      "scrollWidth": 376,
+      "bodyWidth": 377
+    },
+    {
+      "label": "zoom-200-H-768",
+      "width": 384,
+      "scrollWidth": 376,
+      "bodyWidth": 377
+    },
+    {
+      "label": "zoom-200-landing-1280",
+      "width": 640,
+      "scrollWidth": 632,
+      "bodyWidth": 633
+    },
+    {
+      "label": "zoom-200-quiz-1280",
+      "width": 640,
+      "scrollWidth": 632,
+      "bodyWidth": 633
+    },
+    {
+      "label": "zoom-200-B-1280",
+      "width": 640,
+      "scrollWidth": 632,
+      "bodyWidth": 633
+    },
+    {
+      "label": "zoom-200-Y-1280",
+      "width": 640,
+      "scrollWidth": 632,
+      "bodyWidth": 633
+    },
+    {
+      "label": "zoom-200-C-1280",
+      "width": 640,
+      "scrollWidth": 632,
+      "bodyWidth": 633
+    },
+    {
+      "label": "zoom-200-P-1280",
+      "width": 640,
+      "scrollWidth": 632,
+      "bodyWidth": 633
+    },
+    {
+      "label": "zoom-200-H-1280",
+      "width": 640,
+      "scrollWidth": 632,
+      "bodyWidth": 633
+    }
+  ],
+  "screenshots": [
+    "docs/t16-landing-320.png",
+    "docs/t16-quiz-320.png",
+    "docs/t16-result-B-320.png",
+    "docs/t16-result-Y-320.png",
+    "docs/t16-result-C-320.png",
+    "docs/t16-result-P-320.png",
+    "docs/t16-result-H-320.png",
+    "docs/t16-landing-375.png",
+    "docs/t16-quiz-375.png",
+    "docs/t16-result-B-375.png",
+    "docs/t16-result-Y-375.png",
+    "docs/t16-result-C-375.png",
+    "docs/t16-result-P-375.png",
+    "docs/t16-result-H-375.png",
+    "docs/t16-landing-768.png",
+    "docs/t16-quiz-768.png",
+    "docs/t16-result-B-768.png",
+    "docs/t16-result-Y-768.png",
+    "docs/t16-result-C-768.png",
+    "docs/t16-result-P-768.png",
+    "docs/t16-result-H-768.png",
+    "docs/t16-landing-1280.png",
+    "docs/t16-quiz-1280.png",
+    "docs/t16-result-B-1280.png",
+    "docs/t16-result-Y-1280.png",
+    "docs/t16-result-C-1280.png",
+    "docs/t16-result-P-1280.png",
+    "docs/t16-result-H-1280.png",
+    "docs/t16-result-H-320-zoom200.png"
+  ],
+  "method": "Chrome CDP, ukuran CSS aktual, rendering hasil memakai fungsi produksi; alur controller diperiksa terpisah pada T15"
+}

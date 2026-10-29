@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-29",
+  "base_commit": "2e30fe6123a746ed5bfa76d1bc63df02833a18a4",
+  "tasks": {
+    "T14": "complete",
+    "T15": "complete",
+    "T16": "complete",
+    "T17": "incomplete",
+    "T18": "complete"
+  },
+  "evidence": [
+    "docs/t14-manual-screen-reader.json",
+    "docs/t14-keyboard-zoom-check.json",
+    "docs/t14-structural-check.json",
+    "docs/t15-integration-check.json",
+    "docs/t16-visual-check.json",
+    "docs/t16-pointer-lifecycle-check.json",
+    "docs/t17-device-matrix.md",
+    "docs/t18-performance-check.json"
+  ],
+  "sha256": {
+    "index.html": "2bb55874f62a2654ef2f58440b3d815e2e28648464a5c0e3db5d93a753fcd1fe",
+    "css/style.css": "33e6456a1f4c014610bf1273202d73961c1aad20ef245a4f9a9657bff140453b",
+    "js/data.js": "46ebd3351f0446862eb45285ba27404e454c7749b6eaaaaf545f85cee691096d",
+    "js/quiz.js": "8fbe1b7aeb356ce37a74ce067d98723a8217c0b27bb0c681dcb1f6fd3216171a",
+    "js/ui.js": "cb46b9bd2912846b9c6ad4f73d4e5a71037272558972417eb0ff35b816161a4a",
+    "js/script.js": "69225a3819d19c930a368cdffc2eeb6c9a7ff6defc8eba1d69fb483dec81857a"
+  }
+}

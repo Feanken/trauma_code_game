@@ -10,6 +10,10 @@
       "passed": true
     },
     {
+      "label": "outline fokus keyboard minimal 3 px",
+      "passed": true
+    },
+    {
       "label": "Enter mulai dan fokus Q01 {\"focus\":\"question-title\",\"landingHidden\":true,\"quizHidden\":false}",
       "passed": true
     },

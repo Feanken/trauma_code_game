@@ -1,6 +1,6 @@
 # Task — Which Trauma Code Character Are You?
 
-Status: Implementasi bertahap; T01–T04 dan T07 selesai; T05–T06 selesai sesuai keputusan terbaru pengguna; T08–T10 selesai; T11–T12 selesai setelah verifikasi foto dan reset; T13 selesai; T14 diimplementasikan sebagian, belum selesai; T15–T22 belum dikerjakan
+Status: Implementasi bertahap; T01–T16 selesai; T17 belum selesai; T18 selesai; T19–T22 belum dikerjakan
 
 Tanggal: 28 Oktober 2026  
 Acuan: `requirement.md` revisi 4 dan `design.md`, termasuk bagian 3.6 tentang interaksi mouse dan bagian 11 tentang gambar dari internet.
@@ -95,7 +95,7 @@ Cari satu foto yang sesuai untuk Baek Kang-hyuk, Yang Jae-won, Cheon Jang-mi, Pa
 
 **Selesai jika:** lima aset terpilih sesuai karakter, kualitas crop memadai, dan cocok dengan karakter pada still yang ditinjau. Jika sumber belum memadai, lanjutkan pencarian atau tandai aset belum selesai; hasil pencarian saja tidak menjadi bukti izin.
 
-**Progres T05 — 28 Oktober 2026:** lima kandidat still dan URL berkas ditemukan, dengan kredit sumber dicatat dalam [SOURCES.md](../assets/SOURCES.md). Bukti izin penggunaan untuk kartu kuis belum terkonfirmasi; tinjauan visual/crop belum selesai karena pengambilan gambar melalui alat web gagal. Alternatif Commons ditelusuri, belum menghasilkan lima aset final yang memenuhi seluruh kriteria. Catatan ini merupakan kondisi sebelum keputusan terbaru pengguna; T05 kini selesai. Bukti dan batas pemeriksaan: [verification.md](../docs/verification.md), [t05-asset-research.json](../docs/t05-asset-research.json). T06 baru dipersiapkan untuk tiga potret berlisensi dan tetap belum selesai.
+**Bukti T05:** lima still karakter dipilih dan ditinjau setelah keputusan pengguna untuk penggunaan pribadi tanpa syarat sumber/kredit di aplikasi. Riwayat penelusuran dan keputusan tersedia di [verification.md](../docs/verification.md).
 
 - [x] **T06 — Siapkan aset lokal yang ringan dan tahan kegagalan.**
 
@@ -105,7 +105,7 @@ Simpan gambar dalam `assets/images/` dengan nama deskriptif. Optimalkan ukuran d
 
 **Selesai jika:** kelima foto dapat dimuat dari host website sendiri, tidak memakai hotlink, dan crop telah ditinjau. Informasi ukuran file tersedia untuk integrasi. Gambar tidak mengharuskan akun, API, atau permintaan pihak ketiga saat kuis dijalankan.
 
-**Status T06 — 28 Oktober 2026:** belum selesai dan tidak dicentang. Dependensi T05 belum terpenuhi: lima foto final beserta izin dan crop belum terverifikasi. Lima still karakter lokal berukuran 720 × 480 telah dipasang dan diverifikasi pada lima hasil; rincian bukti di verification.md. Rincian: [verification.md](../docs/verification.md#t06--aset-lokal).
+**Bukti T06:** lima JPEG lokal 720 × 480, total 258.946 byte, telah diintegrasikan; crop, pemuatan, dan fallback diverifikasi. Pembuka kini hanya memuat satu foto pratinjau. Rincian di [verification.md](../docs/verification.md).
 
 - [x] **T07 — Bangun sistem visual berlapis dan layout dasar.**
 
@@ -181,7 +181,7 @@ Terapkan efek tekan, hover hanya pada perangkat yang mendukungnya, transisi pert
 
 **Bukti T13 — 28 Oktober 2026:** tilt/sorotan kartu pembuka dan lima tema hasil, parallax dua lapisan, reset saat keyboard/touch/blur/ganti layar/ulang, reduced motion, dan regresi alur lulus di Chrome. [Rincian](../docs/verification.md#t13t14--gerakan-dan-aksesibilitas).
 
-- [ ] **T14 — Lengkapi semantik dan aksesibilitas.**
+- [x] **T14 — Lengkapi semantik dan aksesibilitas.**
 
 **Dependensi:** T08, T09, T11, T12, T13. **Kebutuhan:** FR-04, NFR-05, NFR-06, NFR-12. **Desain:** Bagian 8.
 
@@ -189,11 +189,11 @@ Atur heading, nama tombol, status pilihan, progres aksesibel, `hidden` pada laya
 
 **Selesai jika:** alur lengkap dapat dipakai dengan Tab/Enter/Space, fokus selalu terlihat, teks biasa berkontras minimal 4,5:1, dan zoom 200% tidak menghilangkan isi. Pembaca layar mengumumkan pertanyaan/hasil dengan jelas; dekorasi tidak mengganggu urutan baca.
 
-**Progres T14 — 28 Oktober 2026:** 100 pemeriksaan semantik/kontras lulus. Alur Tab/Enter/Space melalui Chrome DevTools lulus 15 pemeriksaan, termasuk heading pertanyaan/hasil di pohon aksesibilitas; zoom browser asli 200% pada viewport 320 px lulus tanpa overflow, termasuk layar hasil. Pengumuman pembaca layar nyata masih menunggu uji pengguna; checkbox tetap kosong. [Bukti](../docs/t14-keyboard-zoom-check.json) dan [catatan verifikasi](../docs/verification.md#t14--verifikasi-keyboard-dan-pembesaran-lanjutan).
+**Bukti T14 — 29 Oktober 2026:** pengguna melaporkan uji Narrator + Chrome lulus (versi tidak diberikan). Regresi semantik/kontras 100/100 dan keyboard/zoom Chrome asli 200% 16/16 lulus setelah perbaikan layar tersembunyi. [Laporan manual](../docs/t14-manual-screen-reader.json), [bukti keyboard](../docs/t14-keyboard-zoom-check.json), [rincian](../docs/verification.md#t14t18--verifikasi-29-oktober-2026).
 
 ### Tahap E — Verifikasi dan perbaikan
 
-- [ ] **T15 — Verifikasi integrasi dan kasus tepi.**
+- [x] **T15 — Verifikasi integrasi dan kasus tepi.**
 
 **Dependensi:** T04, T12, T13, T14. **Kebutuhan:** FR-01, FR-02, FR-03, FR-04, FR-05, FR-06, FR-07, FR-08, FR-09, FR-10. **Desain:** Bagian 9.2–9.3.
 
@@ -201,13 +201,17 @@ Jalankan alur lengkap, kelima contoh hasil, perubahan jawaban beberapa langkah k
 
 **Selesai jika:** tidak ada jawaban terlewati, hasil prematur, skor ganda, tema lama, atau alasan yang tidak dipilih. Catat hasil aktual dan perbaiki kegagalan sebelum mengulang pemeriksaan yang terpengaruh.
 
-- [ ] **T16 — Verifikasi responsivitas, kedalaman visual, dan tangkapan layar.**
+**Bukti T15 — 29 Oktober 2026:** 80 pemeriksaan integrasi lulus, termasuk koreksi, double-click terlambat, Enter ditahan, Back saat transisi, lima hasil, reduced motion, data/foto gagal, dan callback lama. Pemeriksa produksi mengonfirmasi 1.024 kombinasi dan 424 seri. [Laporan](../docs/t15-integration-check.json).
+
+- [x] **T16 — Verifikasi responsivitas, kedalaman visual, dan tangkapan layar.**
 
 **Dependensi:** T13, T14, T15. **Kebutuhan:** FR-08, NFR-04, NFR-05, NFR-07, NFR-12. **Desain:** Bagian 2.3, 3, dan 9.3.
 
 Tinjau tiga layar pada lebar 320, 375, 768, dan 1280 px serta kelima kartu karakter. Periksa dua kolom jawaban, nama panjang, tinggi tombol, crop wajah, dan overflow. Periksa pointer di pusat dan empat sudut kartu, batas tilt, posisi sorotan, dua amplitudo latar, keluar kartu/viewport, blur, pergantian layar, reset, serta perubahan reduced motion saat efek aktif. Pastikan pertanyaan dan kontrol tetap stabil. Ambil bukti kartu netral pada viewport 320 × 568 serta 375 × 667 setelah digulir ke kartu. Ulangi pemeriksaan keterbacaan dengan zoom 200%.
 
 **Selesai jika:** tidak ada gulir horizontal atau teks terpotong; kartu utama muat dalam satu tangkapan layar pada zoom normal; pembesaran tetap terbaca meskipun kartu menjadi lebih tinggi. Lapisan, highlight, bayangan, dan status kontrol tetap jelas pada ponsel.
+
+**Bukti T16 — 29 Oktober 2026:** 344 pemeriksaan responsif/zoom/pointer dan 8 pemeriksaan lifecycle lulus; 29 screenshot ditinjau. Kartu netral 320 px setinggi 369–393 px dan muat utuh pada 320 × 568 / 375 × 667. [Laporan](../docs/t16-visual-check.json), [cleanup pointer](../docs/t16-pointer-lifecycle-check.json).
 
 - [ ] **T17 — Verifikasi browser dan perangkat nyata.**
 
@@ -217,13 +221,17 @@ Periksa Chromium dan Firefox desktop, Chrome pada Android nyata, serta Safari pa
 
 **Selesai jika:** alur utama, koreksi, hasil, ulang, foto, dan fokus bekerja pada semua target wajib. Perangkat yang belum tersedia ditandai belum diuji; emulasi tidak menggantikannya dan tugas ini tetap belum selesai sampai pemeriksaan wajib terpenuhi.
 
-- [ ] **T18 — Ukur dan optimalkan kinerja.**
+**Status T17 — 29 Oktober 2026:** Chrome desktop lulus; Firefox desktop, Chrome Android nyata, dan Safari iPhone nyata belum diuji. T17 tetap kosong. [Matriks perangkat](../docs/t17-device-matrix.md).
+
+- [x] **T18 — Ukur dan optimalkan kinerja.**
 
 **Dependensi:** T06, T13, T15, T16. **Kebutuhan:** NFR-13. **Desain:** Bagian 9.1.
 
 Tambahkan penanda siap pakai setelah heading/tombol terlihat dan handler mulai terpasang. Lakukan lima pemuatan tanpa cache pada profil desain: unduh 1,6 Mbps, unggah 750 Kbps, latensi 150 ms, CPU 4×. Catat perangkat, browser, nilai tiap percobaan, median, transfer awal aktual, dan kompresi server. Optimalkan gambar/CSS/JS bila target belum tercapai.
 
 **Selesai jika:** median siap pakai maksimal 3 detik dan transfer awal terkompresi maksimal 300 KiB. Foto hasil tidak seluruhnya dimuat pada pembuka. Bila server belum mengompresi, laporkan keadaan tersebut dan selesaikan pengukuran pada konfigurasi yang memenuhi syarat sebelum mencentang tugas.
+
+**Bukti T18 — 29 Oktober 2026:** lima cold load pada profil desain dan server gzip menghasilkan median siap pakai 457,8 ms; transfer awal maksimum 67.229 byte (65,7 KiB). Pembuka hanya memuat satu foto; lima foto hasil tidak dipreload. [Laporan](../docs/t18-performance-check.json).
 
 - [ ] **T19 — Lakukan uji formatif kepada calon pengguna.**
 
@@ -304,8 +312,8 @@ Saat implementasi dimulai, buat `docs/verification.md` untuk bukti lintas tugas.
 | Bukti | Tangkapan layar, keluaran pemeriksa, angka pengukuran, atau catatan uji pengguna tanpa identitas pribadi. |
 | Tindak lanjut | Masalah, perbaikan, dan pemeriksaan ulang yang diperlukan. |
 
-Status awal seluruh tugas adalah belum dikerjakan. Status terkini: **T01–T04 dan T07 selesai; T05–T06 selesai sesuai keputusan terbaru pengguna; T08–T10 selesai; T11–T12 selesai setelah verifikasi foto dan reset; T13 selesai; T14 diimplementasikan sebagian, belum selesai; T15–T22 belum dikerjakan**. Logika skor produksi lulus pemeriksaan terpilih T03 dan enumerasi lengkap T04; UI kuis lengkap belum dibuat.
+Status terkini: **T01–T16 selesai; T17 belum selesai; T18 selesai; T19–T22 belum dikerjakan**. Bukti dan batas lingkungan pengujian tersedia di `docs/verification.md`.
 
 ## 6. Batas pekerjaan saat ini
 
-Fondasi T01, data/validator T02, logika skor/alasan T03, dan pemeriksa skor lengkap T04 telah dibuat serta diperiksa. Penelusuran T05 tercatat, tetapi izin dan crop aset final belum terkonfirmasi. Sistem visual dan layout dasar T07 selesai. T06 belum dapat dilaksanakan sampai T05 selesai. T08–T10 selesai. Hasil dan pengulangan T11–T12 telah diverifikasi dan dicentang setelah lima foto lokal T05/T06 terpasang. Efek pointer T13, uji pengguna, dan deployment belum dikerjakan. Pekerjaan berhenti setelah T12.
+Implementasi dan verifikasi T01–T16 serta T18 selesai. T17 tetap belum selesai karena Firefox desktop dan dua browser ponsel nyata belum diuji. Kriteria perangkat tidak diganti dengan emulasi. Pekerjaan berhenti setelah lingkup T18; T19–T22 belum dikerjakan.

@@ -14,7 +14,7 @@
       "passed": true
     },
     {
-      "label": "fokus tombol 320",
+      "label": "fokus programatis tombol 320",
       "passed": true
     },
     {
@@ -114,7 +114,7 @@
       "passed": true
     },
     {
-      "label": "fokus tombol 375",
+      "label": "fokus programatis tombol 375",
       "passed": true
     },
     {
@@ -214,7 +214,7 @@
       "passed": true
     },
     {
-      "label": "fokus tombol 768",
+      "label": "fokus programatis tombol 768",
       "passed": true
     },
     {
@@ -314,7 +314,7 @@
       "passed": true
     },
     {
-      "label": "fokus tombol 1280",
+      "label": "fokus programatis tombol 1280",
       "passed": true
     },
     {
@@ -401,5 +401,14 @@
       "label": "foto dekoratif H 1280",
       "passed": true
     }
-  ]
+  ],
+  "environment": {
+    "date": "2026-10-29",
+    "os": "Windows_NT 10.0.26300",
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13650HX",
+    "logicalCpus": 20,
+    "totalMemoryBytes": 33960431616,
+    "browser": "Chrome/156.0.8078.73",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  }
 }

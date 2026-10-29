@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "environment": {
+    "date": "2026-10-29",
+    "os": "Windows_NT 10.0.26300",
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13650HX",
+    "logicalCpus": 20,
+    "totalMemoryBytes": 33960431616,
+    "browser": "Chrome/156.0.8078.73",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  },
+  "cases": [
+    {
+      "name": "pointer diam tanpa loop RAF",
+      "passed": true
+    },
+    {
+      "name": "keyboard reset properti",
+      "passed": true
+    },
+    {
+      "name": "keyboard langsung netral tanpa animasi reset",
+      "passed": true
+    },
+    {
+      "name": "keluar viewport reset properti (event sintetis)",
+      "passed": true
+    },
+    {
+      "name": "resize reset properti",
+      "passed": true
+    },
+    {
+      "name": "halaman tersembunyi reset properti",
+      "passed": true
+    },
+    {
+      "name": "touch reset properti",
+      "passed": true
+    },
+    {
+      "name": "kartu keluar viewport saat scroll kembali netral",
+      "passed": true
+    }
+  ]
+}
